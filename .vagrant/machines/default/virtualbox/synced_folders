@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www":{"mount_options":["dmode=777","fmode=666"],"guestpath":"/var/www","hostpath":"/Users/kms26/Documents/3IMD2016-2017/php2/hisfa","disabled":false,"__vagrantfile":true}}}
