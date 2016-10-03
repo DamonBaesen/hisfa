@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRawmaterialsTable extends Migration
+class CreateRecyclesilosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateRawmaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rawmaterials', function (Blueprint $table) {
-            $table->increments('materialid');
+        //
+        Schema::create('recyclesilos', function (Blueprint $table) {
+            $table->increments('recycleiloid');
+            $table->string('volume', 100);
             $table->string('type', 50);
-            $table->integer('quantity');
             $table->timestamps();
-        });
+ });
     }
 
     /**
@@ -28,6 +29,7 @@ class CreateRawmaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rawmaterials');
+        //
+        Schema::dropIfExists('recyclesilos');
     }
 }
