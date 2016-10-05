@@ -184,16 +184,16 @@ class recyclesilos_seeder extends Seeder
     public function run()
     {
         DB::table('recyclesilos')->insert([
-            'volume' => '1',
-            'type' => '100',
+            'volume' => '50',
+            'type' => '1',
         ]);
         DB::table('recyclesilos')->insert([
-            'volume' => '1',
-            'type' => '100',
+            'volume' => '80',
+            'type' => '2',
         ]);
         DB::table('recyclesilos')->insert([
-            'volume' => '1',
-            'type' => '100',
+            'volume' => '40',
+            'type' => '3',
         ]);
       
     }
