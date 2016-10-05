@@ -30,6 +30,6 @@ class CreatePrimesilos extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('primesilos');
     }
 }
