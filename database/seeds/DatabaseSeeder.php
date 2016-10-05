@@ -16,6 +16,7 @@ class DatabaseSeeder extends Seeder
         $this->call(primesilos_seeder::class);
         $this->call(recyclesilos_seeder::class);
         $this->call(rawmaterials_seeder::class);
+        $this->call(users_seeder::class);
     }
 }
 
@@ -228,6 +229,28 @@ class rawmaterials_seeder extends Seeder
             'quantity' => '25',
         ]);
 
+    }
+}
+
+class users_seeder extends Seeder
+{
+    public function run()
+    {
+        DB::table('users')->insert([
+            'name'=>'admin',
+            'email' => 'admin@gmail.com',
+            'password'=> 'admin',
+            'foto'=>str_random(20),
+        ]);
+        
+        DB::table('users')->insert([
+            'name'=>'tom',
+            'email' => 'tom@gmail.com',
+            'password'=> 'tom',
+            'foto'=>str_random(20),
+        ]);
+        
+        
     }
 }
   
