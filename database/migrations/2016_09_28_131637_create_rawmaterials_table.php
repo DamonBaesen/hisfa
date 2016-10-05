@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRecycleTable extends Migration
+class CreateRawmaterialsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateRecycleTable extends Migration
      */
     public function up()
     {
-        Schema::create('stock', function (Blueprint $table) {
-            $table->increments('recyclesiloid');
-            $table->double('volume');
-            $table->string('type');
+        Schema::create('rawmaterials', function (Blueprint $table) {
+            $table->increments('materialid');
+            $table->string('type', 50);
+            $table->integer('quantity');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateRecycleTable extends Migration
      */
     public function down()
     {
-        Schema::drop('stock');
+        Schema::dropIfExists('rawmaterials');
     }
 }
