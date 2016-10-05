@@ -19,9 +19,11 @@ class CreatePrimesilos extends Migration
             $table->string('materialid', 50);
             $table->integer('quantity');
             $table->timestamps();
- });
+        
+            
+        });
     }
-
+       
     /**
      * Reverse the migrations.
      *
@@ -30,6 +32,10 @@ class CreatePrimesilos extends Migration
     public function down()
     {
         //
-        Schema::dropIfExists('students');
+        Schema::dropIfExists('primesilos');
     }
+
+    
+ 
+    
 }
