@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRawmaterialsTable extends Migration
+class CreateQuality extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,13 @@ class CreateRawmaterialsTable extends Migration
      */
     public function up()
     {
-        Schema::create('rawmaterials', function (Blueprint $table) {
-            $table->increments('materialid');
-            $table->string('type', 50);
-            $table->integer('quantity');
+        //
+        Schema::create('quality', function (Blueprint $table) {
+            $table->increments('qualityid');
+            $table->string('name', 50);
+            $table->string('hardness', 50);
             $table->timestamps();
-        });
+ });
     }
 
     /**
@@ -28,6 +29,7 @@ class CreateRawmaterialsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rawmaterials');
+        //
+        Schema::dropIfExists('quality');
     }
 }
