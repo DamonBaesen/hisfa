@@ -63,3 +63,7 @@ Route::get('/silo', function () {
 Route::get('/silo/add', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index');
