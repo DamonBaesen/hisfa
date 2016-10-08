@@ -32,9 +32,11 @@ Route::get('/dashboard', function () {
     return view('welcome');
 });
 
-Route::get('/account', function () {
-    return view('welcome');
+Route::get('/account', 'AccountController@getData', function () {
+    return view('account');
 });
+Route::post('/account/changepassword', 'AccountController@changepassword');
+Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
 
 Route::get('/account/add', function () {
     return view('welcome');
