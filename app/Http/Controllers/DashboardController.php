@@ -4,22 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+ use App\Http\Requests;
+ use DB;
+ use App\Quotation;
+
 class DashboardController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+    public function index(){
+                // to do -> id vervangen door huidige session id
+                $primesilo = DB::table('primesilos')->where('primesiloid', '2')->first();
+                $data['primesilo'] = $primesilo;
+                return view('dashboard', $primesilo);
 
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        return view('dashboard');
-    }
+     }
 }
