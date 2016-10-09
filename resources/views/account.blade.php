@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title>Account</title>
 </head>
 <body>
@@ -34,5 +35,11 @@
     <input type="submit" value="Wachtwoord aanpassen">
 </form>
 
+=======
+    <title>HISFA -- Account</title>
+</head>
+<body>
+        HIER KOMT NOG IETS
+>>>>>>> master
 </body>
 </html>
