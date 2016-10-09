@@ -12,9 +12,8 @@ class DashboardController extends Controller
 {
     public function index(){
                 // to do -> id vervangen door huidige session id
-                $primesilo = DB::table('primesilos')->where('primesiloid', '2')->first();
+                $primesilo = DB::table('primesilos')->get();
                 $data['primesilo'] = $primesilo;
-                return view('dashboard', $primesilo);
-
+                return view('dashboard', $data);
      }
 }
