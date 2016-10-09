@@ -5,6 +5,11 @@
     <title>HISFA -- Dashboard</title>
 </head>
 <body>
-HIER KOMT NOG IETS
+@foreach($primesilo as $k => $v)
+    {{ $k }}
+    @foreach ($v as $key => $value)
+        {{ $key . ' => ' . $value }}
+    @endforeach
+@endforeach
 </body>
 </html>

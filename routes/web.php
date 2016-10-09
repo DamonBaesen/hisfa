@@ -20,7 +20,7 @@ Route::get('/login', 'LoginController@__construct');
 Route::get('/logout', 'LogoutController@index');
 Route::get('/history', 'HistoryController@index');
 Route::get('/dashboard', 'DashboardController@index');
-Route::get('/account', 'AccountController@index');
+Route::get('/account', 'AccountController@getData');
 Route::get('/account/add', 'AccountController@add');
 Route::get('/account/edit', 'AccountController@edit');
 Route::get('/account/remove', 'AccountController@remove');
@@ -44,32 +44,9 @@ Route::get('/home', 'HomeController@index');
 
 Auth::routes();
 
-<<<<<<< HEAD
-Route::get('/login', function () {
-    return view('welcome');
-});
 
-Route::get('/logout', function () {
-    return view('welcome');
-});
-
-Route::get('/history', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('welcome');
-});
-
-Route::get('/account', 'AccountController@getData', function () {
-    return view('account');
-});
 Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
 
-Route::get('/account/add', function () {
-    return view('welcome');
-});
-=======
->>>>>>> master
+
 
