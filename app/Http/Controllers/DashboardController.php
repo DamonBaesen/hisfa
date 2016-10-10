@@ -25,6 +25,10 @@ class DashboardController extends Controller
         $data['recyclesilo'] = $recyclesilo;
 
 
+        $rawmaterial = DB::table('rawmaterials')->select('type', 'quantity')->get();
+        $data['rawmaterial'] = $rawmaterial;
+
+
 
 
 

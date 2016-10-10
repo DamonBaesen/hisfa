@@ -12,7 +12,10 @@
 
 @foreach ($recyclesilo as $silos)
     <p>Dit is afvalsilo met nummer {{ $silos->recyclesiloid }}. Deze silo is op dit moment voor {{ $silos->quantity }} procent vol.</p>
+@endforeach
 
+@foreach ($rawmaterial as $rawmaterials)
+    <p>Grondstof met naam {{ $rawmaterials->type }} heeft op dit moment een stock van {{ $rawmaterials->quantity }} octabins.</p>
 @endforeach
 
 
