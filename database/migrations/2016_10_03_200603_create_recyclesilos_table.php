@@ -15,8 +15,8 @@ class CreateRecyclesilosTable extends Migration
     {
         //
         Schema::create('recyclesilos', function (Blueprint $table) {
-            $table->increments('recycleiloid');
-            $table->string('volume', 100);
+            $table->increments('recyclesiloid');
+            $table->string('quantity', 100);
             $table->string('type', 50);
             $table->timestamps();
  });
