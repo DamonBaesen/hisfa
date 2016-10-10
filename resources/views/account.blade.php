@@ -16,16 +16,14 @@
     <input name="_token" type="hidden" value="{!! csrf_token() !!}" />
     <input type="text" value="{{ $user->name }}" name="name">
     <input type="text" value="{{ $user->email }}" name="email">
+    <label for="checkbox_mails">Ik wil mails ontvangen</label>
+    @if( $user->mail)
+        <input type="checkbox" name="checkbox_mail" value="1" checked>
+    @else
+        <input type="checkbox" name="checkbox_mail" value="0" >
+    @endif
     <input type="submit" value="Gegevens aanpassen">
 </form>
-
-<h1>Mails</h1>
-<form action="/account/changeusermails" method="post">
-    <input name="_token" type="hidden" value="{!! csrf_token() !!}" />
-    <input type="text">
-    <input type="submit" value="Gegevens aanpassen">
-</form>
-
 
 <h1>Wachtwoord veranderen</h1>
 <form action="/account/changepassword" method="post">
