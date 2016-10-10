@@ -13,16 +13,25 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function index(){
-                // to do -> id vervangen door huidige session id
-                $primesilo = DB::table('primesilos')->get();
-                $recyclesilo = DB::table('recyclesilos')->get();
+             $primesiloinhoud = DB::table('rawmaterials')
+            ->join('primesilos', 'rawmaterials.materialid', '=', 'primesilos.materialid')
+            ->select('primesilos.*', 'rawmaterials.type' )
+            ->get();
 
-               $data2['recyclesilo'] = $recyclesilo;
-                $data['silo'] = $primesilo;
-
-        return view('dashboard', $data, $data2);
+               $data['primesilo'] = $primesiloinhoud;
 
 
-      //  return view('dashboard', $data);
+        $recyclesilo = DB::table('recyclesilos')->select('recyclesiloid', 'quantity')->get();
+        $data['recyclesilo'] = $recyclesilo;
+
+
+
+
+
+
+
+
+        return view('dashboard', $data);
+
      }
 }
