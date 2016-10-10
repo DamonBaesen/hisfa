@@ -31,11 +31,16 @@ class AccountController extends Controller
 
     public function changeUserInformation(){
         // to do -> id vervangen door huidige session id
-        DB::table('users')
+        $checkboxval = 0;
+        if(isset($_POST['checkbox_mail'])){
+            $checkboxval = 1;
+        }
+         DB::table('users')
             ->where('id', 2)
             ->update(array(
                 'name'          => $_POST['name'],
-                'email'          => $_POST['email']
+                'email'         => $_POST['email'],
+                'mail'          => $checkboxval
             ));
         return redirect('account')->with('message', 'Account information succesfully changed.');
     }
