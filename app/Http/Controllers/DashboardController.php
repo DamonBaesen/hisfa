@@ -8,13 +8,36 @@ use Illuminate\Http\Request;
  use DB;
  use App\Quotation;
 
+
+
 class DashboardController extends Controller
 {
     public function index(){
-                // to do -> id vervangen door huidige session id
-                $primesilo = DB::table('primesilos')->where('primesiloid', '2')->first();
-                $data['primesilo'] = $primesilo;
-                return view('dashboard', $primesilo);
+             $primesiloinhoud = DB::table('rawmaterials')
+            ->join('primesilos', 'rawmaterials.materialid', '=', 'primesilos.materialid')
+            ->select('primesilos.*', 'rawmaterials.type' )
+            ->get();
+            $data['primesilo'] = $primesiloinhoud;
+
+
+            $recyclesilo = DB::table('recyclesilos')->select('recyclesiloid', 'quantity')->get();
+            $data['recyclesilo'] = $recyclesilo;
+
+
+            $rawmaterial = DB::table('rawmaterials')->select('type', 'quantity')->get();
+            $data['rawmaterial'] = $rawmaterial;
+
+
+            $stock = DB::table('stock')
+                ->join('quality', 'stock.qualityid', '=', 'quality.qualityid')
+                ->select('stock.*', 'quality.name' )
+                ->get();
+            $data['stock'] = $stock;
+
+
+
+
+        return view('dashboard', $data);
 
      }
 }
