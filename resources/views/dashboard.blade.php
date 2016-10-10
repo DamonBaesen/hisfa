@@ -5,11 +5,13 @@
     <title>HISFA -- Dashboard</title>
 </head>
 <body>
-@foreach($primesilo as $k => $v)
-    {{ $k }}
-    @foreach ($v as $key => $value)
-        {{ $key . ' => ' . $value }}
-    @endforeach
+@foreach ($silo as $silos)
+    <p>Dit is primesilo met nummer {{ $silos->primesiloid }}. Deze silo is op dit moment voor {{ $silos->quantity }} procent vol.</p>
 @endforeach
+
+@foreach ($recyclesilo as $recyclesilos)
+    <p>Dit is afavlsilo met nummer {{ $recyclesilos->recyclesiloid }}. Deze silo is op dit moment voor {{ $recyclesilos->quantity }} procent vol.</p>
+@endforeach
+
 </body>
 </html>
