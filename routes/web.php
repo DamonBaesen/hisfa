@@ -20,7 +20,7 @@ Route::get('/login', 'LoginController@__construct');
 Route::get('/logout', 'LogoutController@index');
 Route::get('/history', 'HistoryController@index');
 Route::get('/dashboard', 'DashboardController@index');
-Route::get('/account', 'AccountController@index');
+Route::get('/account', 'AccountController@getData');
 Route::get('/account/add', 'AccountController@add');
 Route::get('/account/edit', 'AccountController@edit');
 Route::get('/account/remove', 'AccountController@remove');
@@ -43,5 +43,10 @@ Route::get('/home', 'HomeController@index');
 
 
 Auth::routes();
+
+
+Route::post('/account/changepassword', 'AccountController@changepassword');
+Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
+
 
 
