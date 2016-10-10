@@ -1,0 +1,40 @@
+body{
+	background-color: #7FA348;
+}
+
+h1{
+	text-align: center;
+	font-size: 55px;
+}
+
+#loginform{
+	margin-top: 150px;
+	box-shadow: 2px 2px 2px #000;
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+#loginform form{
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+
+#loginform input{
+	background-color: #F7F7F7;
+	border: none;
+}
+
+#loginform button{
+	background-color: #7FA348;
+	color: white;
+	border: none;
+	width: 100%;
+	padding: 6px;
+
+}
+
