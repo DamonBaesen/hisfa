@@ -6,11 +6,15 @@
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
                 <h3>Silo overzicht</h3>
+               
 
                 <!--Hier komen de grafieken -->
 
               <hr/>
-
+              <div id="siloMenu" >
+                <a href="{{ url('/silo/add') }}">Add silo</a> /
+                <a href="{{ url('/silo/edit') }}">Edit silo</a>
+              </div>
 
     </div>
 </div>

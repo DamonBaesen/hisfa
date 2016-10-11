@@ -51,6 +51,19 @@ h3{
 	margin-top: 30px;
 }
 
+#siloMenu{
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#siloMenu a{
+	color: black;
+}
+#siloMenu a:hover{
+	color: #7FA348;
+}
+
+
 #form input{
 	background-color: #F7F7F7;
 	border: none;
