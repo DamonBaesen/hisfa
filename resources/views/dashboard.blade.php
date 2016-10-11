@@ -18,6 +18,15 @@
 
 <br>
 
+@foreach ($stock as $stocks)
+    <p>Van deze blok van type {{ $stocks->name }} met hoogte {{ $stocks->height }}m zijn op dit moment {{ $stocks->quantity }} aanwezig.</p>
+@endforeach
+
+<br>
+
+@foreach ($customstock as $customstocks)
+    <p>Van deze blok van type {{ $customstocks->name }} met afwijkende hoogte {{ $customstocks->height }}m zijn op dit moment {{ $customstocks->quantity }} aanwezig.</p>
+@endforeach
 
 
 
