@@ -36,9 +36,13 @@ h3{
 }
 
 .navbar-default a {
-	color: white;
 	font-family: arial black
 }
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-text {
+    color: white;
+}
+
 #form form{
 	width: 60%;
 	margin-right: auto;
@@ -50,6 +54,10 @@ h3{
 #form input{
 	background-color: #F7F7F7;
 	border: none;
+}
+
+.navbar-default .navbar-brand {
+   color: white;
 }
 
 #form button{
