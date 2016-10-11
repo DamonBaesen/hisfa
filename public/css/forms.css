@@ -13,7 +13,7 @@ h3{
 }
 
 #form{
-	margin-top: 150px;
+	margin-top: 100px;
 	box-shadow: 2px 2px 2px #000;
 	width: 80%;
 	margin-right: auto;
@@ -21,6 +21,24 @@ h3{
 
 }
 
+#myaccount{
+	width: 80%;
+	padding-left: 50px;
+	padding-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+.navbar-default {
+	background-color: black;
+	border: none;
+}
+
+.navbar-default a {
+	color: white;
+	font-family: arial black
+}
 #form form{
 	width: 60%;
 	margin-right: auto;
