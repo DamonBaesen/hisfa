@@ -31,8 +31,21 @@ class DashboardController extends Controller
             $stock = DB::table('stock')
                 ->join('quality', 'stock.qualityid', '=', 'quality.qualityid')
                 ->select('stock.*', 'quality.name' )
+                ->where('stock.height', '4')
+                ->orwhere('stock.height', '6')
+                ->orwhere('stock.height', '8')
                 ->get();
             $data['stock'] = $stock;
+
+
+        $stock2 = DB::table('stock')
+            ->join('quality', 'stock.qualityid', '=', 'quality.qualityid')
+            ->select('stock.*', 'quality.name' )
+            ->where('stock.height', '!=' ,'4')
+            ->where('stock.height','!=' , '6')
+            ->where('stock.height','!=' , '8')
+            ->get();
+        $data['customstock'] = $stock2;
 
 
 
