@@ -1,9 +1,9 @@
 @extends('layouts.guest')
 
 @section('content')
-<div class="container" div="login">
+<div class="container">
     <div class="row">
-            <div class="panel panel-default" id="loginform">
+            <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
 
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
