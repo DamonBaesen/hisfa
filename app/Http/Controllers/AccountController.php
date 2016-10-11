@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use DB;
 use App\Quotation;
+use Image;
 
 class AccountController extends Controller
 {
@@ -44,6 +45,23 @@ class AccountController extends Controller
                 'mail'          => $checkboxval
             ));
         return redirect('account')->with('message', 'Account information succesfully changed.');
+    }
+
+    public function updatePhoto(Request $request){
+
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
+            DB::table('users')
+                ->where('id', 2)
+                ->update(array(
+                    'foto'          => $filename,
+
+                ));
+        }
+        return redirect('account')->with('message', 'Photo succesfully changed.');
+
     }
 
 }
