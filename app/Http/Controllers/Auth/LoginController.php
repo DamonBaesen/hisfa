@@ -36,11 +36,4 @@ class LoginController extends Controller
     {
         $this->middleware('guest', ['except' => 'logout']);
     }
-    
-    public function doLogin(){
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            // Authentication passed...
-            return redirect()->intended('/home');
-        }
-    }
 }
