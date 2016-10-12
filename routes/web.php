@@ -12,12 +12,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('login');
 });
 
 Route::get('/', 'HomeController@index');
 Route::get('/login', 'LoginController@__construct');
 Route::get('/logout', 'LogoutController@index');
+Route::get('/password/reset', 'ResetController@index');
 Route::get('/history', 'HistoryController@index');
 Route::get('/dashboard', 'DashboardController@index');
 Route::get('/account', 'AccountController@getData');
@@ -41,12 +42,10 @@ Route::get('/waste', 'WasteController@index');
 Route::get('/waste/add', 'WasteController@add');
 Route::get('/home', 'HomeController@index');
 
-
-Auth::routes();
-
-
 Route::post('/account/changepassword', 'AccountController@changepassword');
+Route::post('/account/updatephoto', 'AccountController@updatephoto');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
 
+Route::get('/home', 'HomeController@index');
 
-
+Auth::routes();
