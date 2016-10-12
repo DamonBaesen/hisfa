@@ -20,7 +20,7 @@ class DashboardController extends Controller
             $data['primesilo'] = $primesiloinhoud;
 
 
-            $recyclesilo = DB::table('recyclesilos')->select('recyclesiloid', 'quantity')->get();
+            $recyclesilo = DB::table('recyclesilos')->select('recyclesiloid', 'volume')->get();
             $data['recyclesilo'] = $recyclesilo;
 
 
@@ -47,8 +47,15 @@ class DashboardController extends Controller
             ->get();
         $data['customstock'] = $stock2;
 
+        $quality = DB::table('quality')
+            ->select('name','qualityid')->get();
+        $data['quality'] = $quality;
 
-
+        $stockload = DB::table('stock')
+            ->select('height','quantity')
+            ->where('qualityid','=','1')
+            ->get();
+        $data['stockload'] = $stockload;
 
         return view('dashboard', $data);
 
