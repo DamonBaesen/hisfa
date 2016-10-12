@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+    <link rel="stylesheet" href="../master-style.css">
+    <link rel="stylesheet" href="stock-style.css">
+    
+      </head>
+
+<body>
+    <div class="dash-container">
+        
+       
+            <div class="config-stock">
+                <h3>Configure stock</h3>
+                <ul class="nav nav-tabs">
+                    <li class="nav-item"> <a class="nav-link" href="stock.html">Edit stock</a> </li>
+                    <li class="nav-item"> <a class="nav-link" href="#">Add new block type</a> </li>
+                </ul>
+                <div class="config-stock-view">
+                    <div class="form-group">
+                        <div class="col-md-6 center">
+                            <label class="question-title control-label" for="type">Type</label>
+                            <input id="type" name="type" type="text" placeholder="name your block" class="form-control input-md" required=""> 
+                        
+                            <label class="question-title control-label" for="hardness">hardness</label>
+                            <input id="hardness" name="hardness" type="text" placeholder="hardness of the block" class="form-control input-md" required="">
+                        <label class="question-title control-label" for="heightoption">Height</label>
+                        
+                            <div class="radio">
+                                <label for="heightoption-0">
+                                    <input type="radio" name="heightoption" id="heightoption-0" value="1"> Basic (4m, 6m, 8m) </label>
+                            </div>
+                            <div class="radio">
+                                <label for="heightoption-1">
+                                    <input type="radio" name="heightoption" id="heightoption-1" value="2"> specific height </label>
+                                    <input type="text" name="specific-height" id="specific-height" placeholder="height" class="form-control input-md">
+                            </div>
+                        
+                        
+                            <label class="question-title control-label" for="hardness">quantity</label>
+                            <input id="hardness" name="hardness" type="text" placeholder="quantity" class="form-control input-md" required=""> 
+                        
+                        <button id="btn-add-stock" name="btn-add-stock" class="btn-submit-block btn btn-primary">Add this block</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</body>
+<script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    function sliceSize(dataNum, dataTotal) {
+        return (dataNum / dataTotal) * 360;
+    }
+
+    function addSlice(sliceSize, pieElement, offset, sliceID, color) {
+        $(pieElement).append("<div class='slice " + sliceID + "'><span></span></div>");
+        var offset = offset - 1;
+        var sizeRotation = -179 + sliceSize;
+        $("." + sliceID).css({
+            "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+        });
+        $("." + sliceID + " span").css({
+            "transform": "rotate(" + sizeRotation + "deg) translate3d(0,0,0)"
+            , "background-color": color
+        });
+    }
+
+    function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+        var sliceID = "s" + dataCount + "-" + sliceCount;
+        var maxSize = 179;
+        if (sliceSize <= maxSize) {
+            addSlice(sliceSize, pieElement, offset, sliceID, color);
+        }
+        else {
+            addSlice(maxSize, pieElement, offset, sliceID, color);
+            iterateSlices(sliceSize - maxSize, pieElement, offset + maxSize, dataCount, sliceCount + 1, color);
+        }
+    }
+
+    function createPie(dataElement, pieElement) {
+        var listData = [];
+        $(dataElement + " span").each(function () {
+            listData.push(Number($(this).html()));
+        });
+        var listTotal = 0;
+        for (var i = 0; i < listData.length; i++) {
+            listTotal += listData[i];
+        }
+        var offset = 0;
+        var color = [
+    "cornflowerblue"
+    , "olivedrab"
+    , "orange"
+    , "tomato"
+    , "crimson"
+    , "purple"
+    , "turquoise"
+    , "forestgreen"
+    , "navy"
+    , "gray"
+  ];
+        for (var i = 0; i < listData.length; i++) {
+            var size = sliceSize(listData[i], listTotal);
+            iterateSlices(size, pieElement, offset, i, 0, color[i]);
+            $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+            offset += size;
+        }
+    }
+    createPie(".pieID.legend", ".pieID.pie");
+</script>
+<script src="canvasjs-1.9.2/jquery.canvasjs.min.js"></script>
+<script src="canvasjs-1.9.2/canvasjs.min.js"></script>
+
+</html>
