@@ -8,26 +8,36 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use DB;
 use App\Quotation;
+use Illuminate\Support\Facades\Hash;
 use Image;
+use Illuminate\Support\Facades\Auth;
 
 class AccountController extends Controller
 {
     public function getData(){
-        // to do -> id vervangen door huidige session id
-        $user = DB::table('users')->where('id', '2')->first();
-        $data['user'] = $user;
-        return view('account', $data);
+
+        if (Auth::check()) {
+
+            return view('account');
+
+        }else{
+            return redirect('/login');
+        }
+
 
     }
 
     public function changePassword(){
-        // to do -> id vervangen door huidige session id
+
         if($_POST['input_password1'] === $_POST['input_password2']){
-            DB::table('users')
-                ->where('id', 2)
-                ->update(['password' => $_POST['input_password2']]);
+
+            $user = Auth::user();
+            $user->password =  Hash::make($_POST['input_password1']);
+            $user->save();
 
             return redirect('account')->with('message', 'Password successfully changed.');
+        }else{
+            return redirect('account')->with('message', 'Passwords do not match.');
         }
     }
 
@@ -37,13 +47,13 @@ class AccountController extends Controller
         if(isset($_POST['checkbox_mail'])){
             $checkboxval = 1;
         }
-         DB::table('users')
-            ->where('id', 2)
-            ->update(array(
-                'name'          => $_POST['name'],
-                'email'         => $_POST['email'],
-                'mail'          => $checkboxval
-            ));
+
+
+        $user = Auth::user();
+        $user->name = trim($_POST['name']);
+        $user->email= trim($_POST['email']);
+        $user->mail= $checkboxval;
+        $user->save();
         return redirect('account')->with('message', 'Account information succesfully changed.');
     }
 
@@ -53,12 +63,10 @@ class AccountController extends Controller
             $avatar = $request->file('avatar');
             $filename = time() . '.' . $avatar->getClientOriginalExtension();
             Image::make($avatar)->resize(300, 300)->save( public_path('/uploads/avatars/' . $filename ) );
-            DB::table('users')
-                ->where('id', 2)
-                ->update(array(
-                    'foto'          => $filename,
 
-                ));
+            $user = Auth::user();
+            $user->foto = $filename;
+            $user->save();
         }
         return redirect('account')->with('message', 'Photo succesfully changed.');
 
