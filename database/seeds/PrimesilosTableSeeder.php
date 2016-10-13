@@ -12,6 +12,6 @@ class PrimesilosTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }

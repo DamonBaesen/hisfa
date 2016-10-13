@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Quality extends Model
+class Qualities extends Model
 {
     //
 }
