@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class primesilos_seeder extends Seeder
+class QualityTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

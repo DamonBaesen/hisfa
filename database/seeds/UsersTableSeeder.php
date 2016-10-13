@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
+use Illuminate\Support\Facades\Hash;
 
 class UsersTableSeeder extends Seeder
 {
@@ -17,8 +18,8 @@ class UsersTableSeeder extends Seeder
         {
             $user = new \App\Users();
             $user->name = $faker->name();
-            $user->email = $faker->name();
-            $user->password = $faker->password();
+            $user->email = $faker->email();
+            $user->password = Hash::make('admin');
             $user->save();
         }
     }
