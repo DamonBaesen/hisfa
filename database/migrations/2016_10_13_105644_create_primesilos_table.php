@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePrimesilos extends Migration
+class CreatePrimesilosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,15 @@ class CreatePrimesilos extends Migration
      */
     public function up()
     {
-        //
         Schema::create('primesilos', function (Blueprint $table) {
-            $table->increments('primesiloid');
-            $table->string('materialid', 50);
+            $table->increments('id');
             $table->integer('quantity');
+            $table->integer('material_id')->unsigned();
+            $table->foreign('material_id')->references('id')->on('rawmaterials');
             $table->timestamps();
-        
-            
         });
     }
-       
+
     /**
      * Reverse the migrations.
      *
@@ -31,11 +29,6 @@ class CreatePrimesilos extends Migration
      */
     public function down()
     {
-        //
         Schema::dropIfExists('primesilos');
     }
-
-    
- 
-    
 }

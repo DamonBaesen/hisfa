@@ -15,10 +15,10 @@ class RecyclesilosTableSeeder extends Seeder
         $faker = Faker::create();
         foreach(range(1, 3) as $index)
         {
-            $user = new \App\Recyclesilos();
-            $user->quantity = $faker->numberBetween(0,100);
-            $user->type = $faker->name();
-            $user->save();
+            $recyclesilo = new \App\Recyclesilos();
+            $recyclesilo->quantity = $faker->numberBetween(0,100);
+            $recyclesilo->type = $faker->name();
+            $recyclesilo->save();
         }
     }
 }

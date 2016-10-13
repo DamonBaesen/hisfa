@@ -13,9 +13,8 @@ class CreateRecyclesilosTable extends Migration
      */
     public function up()
     {
-        //
         Schema::create('recyclesilos', function (Blueprint $table) {
-            $table->increments('recyclesiloid');
+            $table->increments('id');
             $table->string('quantity', 100)->default('1');
             $table->string('type', 50);
             $table->timestamps();
@@ -29,7 +28,8 @@ class CreateRecyclesilosTable extends Migration
      */
     public function down()
     {
-        //
         Schema::dropIfExists('recyclesilos');
     }
 }
+
+
