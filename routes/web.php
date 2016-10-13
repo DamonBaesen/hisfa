@@ -21,7 +21,6 @@ Route::get('/logout', 'LogoutController@index');
 Route::get('/password/reset', 'ResetController@index');
 Route::get('/history', 'HistoryController@index');
 Route::get('/dashboard', 'DashboardController@index');
-Route::get('/account', 'AccountController@getData');
 Route::get('/account/add', 'AccountController@add');
 Route::get('/account/edit', 'AccountController@edit');
 Route::get('/account/remove', 'AccountController@remove');
@@ -45,6 +44,14 @@ Route::get('/home', 'HomeController@index');
 Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/updatephoto', 'AccountController@updatephoto');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
+
+
+Route::get('account', [
+    'middleware' => 'auth',
+    'uses' => 'AccountController@getData'
+]);
+// om routes te beveiligen ^ dit gebruiken
+// ik ga ze nu nog niet doen wegens development...
 
 Route::get('/home', 'HomeController@index');
 

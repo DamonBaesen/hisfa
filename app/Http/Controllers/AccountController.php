@@ -16,14 +16,7 @@ class AccountController extends Controller
 {
     public function getData(){
 
-        if (Auth::check()) {
-
             return view('account');
-
-        }else{
-            return redirect('/login');
-        }
-
 
     }
 
