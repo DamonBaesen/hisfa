@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Qualities extends Model
 {
-    public function stocks()
+    public function historiek()
     {
-        return $this->hasMany('App\Stock');
+        return $this->belongsTo('App\Stock');
     }
 }
