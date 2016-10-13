@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class rawmaterials_seeder extends Seeder
+class RecyclesilosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

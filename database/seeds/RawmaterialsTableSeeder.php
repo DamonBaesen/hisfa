@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class stocks_seeder extends Seeder
+class RawmaterialsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

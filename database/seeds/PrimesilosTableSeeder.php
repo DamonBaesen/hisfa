@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class recyclesilos_seeder extends Seeder
+class PrimesilosTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.

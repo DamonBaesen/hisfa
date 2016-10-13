@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Faker\Factory as Faker;
 
 class StocksTableSeeder extends Seeder
 {
@@ -11,6 +12,6 @@ class StocksTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+
     }
 }
