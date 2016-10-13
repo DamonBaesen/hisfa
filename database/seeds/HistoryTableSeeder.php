@@ -16,8 +16,11 @@ class HistoryTableSeeder extends Seeder
         foreach(range(1, 10) as $index)
         {
             $history = new \App\History();
-            $history->quantity = $faker->numberBetween(0,100);
-            $history->material_id = rand(1,5);
+            $history->datetime = $faker->dateTime();
+            $history->action = $faker->sentence(6);
+            $history->sector = $faker->sentence(1);
+            $history->silonr = $faker->numberBetween(1,6);
+            $history->user_id = $faker->numberBetween(1,10);
             $history->save();
         }
     }

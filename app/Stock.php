@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model
 {
-    public function quality()
+    public function stok()
     {
-        return $this->belongsTo('App\Qualities');
+        return $this->hasMany('App\Stock');
     }
 }

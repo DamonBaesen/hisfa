@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Users extends Model
 {
-    public function histories()
+    public function historiek()
     {
         return $this->hasMany('App\History');
     }
