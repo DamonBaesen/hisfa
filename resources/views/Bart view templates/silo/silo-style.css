@@ -1,0 +1,27 @@
+.silo-container{
+    border: 1px solid #434857;
+    margin:1em;
+    padding: 0.5em;
+    border-radius: 4px;
+    height: 100%;
+    color: white;
+}
+.contain{
+    width: 80%;
+    height: 85vh;
+    padding-top: 5em;
+    margin-left:auto;
+    margin-right: auto;
+}
+.silo-stats-stat{
+    width: 8em;
+}
+.silo-stats-stat input{
+    color: #1997C6;
+    width: 4em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.silo-stats-stat .progress{
+    margin-left: -0.6em;
+}

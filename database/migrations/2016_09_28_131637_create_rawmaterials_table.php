@@ -14,7 +14,7 @@ class CreateRawmaterialsTable extends Migration
     public function up()
     {
         Schema::create('rawmaterials', function (Blueprint $table) {
-            $table->increments('materialid');
+            $table->increments('id');
             $table->string('type', 50);
             $table->integer('quantity');
             $table->timestamps();
