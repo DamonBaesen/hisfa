@@ -12,6 +12,13 @@ class RawmaterialsTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        $faker = Faker::create();
+        foreach(range(1, 5) as $index)
+        {
+            $rawmaterial = new \App\Rawmaterials();
+            $rawmaterial->type = $faker->name();
+            $rawmaterial->quantity = $faker->numberBetween(1, 50);
+            $rawmaterial->save();
+        }
     }
 }

@@ -3,7 +3,7 @@
 use Illuminate\Database\Seeder;
 use Faker\Factory as Faker;
 
-class PrimesilosTableSeeder extends Seeder
+class QualitiesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,11 @@ class PrimesilosTableSeeder extends Seeder
         $faker = Faker::create();
         foreach(range(1, 10) as $index)
         {
-            $primesilos = new \App\Primesilos();
-            $primesilos->quantity = $faker->numberBetween(0,100);
-            $primesilos->material_id = rand(1,5);
-            $primesilos->save();
+            $qualities = new \App\Qualities();
+            $qualities->name = $faker->name();
+            $qualities->hardness = $faker->name();
+            $qualities->save();
         }
+
     }
 }
