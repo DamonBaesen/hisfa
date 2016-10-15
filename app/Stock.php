@@ -8,6 +8,6 @@ class Stock extends Model
 {
     public function stok()
     {
-        return $this->hasMany('App\Stock');
+        return $this->hasMany('App\Qualities');
     }
 }

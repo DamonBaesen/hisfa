@@ -16,7 +16,8 @@ class CreatePrimesilosTable extends Migration
         Schema::create('primesilos', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('quantity');
-            $table->integer('material_id');
+            $table->integer('material_id')->unsigned();
+            $table->foreign('material_id')->references('id')->on('rawmaterials');
             $table->timestamps();
         });
     }
