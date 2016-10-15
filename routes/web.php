@@ -36,7 +36,7 @@ Route::get('/reset', 'ResetController@index');
 Route::get('/silo', 'SiloController@index');
 Route::get('/silo/add', 'SiloController@addShow');
 Route::get('/silo/remove/{id}', 'SiloController@remove');
-Route::get('/silo/edit', 'SiloController@edit');
+Route::get('/silo/edit/{id}', 'SiloController@editShow');
 Route::get('/waste', 'WasteController@index');
 Route::get('/waste/add', 'WasteController@add');
 Route::get('/home', 'HomeController@index');
@@ -45,6 +45,7 @@ Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/updatephoto', 'AccountController@updatephoto');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
 Route::post('/silo/add', 'SiloController@add');
+Route::get('/silo/edit/{id}', 'SiloController@edit');
 
 Route::get('account', [
     'middleware' => 'auth',
