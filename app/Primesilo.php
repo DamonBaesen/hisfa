@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Primesilos extends Model
+class Primesilo extends Model
 {
     public function grondstof()
     {
-        return $this->belongsTo('App\Rawmaterials');
+        return $this->belongsTo('App\Rawmaterial','rawmaterial_id', 'id');
     }
 }
