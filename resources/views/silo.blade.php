@@ -7,12 +7,16 @@
                 <h1>HISFA</h1>
                 <h3>Silo overview</h3>
 
-
+                <ul>
                 @foreach ($primesilo as $silos)
-                    <p>Dit is primesilo met nummer {{ $silos->id }}. Deze silo is op dit moment voor {{ $silos->quantity }} procent vol.</p>
-                    <a href="/silo/remove/{{ $silos->id }}">Verwijder silo {{$silos->id}}</a>
+                    <li>
+                        <p>SILO {{ $silos->id }} </p>
+                    <p> {{ $silos->quantity }} %</p>
+                    <a href="/silo/remove/{{$silos->id}}">Verwijder silo {{$silos->id}}</a>
+                    </li>
                 @endforeach
 
+                </ul>
               <hr/>
               <div id="siloMenu" >
                 <a href="{{ url('/silo/add') }}">Add silo</a> /

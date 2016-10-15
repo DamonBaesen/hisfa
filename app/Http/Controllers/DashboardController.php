@@ -20,14 +20,14 @@ class DashboardController extends Controller
         $primesiloinhoud = \App\Primesilo::with('grondstof')->get();
             $data['primesilo'] = $primesiloinhoud;
 
-/*
-            $recyclesilo = \App\Recyclesilos::all();
+
+            $recyclesilo = \App\Recyclesilo::all();
             $data['recyclesilo'] = $recyclesilo;
 
 
-        $rawmaterial = \App\Rawmaterials::all();
+        $rawmaterial = \App\Rawmaterial::all();
             $data['rawmaterial'] = $rawmaterial;
-*/
+
         return view('dashboard', $data);
 
 
