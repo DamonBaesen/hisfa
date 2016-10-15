@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Primesilo;
 
 class SiloController extends Controller
 {
@@ -20,7 +21,9 @@ class SiloController extends Controller
      */
     public function index()
     {
-        return view('silo');
+        $primesiloinhoud = \App\Primesilo::all();
+        $data['primesilo'] = $primesiloinhoud;
+        return view('silo', $data);
     }
 
     public function add()

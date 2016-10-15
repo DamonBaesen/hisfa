@@ -6,9 +6,12 @@
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
                 <h3>Silo overview</h3>
-               
 
-                <!--Hier komen de grafieken -->
+
+                @foreach ($primesilo as $silos)
+                    <p>Dit is primesilo met nummer {{ $silos->id }}. Deze silo is op dit moment voor {{ $silos->quantity }} procent vol.</p>
+                    <a href="/silo/remove/{{ $silos->id }}">Verwijder silo {{$silos->id}}</a>
+                @endforeach
 
               <hr/>
               <div id="siloMenu" >

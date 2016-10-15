@@ -18,7 +18,7 @@ class StocksTableSeeder extends Seeder
             $stocks = new \App\Stock();
             $stocks->height = $faker->numberBetween(4,8);
             $stocks->quantity = $faker->numberBetween(0,50);
-            $stocks->quality_id = rand(1,10);
+            $stocks->qualitie_id = rand(1,10);
             $stocks->save();
         }
     }

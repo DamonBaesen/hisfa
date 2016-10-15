@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Rawmaterials extends Model
+class Rawmaterial extends Model
 {
     public function stok()
     {
-        return $this->hasMany('App\Primesilos');
+        return $this->hasMany('App\Primesilo');
     }
 }

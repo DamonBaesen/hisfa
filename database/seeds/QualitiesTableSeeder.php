@@ -15,7 +15,7 @@ class QualitiesTableSeeder extends Seeder
         $faker = Faker::create();
         foreach(range(1, 10) as $index)
         {
-            $qualities = new \App\Qualities();
+            $qualities = new \App\Qualitie();
             $qualities->name = $faker->name();
             $qualities->hardness = $faker->name();
             $qualities->save();

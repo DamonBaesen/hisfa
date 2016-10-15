@@ -8,24 +8,27 @@ use Illuminate\Http\Request;
  use DB;
  use App\Quotation;
 
-use App\Primesilos;
-use App\Rawmaterials;
-use App\Recyclesilos;
+use App\Primesilo;
+use App\Rawmaterial;
+use App\Recyclesilo;
 
 
 class DashboardController extends Controller
 {
     public function index(){
-             $primesiloinhoud = \App\Rawmaterials::all();
+
+        $primesiloinhoud = \App\Primesilo::with('grondstof')->get();
             $data['primesilo'] = $primesiloinhoud;
 
-
+/*
             $recyclesilo = \App\Recyclesilos::all();
             $data['recyclesilo'] = $recyclesilo;
 
 
         $rawmaterial = \App\Rawmaterials::all();
             $data['rawmaterial'] = $rawmaterial;
+*/
+        return view('dashboard', $data);
 
 
            /* $stock = DB::table('stock')

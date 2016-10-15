@@ -19,8 +19,8 @@ class CreateStockTable extends Migration
             $table->string('height');
             $table->integer('quantity');
 
-            $table->integer('quality_id')->unsigned();
-            $table->foreign('quality_id')->references('id')->on('qualities');
+            $table->integer('qualitie_id')->unsigned();
+            $table->foreign('qualitie_id')->references('id')->on('qualities');
             $table->timestamps();
         });
     }
