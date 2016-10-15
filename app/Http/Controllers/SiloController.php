@@ -56,13 +56,28 @@ class SiloController extends Controller
         return view('silo', $data);
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('siloedit');
+        $newID = Input::get('txtName');;
+        \App\Primesilo::where('id', '=', $id)->update(array('id' => $newID));
+
+
+        $primesiloinhoud = \App\Primesilo::all();
+        $data['primesilo'] = $primesiloinhoud;
+
+
+
+        return view('silo', $data);
     }
 
-    public function editShow()
+    public function editShow($id)
     {
-        return view('siloedit');
+       $primesiloinhoud = \App\Primesilo::with('grondstof')->where('id', '=', $id)->get();
+
+        $primesiloinhouds = \App\Primesilo::all();
+        $data['primesilos'] = $primesiloinhouds;
+
+        $data['primesilo'] = $primesiloinhoud;
+        return view('siloedit', $data);
     }
 }
