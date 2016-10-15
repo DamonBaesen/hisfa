@@ -60,4 +60,9 @@ class SiloController extends Controller
     {
         return view('siloedit');
     }
+
+    public function editShow()
+    {
+        return view('siloedit');
+    }
 }
