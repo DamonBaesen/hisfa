@@ -45,7 +45,7 @@ Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/updatephoto', 'AccountController@updatephoto');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
 Route::post('/silo/add', 'SiloController@add');
-Route::get('/silo/edit/{id}', 'SiloController@edit');
+Route::post('/silo/edit/{id}', 'SiloController@edit');
 
 Route::get('account', [
     'middleware' => 'auth',
