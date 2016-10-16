@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/', 'DashboardController@index');
+Route::get('/', function(){
+    return redirect()->route('login');
+});
 Route::get('/login', 'LoginController@__construct');
 Route::get('/logout', 'LogoutController@index');
 Route::get('/password/reset', 'ResetController@index');
