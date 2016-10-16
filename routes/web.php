@@ -44,6 +44,7 @@ Route::get('/home', 'DashboardController@index');
 Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/updatephoto', 'AccountController@updatephoto');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
+Route::post('/account/send', 'EmailController@send');
 Route::post('/silo/add', 'SiloController@add');
 Route::post('/silo/edit/{id}', 'SiloController@edit');
 

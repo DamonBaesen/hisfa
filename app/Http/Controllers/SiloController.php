@@ -60,14 +60,15 @@ class SiloController extends Controller
     {
         $newID = Input::get('txtName');
         $rawmaterialID = Input::get('txtGrondstof');
-        \App\Primesilo::where('id', '=', $id)->update(array('id' => $newID,'rawmaterial_id' => $rawmaterialID));
-
+        $quantity = Input::get('txtHoeveelheid');
+        \App\Primesilo::where('id', '=', $id)->update(array('id' => $newID, 'quantity' => $quantity,'rawmaterial_id' => $rawmaterialID));
 
         $primesiloinhoud = \App\Primesilo::all();
         $data['primesilo'] = $primesiloinhoud;
 
-
-
+        if($quantity >= 90){
+            app('App\Http\Controllers\EmailController')->send($id, $quantity);
+        }
         return view('silo', $data);
     }
 
@@ -81,4 +82,5 @@ class SiloController extends Controller
         $data['primesilo'] = $primesiloinhoud;
         return view('siloedit', $data);
     }
+
 }

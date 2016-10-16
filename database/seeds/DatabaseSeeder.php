@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
          $this->call(RecyclesilosTableSeeder::class);
          $this->call(RawmaterialsTableSeeder::class);
          $this->call(PrimesilosTableSeeder::class);
-        $this->call(QualitiesTableSeeder::class);
+         $this->call(QualitiesTableSeeder::class);
          $this->call(HistoryTableSeeder::class);
-        $this->call(StocksTableSeeder::class);
+         $this->call(StocksTableSeeder::class);
     }
 }

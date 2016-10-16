@@ -27,6 +27,14 @@
                             <input type="text" class="form-control" id="txtMaterial" name="txtName" placeholder="3" value="{{$silos->id}}" required="">
                         </div>
                     </div>
+
+                    <div class="form-group">
+                        <label for="txtHoeveelheid" class="control-label col-sm-2">Silonr°:</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="txtQuantity" min="0" max="100" name="txtHoeveelheid" value="{{$silos->quantity}}" required="">
+                        </div>
+                    </div>
+
                     @endforeach
 
 
