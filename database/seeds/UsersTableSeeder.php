@@ -16,7 +16,7 @@ class UsersTableSeeder extends Seeder
         $faker = Faker::create();
         foreach(range(1, 10) as $index)
         {
-            $user = new \App\Users();
+            $user = new \App\User();
             $user->name = $faker->name();
             $user->email = $faker->email();
             $user->password = Hash::make('admin');

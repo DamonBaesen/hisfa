@@ -11,11 +11,11 @@
 
                     @foreach ($primesilo as $silos) 
                     <div class="form-group">
-                        <label for="textName" class="control-label col-sm-2">Rawmaterial:</label>
+                        <label for="txtGrondstof" class="control-label col-sm-2">Rawmaterial:</label>
                         <div class="col-sm-10">
-                            <select name="" id="">
+                            <select name="txtGrondstof" id="txtGrondstof">
                                 @foreach($primesilos as $silo)
-                                    <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$silo->grondstof->type}}">{{$silo->grondstof->type}}</option>
+                                    <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$silo->rawmaterial_id}}">{{$silo->grondstof->type}}</option>
                                     @endforeach
                             </select>
                         </div>

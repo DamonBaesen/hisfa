@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'DashboardController@index');
 Route::get('/login', 'LoginController@__construct');
 Route::get('/logout', 'LogoutController@index');
 Route::get('/password/reset', 'ResetController@index');
@@ -39,7 +39,7 @@ Route::get('/silo/remove/{id}', 'SiloController@remove');
 Route::get('/silo/edit/{id}', 'SiloController@editShow');
 Route::get('/waste', 'WasteController@index');
 Route::get('/waste/add', 'WasteController@add');
-Route::get('/home', 'HomeController@index');
+Route::get('/home', 'DashboardController@index');
 
 Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/updatephoto', 'AccountController@updatephoto');
@@ -51,9 +51,6 @@ Route::get('account', [
     'middleware' => 'auth',
     'uses' => 'AccountController@getData'
 ]);
-// om routes te beveiligen ^ dit gebruiken
-// ik ga ze nu nog niet doen wegens development...
 
-Route::get('/home', 'HomeController@index');
 
 Auth::routes();

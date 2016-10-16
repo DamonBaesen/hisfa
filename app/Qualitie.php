@@ -8,6 +8,6 @@ class Qualitie extends Model
 {
     public function historiek()
     {
-        return $this->belongsTo('App\Stock');
+        return $this->hasMany('App\Stock');
     }
 }
