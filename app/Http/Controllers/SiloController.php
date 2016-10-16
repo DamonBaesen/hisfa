@@ -66,7 +66,9 @@ class SiloController extends Controller
         $primesiloinhoud = \App\Primesilo::all();
         $data['primesilo'] = $primesiloinhoud;
 
-
+        if($quantity >= 90){
+            app('App\Http\Controllers\EmailController')->send($id, $quantity);
+        }
         return view('silo', $data);
     }
 
