@@ -13,11 +13,11 @@ class PrimesilosTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach(range(1, 10) as $index)
+        foreach(range(1, 6) as $index)
         {
-            $primesilos = new \App\Primesilos();
+            $primesilos = new \App\Primesilo();
             $primesilos->quantity = $faker->numberBetween(0,100);
-            $primesilos->material_id = rand(1,5);
+            $primesilos->rawmaterial_id = rand(1,5);
             $primesilos->save();
         }
     }

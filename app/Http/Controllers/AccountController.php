@@ -20,6 +20,13 @@ class AccountController extends Controller
 
     }
 
+    public function add(){
+
+            return view('accountadd');
+
+    }
+
+
     public function changePassword(){
 
         if($_POST['input_password1'] === $_POST['input_password2']){

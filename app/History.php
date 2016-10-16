@@ -8,6 +8,6 @@ class History extends Model
 {
     public function gebruiker()
     {
-        return $this->belongsTo('App\Users');
+        return $this->belongsTo('App\User');
     }
 }

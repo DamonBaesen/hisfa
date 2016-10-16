@@ -16,9 +16,9 @@ class StocksTableSeeder extends Seeder
         foreach(range(1, 10) as $index)
         {
             $stocks = new \App\Stock();
-            $stocks->name = $faker->name();
-            $stocks->hardness = $faker->name();
-            $stocks->quality_id = rand(1,5);
+            $stocks->height = $faker->numberBetween(4,8);
+            $stocks->quantity = $faker->numberBetween(0,50);
+            $stocks->qualitie_id = rand(1,10);
             $stocks->save();
         }
     }
