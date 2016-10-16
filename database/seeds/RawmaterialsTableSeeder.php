@@ -16,7 +16,7 @@ class RawmaterialsTableSeeder extends Seeder
         foreach(range(1, 5) as $index)
         {
             $rawmaterial = new \App\Rawmaterial();
-            $rawmaterial->type = $faker->name();
+            $rawmaterial->type = $faker->unique()->name();
             $rawmaterial->quantity = $faker->numberBetween(1, 50);
             $rawmaterial->save();
         }

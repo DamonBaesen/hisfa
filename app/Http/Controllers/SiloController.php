@@ -58,8 +58,9 @@ class SiloController extends Controller
 
     public function edit($id)
     {
-        $newID = Input::get('txtName');;
-        \App\Primesilo::where('id', '=', $id)->update(array('id' => $newID));
+        $newID = Input::get('txtName');
+        $rawmaterialID = Input::get('txtGrondstof');
+        \App\Primesilo::where('id', '=', $id)->update(array('id' => $newID,'rawmaterial_id' => $rawmaterialID));
 
 
         $primesiloinhoud = \App\Primesilo::all();
