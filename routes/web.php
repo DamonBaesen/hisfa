@@ -44,7 +44,7 @@ Route::get('/home', 'HomeController@index');
 Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/updatephoto', 'AccountController@updatephoto');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
-
+Route::post('/account/send', 'EmailController@send');
 
 Route::get('account', [
     'middleware' => 'auth',
