@@ -7,7 +7,7 @@
             <h3>Configure rawmaterials</h3>
             <ul class="nav nav-tabs">
                 <li class="nav-item"> <a class="nav-link" href="#">Edit rawmaterial</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="add-stock.html">Add new rawmaterial</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="/rawmaterial/add">Add new rawmaterial</a> </li>
             </ul>
             <div class="config-stock-view">                   
                     <div class="title-right">
