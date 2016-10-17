@@ -9,22 +9,22 @@
                 <form class="form-horizontal" role="form" method="POST" action="">
                     {{ csrf_field() }}
 
-                    @foreach ($primesilo as $silos) 
-                    <div class="form-group">
-                        <label for="txtGrondstof" class="control-label col-sm-2">Rawmaterial:</label>
-                        <div class="col-sm-10">
-                            <select name="txtGrondstof" id="txtGrondstof">
-                                @foreach($rawmaterial as $rawmaterials)
-                                    <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
-                                    @endforeach
-                            </select>
-                        </div>
-                    </div>
-
+                    @foreach ($recyclesilo as $silos) 
                     <div class="form-group">
                         <label for="textName" class="control-label col-sm-2">Silonr°:</label>
                         <div class="col-sm-10">
                             <input type="text" class="form-control" id="txtMaterial" name="txtName" placeholder="3" value="{{$silos->id}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="txtHardheid" class="control-label col-sm-2">Hardness:</label>
+                        <div class="col-sm-10">
+                            <select name="txtHardheid" id="txtHardheid">
+                                <option value="Soft">Soft</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
+                            </select>
                         </div>
                     </div>
 

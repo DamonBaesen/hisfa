@@ -15,7 +15,9 @@ Route::get('/', function () {
     return view('login');
 });
 
-Route::get('/', 'DashboardController@index');
+Route::get('/', function(){
+    return redirect()->route('login');
+});
 Route::get('/login', 'LoginController@__construct');
 Route::get('/logout', 'LogoutController@index');
 Route::get('/password/reset', 'ResetController@index');
@@ -37,8 +39,10 @@ Route::get('/silo', 'SiloController@index');
 Route::get('/silo/add', 'SiloController@addShow');
 Route::get('/silo/remove/{id}', 'SiloController@remove');
 Route::get('/silo/edit/{id}', 'SiloController@editShow');
-Route::get('/waste', 'WasteController@index');
-Route::get('/waste/add', 'WasteController@add');
+Route::get('/recyclesilo', 'RecycleSiloController@index');
+Route::get('/recyclesilo/add', 'RecycleSiloController@addShow');
+Route::get('/recyclesilo/remove/{id}', 'RecycleSiloController@remove');
+Route::get('/recyclesilo/edit/{id}', 'RecycleSiloController@editShow');
 Route::get('/home', 'DashboardController@index');
 
 Route::post('/account/changepassword', 'AccountController@changepassword');
@@ -47,6 +51,8 @@ Route::post('/account/changeuserinformation', 'AccountController@changeuserinfor
 Route::post('/account/send', 'EmailController@send');
 Route::post('/silo/add', 'SiloController@add');
 Route::post('/silo/edit/{id}', 'SiloController@edit');
+Route::post('/recyclesilo/add', 'RecycleSiloController@add');
+Route::post('/recyclesilo/edit/{id}', 'RecycleSiloController@edit');
 
 Route::get('account', [
     'middleware' => 'auth',
