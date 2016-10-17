@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+    <link rel="stylesheet" href="../master-style.css">
+    <link rel="stylesheet" href="dashboard-style.css">
+    <link rel="stylesheet" href="donut-style.css">
+    
+    </head>
+    
+
+<body>
+    <div class="dash-container">
+        <div class="left">
+            <div class="stock">
+                <div class="btn-group stock-menu">
+                    <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> P15 </button>
+                    <div class="dropdown-menu"> <a class="dropdown-item" href="#">P15</a> <a class="dropdown-item" href="#">60SE</a> <a class="dropdown-item" href="#">P20</a> <a class="dropdown-item" href="#">100SE</a> <a class="dropdown-item" href="#">P25</a> <a class="dropdown-item" href="#">150SE</a> <a class="dropdown-item" href="#">P30</a> <a class="dropdown-item" href="#">200SE</a> <a class="dropdown-item" href="#">P35</a> <a class="dropdown-item" href="#">250SE</a> </div>
+                </div>
+                <div class="stock-blocks">
+                    <div class="block">
+                        <h4>4m</h4>
+                        <h2>12</h2>
+                        <p>blocks</p>
+                        <span class="tag tag-default tag-pill pull-xs-center">48m³</span>
+                    </div>
+                    <div class="block">
+                        <h4>6m</h4>
+                        <h2>2</h2>
+                        <p>blocks</p>
+                        <span class="tag tag-default tag-pill pull-xs-center">12m³</span>
+                    </div>
+                </div>
+                    
+            </div>
+            <div class="event-log" >
+                <h5>Event log</h5>
+                <div class="log-console">
+                    <p>damon at net een pizza</p>
+                    <p>damon gaat nog eens voor een pizza</p>
+                    <p>damon neemt het pizza buffet</p>
+                </div>
+            </div>
+        </div>
+        <div class="right">
+            <div class="cgp">
+                <h5>Prime silo</h5>
+                <div class="silo-stats">
+                    <div class=silo-stats-stat>
+                        <progress class="progress progress-success" value="2.5" max="10"></progress>
+                        <h4>1</h4>
+                        <h3>25%</h3>
+                        <p>Damon</p>
+                    </div>
+                    <div class=silo-stats-stat>
+                        <progress class="progress progress-warning" value="5" max="10"></progress>
+                        <h4>2</h4>
+                        <h3>50%</h3>
+                        <p>Damon</p>
+                    </div>
+                    <div class=silo-stats-stat>
+                        <progress class="progress progress-danger" value="7.8" max="10"></progress>
+                        <h4>3</h4>
+                        <h3>78%</h3>
+                        <p>Damon</p>
+                    </div>
+                    <div class=silo-stats-stat>
+                        <progress class="progress progress-danger" value="9" max="10"></progress>
+                        <h4>4</h4>
+                        <h3>90%</h3>
+                        <p>Damon</p>
+                    </div>
+                    <div class=silo-stats-stat>
+                        <progress class="progress progress-success" value="3" max="10"></progress>
+                        <h4>5</h4>
+                        <h3>30%</h3>
+                        <p>Damon</p>
+                    </div>
+                    <div class=silo-stats-stat>
+                        <progress class="progress progress-success" value="0" max="10"></progress>
+                        <h4>6</h4>
+                        <h3>0%</h3>
+                        <p>Damon</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cgps">
+                <div class="cgr">
+                    <h5>Recyle silo</h5>
+                    <div class="silo-stats">
+                        <div class=silo-stats-stat>
+                            <progress class="progress progress-warning" value="4" max="10"></progress>
+                            <h4>1</h4>
+                            <h3>40%</h3>
+                            <p>Damon</p>
+                        </div>
+                        <div class=silo-stats-stat>
+                            <progress class="progress progress-success" value="2" max="10"></progress>
+                            <h4>2</h4>
+                            <h3>20%</h3>
+                            <p>Damon</p>
+                        </div>
+                        <div class=silo-stats-stat>
+                            <progress class="progress progress-danger" value="8.9" max="10"></progress>
+                            <h4>3</h4>
+                            <h3>89%</h3>
+                            <p>Damon</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="cgg">
+                    <h5>Resources</h5>
+                    <div class="char">
+                        <div class="pieID pie"> </div>
+                    </div>
+                    <ul class="pieID legend">
+                        <li> <em>f21MB-n</em> <span>55</span> </li>
+                        <li> <em>RF23W-n</em> <span>51</span> </li>
+                        <li> <em>KSE-20</em> <span>88</span> </li>
+                        <li> <em>KSE-30</em> <span>34</span> </li>
+                        <li> <em>F21B-n</em> <span>11</span> </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script type="text/javascript">
+    function sliceSize(dataNum, dataTotal) {
+        return (dataNum / dataTotal) * 360;
+    }
+
+    function addSlice(sliceSize, pieElement, offset, sliceID, color) {
+        $(pieElement).append("<div class='slice " + sliceID + "'><span></span></div>");
+        var offset = offset - 1;
+        var sizeRotation = -179 + sliceSize;
+        $("." + sliceID).css({
+            "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+        });
+        $("." + sliceID + " span").css({
+            "transform": "rotate(" + sizeRotation + "deg) translate3d(0,0,0)"
+            , "background-color": color
+        });
+    }
+
+    function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
+        var sliceID = "s" + dataCount + "-" + sliceCount;
+        var maxSize = 179;
+        if (sliceSize <= maxSize) {
+            addSlice(sliceSize, pieElement, offset, sliceID, color);
+        }
+        else {
+            addSlice(maxSize, pieElement, offset, sliceID, color);
+            iterateSlices(sliceSize - maxSize, pieElement, offset + maxSize, dataCount, sliceCount + 1, color);
+        }
+    }
+
+    function createPie(dataElement, pieElement) {
+        var listData = [];
+        $(dataElement + " span").each(function () {
+            listData.push(Number($(this).html()));
+        });
+        var listTotal = 0;
+        for (var i = 0; i < listData.length; i++) {
+            listTotal += listData[i];
+        }
+        var offset = 0;
+        var color = [
+    "cornflowerblue"
+    , "olivedrab"
+    , "orange"
+    , "tomato"
+    , "crimson"
+    , "purple"
+    , "turquoise"
+    , "forestgreen"
+    , "navy"
+    , "gray"
+  ];
+        for (var i = 0; i < listData.length; i++) {
+            var size = sliceSize(listData[i], listTotal);
+            iterateSlices(size, pieElement, offset, i, 0, color[i]);
+            $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+            offset += size;
+        }
+    }
+    createPie(".pieID.legend", ".pieID.pie");
+</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script src="canvasjs-1.9.2/jquery.canvasjs.min.js"></script>
+<script src="canvasjs-1.9.2/canvasjs.min.js"></script>
+
+</html>

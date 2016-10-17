@@ -1,0 +1,70 @@
+body{
+	background-color: #7FA348;
+}
+
+h1{
+	text-align: center;
+	font-size: 55px;
+}
+
+h3{
+	text-align: center;
+	font-size: 18px;
+}
+
+#form{
+	margin-top: 100px;
+	box-shadow: 2px 2px 2px #000;
+	width: 80%;
+	margin-right: auto;
+	margin-left: auto;
+
+}
+
+#myaccount{
+	width: 80%;
+	padding-left: 50px;
+	padding-top: 50px;
+	margin-left: auto;
+	margin-right: auto;
+
+}
+
+
+
+#form form{
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+	margin-bottom: 50px;
+	margin-top: 30px;
+}
+
+#siloMenu{
+	text-align: center;
+	margin-bottom: 10px;
+}
+
+#siloMenu a{
+	color: black;
+}
+#siloMenu a:hover{
+	color: #7FA348;
+}
+
+
+#form input{
+	background-color: #F7F7F7;
+	border: none;
+}
+
+
+#form button{
+	background-color: #7FA348;
+	color: white;
+	border: none;
+	width: 100%;
+	padding: 6px;
+
+}
+
