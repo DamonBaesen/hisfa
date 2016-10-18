@@ -22,18 +22,15 @@
                         <label for="txtGrondstof" class="control-label col-sm-2">Rawmaterial:</label>
                         <div class="col-sm-10">
                             <select name="txtGrondstof" id="txtGrondstof">
-<<<<<<< HEAD
-<<<<<<< HEAD
+
                                 @foreach($primesilos as $silo)
                                     <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$silo->rawmaterial_id}}">{{$silo->grondstof->type}}</option>
-=======
+
                                 @foreach($rawmaterial as $rawmaterials)
                                     <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
->>>>>>> master
-=======
                                 @foreach($rawmaterial as $rawmaterials)
                                     <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
->>>>>>> master
+
                                     @endforeach
                             </select>
                         </div>
@@ -45,11 +42,7 @@
                             <input type="text" class="form-control" id="txtMaterial" name="txtName" placeholder="3" value="{{$silos->id}}" required="">
                         </div>
                     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> master
+
 
                     <div class="form-group">
                         <label for="txtHoeveelheid" class="control-label col-sm-2">Quantity:</label>
@@ -58,10 +51,7 @@
                         </div>
                     </div>
 
-<<<<<<< HEAD
->>>>>>> master
-=======
->>>>>>> master
+
                     @endforeach
 
 

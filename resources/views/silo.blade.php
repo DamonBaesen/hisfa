@@ -1,35 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
-<<<<<<< HEAD
-
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-=======
-<div class="container">
-    <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
-                <h3>Silo overview</h3>
 
-                <ul>
-                @foreach ($primesilo as $silos)
-                    <li>
-                        <a href="/silo/edit/{{$silos->id}}">
-                        <p>SILO {{ $silos->id }} </p>
-                    <p> {{ $silos->quantity }} %</p>
-                        </a>
-                    <a href="/silo/remove/{{$silos->id}}">Verwijder silo {{$silos->id}}</a>
-                    </li>
-                @endforeach
-
-                </ul>
-              <hr/>
-              <div id="siloMenu" >
-                <a href="{{ url('/silo/add') }}">Add silo</a>
-              </div>
->>>>>>> master
 
     <link rel="stylesheet" href="/css/master-style.css">
     <link rel="stylesheet" href="/css/dashboard-style.css">
