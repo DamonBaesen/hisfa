@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Rawmaterial;
+use DB;
+use App\Quotation;
+use Illuminate\Support\Facades\Input;
+
+ use App\Http\Requests;
 
 class RawMaterialController extends Controller
 {
@@ -20,21 +26,62 @@ class RawMaterialController extends Controller
      */
     public function index()
     {
-        return view('rawmaterial');
+        $rawmaterial = \App\Rawmaterial::all();
+        $data['rawmaterial'] = $rawmaterial;
+        return view('rawmaterial', $data);
     }
 
     public function add()
     {
+        $type = Input::get('textType');
+        $quantity = Input::get('textQuantity');
+
+        $id = DB::table('rawmaterials')->insertGetId(
+            array('quantity' => $quantity, 'type' => $type)
+        );
+
+        $rawmaterial = \App\Rawmaterial::all();
+        $data['rawmaterial'] = $rawmaterial;
+        return view('rawmaterial', $data);
+    }
+    
+    public function addShow()
+    {
         return view('rawmaterialadd');
     }
 
-    public function remove()
+    public function remove($id)
     {
-        return view('rawmaterialremove');
+        DB::table('rawmaterials')->where('id', '=', $id)->delete();
+        
+        $rawmaterial = \App\Rawmaterial::all();
+        $data['rawmaterial'] = $rawmaterial;
+        return view('rawmaterial', $data);
+    }
+    
+    public function edit($id)
+    {
+        $type = Input::get('textType');
+        $quantity = Input::get('textQuantity');
+        
+        \App\Rawmaterial::where('id', '=', $id)->update(array('quantity' => $quantity, 'type' => $type));
+
+        $rawmaterial = \App\Rawmaterial::all();
+        $data['rawmaterial'] = $rawmaterial;
+
+        return view('rawmaterial', $data);
     }
 
-    public function edit()
+    public function editShow($id)
     {
-        return view('rawmaterialedit');
+        $rawmaterial = \App\Rawmaterial::where('id', '=', $id)->get();
+
+        $rawmaterial = \App\Rawmaterial::all();
+        $data['rawmaterial'] = $rawmaterial;
+
+        $data['rawmaterial'] = $rawmaterial;
+
+        return view('rawmaterialedit', $data);
     }
+    
 }
