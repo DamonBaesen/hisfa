@@ -1,12 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
-
+<body>
+    
     <div class="dash-container">
         <div class="config-stock">
             <h3>Configure rawmaterials</h3>
+            
             <ul class="nav nav-tabs">
-                <li class="nav-item"> <a class="nav-link" href="#">Edit rawmaterial</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="">Edit rawmaterial</a> </li>
                 <li class="nav-item"> <a class="nav-link" href="/rawmaterial/add">Add new rawmaterial</a> </li>
             </ul>
             <div class="config-stock-view">                   
@@ -24,22 +26,16 @@
                 </div>
             </div>
                     <ul class="pieID legend">
-                        <li> <em>Humans</em> <span>550</span>
+                       
+                       @foreach ($rawmaterial as $rawmaterials)
+            
+                        <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span>
                             <input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">
                             <button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> 
-                        <li> <em>Dogs</em> <span>531</span> 
-                            <input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">
-                            <button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> 
-                        <li> <em>Cats</em> <span>868</span>
-                            <input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">
-                            <button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> 
-                        <li> <em>Slugs</em> <span>344</span>
-                            <input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">
-                            <button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> 
-                        <li> <em>Aliens</em> <span>1145</span>
-                            <input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">
-                            <button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> 
-                    </ul>
+                            <a href="/rawmaterial/remove/{{$rawmaterials->id}}">Delete {{$rawmaterials->id}}</a>
+                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}">Edit{{$rawmaterials->id}}</a>
+                       @endforeach
+                     </ul>
     </div>            
           
 </div>    

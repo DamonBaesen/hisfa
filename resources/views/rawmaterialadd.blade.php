@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
+
+@if(session( 'message' ))
+    <div class="alert-succes">{{session('message')}}</div>
+@endif
 <div class="container">
     <div class="row">
             <div class="panel panel-default" id="form">
@@ -8,17 +12,18 @@
                 <h3>Add new raw material</h3>
                  <form class="form-horizontal" role="form" method="POST" action="">
                         {{ csrf_field() }}
+                <fieldset>
 
                     <div class="form-group">
                       <label for="textType" class="control-label col-sm-2">Type</label>
                         <div class="col-sm-10">
-                          <input type="text" class="form-control" id="textType" placeholder="P50" required="">
+                          <input type="text" class="form-control" name="textType" id="textType" placeholder="P50" required="">
                         </div>
                     </div>
                     <div class="form-group">
                       <label for="textQuantity" class="control-label col-sm-2">Quantity</label>
                         <div class="col-sm-10">
-                         <input type="int" class="form-control" id="textQuantity" placeholder="25" required="">
+                         <input type="int" class="form-control" name="textQuantity" id="textQuantity" placeholder="25" required="">
                         </div>
                     </div>
 
