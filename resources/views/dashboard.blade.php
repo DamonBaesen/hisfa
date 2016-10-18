@@ -11,7 +11,6 @@
 </head>
 <body>
 
-<<<<<<< HEAD
 
 <div class="dash-container">
     <div class="left">
