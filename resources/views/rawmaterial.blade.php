@@ -28,7 +28,6 @@
                     <ul class="pieID legend">
                        
                        @foreach ($rawmaterial as $rawmaterials)
-            
                         <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span>
                             <input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">
                             <button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> 

@@ -18,13 +18,17 @@ Route::get('/', function () {
 Route::get('/', function(){
     return redirect()->route('login');
 });
+
 Route::get('/login', 'LoginController@__construct');
 Route::get('/logout', 'LogoutController@index');
 Route::get('/password/reset', 'ResetController@index');
 Route::get('/history', 'HistoryController@index');
 Route::get('/dashboard', 'DashboardController@index');
-Route::get('/account/add', 'AccountController@add');
+
+Route::get('/account/add', 'AccountController@addShow');
+Route::post('/account/add', 'AccountController@add');
 Route::get('/account/edit', 'AccountController@edit');
+
 Route::get('/account/remove', 'AccountController@remove');
 Route::get('/block', 'BlockController@index');
 Route::get('/block/add', 'BlockController@addShow');
@@ -56,6 +60,7 @@ Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/updatephoto', 'AccountController@updatephoto');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
 Route::post('/account/send', 'EmailController@send');
+
 Route::post('/silo/add', 'SiloController@add');
 Route::post('/silo/edit/{id}', 'SiloController@edit');
 Route::post('/recyclesilo/add', 'RecycleSiloController@add');

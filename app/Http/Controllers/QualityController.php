@@ -5,35 +5,25 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Stock;
-use App\Quality;
+use App\Qualitie;
 use DB;
 use App\Quotation;
 use Illuminate\Support\Facades\Input;
+
+ use App\Http\Requests;
 
 class QualityController extends Controller
 {
     public function index()
     {
-        $inhoud = \App\Qualitie::all();
-        $data['qualities'] = $inhoud;
-        return view('quality', $data);
+        $data = DB::table('qualities')->get();
+
+        return view('quality' ,compact('data'));
     }
 
     public function add()
     {
-        
-        
-        $id = Input::get('textName');
-        $hardness = Input::get('txtHardheid');
-        DB::table('recyclesilos')->insert(
-            array('quantity' => '0', 'id' => $id, 'type' => $hardness)
-        );
-
-        $recyclesiloinhoud = \App\Recyclesilo::all();
-        $data['recyclesilo'] = $recyclesiloinhoud;
-        return view('recyclesilo', $data);
-        
-        return view('qualityadd');
+        return view('quality');
     }
     
     public function addShow()

@@ -6,8 +6,14 @@
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
                 <h3>Quality overview</h3>
-                   @foreach ( $inhoud as $kwaliteit )
-                   @endforeach
+                  @foreach ($data as $qualities)
+            
+                       <li>
+                           <p>{{ $qualities->name }} </p>
+                           <p>.....</p> 
+                           <p>{{ $qualities->hardness }}</p>
+                       </li>
+                @endforeach
                 <hr/>
                 <div id="blockMenu" >
                     <a href="{{ url('/block/add') }}">Add block</a>
