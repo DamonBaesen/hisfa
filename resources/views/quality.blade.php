@@ -7,16 +7,15 @@
                 <h1>HISFA</h1>
                 <h3>Quality overview</h3>
                   @foreach ($data as $qualities)
-            
                        <li>
-                           <p>{{ $qualities->name }} </p>
-                           <p>.....</p> 
-                           <p>{{ $qualities->hardness }}</p>
+                            <p>Quality: {{ $qualities->name }}, hardness: {{ $qualities->hardness }}</p>
+                            <a href="/quality/remove/{{$qualities->id}}">Delete</a>
+                            <a href="/quality/edit/{{$qualities->id}}">Edit</a>
                        </li>
                 @endforeach
                 <hr/>
                 <div id="blockMenu" >
-                    <a href="{{ url('/block/add') }}">Add block</a>
+                    <a href="{{ url('/quality/add') }}">Add block</a>
                 </div>
 
             </div>

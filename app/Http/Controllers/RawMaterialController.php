@@ -79,8 +79,6 @@ class RawMaterialController extends Controller
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
 
-        $data['rawmaterial'] = $rawmaterial;
-
         return view('rawmaterialedit', $data);
     }
     
