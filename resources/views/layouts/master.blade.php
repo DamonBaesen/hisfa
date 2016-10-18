@@ -76,6 +76,7 @@
     @yield('content')
 
     <!-- Scripts -->
+
     <script src="/js/app.js"></script>
 </body>
 </html>
