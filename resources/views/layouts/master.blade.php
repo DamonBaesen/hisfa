@@ -5,78 +5,48 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>HISFA</title>
 
-    <!-- Styles -->
-    <link href="/css/app.css" rel="stylesheet">
-    <link href="/css/master.css" rel="stylesheet">
- 
 
+
+    <link href="/css/forms.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/navigation-style.css">
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
-            <div class="navbar-header">
+<nav class="navigation-bar">
+    <div class="container">
+        <div class="navigation">
 
-                <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
-                <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+            <div>
+                <a class="navigation-title" href="{{ url('/') }}">
                     HISFA
                 </a>
             </div>
-
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
-
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/account') }}">ACCOUNT</a></li>
-                        <li><a href="{{ url('/silo') }}">SILO'S</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
+            <div class="navigation-links">
+                <a href="{{ url('/dashboard') }}"  ><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+                <a href="{{ url('/silo') }}"  ><span class="glyphicon turn90 glyphicon-tasks" aria-hidden="true"></span></a>
+                <a href="{{ url('/resources') }}"  ><span class="glyphicon glyphicon-th-large" aria-hidden="true"></span></a>
+                <a href="{{ url('/account') }}"  ><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                <a href="{{ url('/logout') }}"  onclick="event.preventDefault(); document.getElementById('logout-form').submit();"> Logout </a>
             </div>
+
+
+
+
         </div>
-    </nav>
 
-    @yield('content')
+        <div class="collapse navbar-collapse" id="app-navbar-collapse">
 
-    <!-- Scripts -->
 
-    <script src="/js/app.js"></script>
+
+        </div>
+    </div>
+</nav>
+
+@yield('content')
+
+<script src="/js/app.js"></script>
 </body>
 </html>
