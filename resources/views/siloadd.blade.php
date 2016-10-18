@@ -1,7 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
     <div class="container">
         <div class="row">
             <div class="panel panel-default" id="form">
@@ -27,6 +30,9 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> master
 @endsection
 

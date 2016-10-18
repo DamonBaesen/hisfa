@@ -6,7 +6,11 @@
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
 <<<<<<< HEAD
+<<<<<<< HEAD
                 <h3>Add new silo</h3>
+=======
+                <h3>Edit silo</h3>
+>>>>>>> master
 =======
                 <h3>Edit silo</h3>
 >>>>>>> master
@@ -19,8 +23,13 @@
                         <div class="col-sm-10">
                             <select name="txtGrondstof" id="txtGrondstof">
 <<<<<<< HEAD
+<<<<<<< HEAD
                                 @foreach($primesilos as $silo)
                                     <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$silo->rawmaterial_id}}">{{$silo->grondstof->type}}</option>
+=======
+                                @foreach($rawmaterial as $rawmaterials)
+                                    <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
+>>>>>>> master
 =======
                                 @foreach($rawmaterial as $rawmaterials)
                                     <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
@@ -37,7 +46,10 @@
                         </div>
                     </div>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> master
 
                     <div class="form-group">
                         <label for="txtHoeveelheid" class="control-label col-sm-2">Quantity:</label>
@@ -46,6 +58,9 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
+>>>>>>> master
+=======
 >>>>>>> master
                     @endforeach
 

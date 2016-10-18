@@ -17,7 +17,6 @@ class DashboardController extends Controller
 {
     public function index(){
 
-
         $primesiloinhoud = \App\Primesilo::with('grondstof')->get();
             $data['primesilo'] = $primesiloinhoud;
 
@@ -55,11 +54,6 @@ class DashboardController extends Controller
             ->select('name','id')->get();
         $data['qualities'] = $qualities;
 
-        $stockload = DB::table('stocks')
-            ->select('height','quantity','qualitie_id')
-            ->where('qualitie_id','=','9')
-            ->get();
-        $data['stockload'] = $stockload;
 
         return view('dashboard', $data);
 

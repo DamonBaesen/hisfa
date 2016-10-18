@@ -20,14 +20,11 @@ class RawmaterialsTableSeeder extends Seeder
             $rawmaterial->quantity = $faker->numberBetween(1, 50);
             $rawmaterial->save();
         }
-<<<<<<< HEAD
-=======
 
         $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->id = 0;
         $rawmaterialExtra->type = "";
         $rawmaterialExtra->quantity = 0;
         $rawmaterialExtra->save();
->>>>>>> master
     }
 }

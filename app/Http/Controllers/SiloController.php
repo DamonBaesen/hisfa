@@ -5,14 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Primesilo;
 
+
 use DB;
 use App\Quotation;
 use Illuminate\Support\Facades\Input;
 use App\Rawmaterial;
 use App\Http\Requests;
-
-
-
 
 
 class SiloController extends Controller
@@ -31,24 +29,15 @@ class SiloController extends Controller
      */
     public function index()
     {
-
-
-        $primesiloinhoud = DB::table('rawmaterials')
-            ->join('primesilos', 'rawmaterials.id', '=', 'primesilos.id')
-            ->select('primesilos.*', 'rawmaterials.type' )
-            ->get();
-        $data['primesilo'] = $primesiloinhoud;
-
         $qualitie = DB::table('qualities')
             ->select('name','id')->get();
         $data['quality'] = $qualitie;
 
-
         $rawmaterial = DB::table('rawmaterials')->select('type', 'quantity')->get();
         $data['rawmaterial'] = $rawmaterial;
 
-
-
+        $primesiloinhoud = \App\Primesilo::all();
+        $data['primesilo'] = $primesiloinhoud;
 
         return view('silo', $data);
     }
@@ -58,6 +47,7 @@ class SiloController extends Controller
         $id = Input::get('textName');
 
         DB::table('primesilos')->insert(
+
 
             array('quantity' => '0', 'id' => $id, 'rawmaterial_id' => 6)
 
@@ -72,10 +62,6 @@ class SiloController extends Controller
     {
         return view('siloadd');
     }
-
-
-
-
 
 
     public function remove($id)
@@ -119,6 +105,4 @@ class SiloController extends Controller
 
         return view('siloedit', $data);
     }
-
-
 }

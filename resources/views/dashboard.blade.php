@@ -11,6 +11,7 @@
 </head>
 <body>
 
+<<<<<<< HEAD
 
 <div class="dash-container">
     <div class="left">
@@ -104,7 +105,6 @@
         </div>
     </div>
 </div>
-
 
 
 </body>
