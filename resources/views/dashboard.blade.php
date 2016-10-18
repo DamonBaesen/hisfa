@@ -11,7 +11,6 @@
 </head>
 <body>
 
-
 <div class="dash-container">
     <div class="left">
         <div class="stock">
@@ -32,8 +31,6 @@
                         <span class="tag tag-default tag-pill pull-xs-center">{{ $stockloads->height * $stockloads->quantity }}m³</span>
                     </div>
                 @endforeach
-
-
             </div>
 
         </div>
@@ -64,7 +61,6 @@
                         <p>{{$silos->type}}</p>
                     </div>
                 @endforeach
-
 
             </div>
         </div>
@@ -97,7 +93,6 @@
                     @foreach($rawmaterial as $rawmaterials)
                         <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span> </li>
                     @endforeach
-
 
                 </ul>
             </div>
