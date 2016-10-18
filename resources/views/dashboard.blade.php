@@ -1,22 +1,25 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.master')
+@section('content')
 <head>
     <meta charset="UTF-8">
     <title>HISFA -- Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/master-style.css">
     <link rel="stylesheet" href="/css/dashboard-style.css">
     <link rel="stylesheet" href="/css/donut-style.css">
 </head>
 <body>
+
+
 <div class="dash-container">
     <div class="left">
         <div class="stock">
             <div class="btn-group stock-menu">
                 <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> P15 </button>
                 <div class="dropdown-menu">
-                    @foreach ($quality as $qualities)
-                        <a class="dropdown-item" href="#">{{ $qualities->name }}</a>
+                    @foreach ($qualities as $qualitylist)
+                        <a class="dropdown-item" href="#">{{ $qualitylist->name }}</a>
                     @endforeach
                     </div>
             </div>
@@ -24,7 +27,7 @@
                 @foreach($stockload as $stockloads)
                     <div class="block">
                         <h4>{{ $stockloads->height }}m</h4>
-                        <h2>{{ $stockloads->quantity }}12</h2>
+                        <h2>{{ $stockloads->quantity }}</h2>
                         <p>blocks</p>
                         <span class="tag tag-default tag-pill pull-xs-center">{{ $stockloads->height * $stockloads->quantity }}m³</span>
                     </div>
@@ -56,7 +59,7 @@
                         @else
                             <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
                         @endif
-                            <h4>{{ $silos->primesiloid }}</h4>
+                            <h4>{{ $silos->id }}</h4>
                         <h3>{{ $silos->quantity }}%</h3>
                         <p>{{$silos->type}}</p>
                     </div>
@@ -71,15 +74,15 @@
                 <div class="silo-stats">
                     @foreach($recyclesilo as $silos)
                         <div class=silo-stats-stat>
-                            @if( $silos->volume < 50)
-                                <progress class="progress progress-success" value="{{ $silos->volume }}" max="100"></progress>
-                            @elseif($silos->volume < 90)
-                                <progress class="progress progress-warning" value="{{ $silos->volume }}" max="100"></progress>
+                            @if( $silos->quantity < 50)
+                                <progress class="progress progress-success" value="{{ $silos->quantity }}" max="100"></progress>
+                            @elseif($silos->quantity < 90)
+                                <progress class="progress progress-warning" value="{{ $silos->quantity }}" max="100"></progress>
                             @else
-                                <progress class="progress progress-danger" value="{{ $silos->volume }}" max="100"></progress>
+                                <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
                             @endif
-                            <h4>{{ $silos->recyclesiloid }}</h4>
-                            <h3>{{ $silos->volume }}%</h3>
+                            <h4>{{ $silos->id }}</h4>
+                            <h3>{{ $silos->quantity }}%</h3>
                             <p></p>
                         </div>
                     @endforeach
@@ -95,11 +98,13 @@
                         <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span> </li>
                     @endforeach
 
+
                 </ul>
             </div>
         </div>
     </div>
 </div>
+
 
 
 </body>
@@ -165,9 +170,8 @@
     }
     createPie(".pieID.legend", ".pieID.pie");
 </script>
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 <script src="canvasjs-1.9.2/jquery.canvasjs.min.js"></script>
 <script src="canvasjs-1.9.2/canvasjs.min.js"></script>
 
-</html>
+@endsection

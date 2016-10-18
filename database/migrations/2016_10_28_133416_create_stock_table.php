@@ -13,11 +13,14 @@ class CreateStockTable extends Migration
      */
     public function up()
     {
-        Schema::create('stock', function (Blueprint $table) {
-            $table->increments('stockid');
-            $table->string('qualityid');
+        Schema::create('stocks', function (Blueprint $table) {
+            $table->increments('id');
+
             $table->string('height');
             $table->integer('quantity');
+
+            $table->integer('qualitie_id')->unsigned();
+            $table->foreign('qualitie_id')->references('id')->on('qualities');
             $table->timestamps();
         });
     }
@@ -29,6 +32,6 @@ class CreateStockTable extends Migration
      */
     public function down()
     {
-        Schema::drop('stock');
+        Schema::dropIfExists('stock');
     }
 }
