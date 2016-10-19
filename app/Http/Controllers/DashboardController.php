@@ -46,6 +46,9 @@ class DashboardController extends Controller
             ->get();
         $data['customstock'] = $customstock;
 
+        $qualities = DB::table('qualities')
+            ->select('name','id')->get();
+        $data['qualities'] = $qualities;
 
 
 

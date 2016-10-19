@@ -27,6 +27,10 @@ class SiloController extends Controller
     {
         $primesiloinhoud = \App\Primesilo::all();
         $data['primesilo'] = $primesiloinhoud;
+
+        $rawmaterial = \App\Rawmaterial::all();
+        $data['rawmaterial'] = $rawmaterial;
+        
         return view('silo', $data);
     }
 
