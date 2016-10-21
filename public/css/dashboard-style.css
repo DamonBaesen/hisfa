@@ -133,8 +133,13 @@ h5{
 .log-console{
     padding: 1em;
     color: white;
-}
 
+}
+.log-console p{
+    margin-bottom: 0.2em;
+    font-size: 0.8em;
+
+}
 /* event log*/
 
 .event-log{
@@ -142,7 +147,8 @@ h5{
      border: 1px solid #434857;
     height: 48%;
     border-radius: 4px;
-    
+    overflow: hidden;
+
 }
 .event-log h5{
     padding: 1em;
