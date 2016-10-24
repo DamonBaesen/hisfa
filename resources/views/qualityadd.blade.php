@@ -5,30 +5,32 @@
         <div class="row">
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
-                <h3>Edit rawmaterial</h3>
+                <h3>Add new quality</h3>
                 <form class="form-horizontal" role="form" method="POST" action="">
                     {{ csrf_field() }}
                     <fieldset>
-
                     <div class="form-group">
-                        <label for="textType" class="control-label col-sm-2">Type</label>
+                        <label for="textName" class="control-label col-sm-2">Name</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="textType" name="textType" placeholder="P50"  required="">
-                        </div>
-                        </div>
-
-                    <div class="form-group">
-                        <label for="textQuantity" class="control-label col-sm-2">Quantity:</label>
-                        <div class="col-sm-10">
-                            <input type="int" class="form-control" id="textQuantity" name="textQuantity" required="">
+                            <input type="text" class="form-control" id="textName" name="textName" required="">
                         </div>
                     </div>
 
+                    <div class="form-group">
+                        <label for="textHardness" class="control-label col-sm-2">Hardness:</label>
+                        <div class="col-sm-10">
+                            <select name="textHardness" id="textHardness">
+                                <option value="Soft">Soft</option>
+                                <option value="Medium">Medium</option>
+                                <option value="Hard">Hard</option>
+                            </select>
+                        </div>
+                    </div>
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
                         <div class="text-left col-sm-10">
-                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Save material</button>
+                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Add silo</button>
                         </div>
                     </div>
                     </fieldset>

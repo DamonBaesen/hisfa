@@ -1,0 +1,232 @@
+body{
+	background-color: #252830;
+}
+
+
+.navbar-default {
+	background-color: black;
+	border: none;
+}
+
+.navbar-default a {
+	font-family: arial black
+}
+
+.navbar-default .navbar-nav>li>a, .navbar-default .navbar-text {
+    color: white;
+}
+
+.navbar-default .navbar-brand {
+   color: white;
+}
+
+.select-blocks{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 3em;
+}
+
+.block-input{
+    width:6em;
+    height: 8em;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+}
+.fig-block{
+
+    background-color:whitesmoke;
+    width: 6em;
+    height: 12em;
+    color: black;
+    text-align: center;
+    padding-top: 4em;
+}
+
+.block-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.config-stock{
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+.config-stock h3{
+    padding: 0.3em;
+    color: white;
+
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #434857;
+}
+.nav-tabs .nav-item:first-child{
+    margin-left: 0.2em;
+}
+.nav-tabs .nav-link:hover {
+    border-color: #434857 ;
+}
+
+.center{
+    margin-left: auto;
+    margin-right: auto;
+
+    float: none;
+}
+
+.config-stock-view{
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+.config-stock-view .btn-submit-block{
+    margin-top: 1em;
+}
+.config-stock-view .question-title{
+    margin-top: 1em;
+}
+.form-group{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+body{
+    background-color: #252830;
+
+}
+.dash-container{
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+
+    display: flex;
+    flex-direction: row;
+}
+.stock{
+    border: 1px solid #434857;
+    height: 48%;
+    border-radius: 4px;
+
+}
+.stock-menu{
+    padding: 0.5em;
+}
+.stock-blocks{
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+}
+
+/* donut graph - raw materials */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+@keyframes bake-pie {
+  from {
+    transform: rotate(0deg) translate3d(0,0,0);
+  }
+}
+
+
+
+.pieID {
+  display: inline-block;
+  vertical-align: top;
+}
+.pie {
+  height: 150px;
+  width: 150px;
+    margin-top: 0.5em;
+    margin-left: 3.5em;
+    margin-right: auto;
+  position: relative;
+
+}
+.pie::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 75px;
+  height: 75px;
+  background: #252830;
+  border-radius: 50%;
+  top: 37px;
+  left: 37px;
+}
+
+.slice {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  clip: rect(0px, 150px, 150px, 75px);
+  animation: bake-pie 1s;
+}
+.slice span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  clip: rect(0px, 150px, 150px, 75px);
+}
+.legend {
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+    color: white;
+  margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 3em;
+
+  font-size: 13px;
+
+}
+.legend li {
+  width: 50px;
+  height: 1.25em;
+  margin-bottom: 0.7em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+  padding-left: 0.5em;
+  border-top: 0.5em solid black;
+
+}
+.legend em {
+  font-size: 0.8em;
+}
+.legend h1{
+  float: right;
+}
+
+#inputQuantity{
+    margin-top: 10px;
+    width: 100%;
+}
+#addMaterial{
+    margin-top: 5px;
+    width: 100%;
+    text-align: center;
+
+}
+
+
+
+
+

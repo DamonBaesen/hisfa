@@ -1,0 +1,165 @@
+
+
+
+.left{
+    width:40%;
+}
+.by{
+   
+}
+.ty:first-child {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.ty {
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #434857;
+}
+.tu {
+    position: relative;
+    display: flex;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: transparent;
+    border: 1px solid #434857;
+    
+    flex-direction: row;
+}
+.tu h5{
+    width: 24.5%;
+    color: white;
+}
+.tu .first{
+    color: #1997C6;
+}
+
+.right{
+ width: 60%;
+ margin-left: 1em;
+ display: flex;
+ justify-content: space-between;
+ flex-direction: column;
+}
+.cgp{
+    height: 48%;
+   border: 1px solid #434857;
+    margin-bottom: 1em;
+    border-radius: 4px;
+    padding: 1em;
+    padding-top:0.5em;
+}
+h5{
+    color:white;
+    font-size: 0.8rem;
+}
+.silo-stats progress{
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+    
+}
+.progress {
+    display: block;
+    width: 150px !important;
+    height: 2rem;
+    margin: auto;
+    margin-bottom: 4.5rem;
+    margin-left: -1.8em;
+}
+.silo-stats{
+    display: flex;
+    margin-top: 5em;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    
+    color:white;
+}
+.silo-stats-stat{
+    width:6em;
+}
+.silo-stats-stat h4{
+    font-size: 0.8em;
+    margin-bottom: .1rem;
+
+}
+.silo-stats-stat h3{
+    font-size: 1em;
+    margin-bottom: .1rem;
+    color:#1997C6
+}
+.silo-stats-stat p{
+    font-size: 0.8em;
+    margin-bottom: .1rem;
+}
+.cgps{
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cgr{
+    width: 50%;
+    border: 1px solid #434857;
+    border-radius: 4px;
+    padding: 1em;
+}
+.cgr .silo-stats{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.cgg{
+    width: 48%;
+    border: 1px solid #434857;
+    
+    border-radius: 4px;
+}
+.cgg h5{
+    padding-top:1em;
+    padding-left: 1em;
+}
+
+/* css add-stock */
+
+
+/* dash2*/
+
+
+.log-console{
+    padding: 1em;
+    color: white;
+
+}
+.log-console p{
+    margin-bottom: 0.2em;
+    font-size: 0.8em;
+
+}
+/* event log*/
+
+.event-log{
+    margin-top: 1em;    
+     border: 1px solid #434857;
+    height: 48%;
+    border-radius: 4px;
+    overflow: hidden;
+
+}
+.event-log h5{
+    padding: 1em;
+    border-bottom: 1px solid #434857;
+}
+/* stock */
+
+
+
+
+/* donut graph */ 
+
+    
+
