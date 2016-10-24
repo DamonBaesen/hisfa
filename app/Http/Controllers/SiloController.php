@@ -30,7 +30,7 @@ class SiloController extends Controller
 
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
-        
+
         return view('silo', $data);
     }
 
