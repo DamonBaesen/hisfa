@@ -29,13 +29,13 @@
                 </div>
                 <!-- Branding Image -->
                 <div class="navigation-links">
-                    <a href=""><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
-                    <a href=""><span class="turn90 glyphicon glyphicon-tasks" aria-hidden="true"></span></a>
-                    <a href=""><span class="glyphicon glyphicon-retweet" aria-hidden="true"></span></a>
-                    <a href=""><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span></a>
-                    <a href=""><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a>
-                    <a href=""><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
-                    <a href=""><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+                    <a href="{{ url('/dashboard') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+                    <a href="{{ url('/silo') }}"><span class="turn90 glyphicon glyphicon-tasks" aria-hidden="true"></span></a>
+                    <a href="{{ url('/recyclesilo') }}"><span class="glyphicon glyphicon-retweet" aria-hidden="true"></span></a>
+                    <a href="{{ url('/rawmatirial') }}"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span></a>
+                    <a href="{{ url('/logs') }}"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a>
+                    <a href="{{ url('/account') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                    <a href="{{ url('/logout') }}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
                 </div>
 
             </div>
