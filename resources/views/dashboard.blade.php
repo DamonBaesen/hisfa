@@ -60,7 +60,7 @@
                             @endif
                             <h4>{{ $silos->id }}</h4>
                             <h3>{{ $silos->quantity }}%</h3>
-                            <p>{{$silos->type}}</p>
+                            <p>{{$silos->grondstof->type}}</p>
                         </div>
                     @endforeach
 

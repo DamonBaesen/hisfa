@@ -30,7 +30,7 @@
                                     <h4>{{ $silos->id }}</h4>
                                     <input id="type" name="type" type="text" placeholder="vol%" class="form-control input-md" required="" value="{{ $silos->quantity }}%">
                                     <div class="btn-group silo-menu">
-                                        <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ $silos->type }}</button>
+                                        <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ $silos->grondstof->type }}</button>
                                         <div class="dropdown-menu">
                                             @foreach ($rawmaterial as $rawmaterials)
                                                 <a class="dropdown-item" href="#">{{ $rawmaterials->type }}</a>

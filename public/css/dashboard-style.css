@@ -2,7 +2,7 @@
 
 
 .left{
-    width:40%;
+    width:37%;
 }
 .by{
    
@@ -132,6 +132,7 @@ h5{
 
 .log-console{
     padding: 1em;
+    padding-top: 0.5em;
     color: white;
 
 }
@@ -144,7 +145,7 @@ h5{
 
 .event-log{
     margin-top: 1em;    
-     border: 1px solid #434857;
+    border: 1px solid #434857;
     height: 48%;
     border-radius: 4px;
     overflow: hidden;
@@ -152,6 +153,8 @@ h5{
 }
 .event-log h5{
     padding: 1em;
+
+    margin:0;
     border-bottom: 1px solid #434857;
 }
 /* stock */
