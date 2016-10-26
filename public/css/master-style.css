@@ -1,0 +1,79 @@
+body{
+    background-color: #252830;
+    
+}
+.dash-container{
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+    height: 85vh;
+    display: flex;
+    flex-direction: row;
+}
+.stock{
+    border: 1px solid #434857;
+    height: 48%;
+    border-radius: 4px;
+    
+}
+.stock-menu{
+    padding: 0.5em;
+}
+.stock-blocks{
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+}
+.block{
+    
+    padding: 1em;
+    text-align: center;
+    width: 6em;
+    height: 11em;
+    background-color: whitesmoke;
+    color: black;
+    border-radius: 4px;
+}
+.stock-blocks .block{
+    margin-left: 1em;
+    
+}
+.block h2{
+    color: #D9534F;
+}
+.block p{
+    color: #1997C6;
+}
+
+/* style dropdown */
+
+.dashboard-stock-select-btn{
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+    background-image: none;
+}
+.dashboard-stock-select-btn:hover{
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+    background-image: none;
+}
+.dashboard-stock-select-btn:focus{
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+    background-image: none;
+}
+.dashboard-stock-select-btn:active{
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+    background-image: none;
+}
+.open>.btn-secondary.dropdown-toggle:focus, .open>.btn-secondary.dropdown-toggle:hover {
+    color: white;
+    background-color: transparent;
+    border-color: transparent;
+    background-image: none;
+}

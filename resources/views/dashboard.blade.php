@@ -23,23 +23,25 @@
                     </div>
                 </div>
                 <div class="stock-blocks">
-                    @foreach($stockload as $stockloads)
+                    @foreach($selectQuality as $selectQualities)
                         <div class="block">
-                            <h4>{{ $stockloads->height }}m</h4>
-                            <h2>{{ $stockloads->quantity }}</h2>
+                            <h4>{{ $selectQualities->height }}m</h4>
+                            <h2>{{ $selectQualities->quantity }}</h2>
                             <p>blocks</p>
-                            <span class="tag tag-default tag-pill pull-xs-center">{{ $stockloads->height * $stockloads->quantity }}m³</span>
+                            <span class="tag tag-default tag-pill pull-xs-center">{{ $selectQualities->height * $selectQualities->quantity }}m³</span>
                         </div>
                     @endforeach
+
+
                 </div>
 
             </div>
             <div class="event-log" >
                 <h5>Event log</h5>
                 <div class="log-console">
-                    <p>damon at net een pizza</p>
-                    <p>damon gaat nog eens voor een pizza</p>
-                    <p>damon neemt het pizza buffet</p>
+                    @foreach($eventlog as $eventlogs)
+                    <p>{{ $eventlogs->action }}</p><p>{{ $eventlogs->sector }}</p>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -58,9 +60,10 @@
                             @endif
                             <h4>{{ $silos->id }}</h4>
                             <h3>{{ $silos->quantity }}%</h3>
-                            <p>{{$silos->type}}</p>
+                            <p>{{$silos->grondstof->type}}</p>
                         </div>
                     @endforeach
+
 
                 </div>
             </div>
@@ -94,12 +97,12 @@
                             <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span> </li>
                         @endforeach
 
+
                     </ul>
                 </div>
             </div>
         </div>
     </div>
-
 
     </body>
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
@@ -169,4 +172,3 @@
     <script src="canvasjs-1.9.2/canvasjs.min.js"></script>
 
 @endsection
-
