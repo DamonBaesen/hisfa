@@ -12,7 +12,7 @@
                 
                 
                 <h3>Custom block overview</h3>
-                @foreach ($stock as $blok)
+                @foreach ($customstock as $blok)
                 <p>Van bloktype {{ $blok->stok->name }} met lengte {{ $blok->height }} zijn er op dit moment {{ $blok->quantity }} blokken.</p>
                 @endforeach
                 <ul>
