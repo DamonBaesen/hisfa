@@ -22,7 +22,7 @@ class AccountController extends Controller
 {
     public function getData(){
 
-            return view('account');
+            return view('account.index');
 
     }
 
@@ -55,7 +55,7 @@ class AccountController extends Controller
                     array('name' => $name, 'email' => $email, 'password' => $password, 'foto' => $fileName )
                 );
                 
-                return view('account');
+                return view('account.index');
             
          
                 
@@ -67,7 +67,7 @@ class AccountController extends Controller
     
     protected function addShow()
     {
-        return view('accountadd');
+        return view('account.add');
     }
 
 

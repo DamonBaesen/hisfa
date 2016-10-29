@@ -19,7 +19,7 @@ class QualityController extends Controller
     {
         $data = DB::table('qualities')->get();
 
-        return view('quality' ,compact('data'));
+        return view('quality.index' ,compact('data'));
     }
 
     public function add()
@@ -31,14 +31,12 @@ class QualityController extends Controller
             array('name' => $name, 'hardness' => $hardness)
         );
 
-        $data = DB::table('qualities')->get();
-
-        return view('quality' ,compact('data'));
+        return redirect('quality');
     }
     
     public function addShow()
     {
-        return view('qualityadd');
+        return view('quality.add');
     }
     
     public function edit($id)
@@ -48,23 +46,21 @@ class QualityController extends Controller
         
         \App\Qualitie::where('id', '=', $id)->update(array('name' => $name, 'hardness' => $hardness));
 
-        $data = DB::table('qualities')->get();
-
-        return view('quality' ,compact('data'));
+        return redirect('quality');
     }
 
     public function editShow()
     {
-        return view('qualityedit');
+        return view('quality.edit');
     }
 
     public function remove($id)
     {
         Qualitie::whereId($id)->delete();
-        
-        $data = DB::table('qualities')->get();
 
-        return view('quality' ,compact('data'));
+
+
+        return redirect('quality');
     }
 }
 

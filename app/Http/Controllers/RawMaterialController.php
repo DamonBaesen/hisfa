@@ -28,7 +28,7 @@ class RawMaterialController extends Controller
     {
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
-        return view('/rawmaterial/rawmaterial', $data);
+        return view('rawmaterial.index', $data);
     }
 
     public function add()
@@ -39,18 +39,18 @@ class RawMaterialController extends Controller
         DB::table('rawmaterials')->insertGetId(
             array('quantity' => $quantity, 'type' => $type)
         );
-        return redirect('/rawmaterial/');
+        return redirect('rawmaterial');
     }
     
     public function addShow()
     {
-        return view('/rawmaterial/rawmaterialadd');
+        return view('rawmaterial.add');
     }
 
     public function remove($id)
     {
         DB::table('rawmaterials')->where('id', '=', $id)->delete();
-        return redirect('/rawmaterial/');
+        return redirect('rawmaterial');
     }
     
     public function edit($id)
@@ -60,13 +60,16 @@ class RawMaterialController extends Controller
         
         \App\Rawmaterial::where('id', '=', $id)->update(array('quantity' => $quantity, 'type' => $type));
 
-        return redirect('/rawmaterial/');
+        return redirect('rawmaterial');
     }
 
     public function editShow($id)
     {
-        $rawmaterial = \App\Rawmaterial::where('id', '=', $id)->get();
-        return redirect('/rawmaterial/');
+        $rawmatarials = \App\Rawmaterial::where('id', '=', $id)->get();
+
+        $data['rawmaterials'] = $rawmatarials;
+
+        return view('rawmaterial.edit', $data);
     }
     
 }
