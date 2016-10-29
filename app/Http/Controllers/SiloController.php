@@ -17,7 +17,6 @@ class SiloController extends Controller
      * @return void
      */
 
-
     /**
      * Show the application dashboard.
      *
@@ -31,7 +30,7 @@ class SiloController extends Controller
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
 
-        return view('/silo/silo', $data);
+        return view('silo.index', $data);
     }
 
     public function add()
@@ -42,19 +41,19 @@ class SiloController extends Controller
             array('quantity' => '0', 'id' => $id, 'rawmaterial_id' => 6)
         );
 
-        return redirect('/silo/');
+        return redirect('silo');
     }
 
     public function addShow()
     {
-        return view('/silo/siloadd');
+        return view('silo.add');
     }
 
     public function remove($id)
     {
         DB::table('primesilos')->where('id', '=', $id)->delete();
 
-        return redirect('/silo/');
+        return redirect('silo');
     }
 
     public function edit($id)
@@ -67,7 +66,7 @@ class SiloController extends Controller
         if($quantity >= 90){
             app('App\Http\Controllers\EmailController')->send($id, $quantity);
         }
-        return redirect('/silo/');
+        return redirect('silo');
     }
 
     public function editShow($id)
@@ -82,7 +81,7 @@ class SiloController extends Controller
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
 
-        return view('/silo/siloedit', $data);
+        return view('silo.edit', $data);
     }
 
 }
