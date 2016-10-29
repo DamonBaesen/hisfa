@@ -26,7 +26,7 @@ class RecycleSiloController extends Controller
     {
         $recyclesiloinhoud = \App\Recyclesilo::all();
         $data['recyclesilo'] = $recyclesiloinhoud;
-        return view('recyclesilo', $data);
+        return view('/recyclesilo/recyclesilo', $data);
     }
 
     public function add()
@@ -37,9 +37,7 @@ class RecycleSiloController extends Controller
             array('quantity' => '0', 'id' => $id, 'type' => $hardness)
         );
 
-        $recyclesiloinhoud = \App\Recyclesilo::all();
-        $data['recyclesilo'] = $recyclesiloinhoud;
-        return view('recyclesilo', $data);
+        return redirect('/recyclesilo/');
     }
 
     public function addShow()
@@ -51,9 +49,7 @@ class RecycleSiloController extends Controller
     {
         DB::table('recyclesilos')->where('id', '=', $id)->delete();
 
-        $recyclesiloinhoud = \App\Recyclesilo::all();
-        $data['recyclesilo'] = $recyclesiloinhoud;
-        return view('recyclesilo', $data);
+        return redirect('/recyclesilo/');
     }
 
     public function edit($id)
@@ -63,15 +59,10 @@ class RecycleSiloController extends Controller
         $hardness = Input::get('txtHardheid');
         \App\Recyclesilo::where('id', '=', $id)->update(array('id' => $newID, 'quantity' => $quantity, 'type' => $hardness));
 
-        $recyclesiloinhoud = \App\Recyclesilo::all();
-        $data['recyclesilo'] = $recyclesiloinhoud;
-
-
-
         if($quantity >= 90){
             app('App\Http\Controllers\EmailController')->send($id, $quantity);
         }
-        return view('recyclesilo', $data);
+        return redirect('/recyclesilo/');
     }
 
     public function editShow($id)
@@ -83,7 +74,7 @@ class RecycleSiloController extends Controller
 
         $data['recyclesilo'] = $recyclesiloinhoud;
 
-        return view('recyclesiloedit', $data);
+        return view('/recyclesilo/recyclesiloedit', $data);
     }
 
 }

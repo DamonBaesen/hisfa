@@ -18,17 +18,17 @@ class RawMaterialController extends Controller
      * @return void
      */
 
-
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
-        return view('rawmaterial', $data);
+        return view('/rawmaterial/rawmaterial', $data);
     }
 
     public function add()
@@ -36,27 +36,21 @@ class RawMaterialController extends Controller
         $type = Input::get('textType');
         $quantity = Input::get('textQuantity');
 
-        $id = DB::table('rawmaterials')->insertGetId(
+        DB::table('rawmaterials')->insertGetId(
             array('quantity' => $quantity, 'type' => $type)
         );
-
-        $rawmaterial = \App\Rawmaterial::all();
-        $data['rawmaterial'] = $rawmaterial;
-        return view('rawmaterial', $data);
+        return redirect('/rawmaterial/');
     }
     
     public function addShow()
     {
-        return view('rawmaterialadd');
+        return view('/rawmaterial/rawmaterialadd');
     }
 
     public function remove($id)
     {
         DB::table('rawmaterials')->where('id', '=', $id)->delete();
-        
-        $rawmaterial = \App\Rawmaterial::all();
-        $data['rawmaterial'] = $rawmaterial;
-        return view('rawmaterial', $data);
+        return redirect('/rawmaterial/');
     }
     
     public function edit($id)
@@ -66,20 +60,13 @@ class RawMaterialController extends Controller
         
         \App\Rawmaterial::where('id', '=', $id)->update(array('quantity' => $quantity, 'type' => $type));
 
-        $rawmaterial = \App\Rawmaterial::all();
-        $data['rawmaterial'] = $rawmaterial;
-
-        return view('rawmaterial', $data);
+        return redirect('/rawmaterial/');
     }
 
     public function editShow($id)
     {
         $rawmaterial = \App\Rawmaterial::where('id', '=', $id)->get();
-
-        $rawmaterial = \App\Rawmaterial::all();
-        $data['rawmaterial'] = $rawmaterial;
-
-        return view('rawmaterialedit', $data);
+        return redirect('/rawmaterial/');
     }
     
 }
