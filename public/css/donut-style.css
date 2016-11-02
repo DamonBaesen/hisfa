@@ -8,7 +8,11 @@
 }
 
 
-
+.char{
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+}
 .pieID {
   display: inline-block;
   vertical-align: top;
@@ -17,7 +21,7 @@
   height: 150px;
   width: 150px;
     margin-top: 0.5em;
-  margin-left: 6em;
+    margin-left: auto;
     margin-right: auto;
   position: relative;
  
@@ -29,7 +33,7 @@
   z-index: 1;
   width: 75px;
   height: 75px;
-  background: #252830;
+  background: #1C2F3C;
   border-radius: 50%;
   top: 37px;
   left: 37px;
@@ -54,7 +58,7 @@
   clip: rect(0px, 150px, 150px, 75px);
 }
 .legend {
-    color: white;
+    color: #F5F5F5;
  margin-top: 1em;
     display: flex;
     flex-direction: row;
