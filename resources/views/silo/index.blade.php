@@ -38,10 +38,11 @@
                                         </div>
                                     </div>
                                     <a href="/silo/remove/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                                        <a href="/silo/edit/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 
                                 </div>
                             @endforeach
-                            <div id="new-silo" class=silo-stats-stat>
+                            <div id="new-silo" class=silo-stats-stat onclick="window.location.href='/silo/add'">
                                 <span class="icon-plus glyphicon glyphicon-plus" aria-hidden="true"></span>
                             </div>
                         </div>
