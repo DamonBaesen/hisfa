@@ -19,7 +19,7 @@
                     <div class="contain">
                         <div class="silo-stats">
                             @foreach($primesilo as $silos)
-                                <div class=silo-stats-stat>
+                                <div class=silo-stats-stat onclick="window.location.href='/silo/edit/{{$silos->id}}'">
                                     @if( $silos->quantity < 50)
                                         <progress class="progress progress-success" value="{{ $silos->quantity }}" max="100"></progress>
                                     @elseif($silos->quantity < 90)
@@ -29,14 +29,7 @@
                                     @endif
                                     <h4>{{ $silos->id }}</h4>
                                     <input id="type" name="type" type="text" placeholder="vol%" class="form-control input-md" required="" value="{{ $silos->quantity }}%">
-                                    <div class="btn-group silo-menu">
-                                        <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> {{ $silos->grondstof->type }}</button>
-                                        <div class="dropdown-menu">
-                                            @foreach ($rawmaterial as $rawmaterials)
-                                                <a class="dropdown-item" href="#">{{ $rawmaterials->type }}</a>
-                                            @endforeach
-                                        </div>
-                                    </div>
+                                    <p>{{$silos->grondstof->type}}</p>
                                     <a href="/silo/remove/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                         <a href="/silo/edit/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 
