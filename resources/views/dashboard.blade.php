@@ -13,7 +13,7 @@
 
     <div class="dash-container">
         <div class="left">
-            <div class="stock" onclick="window.location.href='/block'">
+            <div class="stock" >
                 <div class="btn-group stock-menu">
                     <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> P15 </button>
                     <div class="dropdown-menu">
@@ -22,7 +22,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="stock-blocks">
+                <div class="stock-blocks" onclick="window.location.href='/block'">
                     @foreach($selectQuality as $selectQualities)
                         <div class="block">
                             <h4>{{ $selectQualities->height }}m</h4>

@@ -16,7 +16,6 @@ class SiloController extends Controller
      *
      * @return void
      */
-
     /**
      * Show the application dashboard.
      *
