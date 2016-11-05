@@ -25,7 +25,7 @@ class LogoutController extends Controller
 
         Session::flush();
 
-        return redirect('/');
+        return redirect('/'); 
 
     }
 }
