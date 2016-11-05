@@ -13,7 +13,7 @@
                     <div class="form-group">
                         <label for="textName" class="control-label col-sm-2">Name:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="textName" name="textName" required="">
+                            <input type="text" class="form-control" id="textName" name="textName" required="" value="P15">
                         </div>
                     </div>
 
@@ -28,7 +28,8 @@
                             </select>
                         </div>
                     </div>
-
+                  
+                    
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
                         <div class="text-left col-sm-10">
