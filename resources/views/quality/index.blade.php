@@ -15,7 +15,7 @@
                 @endforeach
                 <hr/>
                 <div id="blockMenu" >
-                    <a href="{{ url('/quality/add') }}">Add block</a>
+                    <a href="{{ url('/quality/add') }}">Add quality</a>
                 </div>
 
             </div>
