@@ -16,15 +16,10 @@
             <h3>Configure rawmaterials</h3>
             
             <ul class="nav nav-tabs">
-                <li class="nav-item"> <a class="nav-link" href="">Edit rawmaterial</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="/rawmaterial/add">Add new rawmaterial</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="/rawmaterial/add">Add new rawmaterial</a> </li>
             </ul>
             <div class="config-stock-view">                   
-                    <div class="title-right">
-                        <button type="button" class="btn btn-primary">Rename rawmaterial</button>
-                        <button type="button" class="btn btn-danger">Delete rawmaterial</button>
-                    </div>
-                </div>
+
                 <div class="select-blocks">
 
                 <div class="cgg">
