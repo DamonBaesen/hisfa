@@ -21,9 +21,23 @@
                         <label for="txtHardheid" class="control-label col-sm-2">Hardness:</label>
                         <div class="col-sm-10">
                             <select name="txtHardheid" id="txtHardheid">
-                                <option value="Soft">Soft</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Hard">Hard</option>
+                                @if($silos->type == "Soft")
+                                <option selected value="Soft">Soft</option>
+                                @else
+                                    <option value="Soft">Soft</option>
+                                @endif
+
+                                    @if($silos->type == "Medium")
+                                        <option selected value="Medium">Medium</option>
+                                    @else
+                                        <option value="Medium">Medium</option>
+                                    @endif
+
+                                    @if($silos->type == "Hard")
+                                        <option selected value="Hard">Hard</option>
+                                    @else
+                                        <option value="Hard">Hard</option>
+                                    @endif
                             </select>
                         </div>
                     </div>
