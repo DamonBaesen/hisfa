@@ -27,7 +27,7 @@ class QualityController extends Controller
         $name = Input::get('textName');
         $hardness = Input::get('textHardness');
         
-        $id = DB::table('qualities')->insertGetId(
+        $id = DB::table('qualities')->insert(
             array('name' => $name, 'hardness' => $hardness)
         );
 
@@ -41,6 +41,8 @@ class QualityController extends Controller
     
     public function edit($id)
     {
+        
+        
         $name = Input::get('textName');
         $hardness = Input::get('textHardness');
         
@@ -49,17 +51,23 @@ class QualityController extends Controller
         return redirect('quality');
     }
 
-    public function editShow()
+    public function editShow($id)
     {
-        return view('quality.edit');
+        $qualitie = \App\Qualitie::find($id);
+        $qualities = \App\Qualitie::all();
+        $data['qualties'] = $qualities;
+        $data['qualitie'] = $qualitie;
+       
+        return view('quality.edit', compact('data'));
+        
+        
     }
 
     public function remove($id)
     {
-        Qualitie::whereId($id)->delete();
-
-
-
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Qualitie::destroy($id);
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
         return redirect('quality');
     }
 }
