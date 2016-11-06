@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Mail;
 use App\User;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -12,18 +13,22 @@ class EmailController extends Controller
 
     public function send($id, $percentage){
 
-
         $title = "Hallo,";
 
-        Mail::send('mails.send', ['title' => $title, 'id' => $id, 'percentage' => $percentage], function ($message)
-        {
+        $users = DB::table('users')->where('mail', '=', 1)->pluck('email');
 
-            $message->to('vermost.w@gmail.com');
+        foreach ($users as $user) {
 
-        });
+            Mail::send('mails.send', ['title' => $title, 'id' => $id, 'percentage' => $percentage], function ($message) use ($user)
+            {
+
+                $message->to($user);
+
+            });
+
+        }
 
 
 
     }
-
 }

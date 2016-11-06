@@ -13,62 +13,34 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/forms.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/navigation-style.css">
 
 </head>
 <body>
-    <nav class="navbar navbar-default navbar-static-top">
+    <nav class="navigation-bar">
         <div class="container">
-            <div class="navbar-header">
+            <div class="navigation">
 
                 <!-- Collapsed Hamburger -->
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse">
-                    <span class="sr-only">Toggle Navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-
+                <div>
+                    <a class="navigation-title" href="{{ url('/') }}">
+                        HISFA
+                    </a>
+                </div>
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    HISFA
-                </a>
+                <div class="navigation-links">
+                    <a href="{{ url('/dashboard') }}"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+                    <a href="{{ url('/silo') }}"><span class="turn90 glyphicon glyphicon-tasks" aria-hidden="true"></span></a>
+                    <a href="{{ url('/recyclesilo') }}"><span class="glyphicon glyphicon-retweet" aria-hidden="true"></span></a>
+                    <a href="{{ url('/rawmaterial') }}"><span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span></a>
+                    <a href="{{ url('/history') }}"><span class="glyphicon glyphicon-bell" aria-hidden="true"></span></a>
+                    <a href="{{ url('/account') }}"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+                    <a href="{{ url('/logout') }}"><span class="glyphicon glyphicon-off" aria-hidden="true"></span></a>
+                </div>
+
             </div>
 
-            <div class="collapse navbar-collapse" id="app-navbar-collapse">
-                <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    &nbsp;
-                </ul>
 
-                <!-- Right Side Of Navbar -->
-                <ul class="nav navbar-nav navbar-right">
-                    <!-- Authentication Links -->
-                    @if (Auth::guest())
-                        <li><a href="{{ url('/account') }}">ACCOUNT</a></li>
-                        <li><a href="{{ url('/silo') }}">SILO'S</a></li>
-                    @else
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
-                            </a>
-
-                            <ul class="dropdown-menu" role="menu">
-                                <li>
-                                    <a href="{{ url('/logout') }}"
-                                        onclick="event.preventDefault();
-                                                 document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
-
-                                    <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-                                        {{ csrf_field() }}
-                                    </form>
-                                </li>
-                            </ul>
-                        </li>
-                    @endif
-                </ul>
-            </div>
         </div>
     </nav>
 

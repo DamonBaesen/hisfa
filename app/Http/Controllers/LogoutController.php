@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Foundation\Auth;
+use Session;
 
 class LogoutController extends Controller
 {
@@ -20,6 +22,9 @@ class LogoutController extends Controller
      */
     public function index()
     {
-        return view('logout');
+
+        Session::flush();
+
+        return redirect('/');
     }
 }

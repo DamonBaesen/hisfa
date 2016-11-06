@@ -1,0 +1,49 @@
+
+    .navigation-bar {
+        border-radius: 0;
+        background-color: black;
+    }
+    .navigation{
+        height: 50px;
+        padding: 15px 15px;
+        line-height: 20px;
+        color: whitesmoke;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .navigation-title{
+        padding-top: .25rem;
+        padding-bottom: .25rem;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        color: whitesmoke;
+    }
+    .navigation-title:hover{
+        color: whitesmoke;
+        text-decoration: none;
+    }
+    .turn90{
+        -webkit-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+        transform: rotate(-90deg);
+    }
+    .navigation-links a{
+        font-size: 1.25rem;
+        color: whitesmoke;
+        border-left: 1px solid whitesmoke;
+        padding-left: 1em;
+        padding-right: 1em;
+    }
+    .navigation-links a:first-child{
+        border-left: 0;
+    }
+    .navigation-links a:hover{
+        color: whitesmoke;
+        text-decoration: none;
+    }
+   
+

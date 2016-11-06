@@ -5,7 +5,7 @@
         <div class="row">
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
-                <h3>Add new silo</h3>
+                <h3>Edit silo</h3>
                 <form class="form-horizontal" role="form" method="POST" action="">
                     {{ csrf_field() }}
 
@@ -14,9 +14,13 @@
                         <label for="txtGrondstof" class="control-label col-sm-2">Rawmaterial:</label>
                         <div class="col-sm-10">
                             <select name="txtGrondstof" id="txtGrondstof">
-                                @foreach($primesilos as $silo)
-                                    <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$silo->rawmaterial_id}}">{{$silo->grondstof->type}}</option>
-                                    @endforeach
+                                @foreach($rawmaterial as $rawmaterials)
+                                    @if($rawmaterials->type == $silos->grondstof->type)
+                                    <option class="form-control" selected id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
+                                    @else
+                                        <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
+                                    @endif
+                                        @endforeach
                             </select>
                         </div>
                     </div>
@@ -29,7 +33,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="txtHoeveelheid" class="control-label col-sm-2">Silonr°:</label>
+                        <label for="txtHoeveelheid" class="control-label col-sm-2">Quantity:</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="txtQuantity" min="0" max="100" name="txtHoeveelheid" value="{{$silos->quantity}}" required="">
                         </div>

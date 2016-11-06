@@ -1,0 +1,73 @@
+body{
+    height: 80vh;
+}
+.silo-container{
+    border: 1px solid #434857;
+    margin:1em;
+    padding: 0.5em;
+    border-radius: 4px;
+    height: 100%;
+    width: 96%;
+    color: white;
+}
+.contain{
+    width: 80%;
+
+
+    margin-left:auto;
+    margin-right: auto;
+}
+.silo-stats{
+    margin-top: 0;
+}
+.silo-stats-stat{
+    width: 8em;
+    height: 22em;
+
+    border: none;
+    border-radius: 6px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.silo-stats-stat input{
+    color: #1997C6;
+    width: 4.5em;
+    font-size: 0.8em;
+    margin-left: auto;
+    margin-right: auto;
+}
+.silo-menu{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.silo-stats-stat .progress{
+    margin-left: -0.6em;
+}
+.config-icon{
+    font-size: 2em;
+}
+.silo-title{
+    display: flex;
+    padding: 1em;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.silo-delete{
+    visibility: hidden;
+    padding: 1em;
+    margin-bottom: 1em;
+}
+.silo-delete span{
+    color: #FF4A49;
+}
+.icon-plus{
+
+    font-size: 2em;
+    color: gray;
+    margin-top: 5em;
+}
+#new-silo{
+    display: none;
+}

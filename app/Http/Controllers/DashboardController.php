@@ -38,6 +38,10 @@ class DashboardController extends Controller
                 ->get();
             $data['stock'] = $stock;
 
+        $selectQuality =\App\Stock::with('stok')
+            ->where('qualitie_id','1')
+            ->get();
+        $data['selectQuality'] = $selectQuality;
 
         $customstock = \App\Stock::with('stok')
             ->where('height', '!=' ,'4')
@@ -46,8 +50,12 @@ class DashboardController extends Controller
             ->get();
         $data['customstock'] = $customstock;
 
+        $qualities = DB::table('qualities')
+            ->select('name','id')->get();
+        $data['qualities'] = $qualities;
 
-
+        $eventlog = \App\History::all();
+            $data['eventlog'] = $eventlog;
 
         return view('dashboard', $data);
 

@@ -18,7 +18,7 @@ class CreateStockTable extends Migration
 
             $table->string('height');
             $table->integer('quantity');
-
+        
             $table->integer('qualitie_id')->unsigned();
             $table->foreign('qualitie_id')->references('id')->on('qualities');
             $table->timestamps();
@@ -32,6 +32,6 @@ class CreateStockTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('stock');
+        Schema::dropIfExists('stocks');
     }
 }
