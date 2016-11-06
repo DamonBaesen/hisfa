@@ -13,20 +13,19 @@ class EmailController extends Controller
 
     public function send($id, $percentage){
 
-        $title = "Hallo,";
+        //$users = DB::table('users')->where('mail', '=', 1)->pluck('email');
 
-        $users = DB::table('users')->where('mail', '=', 1)->pluck('email');
+        //foreach ($users as $user) {
 
-        foreach ($users as $user) {
-
-            Mail::send('mails.send', ['title' => $title, 'id' => $id, 'percentage' => $percentage], function ($message) use ($user)
+            Mail::send('mails.send', ['id' => $id, 'percentage' => $percentage], function ($message)
+            //use ($user)
             {
-
-                $message->to($user);
+                //$user
+                $message->to('vermost.w@gmail.com')->subject('Silo bijna vol!');
 
             });
 
-        }
+       // }
 
 
 
