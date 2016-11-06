@@ -1,0 +1,402 @@
+body{
+    background-color: #252830;
+    
+}
+
+.dash-container{
+    margin-left: 1em;
+    margin-right: 1em;
+    margin-top: 1em;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.left{
+    width:40%;
+}
+.by{
+   
+}
+.ty:first-child {
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+}
+.ty {
+    display: block;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    font-weight: 400;
+    color: #ffffff;
+    background-color: transparent;
+    border: 1px solid #434857;
+}
+.tu {
+    position: relative;
+    display: flex;
+    padding: 10px 15px;
+    margin-bottom: -1px;
+    background-color: transparent;
+    border: 1px solid #434857;
+    
+    flex-direction: row;
+}
+.tu h5{
+    width: 24.5%;
+    color: white;
+}
+.tu .first{
+    color: #1997C6;
+}
+
+.right{
+ width: 60%;
+ margin-left: 1em;
+ display: flex;
+ justify-content: space-between;
+ flex-direction: column;
+}
+.cgp{
+    height: 48%;
+   border: 1px solid #434857;
+    margin-bottom: 1em;
+    border-radius: 4px;
+    padding: 1em;
+}
+h5{
+    color:white;
+}
+.silo-stats progress{
+    -ms-transform: rotate(-90deg); /* IE 9 */
+    -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
+    transform: rotate(-90deg);
+    
+}
+.progress {
+    display: block;
+    width: 150px !important;
+    height: 2rem;
+    margin: auto;
+    margin-bottom: 4.5rem;
+    margin-left: -3.2em;
+}
+.silo-stats{
+    display: flex;
+    margin-top: 5em;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-between;
+    
+    color:white;
+}
+.silo-stats-stat{
+    width:3em;
+}
+.silo-stats-stat h4{
+    font-size: 0.8em;
+    margin-bottom: .1rem;
+
+}
+.silo-stats-stat h3{
+    font-size: 1em;
+    margin-bottom: .1rem;
+    color:#1997C6
+}
+.silo-stats-stat p{
+    font-size: 0.8em;
+    margin-bottom: .1rem;
+}
+.cgps{
+    height: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cgr{
+    width: 55%;
+    border: 1px solid #434857;
+    border-radius: 4px;
+    padding: 1em;
+}
+.cgr .silo-stats{
+    padding-left: 1em;
+    padding-right: 1em;
+}
+.cgg{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 4px;
+}
+.cgg h5{
+    padding-top:1em;
+    padding-left: 1em;
+}
+
+.cgg .char{
+  width: 25%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 2em;
+}
+
+/* css add-stock */
+
+.config-stock{
+    border: 1px solid #434857;
+    border-radius: 4px;
+    height: 100%;
+    width: 100%;
+    color: white;
+}
+.config-stock h3{
+    padding: 0.3em;
+    color: white;
+    
+}
+.nav-tabs {
+    border-bottom: 1px solid #434857;
+}
+.nav-tabs .nav-item:first-child{
+    margin-left: 0.2em;
+}
+.nav-tabs .nav-link:hover {
+    border-color: #434857 ;
+}
+
+
+.config-stock-view{
+    padding: 1em;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+.form-group{
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+/* dash2*/
+.stock{
+    border: 1px solid #434857;
+    height: 48%;
+    border-radius: 4px;
+    
+}
+.stock-menu{
+    padding: 1em;
+}
+.stock-blocks{
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+}
+.block{
+    
+    
+    text-align: center;
+    margin-left: 1em;
+    width: 6em;
+    height: 11em;
+    background-color: whitesmoke;
+    padding: 1em;
+    border-radius: 4px;
+}
+.block h2{
+    color: #1997C6;
+}
+.block p{
+    color: #1997C6;
+}
+.log-console{
+    padding: 1em;
+    color: white;
+}
+
+/* event log*/
+
+.event-log{
+    margin-top: 1em;    
+     border: 1px solid #434857;
+    height: 48%;
+    border-radius: 4px;
+    
+}
+.event-log h5{
+    padding: 1em;
+    border-bottom: 1px solid #434857;
+}
+/* stock */
+
+.select-block{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 3em;
+}
+
+.block-input{
+    width:6em;
+    height: 8zem;
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0;
+}
+.fig-block{
+    
+    background-color:whitesmoke;
+    width: 6em;
+    height: 12em;
+    color: black;
+    text-align: center;
+    padding-top: 4em;
+}
+
+.block-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+
+/* donut graph */ 
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+@keyframes bake-pie {
+  from {
+    transform: rotate(0deg) translate3d(0,0,0);
+  }
+}
+
+
+
+.pieID {
+  display: inline-block;
+  vertical-align: top;
+}
+.pie {
+  height: 150px;
+  width: 150px;
+    margin-top: 0.5em; 
+    margin-left: 3.5em;
+    margin-right: auto;
+  position: relative;
+ 
+}
+.pie::before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  width: 75px;
+  height: 75px;
+  background: #252830;
+  border-radius: 50%;
+  top: 37px;
+  left: 37px;
+}
+
+.slice {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  clip: rect(0px, 150px, 150px, 75px);
+  animation: bake-pie 1s;
+}
+.slice span {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  clip: rect(0px, 150px, 150px, 75px);
+}
+.legend {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+    color: white;
+  margin-top: 1em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 3em;
+  
+  font-size: 13px;
+  
+}
+.legend li {
+  width: 18.0em;
+  height: 1.25em;
+  margin-bottom: 10.0em;
+  margin-left: 0.1em;
+  margin-right: 0.1em;
+  padding-left: 0.5em;
+  border-top: 0.5em solid black;
+  
+}
+.legend em {
+  font-size: 1.2em;
+}
+.legend h1{
+  float: right;
+}  
+
+.legend span {
+  margin-top: 1.0em;
+}
+#deleteRawmaterial{
+  background-color: #d9534f;
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+#deleteRawmaterial:hover{
+  background-color: #cd2626;
+  text-decoration: none;
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+
+#editRawmaterial{
+  background-color: olivedrab;
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}
+
+#editRawmaterial:hover{
+  background-color: #458b00;
+  text-decoration: none;
+  color: white;
+  display: block;
+  text-align: center;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  margin-top: 0.3em;
+  margin-bottom: 0.3em;
+}

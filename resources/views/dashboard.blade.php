@@ -13,7 +13,7 @@
 
     <div class="dash-container">
         <div class="left">
-            <div class="stock">
+            <div class="stock" >
                 <div class="btn-group stock-menu">
                     <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> P15 </button>
                     <div class="dropdown-menu">
@@ -22,7 +22,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="stock-blocks">
+                <div class="stock-blocks" onclick="window.location.href='/block'">
                     @foreach($selectQuality as $selectQualities)
                         <div class="block">
                             <h4>{{ $selectQualities->height }}m</h4>
@@ -36,7 +36,7 @@
                 </div>
 
             </div>
-            <div class="event-log" >
+            <div class="event-log" onclick="window.location.href='/history'" >
                 <h5>Event log</h5>
                 <div class="log-console">
                     @foreach($eventlog as $eventlogs)
@@ -46,7 +46,7 @@
             </div>
         </div>
         <div class="right">
-            <div class="cgp">
+            <div class="cgp" onclick="window.location.href='/silo'">
                 <h5>Prime silo</h5>
                 <div class="silo-stats">
                     @foreach($primesilo as $silos)
@@ -60,7 +60,7 @@
                             @endif
                             <h4>{{ $silos->id }}</h4>
                             <h3>{{ $silos->quantity }}%</h3>
-                            <p>{{$silos->type}}</p>
+                            <p>{{$silos->grondstof->type}}</p>
                         </div>
                     @endforeach
 
@@ -68,7 +68,7 @@
                 </div>
             </div>
             <div class="cgps">
-                <div class="cgr">
+                <div class="cgr" onclick="window.location.href='/recyclesilo'">
                     <h5>Recycle silo</h5>
                     <div class="silo-stats">
                         @foreach($recyclesilo as $silos)
@@ -87,7 +87,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="cgg">
+                <div class="cgg" onclick="window.location.href='/rawmaterial'">
                     <h5>Resources</h5>
                     <div class="char">
                         <div class="pieID pie"> </div>

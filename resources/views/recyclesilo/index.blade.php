@@ -12,6 +12,7 @@
                         <li>
                             <a href="/recyclesilo/edit/{{$silos->id}}">
                                 <p>SILO {{ $silos->id }} </p>
+                                <p>Hardness: {{$silos->type}}</p>
                                 <p> {{ $silos->quantity }} %</p>
                             </a>
                             <a href="/recyclesilo/remove/{{$silos->id}}">Verwijder silo {{$silos->id}}</a>

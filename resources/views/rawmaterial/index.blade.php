@@ -1,6 +1,14 @@
 @extends('layouts.master')
 
 @section('content')
+
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+
+           
+                <link rel="stylesheet" href="/css/materials-style.css">
+
 <body>
     
     <div class="dash-container">
@@ -8,15 +16,10 @@
             <h3>Configure rawmaterials</h3>
             
             <ul class="nav nav-tabs">
-                <li class="nav-item"> <a class="nav-link" href="">Edit rawmaterial</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="/rawmaterial/add">Add new rawmaterial</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="/rawmaterial/add">Add new rawmaterial</a> </li>
             </ul>
             <div class="config-stock-view">                   
-                    <div class="title-right">
-                        <button type="button" class="btn btn-primary">Rename rawmaterial</button>
-                        <button type="button" class="btn btn-danger">Delete rawmaterial</button>
-                    </div>
-                </div>
+
                 <div class="select-blocks">
 
                 <div class="cgg">
@@ -28,13 +31,13 @@
                     <ul class="pieID legend">
                        
                        @foreach ($rawmaterial as $rawmaterials)
-                        <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span>
-                            <input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">
-                            <button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> 
-                            <a href="/rawmaterial/remove/{{$rawmaterials->id}}">Delete {{$rawmaterials->id}}</a>
-                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}">Edit{{$rawmaterials->id}}</a>
+                        <li> <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->quantity }}</span></br>
+                            <!--<input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">-->
+                            <!--<button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> -->
+                            <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->id}}</a>
+                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a>
                        @endforeach
-                     </ul>
+                    </ul>
     </div>            
           
 </div>    
