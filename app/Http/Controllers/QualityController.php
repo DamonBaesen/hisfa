@@ -19,7 +19,7 @@ class QualityController extends Controller
     {
         $data = DB::table('qualities')->get();
 
-        return view('quality' ,compact('data'));
+        return view('quality.index' ,compact('data'));
     }
 
     public function add()
@@ -27,44 +27,48 @@ class QualityController extends Controller
         $name = Input::get('textName');
         $hardness = Input::get('textHardness');
         
-        $id = DB::table('qualities')->insertGetId(
+        $id = DB::table('qualities')->insert(
             array('name' => $name, 'hardness' => $hardness)
         );
 
-        $data = DB::table('qualities')->get();
-
-        return view('quality' ,compact('data'));
+        return redirect('quality');
     }
     
     public function addShow()
     {
-        return view('qualityadd');
+        return view('quality.add');
     }
     
     public function edit($id)
     {
+        
+        
         $name = Input::get('textName');
         $hardness = Input::get('textHardness');
         
         \App\Qualitie::where('id', '=', $id)->update(array('name' => $name, 'hardness' => $hardness));
 
-        $data = DB::table('qualities')->get();
-
-        return view('quality' ,compact('data'));
+        return redirect('quality');
     }
 
-    public function editShow()
+    public function editShow($id)
     {
-        return view('qualityedit');
+        $qualitie = \App\Qualitie::find($id);
+        $qualities = \App\Qualitie::all();
+        $data['qualties'] = $qualities;
+        $data['qualitie'] = $qualitie;
+       
+        return view('quality.edit', compact('data'));
+        
+        
     }
 
     public function remove($id)
     {
-        Qualitie::whereId($id)->delete();
-        
-        $data = DB::table('qualities')->get();
-
-        return view('quality' ,compact('data'));
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Qualitie::destroy($id);
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        return redirect('quality');
     }
 }
 

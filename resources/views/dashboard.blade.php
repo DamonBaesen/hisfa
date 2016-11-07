@@ -18,14 +18,14 @@
                     <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> P15 </button>
                     <div class="dropdown-menu">
                         @foreach ($qualities as $qualitylist)
-                            <a class="dropdown-item" href="#">{{ $qualitylist->name }}</a>
+                    <a class="dropdown-item" href="#">{{ $qualitylist->name }}</a>
                         @endforeach
                     </div>
                 </div>
                 <div class="stock-blocks">
                     @foreach($selectQuality as $selectQualities)
-                        <div class="block">
-                            <h4>{{ $selectQualities->height }}m</h4>
+                    <div class="block">
+                        <h4>{{ $selectQualities->height }}m</h4>
                             <h2>{{ $selectQualities->quantity }}</h2>
                             <p>blocks</p>
                             <span class="tag tag-default tag-pill pull-xs-center">{{ $selectQualities->height * $selectQualities->quantity }}m³</span>
@@ -33,9 +33,9 @@
                     @endforeach
 
 
-                </div>
+                    </div>
 
-            </div>-->
+                </div>-->
             <div class="frame stock">
                 <div class="frame-title">
                     <h2>Blocks in storage</h2> </div>
@@ -49,14 +49,14 @@
                 </div>
                 <div class="stock-group">
                     @foreach($selectQuality as $selectQualities)
-                    <div class="stock-container">
-                        <h2>{{ $selectQualities->height }}m</h2>
-                        <h3>{{ $selectQualities->quantity }}</h3>
-                        <p>blocks</p>
-                        <div class="oppervlak">
-                            {{ $selectQualities->height * $selectQualities->quantity }}m³
+                        <div class="stock-container">
+                            <h2>{{ $selectQualities->height }}m</h2>
+                            <h3>{{ $selectQualities->quantity }}</h3>
+                            <p>blocks</p>
+                            <div class="oppervlak">
+                                {{ $selectQualities->height * $selectQualities->quantity }}m³
+                            </div>
                         </div>
-                    </div>
                     @endforeach
 
 
@@ -67,7 +67,7 @@
                     <h2>Events loggings</h2> </div>
                 <div class="log-console">
                     @foreach($eventlog as $eventlogs)
-                    <p>{{ $eventlogs->action }}</p><p>{{ $eventlogs->sector }}</p>
+                        <p>{{ $eventlogs->action }}</p><p>{{ $eventlogs->sector }}</p>
                     @endforeach
                 </div>
             </div>
@@ -78,23 +78,23 @@
                     <h2>Prime silo status</h2> </div>
                 <div class="silo-group">
                     @foreach($primesilo as $silos)
-                    <div class="silo-container">
-                        <h3>{{ $silos->id }}</h3>
-                        <div class="silo-graph">
-                            @if( $silos->quantity < 50)
-                                <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #5FB760;"> </div>
-                            @elseif($silos->quantity < 90)
-                                <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #EEAC57;"> </div>
-                            @else
-                                <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #D75452;"> </div>
-                            @endif
+                        <div class="silo-container">
+                            <h3>{{ $silos->id }}</h3>
+                            <div class="silo-graph">
+                                @if( $silos->quantity < 50)
+                                    <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #5FB760;"> </div>
+                                @elseif($silos->quantity < 90)
+                                    <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #EEAC57;"> </div>
+                                @else
+                                    <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #D75452;"> </div>
+                                @endif
 
+                            </div>
+                            <div class="silo-info">
+                                <h3>{{$silos->grondstof->type}}</h3>
+                                <h4>{{ $silos->quantity }}</h4>
+                            </div>
                         </div>
-                        <div class="silo-info">
-                            <h3>{{$silos->grondstof->type}}</h3>
-                            <h4>{{ $silos->quantity }}</h4>
-                        </div>
-                    </div>
                     @endforeach
 
                 </div>
@@ -105,23 +105,23 @@
                 <h5>Prime silo</h5>
                 <div class="silo-stats">
                     @foreach($primesilo as $silos)
-                        <div class=silo-stats-stat>
-                            @if( $silos->quantity < 50)
-                                <progress class="progress progress-success" value="{{ $silos->quantity }}" max="100"></progress>
+                    <div class=silo-stats-stat>
+                        @if( $silos->quantity < 50)
+                    <progress class="progress progress-success" value="{{ $silos->quantity }}" max="100"></progress>
                             @elseif($silos->quantity < 90)
-                                <progress class="progress progress-warning" value="{{ $silos->quantity }}" max="100"></progress>
+                    <progress class="progress progress-warning" value="{{ $silos->quantity }}" max="100"></progress>
                             @else
-                                <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
+                    <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
                             @endif
-                            <h4>{{ $silos->id }}</h4>
+                    <h4>{{ $silos->id }}</h4>
                             <h3>{{ $silos->quantity }}%</h3>
                             <p>{{$silos->grondstof->type}}</p>
                         </div>
                     @endforeach
 
 
-                </div>
-            </div>-->
+                    </div>
+                </div>-->
             <div class="cgps">
 
                 <div class="frame recycle">
@@ -155,21 +155,21 @@
                     <h5>Recycle silo</h5>
                     <div class="silo-stats">
                         @foreach($recyclesilo as $silos)
-                            <div class=silo-stats-stat>
-                                @if( $silos->quantity < 50)
-                                    <progress class="progress progress-success" value="{{ $silos->quantity }}" max="100"></progress>
+                        <div class=silo-stats-stat>
+                            @if( $silos->quantity < 50)
+                        <progress class="progress progress-success" value="{{ $silos->quantity }}" max="100"></progress>
                                 @elseif($silos->quantity < 90)
-                                    <progress class="progress progress-warning" value="{{ $silos->quantity }}" max="100"></progress>
+                        <progress class="progress progress-warning" value="{{ $silos->quantity }}" max="100"></progress>
                                 @else
-                                    <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
+                        <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
                                 @endif
-                                <h4>{{ $silos->id }}</h4>
+                        <h4>{{ $silos->id }}</h4>
                                 <h3>{{ $silos->quantity }}%</h3>
                                 <p></p>
                             </div>
                         @endforeach
-                    </div>
-                </div>-->
+                        </div>
+                    </div>-->
                 <div class="frame rawmaterials">
                     <div class="frame-title">
                         <h2>Rawmaterials</h2> </div>
@@ -248,17 +248,3 @@
                 , "navy"
                 , "gray"
             ];
-            for (var i = 0; i < listData.length; i++) {
-                var size = sliceSize(listData[i], listTotal);
-                iterateSlices(size, pieElement, offset, i, 0, color[i]);
-                $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
-                offset += size;
-            }
-        }
-        createPie(".pieID.legend", ".pieID.pie");
-    </script>
-    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-    <script src="canvasjs-1.9.2/jquery.canvasjs.min.js"></script>
-    <script src="canvasjs-1.9.2/canvasjs.min.js"></script>
-
-@endsection

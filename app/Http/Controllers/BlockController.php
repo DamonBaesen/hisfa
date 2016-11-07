@@ -38,7 +38,7 @@ class BlockController extends Controller
             ->get();
         $data['customstock'] = $customstock;
         
-        return view('block', $data);
+        return view('block.index', $data);
     }
 
     public function add()
@@ -63,22 +63,22 @@ class BlockController extends Controller
             ->get();
         $data['customstock'] = $customstock;
         
-        return view('add', $data);
+        return view('block.add', $data);
     }
     
     public function addShow()
     {
-        return view('blockadd');
+        return view('block.add');
     }
 
     public function edit()
     {
-        return view('blockedit');
+        return view('block.edit');
     }
 
     public function remove()
     {
-        return view('blockremove');
+        return view('block.remove');
     }
 }
 
