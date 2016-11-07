@@ -13,29 +13,6 @@
 
     <div class="dash-container">
         <div class="left">
-            <!--<div class="stock">
-                <div class="btn-group stock-menu">
-                    <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> P15 </button>
-                    <div class="dropdown-menu">
-                        @foreach ($qualities as $qualitylist)
-                    <a class="dropdown-item" href="#">{{ $qualitylist->name }}</a>
-                        @endforeach
-                    </div>
-                </div>
-                <div class="stock-blocks">
-                    @foreach($selectQuality as $selectQualities)
-                    <div class="block">
-                        <h4>{{ $selectQualities->height }}m</h4>
-                            <h2>{{ $selectQualities->quantity }}</h2>
-                            <p>blocks</p>
-                            <span class="tag tag-default tag-pill pull-xs-center">{{ $selectQualities->height * $selectQualities->quantity }}m³</span>
-                        </div>
-                    @endforeach
-
-
-                    </div>
-
-                </div>-->
             <div class="frame stock">
                 <div class="frame-title">
                     <h2>Blocks in storage</h2> </div>
@@ -99,29 +76,6 @@
 
                 </div>
             </div>
-            <!--
-            <div class="cgp">
-
-                <h5>Prime silo</h5>
-                <div class="silo-stats">
-                    @foreach($primesilo as $silos)
-                    <div class=silo-stats-stat>
-                        @if( $silos->quantity < 50)
-                    <progress class="progress progress-success" value="{{ $silos->quantity }}" max="100"></progress>
-                            @elseif($silos->quantity < 90)
-                    <progress class="progress progress-warning" value="{{ $silos->quantity }}" max="100"></progress>
-                            @else
-                    <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
-                            @endif
-                    <h4>{{ $silos->id }}</h4>
-                            <h3>{{ $silos->quantity }}%</h3>
-                            <p>{{$silos->grondstof->type}}</p>
-                        </div>
-                    @endforeach
-
-
-                    </div>
-                </div>-->
             <div class="cgps">
 
                 <div class="frame recycle">
@@ -150,26 +104,6 @@
 
                     </div>
                 </div>
-                <!--<div class="cgr">
-
-                    <h5>Recycle silo</h5>
-                    <div class="silo-stats">
-                        @foreach($recyclesilo as $silos)
-                        <div class=silo-stats-stat>
-                            @if( $silos->quantity < 50)
-                        <progress class="progress progress-success" value="{{ $silos->quantity }}" max="100"></progress>
-                                @elseif($silos->quantity < 90)
-                        <progress class="progress progress-warning" value="{{ $silos->quantity }}" max="100"></progress>
-                                @else
-                        <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
-                                @endif
-                        <h4>{{ $silos->id }}</h4>
-                                <h3>{{ $silos->quantity }}%</h3>
-                                <p></p>
-                            </div>
-                        @endforeach
-                        </div>
-                    </div>-->
                 <div class="frame rawmaterials">
                     <div class="frame-title">
                         <h2>Rawmaterials</h2> </div>
@@ -247,4 +181,5 @@
                 , "forestgreen"
                 , "navy"
                 , "gray"
-            ];
+            ]}
+   </script>
