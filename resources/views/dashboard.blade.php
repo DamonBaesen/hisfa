@@ -36,7 +36,6 @@
                         </div>
                     @endforeach
 
-
                 </div>
             </div>
             <div class="frame event" >
@@ -65,7 +64,6 @@
                                 @else
                                     <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #D75452;"> </div>
                                 @endif
-
                             </div>
                             <div class="silo-info">
                                 <h3>{{$silos->grondstof->type}}</h3>
@@ -93,7 +91,6 @@
                                     @else
                                         <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #D75452;"> </div>
                                     @endif
-
                                 </div>
                                 <div class="silo-info">
 
@@ -114,8 +111,6 @@
                         @foreach($rawmaterial as $rawmaterials)
                             <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span> </li>
                         @endforeach
-
-
                     </ul>
                 </div>
             </div>
@@ -125,11 +120,6 @@
     </body>
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript">
-
-
-
-
-
 
         function sliceSize(dataNum, dataTotal) {
             return (dataNum / dataTotal) * 360;
