@@ -1,5 +1,5 @@
 body{
-    background-color: #252830;
+    background-color: #111921;
     
 }
 .dash-container{
@@ -10,15 +10,7 @@ body{
     display: flex;
     flex-direction: row;
 }
-.stock{
-    border: 1px solid #434857;
-    height: 48%;
-    border-radius: 4px;
-    
-}
-.stock-menu{
-    padding: 0.5em;
-}
+
 .stock-blocks{
     display: flex;
     flex-flow: wrap;
