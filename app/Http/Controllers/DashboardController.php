@@ -28,9 +28,6 @@ class DashboardController extends Controller
         $rawmaterial = \App\Rawmaterial::all();
             $data['rawmaterial'] = $rawmaterial;
 
-
-
-
            $stock = \App\Stock::with('stok')
                 ->where('height', '4')
                 ->orwhere('height', '6')
