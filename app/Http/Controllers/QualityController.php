@@ -53,12 +53,14 @@ class QualityController extends Controller
 
     public function editShow($id)
     {
-        $qualitie = \App\Qualitie::find($id);
+        $qualitie = \App\Qualitie::where('id', '=', $id)->get();
+
         $qualities = \App\Qualitie::all();
-        $data['qualties'] = $qualities;
-        $data['qualitie'] = $qualitie;
-       
-        return view('quality.edit', compact('data'));
+        $data['qualities'] = $qualities;
+
+        $data['qualities'] = $qualitie;
+
+        return view('quality.edit', $data);
         
         
     }

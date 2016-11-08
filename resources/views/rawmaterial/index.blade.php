@@ -27,6 +27,7 @@
                         <div class="pieID pie"> </div>
                     </div>
                 </div>
+                </div>
             </div>
                     <ul class="pieID legend">
                        
@@ -36,11 +37,14 @@
                             <!--<button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> -->
                             <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->id}}</a>
                             <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a>
+                            <a href="/rawmaterial/used/{{$rawmaterials->id}}" id="usedRawmaterial">Used</a>
+                            
                        @endforeach
                     </ul>
     </div>            
           
-</div>    
+</div>   
+ 
    
     
 </body>
