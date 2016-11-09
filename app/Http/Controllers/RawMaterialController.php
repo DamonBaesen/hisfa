@@ -67,14 +67,10 @@ class RawMaterialController extends Controller
     public function edit($id)
     {
         $type = Input::get('textType');
-        $stock = Input::get('textStock');
-        $orderd = Input::get('textOrderd');
-        $deliverd = Input::get('textDeliverd');
-        $using = Input::get('checkUsing');
+        $quantity = Input::get('textQuantity');
         
         
-        \App\Rawmaterial::where('id', '=', $id)->update(array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => $using));
-
+        \App\Rawmaterial::where('id', '=', $id)->update( array('quantity' => $quantity, 'type' => $type));
         $userid = Auth::id();
         DB::table('histories')->insert(
             array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid)

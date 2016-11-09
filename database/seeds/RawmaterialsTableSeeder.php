@@ -12,19 +12,6 @@ class RawmaterialsTableSeeder extends Seeder
      */
     public function run()
     {
-<<<<<<< HEAD
-        $faker = Faker::create();
-        foreach(range(1, 5) as $index)
-        {
-            $rawmaterial = new \App\Rawmaterial();
-            $rawmaterial->type = $faker->unique()->name();
-            $rawmaterial->orderd = $faker->numberBetween(1, 50);
-            $rawmaterial->deliverd = $faker->numberBetween(1, 50);
-            $rawmaterial->stock = $faker->numberBetween(1, 50);
-            $rawmaterial->using = value(0);
-            $rawmaterial->save();
-        }
-=======
         $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->type = "f21MB-n";
         $rawmaterialExtra->quantity = 45;
@@ -49,20 +36,11 @@ class RawmaterialsTableSeeder extends Seeder
         $rawmaterialExtra->type = "F21B-n";
         $rawmaterialExtra->quantity = 67;
         $rawmaterialExtra->save();
->>>>>>> master
 
         $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->id = 999;
-<<<<<<< HEAD
-        $rawmaterialExtra->type = "";
-        $rawmaterialExtra->orderd = 0;
-        $rawmaterialExtra->deliverd = 0;
-        $rawmaterialExtra->stock = 0;
-        $rawmaterialExtra->using = value(0);
-=======
         $rawmaterialExtra->type = "N/A";
         $rawmaterialExtra->quantity = 0;
->>>>>>> master
         $rawmaterialExtra->save();
     }
 }
