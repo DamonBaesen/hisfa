@@ -15,9 +15,9 @@ class UserPermissions extends Migration
     {
         Schema::create('userpermissions', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('user_id');
-            $table->string('permission_id');
-            $table->foreign('permission_id')->references('id')->on('permission');
+            $table->integer('user_id');
+            $table->integer('permission_id')->nullable()->unsigned();
+            $table->foreign('permission_id')->references('id')->on('permissions');
         });
     }
 
