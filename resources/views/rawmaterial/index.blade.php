@@ -37,7 +37,7 @@
                     <ul class="pieID legend">
                        
                        @foreach ($rawmaterial as $rawmaterials)
-<<<<<<< HEAD
+
                         <li> <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span></br>
                             <!--<input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">-->
                             <!--<button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> -->
@@ -47,14 +47,14 @@
                                <p>Using</p>
                             @endif 
                         </li>
-=======
+
                            @if($rawmaterials->quantity != 0)
                         <li> <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->quantity }}</span>%</br>
                             <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->id}}</a>
                             <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a>
                             <a href="/rawmaterial/used/{{$rawmaterials->id}}" id="usedRawmaterial">Used</a></li>
                             @endif
->>>>>>> master
+
                        @endforeach
                        
                      
