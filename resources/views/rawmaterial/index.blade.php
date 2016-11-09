@@ -17,6 +17,8 @@
             
             <ul class="nav nav-tabs">
                   <li class="nav-item"> <a class="nav-link" href="/rawmaterial/add">Add new rawmaterial</a> </li>
+                  <li class="nav-item"> <a class="nav-link" href="/rawmaterial/stock">Show stock</a> </li>
+                  
             </ul>
             <div class="config-stock-view">                   
 
@@ -32,14 +34,18 @@
                     <ul class="pieID legend">
                        
                        @foreach ($rawmaterial as $rawmaterials)
-                        <li> <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->quantity }}</span></br>
+                        <li> <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span></br>
                             <!--<input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">-->
                             <!--<button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> -->
                             <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->id}}</a>
-                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a>
-                            <a href="/rawmaterial/used/{{$rawmaterials->id}}" id="usedRawmaterial">Used</a>
-                            
+                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a> 
+                            @if ( $rawmaterials->using == 1 )
+                               <p>Using</p>
+                            @endif 
+                        </li>
                        @endforeach
+                       
+                     
                     </ul>
     </div>            
           
