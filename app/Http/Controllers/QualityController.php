@@ -27,10 +27,14 @@ class QualityController extends Controller
         $name = Input::get('textName');
         $hardness = Input::get('textHardness');
         
-        $id = DB::table('qualities')->insert(
+        DB::table('qualities')->insert(
             array('name' => $name, 'hardness' => $hardness)
         );
 
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'add', 'silonr' => "", 'block' => "" , 'quality' => $name, 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid)
+        );
         return redirect('quality');
     }
     
@@ -47,6 +51,11 @@ class QualityController extends Controller
         $hardness = Input::get('textHardness');
         
         \App\Qualitie::where('id', '=', $id)->update(array('name' => $name, 'hardness' => $hardness));
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => $name , 'sector' => 'quality', 'user_id' => $userid)
+        );
 
         return redirect('quality');
     }
@@ -70,6 +79,12 @@ class QualityController extends Controller
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Qualitie::destroy($id);
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => $id , 'sector' => 'block', 'user_id' => $userid)
+        );
+
         return redirect('quality');
     }
 }
