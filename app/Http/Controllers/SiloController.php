@@ -43,7 +43,7 @@ class SiloController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => $id, 'block' => "", 'sector' => 'silo', 'user_id' => $userid)
+            array('action' => 'add', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid)
         );
 
         return redirect('silo');
@@ -60,7 +60,7 @@ class SiloController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'delete', 'silonr' => $id, 'block' => "", 'sector' => 'silo', 'user_id' => $userid)
+            array('action' => 'remove', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid)
         );
 
         return redirect('silo');
@@ -79,7 +79,7 @@ class SiloController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'edit', 'silonr' => $id, 'block' => "", 'sector' => 'silo', 'user_id' => $userid)
+            array('action' => 'edit', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid)
         );
 
         return redirect('silo');
