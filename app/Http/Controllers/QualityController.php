@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Auth;
 use App\Stock;
 use App\Qualitie;
 use DB;
@@ -45,8 +46,6 @@ class QualityController extends Controller
     
     public function edit($id)
     {
-        
-        
         $name = Input::get('textName');
         $hardness = Input::get('textHardness');
         
@@ -54,7 +53,7 @@ class QualityController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => $name , 'sector' => 'quality', 'user_id' => $userid)
+            array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => $name, 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid)
         );
 
         return redirect('quality');
@@ -82,7 +81,7 @@ class QualityController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => $id , 'sector' => 'block', 'user_id' => $userid)
+            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => $id, 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid)
         );
 
         return redirect('quality');

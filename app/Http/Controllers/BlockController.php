@@ -51,7 +51,7 @@ class BlockController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => "", 'block ' => $name ,'sector' => 'block', 'user_id' => $userid)
+            array('action' => 'add', 'silonr' => "", 'block' => $name , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'block', 'user_id' => $userid)
         );
 
         $stock = \App\Stock::with('stok')
