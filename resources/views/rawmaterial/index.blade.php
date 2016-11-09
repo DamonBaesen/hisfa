@@ -41,16 +41,11 @@
                             <!--<input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">-->
                             <!--<button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> -->
                             <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->id}}</a>
-<<<<<<< HEAD
                             <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a> 
                             @if ( $rawmaterials->using == 1 )
                                <p>Using</p>
                             @endif 
                         </li>
-=======
-                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a>
-                            <a href="/rawmaterial/used/{{$rawmaterials->id}}" id="usedRawmaterial">Used</a>
->>>>>>> master
                        @endforeach
                        
                      
