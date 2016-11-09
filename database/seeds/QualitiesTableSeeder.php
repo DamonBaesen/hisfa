@@ -12,14 +12,55 @@ class QualitiesTableSeeder extends Seeder
      */
     public function run()
     {
-        $faker = Faker::create();
-        foreach(range(1, 10) as $index)
-        {
-            $qualities = new \App\Qualitie();
-            $qualities->name = $faker->name();
-            $qualities->hardness = $faker->name();
-            $qualities->save();
-        }
+        $qualities = new \App\Qualitie();
+        $qualities->name = "P15";
+        $qualities->hardness = "";
+        $qualities->save();
+
+        $qualities = new \App\Qualitie();
+        $qualities->name = "P20";
+        $qualities->hardness = "";
+        $qualities->save();
+
+        $qualities = new \App\Qualitie();
+        $qualities->name = "P25";
+        $qualities->hardness = "";
+        $qualities->save();
+
+        $qualities = new \App\Qualitie();
+        $qualities->name = "P30";
+        $qualities->hardness = "";
+        $qualities->save();
+
+        $qualities = new \App\Qualitie();
+        $qualities->name = "P35";
+        $qualities->hardness = "";
+        $qualities->save();
+
+        $qualities = new \App\Qualitie();
+        $qualities->name = "60SE";
+        $qualities->hardness = "";
+        $qualities->save();
+
+        $qualities = new \App\Qualitie();
+        $qualities->name = "100SE";
+        $qualities->hardness = "";
+        $qualities->save();
+
+        $qualities = new \App\Qualitie();
+        $qualities->name = "150SE";
+        $qualities->hardness = "";
+        $qualities->save();
+
+        $qualities = new \App\Qualitie();
+        $qualities->name = "200SE";
+        $qualities->hardness = "";
+        $qualities->save();
+
+        $qualities = new \App\Qualitie();
+        $qualities->name = "250SE";
+        $qualities->hardness = "";
+        $qualities->save();
 
     }
 }
