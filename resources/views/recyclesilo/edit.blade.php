@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
+    <head>
+        <meta charset="UTF-8">
+        <title>Account</title>
+    </head>
     <div class="container">
         <div class="row">
             <div class="panel panel-default" id="form">
