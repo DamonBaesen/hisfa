@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Auth;
  use App\Http\Requests;
  use DB;
  use App\Quotation;
@@ -47,6 +47,11 @@ class BlockController extends Controller
         $hardness = Input::get('txtHardheid');
         DB::table('qualities')->insert(
             array('name' => $name, 'hardness' => $hardness)
+        );
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'add', 'silonr' => "", 'block ' => $name ,'sector' => 'block', 'user_id' => $userid)
         );
 
         $stock = \App\Stock::with('stok')
