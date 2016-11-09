@@ -18,10 +18,11 @@ class CreateHistoryTable extends Migration
             $table->string('action', 500);
             $table->string('sector', 100);
             $table->string('silonr', 100);
-
+            $table->string('block', 100);
+            $table->string('quality', 100);
+            $table->date('datetime');
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');
-
             $table->timestamps();
         });
     }
