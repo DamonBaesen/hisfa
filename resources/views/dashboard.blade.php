@@ -24,7 +24,7 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="stock-group">
+                <div class="stock-group" onclick="window.location.href='/block'">
                     @foreach($selectQuality as $selectQualities)
                         <div class="stock-container">
                             <h2>{{ $selectQualities->height }}m</h2>
@@ -38,7 +38,7 @@
 
                 </div>
             </div>
-            <div class="frame event" >
+            <div class="frame event" onclick="window.location.href='/history'" >
                 <div class="frame-title">
                     <h2>Events loggings</h2> </div>
                 <div class="log-console">
@@ -49,7 +49,7 @@
             </div>
         </div>
         <div class="right">
-            <div class="frame prime">
+            <div class="frame prime" onclick="window.location.href='/silo'">
                 <div class="frame-title">
                     <h2>Prime silo status</h2> </div>
                 <div class="silo-group">
@@ -76,7 +76,7 @@
             </div>
             <div class="cgps">
 
-                <div class="frame recycle">
+                <div class="frame recycle" onclick="window.location.href='/recyclesilo'">
                     <div class="frame-title">
                         <h2>Recycle silo status</h2> </div>
                     <div class="silo-group">
@@ -101,7 +101,7 @@
 
                     </div>
                 </div>
-                <div class="frame rawmaterials">
+                <div class="frame rawmaterials" onclick="window.location.href='/rawmaterial'">
                     <div class="frame-title">
                         <h2>Rawmaterials</h2> </div>
                     <div class="char">
@@ -171,6 +171,14 @@
                 , "forestgreen"
                 , "navy"
                 , "gray"
-            ]}
+            ];
+            for (var i = 0; i < listData.length; i++) {
+                var size = sliceSize(listData[i], listTotal);
+                iterateSlices(size, pieElement, offset, i, 0, color[i]);
+                $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+                offset += size;
+            }
+        }
+        createPie(".pieID.legend", ".pieID.pie");
    </script>
     @endsection
