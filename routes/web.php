@@ -69,6 +69,7 @@ Route::get('/rawmaterial', 'RawMaterialController@index');
 Route::get('/rawmaterial/add', 'RawMaterialController@addShow');
 Route::get('/rawmaterial/edit/{id}', 'RawMaterialController@editShow');
 Route::get('/rawmaterial/remove/{id}', 'RawMaterialController@remove');
+Route::get('/rawmaterial/stock', 'RawMaterialController@stockShow');
 Route::post('/rawmaterial/add', 'RawMaterialController@add');
 Route::post('/rawmaterial/edit/{id}', 'RawMaterialController@edit');
 
