@@ -15,8 +15,6 @@ class CreateHistoryTable extends Migration
     {
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
-
-            $table->dateTime('datetime', 50);
             $table->string('action', 500);
             $table->string('sector', 100);
             $table->string('silonr', 100);

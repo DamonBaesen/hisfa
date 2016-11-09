@@ -36,7 +36,7 @@
                        
                        @foreach ($rawmaterial as $rawmaterials)
                            @if($rawmaterials->quantity != 0)
-                        <li> <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->quantity }}</span></br>
+                        <li> <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->quantity }}</span>%</br>
                             <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->id}}</a>
                             <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a>
                             <a href="/rawmaterial/used/{{$rawmaterials->id}}" id="usedRawmaterial">Used</a></li>

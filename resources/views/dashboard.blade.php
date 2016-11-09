@@ -67,7 +67,7 @@
                             </div>
                             <div class="silo-info">
                                 <h3>{{$silos->grondstof->type}}</h3>
-                                <h4>{{ $silos->quantity }}</h4>
+                                <h4>{{ $silos->quantity }}%</h4>
                             </div>
                         </div>
                     @endforeach
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="silo-info">
 
-                                    <h4>{{ $silos->quantity }}</h4>
+                                    <h4>{{ $silos->quantity }}%</h4>
                                 </div>
                             </div>
                         @endforeach
@@ -110,7 +110,7 @@
                     <ul class="pieID legend">
                         @foreach($rawmaterial as $rawmaterials)
                             @if($rawmaterials->quantity != 0)
-                            <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span> </li>
+                            <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span>% </li>
                             @endif
                         @endforeach
                     </ul>
