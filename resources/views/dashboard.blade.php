@@ -67,7 +67,7 @@
                             </div>
                             <div class="silo-info">
                                 <h3>{{$silos->grondstof->type}}</h3>
-                                <h4>{{ $silos->quantity }}</h4>
+                                <h4>{{ $silos->quantity }}%</h4>
                             </div>
                         </div>
                     @endforeach
@@ -94,7 +94,7 @@
                                 </div>
                                 <div class="silo-info">
 
-                                    <h4>{{ $silos->quantity }}</h4>
+                                    <h4>{{ $silos->quantity }}%</h4>
                                 </div>
                             </div>
                         @endforeach
@@ -109,7 +109,9 @@
                     </div>
                     <ul class="pieID legend">
                         @foreach($rawmaterial as $rawmaterials)
-                            <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span> </li>
+                            @if($rawmaterials->quantity != 0)
+                            <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span>% </li>
+                            @endif
                         @endforeach
                     </ul>
                 </div>
@@ -129,19 +131,28 @@
             $(pieElement).append("<div class='slice " + sliceID + "'><span></span></div>");
             var offset = offset - 1;
             var sizeRotation = -179 + sliceSize;
-            $("." + sliceID).css({
-                "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
-            });
-            $("." + sliceID + " span").css({
-                "transform": "rotate(" + sizeRotation + "deg) translate3d(0,0,0)"
-                , "background-color": color
-            });
+            if (sliceSize <= 0) {
+
+            }
+            else {
+                $("." + sliceID).css({
+                    "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+                });
+                $("." + sliceID + " span").css({
+                    "transform": "rotate(" + sizeRotation + "deg) translate3d(0,0,0)"
+                    , "background-color": color
+                });
+            }
         }
 
         function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
             var sliceID = "s" + dataCount + "-" + sliceCount;
             var maxSize = 179;
-            if (sliceSize <= maxSize) {
+            if(sliceSize <= 0)
+            {
+
+            }
+            else if (sliceSize <= maxSize) {
                 addSlice(sliceSize, pieElement, offset, sliceID, color);
             }
             else {
