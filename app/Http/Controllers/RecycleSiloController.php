@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Recyclesilosilo;
 use DB;
@@ -37,6 +38,11 @@ class RecycleSiloController extends Controller
             array('quantity' => '0', 'id' => $id, 'type' => $hardness)
         );
 
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'add', 'silonr' => $id, 'block' => "", 'sector' => 'recyclesilo', 'user_id' => $userid)
+        );
+
         return redirect('recyclesilo');
     }
 
@@ -48,6 +54,11 @@ class RecycleSiloController extends Controller
     public function remove($id)
     {
         DB::table('recyclesilos')->where('id', '=', $id)->delete();
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'remove', 'silonr' => $id, 'block' => "", 'sector' => 'recyclesilo', 'user_id' => $userid)
+        );
 
         return redirect('recyclesilo');
     }
@@ -62,6 +73,12 @@ class RecycleSiloController extends Controller
         if($quantity >= 90){
             app('App\Http\Controllers\EmailController')->send($id, $quantity);
         }
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'edit', 'silonr' => $id, 'sector' => 'recyclesilo', 'block' => "",  'user_id' => $userid)
+        );
+
         return redirect('recyclesilo');
     }
 
