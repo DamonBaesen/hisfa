@@ -35,12 +35,12 @@
                     <ul class="pieID legend">
                        
                        @foreach ($rawmaterial as $rawmaterials)
+                           @if($rawmaterials->quantity != 0)
                         <li> <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->quantity }}</span></br>
-                            <!--<input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">-->
-                            <!--<button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> -->
                             <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->id}}</a>
                             <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a>
-                            <a href="/rawmaterial/used/{{$rawmaterials->id}}" id="usedRawmaterial">Used</a>
+                            <a href="/rawmaterial/used/{{$rawmaterials->id}}" id="usedRawmaterial">Used</a></li>
+                            @endif
                        @endforeach
                     </ul>
     </div>            
@@ -60,19 +60,28 @@
         $(pieElement).append("<div class='slice " + sliceID + "'><span></span></div>");
         var offset = offset - 1;
         var sizeRotation = -179 + sliceSize;
-        $("." + sliceID).css({
-            "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
-        });
-        $("." + sliceID + " span").css({
-            "transform": "rotate(" + sizeRotation + "deg) translate3d(0,0,0)"
-            , "background-color": color
-        });
+        if (sliceSize <= 0) {
+
+        }
+        else {
+            $("." + sliceID).css({
+                "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+            });
+            $("." + sliceID + " span").css({
+                "transform": "rotate(" + sizeRotation + "deg) translate3d(0,0,0)"
+                , "background-color": color
+            });
+        }
     }
 
     function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
         var sliceID = "s" + dataCount + "-" + sliceCount;
         var maxSize = 179;
-        if (sliceSize <= maxSize) {
+        if(sliceSize <= 0)
+        {
+
+        }
+        else if (sliceSize <= maxSize) {
             addSlice(sliceSize, pieElement, offset, sliceID, color);
         }
         else {
@@ -92,17 +101,17 @@
         }
         var offset = 0;
         var color = [
-    "cornflowerblue"
-    , "olivedrab"
-    , "orange"
-    , "tomato"
-    , "crimson"
-    , "purple"
-    , "turquoise"
-    , "forestgreen"
-    , "navy"
-    , "gray"
-  ];
+            "cornflowerblue"
+            , "olivedrab"
+            , "orange"
+            , "tomato"
+            , "crimson"
+            , "purple"
+            , "turquoise"
+            , "forestgreen"
+            , "navy"
+            , "gray"
+        ];
         for (var i = 0; i < listData.length; i++) {
             var size = sliceSize(listData[i], listTotal);
             iterateSlices(size, pieElement, offset, i, 0, color[i]);

@@ -37,7 +37,7 @@ class SiloController extends Controller
         $id = Input::get('textName');
 
         DB::table('primesilos')->insert(
-            array('quantity' => '0', 'id' => $id, 'rawmaterial_id' => 6)
+            array('quantity' => '0', 'id' => $id, 'rawmaterial_id' => 999)
         );
 
         return redirect('silo');

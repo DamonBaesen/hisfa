@@ -39,7 +39,7 @@ class RawmaterialsTableSeeder extends Seeder
 
         $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->id = 999;
-        $rawmaterialExtra->type = "";
+        $rawmaterialExtra->type = "N/A";
         $rawmaterialExtra->quantity = 0;
         $rawmaterialExtra->save();
     }
