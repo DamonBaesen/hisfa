@@ -16,7 +16,10 @@ class CreateRawmaterialsTable extends Migration
         Schema::create('rawmaterials', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type', 50);
-            $table->integer('quantity');
+            $table->integer('orderd');
+            $table->integer('deliverd');
+            $table->integer('stock');
+            $table->integer('using');
             $table->timestamps();
         });
     }
@@ -28,6 +31,8 @@ class CreateRawmaterialsTable extends Migration
      */
     public function down()
     {
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Schema::dropIfExists('rawmaterials');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

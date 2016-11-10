@@ -12,35 +12,53 @@ class RawmaterialsTableSeeder extends Seeder
      */
     public function run()
     {
-        $rawmaterialExtra = new \App\Rawmaterial();
+       $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->type = "f21MB-n";
-        $rawmaterialExtra->quantity = 45;
+        $rawmaterialExtra->orderd = 4;
+        $rawmaterialExtra->deliverd = 10;
+        $rawmaterialExtra->stock = 35;
+        $rawmaterialExtra->using = value(0);
         $rawmaterialExtra->save();
 
         $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->type = "RF23W-n";
-        $rawmaterialExtra->quantity = 3;
+        $rawmaterialExtra->orderd = 20;
+        $rawmaterialExtra->deliverd = 2;
+        $rawmaterialExtra->stock = 45;
+        $rawmaterialExtra->using = value(0);
         $rawmaterialExtra->save();
 
         $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->type = "KSE-20";
-        $rawmaterialExtra->quantity = 4;
+        $rawmaterialExtra->orderd = 7;
+        $rawmaterialExtra->deliverd = 0;
+        $rawmaterialExtra->stock = 30;
+        $rawmaterialExtra->using = value(0);
         $rawmaterialExtra->save();
 
         $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->type = "KSE-30";
-        $rawmaterialExtra->quantity = 90;
+        $rawmaterialExtra->orderd = 10;
+        $rawmaterialExtra->deliverd = 20;
+        $rawmaterialExtra->stock = 30;
+        $rawmaterialExtra->using = value(0);
         $rawmaterialExtra->save();
 
         $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->type = "F21B-n";
-        $rawmaterialExtra->quantity = 67;
+        $rawmaterialExtra->orderd = 12;
+        $rawmaterialExtra->deliverd = 2;
+        $rawmaterialExtra->stock = 15;
+        $rawmaterialExtra->using = value(0);
         $rawmaterialExtra->save();
 
         $rawmaterialExtra = new \App\Rawmaterial();
         $rawmaterialExtra->id = 999;
         $rawmaterialExtra->type = "N/A";
-        $rawmaterialExtra->quantity = 0;
+        $rawmaterialExtra->orderd = 0;
+        $rawmaterialExtra->deliverd = 0;
+        $rawmaterialExtra->stock = 0;
+        $rawmaterialExtra->using = value(0);
         $rawmaterialExtra->save();
     }
 }
