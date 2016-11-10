@@ -23,9 +23,31 @@
                         </div>
                         
                     <div class="form-group">
-                        <label for="textStock" class="control-label col-sm-2">Quantity</label>
+                        <label for="textStock" class="control-label col-sm-2">Stock</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="textStock" name="textQuantity" value="{{$rawmaterial->quantity}}" required="">
+                            <input type="number" class="form-control" id="textStock" name="textStock" value="{{$rawmaterial->stock}}" required="">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="textOrderd" class="control-label col-sm-2">Orderd</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="textOrderd" name="textOrderd" value="{{$rawmaterial->orderd}}" required="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="textDeliverd" class="control-label col-sm-2">Deliverd</label>
+                        <div class="col-sm-10">
+                            <input type="number" class="form-control" id="textDeliverd" name="textDeliverd" value="{{$rawmaterial->deliverd}}" required="">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="checkUsing" class="control-label col-sm-2">Using</label>
+                        <div class="col-sm-10">
+                            <input type="checkbox" class="form-control" id="checkUsing" name="checkUsing" value="1" > Yes
+                            <input type="checkbox" class="form-control" id="checkUsing" name="checkUsing" value="0" > No
                         </div>
                     </div>
 
