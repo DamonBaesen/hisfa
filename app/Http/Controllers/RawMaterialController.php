@@ -7,6 +7,7 @@ use App\Rawmaterial;
 use DB;
 use App\Quotation;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 
  use App\Http\Requests;
 
@@ -39,6 +40,11 @@ class RawMaterialController extends Controller
         DB::table('rawmaterials')->insertGetId(
             array('quantity' => $quantity, 'type' => $type)
         );
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'add', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid)
+        );
         return redirect('rawmaterial');
     }
     
@@ -50,19 +56,25 @@ class RawMaterialController extends Controller
     public function remove($id)
     {
         DB::table('rawmaterials')->where('id', '=', $id)->delete();
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid)
+        );
         return redirect('rawmaterial');
     }
     
     public function edit($id)
     {
         $type = Input::get('textType');
-        $stock = Input::get('textStock');
-        $orderd = Input::get('textOrderd');
-        $deliverd = Input::get('textDeliverd');
-        $using = Input::get('checkUsing');
+        $quantity = Input::get('textQuantity');
         
         
-        \App\Rawmaterial::where('id', '=', $id)->update(array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => $using));
+        \App\Rawmaterial::where('id', '=', $id)->update( array('quantity' => $quantity, 'type' => $type));
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid)
+        );
 
         return redirect('rawmaterial');
     }
