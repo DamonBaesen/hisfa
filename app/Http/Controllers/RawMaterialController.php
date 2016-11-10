@@ -35,10 +35,12 @@ class RawMaterialController extends Controller
     public function add()
     {
         $type = Input::get('textType');
-        $quantity = Input::get('textQuantity');
+        $stock = Input::get('textStock');
+        $orderd = Input::get('textOrderd');
+        $deliverd = Input::get('textDeliverd');
 
         DB::table('rawmaterials')->insertGetId(
-            array('quantity' => $quantity, 'type' => $type)
+            array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => 0)
         );
 
         $userid = Auth::id();
@@ -55,8 +57,10 @@ class RawMaterialController extends Controller
 
     public function remove($id)
     {
-        DB::table('rawmaterials')->where('id', '=', $id)->delete();
-
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Rawmaterial::destroy($id);
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        
         $userid = Auth::id();
         DB::table('histories')->insert(
             array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid)
@@ -66,8 +70,6 @@ class RawMaterialController extends Controller
     
     public function edit($id)
     {
-        return redirect('rawmaterial');
-        
         $type = Input::get('textType');
         $stock = Input::get('textStock');
         $orderd = Input::get('textOrderd');
@@ -77,6 +79,7 @@ class RawMaterialController extends Controller
         
         \App\Rawmaterial::where('id', '=', $id)->update(array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => $using));
         $userid = Auth::id();
+        
         DB::table('histories')->insert(
             array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid)
         );
