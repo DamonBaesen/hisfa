@@ -18,7 +18,6 @@ class UserPermissions extends Migration
             $table->integer('user_id');
             $table->integer('permission_id')->nullable()->unsigned();
             $table->foreign('permission_id')->references('id')->on('permissions');
-            $table->timestamps();
         });
     }
 
