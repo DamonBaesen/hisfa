@@ -15,7 +15,6 @@ class PermissionMiddleware
      */
     public function handle($request, Closure $next, $permission)
     {
-        echo $permission;
         if (! $request->user()->can($permission)) {
             abort(403);
         }
