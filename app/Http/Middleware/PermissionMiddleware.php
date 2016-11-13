@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
-
+use Illuminate\Support\Facades\DB;
 use Closure;
 
 class PermissionMiddleware
@@ -15,11 +15,10 @@ class PermissionMiddleware
      */
     public function handle($request, Closure $next, $permission)
     {
-
+        echo $permission;
         if (! $request->user()->can($permission)) {
             abort(403);
         }
-
         return $next($request);
     }
 }

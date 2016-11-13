@@ -51,7 +51,7 @@ class UsersTableSeeder extends Seeder
         $user->admin = 1;
         $user->password = Hash::make('hisfa');
         $user->save();
-        $user->givePermissionTo('viewdashboard', 'manageblocks', 'viewrecyclesilos', 'managerecyclesilos', 'viewprimesilos', 'manageprimesilos', 'manageusers');
+        $user->givePermissionTo('viewdashboard', 'viewblocks', 'manageblocks', 'viewrecyclesilos', 'managerecyclesilos', 'viewprimesilos', 'manageprimesilos', 'manageusers');
 
     }
 }
