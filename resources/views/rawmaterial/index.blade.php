@@ -47,9 +47,6 @@
                             @endif 
                         @endif
                         </li>
-                           
-
-                           
 
                        @endforeach
                        
@@ -63,14 +60,17 @@
     </body>
 <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript">
+
         function sliceSize(dataNum, dataTotal) {
             return (dataNum / dataTotal) * 360;
         }
+
         function addSlice(sliceSize, pieElement, offset, sliceID, color) {
             $(pieElement).append("<div class='slice " + sliceID + "'><span></span></div>");
             var offset = offset - 1;
             var sizeRotation = -179 + sliceSize;
             if (sliceSize <= 0) {
+
             }
             else {
                 $("." + sliceID).css({
@@ -82,11 +82,13 @@
                 });
             }
         }
+
         function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
             var sliceID = "s" + dataCount + "-" + sliceCount;
             var maxSize = 179;
             if(sliceSize <= 0)
             {
+
             }
             else if (sliceSize <= maxSize) {
                 addSlice(sliceSize, pieElement, offset, sliceID, color);
@@ -96,6 +98,7 @@
                 iterateSlices(sliceSize - maxSize, pieElement, offset + maxSize, dataCount, sliceCount + 1, color);
             }
         }
+
         function createPie(dataElement, pieElement) {
             var listData = [];
             $(dataElement + " span").each(function () {

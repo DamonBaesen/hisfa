@@ -43,7 +43,15 @@
                     <h2>Events loggings</h2> </div>
                 <div class="log-console">
                     @foreach($eventlog as $eventlogs)
-                        <p>{{ $eventlogs->action }}</p><p>{{ $eventlogs->sector }}</p>
+                        @if (!empty($eventlogs->silonr))
+                        <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
+                        @elseif(!empty($eventlogs->block))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
+                       @elseif(!empty($eventlogs->quality))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>
+                            @elseif(!empty($eventlogs->rawmaterial))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>
+                        @endif
                     @endforeach
                 </div>
             </div>
