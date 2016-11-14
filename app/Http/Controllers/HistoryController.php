@@ -20,6 +20,9 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        return view('history');
+        $eventlog = \App\History::all();
+        $data['eventlog'] = $eventlog;
+
+        return view('history', $data);
     }
 }
