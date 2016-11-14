@@ -9,7 +9,7 @@
                 <?php $totaal=0; ?>
                 <?php $testtest=0; ?>
                 @foreach ($stock as $blok)
-                <?php $result=$blok->height * $blok->quantity * 1.03 *1.29;
+                <?php $result= round($blok->height * $blok->quantity * 1.03 *1.29, 2);
                 $totaal += $result;?>
 
 
@@ -22,7 +22,7 @@
                 
                 <h3>Custom block overview</h3>
                 @foreach ($customstock as $blok)
-                <?php $result=$blok->height * $blok->quantity * 1.03 *1.29;
+                <?php $result= round($blok->height * $blok->quantity * 1.03 *1.29, 2);
                 $totaal += $result; ?>
                 <p>Van bloktype {{ $blok->stok->name }} met lengte {{ $blok->height }} zijn er op dit moment {{ $blok->quantity }} blokken.</p><p> Aantal Kubeke meter :<strong>{{$result}} m³</strong></p><hr/>
                 
