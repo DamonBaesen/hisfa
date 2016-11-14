@@ -15,22 +15,22 @@
 
 
 
-                <p>Van bloktype {{ $blok->stok->name }} met lengte {{ $blok->height }} zijn er op dit moment {{ $blok->quantity }} blokken.</p>
+                <p>Van bloktype {{ $blok->stok->name }} met lengte {{ $blok->height }} zijn er op dit moment {{ $blok->quantity }} blokken.</p><p> Aantal Kubeke meter :<strong>{{$result}} m³</strong></p><hr/>
 <!-- Kubieke meters in p -->
                 @endforeach
-                
+
                 
                 <h3>Custom block overview</h3>
                 @foreach ($customstock as $blok)
-                <?php $result=$blok->height * $blok->quantity * 10.3 *12.9;
+                <?php $result=$blok->height * $blok->quantity * 1.03 *1.29;
                 $totaal += $result; ?>
-                <p>Van bloktype {{ $blok->stok->name }} met lengte {{ $blok->height }} zijn er op dit moment {{ $blok->quantity }} blokken.</p>
+                <p>Van bloktype {{ $blok->stok->name }} met lengte {{ $blok->height }} zijn er op dit moment {{ $blok->quantity }} blokken.</p><p> Aantal Kubeke meter :<strong>{{$result}} m³</strong></p><hr/>
                 
 <!-- Kubieke meters in p -->
                 @endforeach
 
                 <h3>Kubekemeters in opslag</h3>
-                <p>Totaal aantal kubekemeter opgeslagen: <strong>{{$totaal}} m³</strong> </p>
+                <p>Totaal aantal kubekemeter in stock: <strong>{{$totaal}} m³</strong> </p>
                 <ul>
 
                 <hr/>
