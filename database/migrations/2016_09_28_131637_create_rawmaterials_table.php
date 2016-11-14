@@ -16,6 +16,7 @@ class CreateRawmaterialsTable extends Migration
         Schema::create('rawmaterials', function (Blueprint $table) {
             $table->increments('id');
             $table->string('type', 50);
+            $table->string('icon')->default('default.jpg');
             $table->integer('orderd');
             $table->integer('deliverd');
             $table->integer('stock');
