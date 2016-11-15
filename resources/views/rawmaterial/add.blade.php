@@ -33,14 +33,14 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="textOrderd" class="control-label col-sm-2">Orderd</label>
+                        <label for="textOrderd" class="control-label col-sm-2">Ordered</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="textOrderd" name="textOrderd" value="10" required="">
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="textDeliverd" class="control-label col-sm-2">Deliverd</label>
+                        <label for="textDeliverd" class="control-label col-sm-2">Delivered</label>
                         <div class="col-sm-10">
                             <input type="number" class="form-control" id="textDeliverd" name="textDeliverd" value="10" required="">
                         </div>
