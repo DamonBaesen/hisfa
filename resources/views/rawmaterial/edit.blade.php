@@ -9,9 +9,18 @@
         <div class="row">
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
+                <h3>Add icon to rawmaterial</h3>
+                    @foreach ($rawmaterials as $rawmaterial)
+                        <form enctype="multipart/form-data" action="/rawmaterial/updatephoto/{{$rawmaterial->id}}" method="POST">
+                            <input type="file" name="icon">
+                            <input type="hidden" id="iconInput" name="_token" value="{{ csrf_token() }}">
+                            <input type="submit" class="pull-right btn btn-sm btn-primary">
+                        </form>
+
+                    @endforeach
                 <h3>Edit rawmaterial</h3>
                 <form class="form-horizontal" role="form" method="POST" action="">
-                    @foreach ($rawmaterials as $rawmaterial) 
+                    @foreach ($rawmaterials as $rawmaterial)
                     {{ csrf_field() }}
                     <fieldset>
 
