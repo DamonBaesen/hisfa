@@ -23,7 +23,7 @@ class BlockController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
+    {   
        $stock = \App\Stock::with('stok')
                 ->where('height', '4')
                 ->orwhere('height', '6')
