@@ -43,7 +43,15 @@
                     <h2>Events loggings</h2> </div>
                 <div class="log-console">
                     @foreach($eventlog as $eventlogs)
-                        <p>{{ $eventlogs->action }}</p><p>{{ $eventlogs->sector }}</p>
+                        @if (!empty($eventlogs->silonr))
+                        <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
+                        @elseif(!empty($eventlogs->block))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
+                       @elseif(!empty($eventlogs->quality))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>
+                            @elseif(!empty($eventlogs->rawmaterial))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -104,16 +112,28 @@
                 <div class="frame rawmaterials" onclick="window.location.href='/rawmaterial'">
                     <div class="frame-title">
                         <h2>Rawmaterials</h2> </div>
-                    <div class="char">
-                        <div class="pieID pie"> </div>
+                    <div class="config-stock-view">
+
+                        <div class="select-blocks">
+
+                            <div class="cgg">
+                                <div class="char">
+                                    <div class="pieID pie"> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <ul class="pieID legend">
-                        @foreach($rawmaterial as $rawmaterials)
-                            @if($rawmaterials->quantity != 0)
-                            <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span>% </li>
-                            @endif
-                        @endforeach
+                        @foreach ($rawmaterial as $rawmaterials)
+                            @if($rawmaterials->stock != 0)
+                                <li>
+                                    <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span> ton</br>
+                                    @endif
+                                </li>
+                                @endforeach
+
                     </ul>
+                </div>
                 </div>
             </div>
         </div>

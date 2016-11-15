@@ -16,10 +16,20 @@
     <div class="silo-container">
         <div class="silo-title">
             <h5>HIER MOET NOG INHOUD KOMEN</h5>
-        </div>
-
-
-
+                <div class="log-console">
+                    @foreach($eventlog as $eventlogs)
+                        @if (!empty($eventlogs->silonr))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
+                        @elseif(!empty($eventlogs->block))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
+                        @elseif(!empty($eventlogs->quality))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>
+                        @elseif(!empty($eventlogs->rawmaterial))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>
+                        @endif
+                    @endforeach
+                </div>
+            </div>
     </div>
 
     </body>
