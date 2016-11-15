@@ -41,8 +41,8 @@
                             <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span> ton</br>
                             <!--<input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">-->
                             <!--<button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> -->
-                            <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->id}}</a>
-                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a> 
+                            <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->type}}</a>
+                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->type}}</a>
                             <form enctype="multipart/form-data" action="/rawmaterial/updatephoto/{{$rawmaterials->id}}" method="POST">
                                 <input type="file" name="icon">
                                 <input type="hidden" id="iconInput" name="_token" value="{{ csrf_token() }}">
