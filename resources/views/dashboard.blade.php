@@ -79,7 +79,6 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
             <div class="cgps">
@@ -101,7 +100,7 @@
                                     @endif
                                 </div>
                                 <div class="silo-info">
-
+                                    <h3>{{ $silos->type }}</h3>
                                     <h4>{{ $silos->quantity }}%</h4>
                                 </div>
                             </div>
@@ -131,7 +130,6 @@
                                     @endif
                                 </li>
                                 @endforeach
-
                     </ul>
                 </div>
                 </div>
