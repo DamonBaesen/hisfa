@@ -6,10 +6,16 @@ use Illuminate\Http\Request;
 use App\Rawmaterial;
 use DB;
 use App\Quotation;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
+use Image;
+use App\Http\Requests;
 
- use App\Http\Requests;
+
+use Validator;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RawMaterialController extends Controller
 {
@@ -102,5 +108,23 @@ class RawMaterialController extends Controller
         $data['rawmaterial'] = $rawmaterial;
         return view('rawmaterial.stock', $data);
     }
+
+    public function updatePhoto(Request $request, $id){
+
+        if($request->hasFile('icon')){
+            $icon = $request->file('icon');
+            $filename = time() . '.' . $icon->getClientOriginalExtension();
+            Image::make($icon)->resize(150, 150)->save( public_path('/uploads/rawmaterialicons/' . $filename ) );
+
+            $rawmaterial= \App\Rawmaterial::find($id);
+            $rawmaterial->icon=$filename;
+            $rawmaterial->save();
+
+            
+        }
+        return redirect('rawmaterial')->with('message', 'Photo succesfully changed.');
+
+    }
     
+
 }

@@ -37,11 +37,17 @@
             <ul class="pieID legend">
                 @foreach ($rawmaterial as $rawmaterials)
                     @if($rawmaterials->stock != 0)
-                        <li> <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span> ton</br>
+                        <li> <img src="/uploads/rawmaterialicons/{{ $rawmaterials->icon }}" style="width:50px; height:50px; border-radius:50%; margin-top:15px; margin-bottem: 15px;"> </br>
+                            <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span> ton</br>
                             <!--<input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">-->
                             <!--<button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> -->
                             <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->id}}</a>
                             <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->id}}</a> 
+                            <form enctype="multipart/form-data" action="/rawmaterial/updatephoto/{{$rawmaterials->id}}" method="POST">
+                                <input type="file" name="icon">
+                                <input type="hidden" id="iconInput" name="_token" value="{{ csrf_token() }}">
+                                <input type="submit" class="pull-right btn btn-sm btn-primary">
+                            </form>
                             @if ( $rawmaterials->using == 1 )
                                <p>Using</p>
                             @endif 
