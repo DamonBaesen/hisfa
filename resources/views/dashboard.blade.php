@@ -112,16 +112,28 @@
                 <div class="frame rawmaterials" onclick="window.location.href='/rawmaterial'">
                     <div class="frame-title">
                         <h2>Rawmaterials</h2> </div>
-                    <div class="char">
-                        <div class="pieID pie"> </div>
+                    <div class="config-stock-view">
+
+                        <div class="select-blocks">
+
+                            <div class="cgg">
+                                <div class="char">
+                                    <div class="pieID pie"> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <ul class="pieID legend">
-                        @foreach($rawmaterial as $rawmaterials)
-                            @if($rawmaterials->quantity != 0)
-                            <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span>% </li>
-                            @endif
-                        @endforeach
+                        @foreach ($rawmaterial as $rawmaterials)
+                            @if($rawmaterials->stock != 0)
+                                <li>
+                                    <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span> ton</br>
+                                    @endif
+                                </li>
+                                @endforeach
+
                     </ul>
+                </div>
                 </div>
             </div>
         </div>

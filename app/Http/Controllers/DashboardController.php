@@ -55,6 +55,5 @@ class DashboardController extends Controller
             $data['eventlog'] = $eventlog;
 
         return view('dashboard', $data);
-
      }
 }
