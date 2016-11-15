@@ -66,6 +66,7 @@ Route::post('/quality/edit/{id}', 'QualityController@edit');
 
 //rawmaterial
 Route::get('/rawmaterial', 'RawMaterialController@index');
+Route::post('/rawmaterial/updatephoto/{id}', 'RawMaterialController@updatephoto');
 Route::get('/rawmaterial/add', 'RawMaterialController@addShow');
 Route::get('/rawmaterial/edit/{id}', 'RawMaterialController@editShow');
 Route::get('/rawmaterial/remove/{id}', 'RawMaterialController@remove');
