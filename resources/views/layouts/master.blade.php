@@ -14,7 +14,7 @@
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/forms.css" rel="stylesheet">
     <link rel="stylesheet" href="/css/navigation-style.css">
-
+    <link rel="stylesheet" href="/css/account-style.css">
 </head>
 <body>
     <nav class="navigation-bar">
