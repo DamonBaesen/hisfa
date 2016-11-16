@@ -13,7 +13,7 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/css/forms.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="/css/login-style.css">
 </head>
 <body>
 
