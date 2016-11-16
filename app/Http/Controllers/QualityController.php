@@ -75,13 +75,15 @@ class QualityController extends Controller
 
     public function remove($id)
     {
+        $name = \App\Qualitie::where('id', '=', $id)->first();
         DB::statement('SET FOREIGN_KEY_CHECKS = 0');
         Qualitie::destroy($id);
         DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 
+
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => $id, 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid)
+            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => $name["name"], 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid)
         );
 
         return redirect('quality');

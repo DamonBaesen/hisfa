@@ -19,11 +19,22 @@
                             <input type="text" class="form-control" id="textName" name="textName" placeholder="1" required="">
                         </div>
                     </div>
-                    
+
+                        <div class="form-group">
+                            <label for="txtlength" class="control-label col-sm-2">Length:</label>
+                            <div class="col-sm-10">
+                                <select name="txtlength" id="txtlentgh">
+                                    <option value="4">4 m</option>
+                                    <option value="6">6 m</option>
+                                    <option value="8">8 m</option>
+                                </select>
+                            </div>
+                        </div>
+                    <h1>OR</h1>
                      <div class="form-group">
-                        <label for="textName" class="control-label col-sm-2">Hoogte: </label>
+                        <label for="textName" class="control-label col-sm-2">Custom length: </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="textHeight" name="textHeight" placeholder="4, 6, 8" required="">
+                            <input type="text" class="form-control" id="textHeight" name="textHeight" placeholder="custom length" required="">
                         </div>
                     </div>
 

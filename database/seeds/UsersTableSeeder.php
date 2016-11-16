@@ -28,5 +28,11 @@ class UsersTableSeeder extends Seeder
         $user->email = "tom@changeme.hisfa";
         $user->password = Hash::make('hisfa');
         $user->save();
+
+        $user = new \App\User();
+        $user->name = "admin";
+        $user->email = "admin@changeme.hisfa";
+        $user->password = Hash::make('hisfa');
+        $user->save();
     }
 }
