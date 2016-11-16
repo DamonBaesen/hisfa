@@ -39,7 +39,6 @@
         'uses' => 'DashboardController@index'
     ]);
 
-
 //account
     Route::post('/account/add', 'AccountController@add');
     Route::get('/account/edit', 'AccountController@edit');
@@ -125,7 +124,7 @@
         'middleware' => 'auth',
         'uses' => 'SiloController@addShow'
     ]);
-    Route::get('silo/edit', [
+    Route::get('silo/edit/{id}', [
         'middleware' => 'auth',
         'uses' => 'SiloController@editShow'
     ]);
@@ -135,15 +134,15 @@
 
 
 //recyclesilo
-    Route::get('recycle', [
+    Route::get('recyclesilo', [
         'middleware' => 'auth',
         'uses' => 'RecycleSiloController@index'
     ]);
-    Route::get('recycle/add', [
+    Route::get('recyclesilo/add', [
         'middleware' => 'auth',
         'uses' => 'RecycleSiloController@addShow'
     ]);
-    Route::get('recycle/edit', [
+    Route::get('recyclesilo/edit/{id}', [
         'middleware' => 'auth',
         'uses' => 'RecycleSiloController@editShow'
     ]);
