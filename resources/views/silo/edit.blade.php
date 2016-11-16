@@ -1,6 +1,10 @@
 @extends('layouts.master')
 
 @section('content')
+    <head>
+        <meta charset="UTF-8">
+        <title>Account</title>
+    </head>
     <div class="container">
         <div class="row">
             <div class="panel panel-default" id="form">
@@ -15,10 +19,14 @@
                         <div class="col-sm-10">
                             <select name="txtGrondstof" id="txtGrondstof">
                                 @foreach($rawmaterial as $rawmaterials)
+                                    @if($rawmaterials->type == "N/A")
+                                        @else
                                     @if($rawmaterials->type == $silos->grondstof->type)
                                     <option class="form-control" selected id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
-                                    @else
+
+                                        @else
                                         <option class="form-control" id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
+                                    @endif
                                     @endif
                                         @endforeach
                             </select>

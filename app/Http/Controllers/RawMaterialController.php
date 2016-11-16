@@ -6,9 +6,16 @@ use Illuminate\Http\Request;
 use App\Rawmaterial;
 use DB;
 use App\Quotation;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
+use Image;
+use App\Http\Requests;
 
- use App\Http\Requests;
+
+use Validator;
+use App\Http\Controllers\Controller;
+use Illuminate\Foundation\Auth\RegistersUsers;
 
 class RawMaterialController extends Controller
 {
@@ -34,10 +41,17 @@ class RawMaterialController extends Controller
     public function add()
     {
         $type = Input::get('textType');
-        $quantity = Input::get('textQuantity');
+        $stock = Input::get('textStock');
+        $orderd = Input::get('textOrderd');
+        $deliverd = Input::get('textDeliverd');
 
         DB::table('rawmaterials')->insertGetId(
-            array('quantity' => $quantity, 'type' => $type)
+            array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => 0)
+        );
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'add', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid)
         );
         return redirect('rawmaterial');
     }
@@ -49,16 +63,32 @@ class RawMaterialController extends Controller
 
     public function remove($id)
     {
-        DB::table('rawmaterials')->where('id', '=', $id)->delete();
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Rawmaterial::destroy($id);
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid)
+        );
         return redirect('rawmaterial');
     }
     
     public function edit($id)
     {
         $type = Input::get('textType');
-        $quantity = Input::get('textQuantity');
+        $stock = Input::get('textStock');
+        $orderd = Input::get('textOrderd');
+        $deliverd = Input::get('textDeliverd');
+        $using = Input::get('checkUsing');
         
-        \App\Rawmaterial::where('id', '=', $id)->update(array('quantity' => $quantity, 'type' => $type));
+        
+        \App\Rawmaterial::where('id', '=', $id)->update(array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => $using));
+        $userid = Auth::id();
+        
+        DB::table('histories')->insert(
+            array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid)
+        );
 
         return redirect('rawmaterial');
     }
@@ -72,4 +102,29 @@ class RawMaterialController extends Controller
         return view('rawmaterial.edit', $data);
     }
     
+    public function stockShow()
+    {
+        $rawmaterial = \App\Rawmaterial::all();
+        $data['rawmaterial'] = $rawmaterial;
+        return view('rawmaterial.stock', $data);
+    }
+
+    public function updatePhoto(Request $request, $id){
+
+        if($request->hasFile('icon')){
+            $icon = $request->file('icon');
+            $filename = time() . '.' . $icon->getClientOriginalExtension();
+            Image::make($icon)->resize(150, 150)->save( public_path('/uploads/rawmaterialicons/' . $filename ) );
+
+            $rawmaterial= \App\Rawmaterial::find($id);
+            $rawmaterial->icon=$filename;
+            $rawmaterial->save();
+
+            
+        }
+        return redirect('rawmaterial')->with('message', 'Photo succesfully changed.');
+
+    }
+    
+
 }

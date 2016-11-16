@@ -1,8 +1,7 @@
-<!doctype html>
-<html lang="en">
+@extends('layouts.master')
+@section('content')
 <head>
     <meta charset="UTF-8">
-
     <title>Account</title>
 </head>
 <body>
@@ -50,3 +49,4 @@
 
 </body>
 </html>
+@endsection

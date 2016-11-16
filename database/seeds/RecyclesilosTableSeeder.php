@@ -13,12 +13,21 @@ class RecyclesilosTableSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach(range(1, 3) as $index)
-        {
+
             $recyclesilo = new \App\Recyclesilo();
             $recyclesilo->quantity = $faker->numberBetween(0,100);
-            $recyclesilo->type = $faker->name();
+            $recyclesilo->type = "Soft";
             $recyclesilo->save();
-        }
+
+        $recyclesilo = new \App\Recyclesilo();
+        $recyclesilo->quantity = $faker->numberBetween(0,100);
+        $recyclesilo->type = "Soft";
+        $recyclesilo->save();
+
+        $recyclesilo = new \App\Recyclesilo();
+        $recyclesilo->quantity = $faker->numberBetween(0,100);
+        $recyclesilo->type = "Medium";
+        $recyclesilo->save();
+
     }
 }

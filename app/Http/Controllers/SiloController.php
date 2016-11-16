@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Auth;
 
 use Illuminate\Http\Request;
 use App\Primesilo;
@@ -37,7 +38,12 @@ class SiloController extends Controller
         $id = Input::get('textName');
 
         DB::table('primesilos')->insert(
-            array('quantity' => '0', 'id' => $id, 'rawmaterial_id' => 6)
+            array('quantity' => '0', 'id' => $id, 'rawmaterial_id' => 999)
+        );
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'add', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid)
         );
 
         return redirect('silo');
@@ -52,6 +58,11 @@ class SiloController extends Controller
     {
         DB::table('primesilos')->where('id', '=', $id)->delete();
 
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'remove', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid)
+        );
+
         return redirect('silo');
     }
 
@@ -65,6 +76,12 @@ class SiloController extends Controller
         if($quantity >= 90){
             app('App\Http\Controllers\EmailController')->send($id, $quantity);
         }
+
+        $userid = Auth::id();
+        DB::table('histories')->insert(
+            array('action' => 'edit', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid)
+        );
+
         return redirect('silo');
     }
 

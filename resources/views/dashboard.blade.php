@@ -24,33 +24,40 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="stock-group">
+                <div class="stock-group" onclick="window.location.href='/block'">
                     @foreach($selectQuality as $selectQualities)
                         <div class="stock-container">
-                            <h2>{{ $selectQualities->height }}m</h2>
+                            <h2>{{ $selectQualities->height }}</h2>
                             <h3>{{ $selectQualities->quantity }}</h3>
                             <p>blocks</p>
                             <div class="oppervlak">
-                                {{ $selectQualities->height * $selectQualities->quantity }}m³
+                                {{ $selectQualities->height * $selectQualities->quantity *1.03 *1.29 }}m³
                             </div>
                         </div>
                     @endforeach
 
-
                 </div>
             </div>
-            <div class="frame event" >
+            <div class="frame event" onclick="window.location.href='/history'" >
                 <div class="frame-title">
                     <h2>Events loggings</h2> </div>
                 <div class="log-console">
                     @foreach($eventlog as $eventlogs)
-                        <p>{{ $eventlogs->action }}</p><p>{{ $eventlogs->sector }}</p>
+                        @if (!empty($eventlogs->silonr))
+                        <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
+                        @elseif(!empty($eventlogs->block))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
+                       @elseif(!empty($eventlogs->quality))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>
+                            @elseif(!empty($eventlogs->rawmaterial))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>
+                        @endif
                     @endforeach
                 </div>
             </div>
         </div>
         <div class="right">
-            <div class="frame prime">
+            <div class="frame prime" onclick="window.location.href='/silo'">
                 <div class="frame-title">
                     <h2>Prime silo status</h2> </div>
                 <div class="silo-group">
@@ -65,20 +72,18 @@
                                 @else
                                     <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #D75452;"> </div>
                                 @endif
-
                             </div>
                             <div class="silo-info">
                                 <h3>{{$silos->grondstof->type}}</h3>
-                                <h4>{{ $silos->quantity }}</h4>
+                                <h4>{{ $silos->quantity }}%</h4>
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
             <div class="cgps">
 
-                <div class="frame recycle">
+                <div class="frame recycle" onclick="window.location.href='/recyclesilo'">
                     <div class="frame-title">
                         <h2>Recycle silo status</h2> </div>
                     <div class="silo-group">
@@ -93,30 +98,40 @@
                                     @else
                                         <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #D75452;"> </div>
                                     @endif
-
                                 </div>
                                 <div class="silo-info">
-
-                                    <h4>{{ $silos->quantity }}</h4>
+                                    <h3>{{ $silos->type }}</h3>
+                                    <h4>{{ $silos->quantity }}%</h4>
                                 </div>
                             </div>
                         @endforeach
 
                     </div>
                 </div>
-                <div class="frame rawmaterials">
+                <div class="frame rawmaterials" onclick="window.location.href='/rawmaterial'">
                     <div class="frame-title">
                         <h2>Rawmaterials</h2> </div>
-                    <div class="char">
-                        <div class="pieID pie"> </div>
+                    <div class="config-stock-view">
+
+                        <div class="select-blocks">
+
+                            <div class="cgg">
+                                <div class="char">
+                                    <div class="pieID pie"> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <ul class="pieID legend">
-                        @foreach($rawmaterial as $rawmaterials)
-                            <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span> </li>
-                        @endforeach
-
-
+                        @foreach ($rawmaterial as $rawmaterials)
+                            @if($rawmaterials->stock != 0)
+                                <li>
+                                    <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span> ton</br>
+                                    @endif
+                                </li>
+                                @endforeach
                     </ul>
+                </div>
                 </div>
             </div>
         </div>
@@ -126,11 +141,6 @@
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript">
 
-
-
-
-
-
         function sliceSize(dataNum, dataTotal) {
             return (dataNum / dataTotal) * 360;
         }
@@ -139,19 +149,28 @@
             $(pieElement).append("<div class='slice " + sliceID + "'><span></span></div>");
             var offset = offset - 1;
             var sizeRotation = -179 + sliceSize;
-            $("." + sliceID).css({
-                "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
-            });
-            $("." + sliceID + " span").css({
-                "transform": "rotate(" + sizeRotation + "deg) translate3d(0,0,0)"
-                , "background-color": color
-            });
+            if (sliceSize <= 0) {
+
+            }
+            else {
+                $("." + sliceID).css({
+                    "transform": "rotate(" + offset + "deg) translate3d(0,0,0)"
+                });
+                $("." + sliceID + " span").css({
+                    "transform": "rotate(" + sizeRotation + "deg) translate3d(0,0,0)"
+                    , "background-color": color
+                });
+            }
         }
 
         function iterateSlices(sliceSize, pieElement, offset, dataCount, sliceCount, color) {
             var sliceID = "s" + dataCount + "-" + sliceCount;
             var maxSize = 179;
-            if (sliceSize <= maxSize) {
+            if(sliceSize <= 0)
+            {
+
+            }
+            else if (sliceSize <= maxSize) {
                 addSlice(sliceSize, pieElement, offset, sliceID, color);
             }
             else {
@@ -181,5 +200,14 @@
                 , "forestgreen"
                 , "navy"
                 , "gray"
-            ]}
+            ];
+            for (var i = 0; i < listData.length; i++) {
+                var size = sliceSize(listData[i], listTotal);
+                iterateSlices(size, pieElement, offset, i, 0, color[i]);
+                $(dataElement + " li:nth-child(" + (i + 1) + ")").css("border-color", color[i]);
+                offset += size;
+            }
+        }
+        createPie(".pieID.legend", ".pieID.pie");
    </script>
+    @endsection
