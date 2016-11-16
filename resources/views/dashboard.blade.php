@@ -27,11 +27,11 @@
                 <div class="stock-group" onclick="window.location.href='/block'">
                     @foreach($selectQuality as $selectQualities)
                         <div class="stock-container">
-                            <h2>{{ $selectQualities->height }}m</h2>
+                            <h2>{{ $selectQualities->height }}</h2>
                             <h3>{{ $selectQualities->quantity }}</h3>
                             <p>blocks</p>
                             <div class="oppervlak">
-                                {{ $selectQualities->height * $selectQualities->quantity }}m³
+                                {{ $selectQualities->height * $selectQualities->quantity *1.03 *1.29 }}m³
                             </div>
                         </div>
                     @endforeach
@@ -43,7 +43,15 @@
                     <h2>Events loggings</h2> </div>
                 <div class="log-console">
                     @foreach($eventlog as $eventlogs)
-                        <p>{{ $eventlogs->action }}</p><p>{{ $eventlogs->sector }}</p>
+                        @if (!empty($eventlogs->silonr))
+                        <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
+                        @elseif(!empty($eventlogs->block))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
+                       @elseif(!empty($eventlogs->quality))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>
+                            @elseif(!empty($eventlogs->rawmaterial))
+                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>
+                        @endif
                     @endforeach
                 </div>
             </div>
@@ -71,7 +79,6 @@
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
             <div class="cgps">
@@ -93,7 +100,7 @@
                                     @endif
                                 </div>
                                 <div class="silo-info">
-
+                                    <h3>{{ $silos->type }}</h3>
                                     <h4>{{ $silos->quantity }}%</h4>
                                 </div>
                             </div>
@@ -104,16 +111,27 @@
                 <div class="frame rawmaterials" onclick="window.location.href='/rawmaterial'">
                     <div class="frame-title">
                         <h2>Rawmaterials</h2> </div>
-                    <div class="char">
-                        <div class="pieID pie"> </div>
+                    <div class="config-stock-view">
+
+                        <div class="select-blocks">
+
+                            <div class="cgg">
+                                <div class="char">
+                                    <div class="pieID pie"> </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <ul class="pieID legend">
-                        @foreach($rawmaterial as $rawmaterials)
-                            @if($rawmaterials->quantity != 0)
-                            <li> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->quantity }}</span>% </li>
-                            @endif
-                        @endforeach
+                        @foreach ($rawmaterial as $rawmaterials)
+                            @if($rawmaterials->stock != 0)
+                                <li>
+                                    <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span> ton</br>
+                                    @endif
+                                </li>
+                                @endforeach
                     </ul>
+                </div>
                 </div>
             </div>
         </div>

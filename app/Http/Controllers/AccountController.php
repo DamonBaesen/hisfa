@@ -20,6 +20,7 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 
 class AccountController extends Controller
 {
+    
     public function getData(){
 
             return view('account.index');
@@ -31,22 +32,7 @@ class AccountController extends Controller
     
     
      protected function add(Request $request)
-    {
-        
-         
-        
-        // if($request->hasFile('filePicture'))
-         //   {
-                 //$image = Image::make(Input::file('filePicture'));
-             
-                //$extension = Input::file('filePicture')->getClientOriginalExtension();
-             
-                //print_r($extension);
-             
-               //$fileName = rand(11111, 99999) . time() . '.' . $extension;
-        
-                //$imagePath = 'uploads/avatars' . $fileName;
-                
+    {            
                 $name = Input::get('textName');
                 $email= Input::get('textEmail');
                 $password = Hash::make(Input::get('textQuantity'));
@@ -56,11 +42,6 @@ class AccountController extends Controller
                 );
                 
                 return view('account.add');
-            
-         
-                
-           // }
-         
      }
          
          

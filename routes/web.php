@@ -12,28 +12,29 @@
 */
 
 //login
-Route::get('/', function () {
-    return view('login');
-});
-Route::get('/', function(){
-    return redirect()->route('login');
-});
-Route::get('/login', 'LoginController@__construct');
+    Route::get('/', function () {
+        return view('login');
+    });
+    Route::get('/', function(){
+        return redirect()->route('login');
+    });
+    Route::get('/login', 'LoginController@__construct');
 
 //logout
-Route::get('/logout', 'LogoutController@index');
+    Route::get('/logout', 'LogoutController@index');
 
 //password
-Route::get('/password/reset', 'ResetController@index');
+    Route::get('/password/reset', 'ResetController@index');
 
 //history
-Route::get('/history', 'HistoryController@index');
+    Route::get('/history', 'HistoryController@index');
 
 //dashboard + home
-Route::get('/dashboard', 'DashboardController@index')->middleware('permission:viewdashboard');
-Route::get('/home', 'DashboardController@index')->middleware('permission:viewdashboard');
+Route::get('/dashboard', 'DashboardController@index')->middleware('auth','permission:viewdashboard');
+Route::get('/home', 'DashboardController@index')->middleware('auth','permission:viewdashboard');
 
 //account
+Route::get('/account', 'AccountController@getData')->middleware('auth');
 Route::get('/account/add', 'AccountController@addShow')->middleware('permission:manageusers');
 Route::post('/account/add', 'AccountController@add')->middleware('permission:manageusers');
 Route::get('/account/edit', 'AccountController@edit')->middleware('permission:manageusers');
@@ -42,11 +43,6 @@ Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/updatephoto', 'AccountController@updatephoto');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
 Route::post('/account/send', 'EmailController@send');
-Route::get('account', [
-    'middleware' => 'auth',
-    'uses' => 'AccountController@getData'
-]);
-
 
 //block
 Route::get('/block', 'BlockController@index')->middleware('permission:viewblocks');
@@ -55,41 +51,64 @@ Route::get('/block/edit', 'BlockController@edit')->middleware('permission:manage
 Route::get('/block/remove', 'BlockController@remove')->middleware('permission:manageblocks');
 Route::post('/block/add', 'BlockController@add');
 
-
 //quality
-Route::get('/quality', 'QualityController@index');
-Route::get('/quality/add', 'QualityController@addShow');
-Route::get('/quality/remove/{id}', 'QualityController@remove');
-Route::get('/quality/edit/{id}', 'QualityController@editShow');
-Route::post('/quality/add', 'QualityController@add');
-Route::post('/quality/edit/{id}', 'QualityController@edit');
+    Route::get('quality', [
+        'middleware' => 'auth',
+        'uses' => 'QualityController@index'
+    ]);
+    Route::get('quality/add', [
+        'middleware' => 'auth',
+        'uses' => 'QualityController@addshow'
+    ]);
+    Route::get('quality/edit', [
+        'middleware' => 'auth',
+        'uses' => 'QualityController@editShow'
+    ]);
+    Route::get('/quality/remove/{id}', 'QualityController@remove');
+    Route::post('/quality/add', 'QualityController@add');
+    Route::post('/quality/edit/{id}', 'QualityController@edit');
 
 //rawmaterial
-Route::get('/rawmaterial', 'RawMaterialController@index');
-Route::get('/rawmaterial/add', 'RawMaterialController@addShow');
-Route::get('/rawmaterial/edit/{id}', 'RawMaterialController@editShow');
-Route::get('/rawmaterial/remove/{id}', 'RawMaterialController@remove');
-Route::post('/rawmaterial/add', 'RawMaterialController@add');
-Route::post('/rawmaterial/edit/{id}', 'RawMaterialController@edit');
+    Route::get('rawmaterial', [
+        'middleware' => 'auth',
+        'uses' => 'RawMaterialController@index'
+    ]);
+    Route::get('rawmaterial/add', [
+        'middleware' => 'auth',
+        'uses' => 'RawMaterialController@addShow'
+    ]);
+    Route::get('rawmaterial/edit', [
+        'middleware' => 'auth',
+        'uses' => 'RawMaterialController@editShow'
+    ]);
+    Route::get('rawmaterial/stock', [
+        'middleware' => 'auth',
+        'uses' => 'RawMaterialController@stockShow'
+    ]);
+    Route::get('/rawmaterial/remove/{id}', 'RawMaterialController@remove');
+    Route::post('/rawmaterial/add', 'RawMaterialController@add');
+    Route::post('/rawmaterial/edit/{id}', 'RawMaterialController@edit');
+    Route::post('/rawmaterial/updatephoto/{id}', 'RawMaterialController@updatephoto');
 
 //reset
-Route::get('/reset', 'ResetController@index');
+    Route::get('/reset', 'ResetController@index');
 
 //silo
-Route::get('/silo', 'SiloController@index')->middleware('permission:viewprimesilos');
-Route::get('/silo/add', 'SiloController@addShow')->middleware('permission:manageprimesilos');
-Route::get('/silo/remove/{id}', 'SiloController@remove')->middleware('permission:manageprimesilos');
-Route::get('/silo/edit/{id}', 'SiloController@editShow')->middleware('permission:manageprimesilos');
-Route::post('/silo/add', 'SiloController@add');
-Route::post('/silo/edit/{id}', 'SiloController@edit');
+Route::get('/silo', 'SiloController@index')->middleware('auth','permission:viewprimesilos');
+Route::get('/silo/add', 'SiloController@addShow')->middleware('auth','permission:manageprimesilos');
+Route::get('/silo/remove/{id}', 'SiloController@remove')->middleware('auth','permission:manageprimesilos');
+Route::get('/silo/edit/{id}', 'SiloController@editShow')->middleware('auth','permission:manageprimesilos');
+Route::post('/silo/add', 'SiloController@add')->middleware('auth','permission:manageprimesilos');
+Route::post('/silo/edit/{id}', 'SiloController@edit')->middleware('auth','permission:manageprimesilos');
 
 
 //recyclesilo
-Route::get('/recyclesilo', 'RecycleSiloController@index')->middleware('permission:viewrecyclesilos');
-Route::get('/recyclesilo/add', 'RecycleSiloController@addShow')->middleware('permission:managerecyclesilos');
-Route::get('/recyclesilo/remove/{id}', 'RecycleSiloController@remove')->middleware('permission:managerecyclesilos');
-Route::get('/recyclesilo/edit/{id}', 'RecycleSiloController@editShow')->middleware('permission:managerecyclesilos');
-Route::post('/recyclesilo/add', 'RecycleSiloController@add');
-Route::post('/recyclesilo/edit/{id}', 'RecycleSiloController@edit');
+Route::get('/recyclesilo', 'RecycleSiloController@index')->middleware('auth','permission:viewrecyclesilos');
+Route::get('/recyclesilo/add', 'RecycleSiloController@addShow')->middleware('auth','permission:managerecyclesilos');
+Route::get('/recyclesilo/remove/{id}', 'RecycleSiloController@remove')->middleware('auth','permission:managerecyclesilos');
+Route::get('/recyclesilo/edit/{id}', 'RecycleSiloController@editShow')->middleware('auth','permission:managerecyclesilos');
+Route::post('/recyclesilo/add', 'RecycleSiloController@add')->middleware('auth','permission:managerecyclesilos');
+Route::post('/recyclesilo/edit/{id}', 'RecycleSiloController@edit')->middleware('auth','permission:managerecyclesilos');
+
 
 Auth::routes();

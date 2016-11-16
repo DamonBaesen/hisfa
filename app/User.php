@@ -31,6 +31,5 @@ class User extends Authenticatable
 
     public function historiek()
     {
-        return $this->hasMany('App\History');
-    }
+        return $this->hasMany('App\History');    }
 }
