@@ -49,4 +49,12 @@
 
 </body>
 </html>
+
+@if(Auth::user()->admin)
+
+    Hey
+
+@endif
+
+
 @endsection
