@@ -26,12 +26,13 @@
                 </div>
                 <div class="stock-group" onclick="window.location.href='/block'">
                     @foreach($selectQuality as $selectQualities)
+                    <?php $result= round($selectQualities->height * $selectQualities->quantity * 1.03 *1.29, 2); ?>
                         <div class="stock-container">
                             <h2>{{ $selectQualities->height }}</h2>
                             <h3>{{ $selectQualities->quantity }}</h3>
                             <p>blocks</p>
                             <div class="oppervlak">
-                                {{ $selectQualities->height * $selectQualities->quantity *1.03 *1.29 }}m³
+                                {{ $result }}m³
                             </div>
                         </div>
                     @endforeach
