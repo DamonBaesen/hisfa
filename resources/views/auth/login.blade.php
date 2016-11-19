@@ -14,12 +14,12 @@
                                     <input id="email" type="email" placeholder="Email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
 
                                     @if ($errors->has('email'))
-                                        <strong class="message">Inloggegevens incorrect</strong>
+                                        <strong class="message">This input does not match with our records!</strong>
                                     </span>
                                     @endif
 
 
-                                <label for="password" class="col-md-4 control-label">Wachtwoord</label>
+                                <label for="password" class="col-md-4 control-label">Password</label>
                                     <input id="password" placeholder="Wachtwoord"type="password" class="form-control" name="password" required>
 
                                     @if ($errors->has('password'))
@@ -33,7 +33,7 @@
                                     </button>
 
                                     <a class="forgot" href="{{ url('/password/reset') }}">
-                                        Wachtwoord vergeten?
+                                        Forgot password?
                                     </a>
 
                         </form>

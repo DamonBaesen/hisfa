@@ -5,30 +5,47 @@
         <meta charset="UTF-8">
         <title>Account</title>
     </head>
-    <div class="container">
-        <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
-                <h3>Silo overview</h3>
 
-                <ul>
-                    @foreach ($recyclesilo as $silos)
-                        <li>
-                            <a href="/recyclesilo/edit/{{$silos->id}}">
-                                <p>SILO {{ $silos->id }} </p>
-                                <p>Hardness: {{$silos->type}}</p>
-                                <p> {{ $silos->quantity }} %</p>
-                            </a>
-                            <a href="/recyclesilo/remove/{{$silos->id}}">Verwijder silo {{$silos->id}}</a>
-                        </li>
-                    @endforeach
 
-                </ul>
-                <hr/>
-                <div id="siloMenu" >
-                    <a href="{{ url('/recyclesilo/add') }}">Add silo</a>
+
+    <link rel="stylesheet" href="/css/master-style.css">
+    <link rel="stylesheet" href="/css/dashboard-style.css">
+    <link rel="stylesheet" href="/css/silo-style.css">
+    <body>
+    <div class="silo-container">
+        <div class="silo-title">
+            <h5>Recyclesilo preview</h5>
+            <span class="config-icon glyphicon glyphicon-cog" aria-hidden="false"></span>
+        </div>
+
+
+        <div class="contain">
+            <div class="silo-stats">
+                @foreach($recyclesilo as $silos)
+                    <div class=silo-stats-stat onclick="window.location.href='/silo/edit/{{$silos->id}}'">
+                        @if( $silos->quantity < 50)
+                            <progress class="progress progress-success" value="{{ $silos->quantity }}" max="100"></progress>
+                        @elseif($silos->quantity < 90)
+                            <progress class="progress progress-warning" value="{{ $silos->quantity }}" max="100"></progress>
+                        @else
+                            <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
+                        @endif
+                        <h4>{{ $silos->id }}</h4>
+
+                        <p id="type" class="form-control input-md">{{ $silos->quantity }}%</p>
+                        <a href="/silo/remove/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                        <a href="/silo/edit/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+
+                    </div>
+                @endforeach
+                <div id="new-silo" class=silo-stats-stat onclick="window.location.href='/silo/add'">
+                    <span class="icon-plus glyphicon glyphicon-plus" aria-hidden="true"></span>
                 </div>
-
             </div>
         </div>
+    </div>
+
+    </body>
+    <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+    <script src="/js/silo.js"></script>
 @endsection

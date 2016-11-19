@@ -46,41 +46,41 @@
     </div>
 
 </div>
-    <nav class="navigation-bar">
-        <div class="container">
-            <div class="navigation">
+<nav class="navigation-bar">
+    <div class="container">
+        <div class="navigation">
 
 
-                <!-- Collapsed Hamburger -->
-                <div>
-                    <a class="navigation-title" href="{{ url('/') }}">
-                        HISFA
-                    </a>
-                </div>
-                <span onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></span>
-                <!-- Branding Image -->
-
-
+            <!-- Collapsed Hamburger -->
+            <div>
+                <a class="navigation-title" href="{{ url('/') }}">
+                    HISFA
+                </a>
             </div>
+            <span onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></span>
+            <!-- Branding Image -->
 
 
         </div>
-    </nav>
 
-    @yield('content')
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
-    <script>
-        /* Open when someone clicks on the span element */
-        function openNav() {
-            document.getElementById("myNav").style.width = "100%";
-        }
+    </div>
+</nav>
 
-        /* Close when someone clicks on the "x" symbol inside the overlay */
-        function closeNav() {
-            document.getElementById("myNav").style.width = "0%";
-        }
-    </script>
+@yield('content')
+
+        <!-- Scripts -->
+<script src="/js/app.js"></script>
+<script>
+    /* Open when someone clicks on the span element */
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+</script>
 </body>
 </html>
