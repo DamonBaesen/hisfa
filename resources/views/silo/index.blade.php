@@ -6,8 +6,7 @@
         <title>Account</title>
     </head>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
+
 
                 <link rel="stylesheet" href="/css/master-style.css">
                 <link rel="stylesheet" href="/css/dashboard-style.css">
@@ -15,7 +14,7 @@
                 <body>
                 <div class="silo-container">
                     <div class="silo-title">
-                        <h5>Silo managment</h5>
+                        <h5>Primesilo Preview</h5>
                         <span class="config-icon glyphicon glyphicon-cog" aria-hidden="false"></span>
                     </div>
 
@@ -32,8 +31,9 @@
                                         <progress class="progress progress-danger" value="{{ $silos->quantity }}" max="100"></progress>
                                     @endif
                                     <h4>{{ $silos->id }}</h4>
-                                    <input id="type" name="type" type="text" placeholder="vol%" class="form-control input-md" required="" value="{{ $silos->quantity }}%">
-                                    <p>{{$silos->grondstof->type}}</p>
+
+                                    <p id="type">{{ $silos->quantity }}%</p>
+                                        <p>{{$silos->grondstof->type}}</p>
                                     <a href="/silo/remove/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
                                         <a href="/silo/edit/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
 

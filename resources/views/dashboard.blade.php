@@ -26,12 +26,13 @@
                 </div>
                 <div class="stock-group" onclick="window.location.href='/block'">
                     @foreach($selectQuality as $selectQualities)
+                    <?php $result= round($selectQualities->height * $selectQualities->quantity * 1.03 *1.29, 2); ?>
                         <div class="stock-container">
                             <h2>{{ $selectQualities->height }}</h2>
                             <h3>{{ $selectQualities->quantity }}</h3>
                             <p>blocks</p>
                             <div class="oppervlak">
-                                {{ $selectQualities->height * $selectQualities->quantity *1.03 *1.29 }}m³
+                                {{ $result }}m³
                             </div>
                         </div>
                     @endforeach
@@ -57,12 +58,13 @@
             </div>
         </div>
         <div class="right">
-            <div class="frame prime" onclick="window.location.href='/silo'">
+            <div class="frame prime" >
                 <div class="frame-title">
                     <h2>Prime silo status</h2> </div>
                 <div class="silo-group">
+                    @if(count($primesilo) > 0)
                     @foreach($primesilo as $silos)
-                        <div class="silo-container">
+                        <div class="silo-container" onclick="window.location.href='/silo'">
                             <h3>{{ $silos->id }}</h3>
                             <div class="silo-graph">
                                 @if( $silos->quantity < 50)
@@ -79,16 +81,20 @@
                             </div>
                         </div>
                     @endforeach
+                        @else
+                             <a href="/silo/add" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                    @endif
                 </div>
             </div>
             <div class="cgps">
 
-                <div class="frame recycle" onclick="window.location.href='/recyclesilo'">
+                <div class="frame recycle" >
                     <div class="frame-title">
                         <h2>Recycle silo status</h2> </div>
                     <div class="silo-group">
+                        @if(count($recyclesilo) > 0)
                         @foreach($recyclesilo as $silos)
-                            <div class="silo-container">
+                            <div class="silo-container" onclick="window.location.href='/recyclesilo'">
                                 <h3>{{ $silos->id }}</h3>
                                 <div class="silo-graph">
                                     @if( $silos->quantity < 50)
@@ -105,34 +111,33 @@
                                 </div>
                             </div>
                         @endforeach
+                            @else
+                            <a href="/recyclesilo/add" class="imgAddIcoon">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                        @endif
 
                     </div>
                 </div>
-                <div class="frame rawmaterials" onclick="window.location.href='/rawmaterial'">
+                <div class="frame rawmaterials" >
                     <div class="frame-title">
                         <h2>Rawmaterials</h2> </div>
-                    <div class="config-stock-view">
-
-                        <div class="select-blocks">
-
-                            <div class="cgg">
-                                <div class="char">
-                                    <div class="pieID pie"> </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="char">
+                        <div class="pieID pie"> </div>
                     </div>
+                    @if(count($rawmaterial) > 0)
                     <ul class="pieID legend">
-                        @foreach ($rawmaterial as $rawmaterials)
+
+                        @foreach($rawmaterial as $rawmaterials)
                             @if($rawmaterials->stock != 0)
-                                <li>
-                                    <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span> ton</br>
-                                    @endif
-                                </li>
-                                @endforeach
+                                <li onclick="window.location.href='/rawmaterial'"> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->stock }}</span>ton </li>
+                            @endif
+                        @endforeach
                     </ul>
+                            @else
+                            <a href="/rawmaterial/add" class="imgAddIcoon">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
+                        @endif
+
                 </div>
-                </div>
+
             </div>
         </div>
     </div>
