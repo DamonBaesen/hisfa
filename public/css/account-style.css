@@ -42,7 +42,13 @@
     padding-bottom: 10px;
     width: 100%;
     font-size: 1.1em;
-    margin-top: 50px;
+    margin-top: 0px;
+}
+#profile_page h5{
+    font-size: 1.2em;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: #197E1C;
 }
 #profile_page form{
     display: flex;
@@ -54,8 +60,18 @@
     max-width: 400px;
     border-radius: 3px;
     border: 1px solid #DDD;
+    padding-left: 10px;
 }
 #profile_page input[type="submit"]{
     max-width: 300px;
     border-radius: 3px;
+    margin-bottom: 50px;
+}
+#profile_page p{
+    margin-top: -18px;
+    margin-left: 22px;
+    margin-bottom: -5px;
+}
+#profile_page input[type="checkbox"]{
+    margin-top: 20px;
 }

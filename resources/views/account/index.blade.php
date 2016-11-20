@@ -8,9 +8,14 @@
 <body>
 <div id="profile_page">
 <div class="profile">
-
             <img src="/uploads/avatars/{{ Auth::user()->foto }}">
             <span>{{ Auth::user()->name }}'s profiel</span>
+            @if(session('message'))
+                <h5>{{ session('message') }}</h5>
+            @else
+                <h5> &nbsp;</h5>
+            @endif
+
             <label>Foto gebruiker</label>
             <form enctype="multipart/form-data" id="change_photo" action="/account/updatephoto" method="POST">
 
@@ -18,9 +23,6 @@
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="submit" value="Foto uploaden" class="profile_button">
             </form>
-            @if(session('message'))
-                {{ session('message') }}<br>
-            @endif
     <label>Gegevens gebruiker</label>
 <form action="/account/changeuserinformation" method="post">
     <input name="_token" type="hidden" value="{!! csrf_token() !!}" />
@@ -29,10 +31,10 @@
 
 
     @if(Auth::user()->name)
-        <input type="checkbox" name="checkbox_mail" value="1" class="checkbox" checked>Ik wil mails ontvangen
+        <input type="checkbox" name="checkbox_mail" value="1" class="checkbox" checked><p>Ik wil mails ontvangen</p>
 
     @else
-        <input type="checkbox" name="checkbox_mail" value="0" class="checkbox" >Ik wil mails ontvangen
+        <input type="checkbox" name="checkbox_mail" value="0" class="checkbox" ><p>Ik wil mails ontvangen</p>
     @endif
 
     <input type="submit" value="Opslaan" class="profile_button">
