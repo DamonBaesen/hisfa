@@ -35,6 +35,8 @@ class RawMaterialController extends Controller
     {
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
+        
+        
         return view('rawmaterial.index', $data);
     }
 
@@ -63,14 +65,22 @@ class RawMaterialController extends Controller
 
     public function remove($id)
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Rawmaterial::destroy($id);
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        $prime = DB::table('primesilos')
+            ->select('rawmaterial_id')
+            ->get();
         
-        $userid = Auth::id();
-        DB::table('histories')->insert(
-            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid)
-        );
+        if( $prime != $id){
+            DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+            Rawmaterial::destroy($id);
+            DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        
+            $userid = Auth::id();
+            DB::table('histories')->insert(
+                array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid)
+            );
+        }
+        
+        
         return redirect('rawmaterial');
     }
     
