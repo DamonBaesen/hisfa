@@ -26,8 +26,8 @@
     <label>Gegevens gebruiker</label>
 <form action="/account/changeuserinformation" method="post">
     <input name="_token" type="hidden" value="{!! csrf_token() !!}" />
-    Naam: <input type="text" class="input" value=" {{ Auth::user()->name }}" name="name">
-    Email: <input type="text" class="input" value=" {{ Auth::user()->email }}" name="email">
+    Naam: <input type="text" class="input" value="{{ Auth::user()->name }}" name="name">
+    Email: <input type="text" class="input" value="{{ Auth::user()->email }}" name="email">
 
 
     @if(Auth::user()->name)
