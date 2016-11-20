@@ -61,9 +61,9 @@ class AccountController extends Controller
             $user->password =  Hash::make($_POST['input_password1']);
             $user->save();
 
-            return redirect('account')->with('message', 'Password successfully changed.');
+            return redirect('account')->with('message', 'Wachtwoord aangepast.');
         }else{
-            return redirect('account')->with('message', 'Passwords do not match.');
+            return redirect('account')->with('message', 'Wachtwoorden komen niet overeen.');
         }
     }
 
@@ -80,7 +80,7 @@ class AccountController extends Controller
         $user->email= trim($_POST['email']);
         $user->mail= $checkboxval;
         $user->save();
-        return redirect('account')->with('message', 'Account information succesfully changed.');
+        return redirect('account')->with('message', 'Gegevens succesvol aangepast.');
     }
 
     public function updatePhoto(Request $request){
@@ -94,7 +94,7 @@ class AccountController extends Controller
             $user->foto = $filename;
             $user->save();
         }
-        return redirect('account')->with('message', 'Photo succesfully changed.');
+        return redirect('account')->with('message', 'Profielfoto aangepast.');
 
     }
 
