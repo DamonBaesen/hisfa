@@ -51,7 +51,7 @@ class RawMaterialController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid)
+            array('action' => 'add', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
         return redirect('rawmaterial');
     }
@@ -69,7 +69,7 @@ class RawMaterialController extends Controller
         
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid)
+            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
         return redirect('rawmaterial');
     }
@@ -87,7 +87,7 @@ class RawMaterialController extends Controller
         $userid = Auth::id();
         
         DB::table('histories')->insert(
-            array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid)
+            array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
 
         return redirect('rawmaterial');
