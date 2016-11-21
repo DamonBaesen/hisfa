@@ -5,61 +5,56 @@
         <title>HISFA -- Dashboard</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-        <link rel="stylesheet" href="/css/master-style.css">
+        <link rel="stylesheet" href="/css/reset.css">
         <link rel="stylesheet" href="/css/dashboard-style.css">
         <link rel="stylesheet" href="/css/donut-style.css">
+
     </head>
     <body>
-
-    <div class="dash-container">
-        <div class="left">
-            <div class="frame stock">
+    <div id="contentContainer">
+            <div class="dashboardPanels">
                 <div class="frame-title">
-                    <h2>Blocks in storage</h2> </div>
-                <div class="btn-group stock-menu">
-                    <button type="button" class="btn dashboard-stock-select-btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> P15 </button>
-                    <div class="dropdown-menu">
+                    <h2 class="contentContainerh2">Blocks in storage</h2> </div>
+                <label for="#dropdownBlock"></label>
+                     <select class="dropdownBlock" id="#dropdownblock">
                         @foreach ($qualities as $qualitylist)
-                            <a class="dropdown-item" href="#">{{ $qualitylist->name }}</a>
+                               <option value="{{ $qualitylist->name }}">{{ $qualitylist->name }}</option>
                         @endforeach
-                    </div>
-                </div>
+                       </select>
+
                 <div class="stock-group" onclick="window.location.href='/block'">
                     @foreach($selectQuality as $selectQualities)
                         <div class="stock-container">
-                            <h2>{{ $selectQualities->height }}</h2>
-                            <h3>{{ $selectQualities->quantity }}</h3>
-                            <p>blocks</p>
+                            <h2>{{ $selectQualities->height }}m</h2>
+                            <h3>{{ $selectQualities->quantity }} blocks</h3>
                             <div class="oppervlak">
-                                {{ $selectQualities->height * $selectQualities->quantity *1.03 *1.29 }}m³
+                                {{ round($selectQualities->height * $selectQualities->quantity *1.03 *1.29,2) }} m³
                             </div>
                         </div>
                     @endforeach
-
                 </div>
             </div>
-            <div class="frame event" onclick="window.location.href='/history'" >
+
+            <div class="dashboardPanels" onclick="window.location.href='/history'" >
                 <div class="frame-title">
-                    <h2>Events loggings</h2> </div>
+                    <h2 class="contentContainerh2">Events logs</h2> </div>
                 <div class="log-console">
                     @foreach($eventlog as $eventlogs)
                         @if (!empty($eventlogs->silonr))
-                        <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
+                        <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
                         @elseif(!empty($eventlogs->block))
-                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
+                            <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
                        @elseif(!empty($eventlogs->quality))
-                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>
+                            <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>
                             @elseif(!empty($eventlogs->rawmaterial))
-                            <p>{{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>
+                            <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>
                         @endif
                     @endforeach
                 </div>
             </div>
-        </div>
-        <div class="right">
-            <div class="frame prime" >
+            <div class="dashboardPanels" >
                 <div class="frame-title">
-                    <h2>Prime silo status</h2> </div>
+                    <h2 class="contentContainerh2">Prime silo</h2> </div>
                 <div class="silo-group">
                     @if(count($primesilo) > 0)
                     @foreach($primesilo as $silos)
@@ -80,16 +75,15 @@
                             </div>
                         </div>
                     @endforeach
-                        @else
-                             <a href="/silo/add" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                    @else
+                        <a href="/recyclesilo/add" class="imgAddIcoon">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+
                     @endif
                 </div>
             </div>
-            <div class="cgps">
-
-                <div class="frame recycle" >
+                <div class="dashboardPanels" >
                     <div class="frame-title">
-                        <h2>Recycle silo status</h2> </div>
+                        <h2 class="contentContainerh2">Recycle silo</h2> </div>
                     <div class="silo-group">
                         @if(count($recyclesilo) > 0)
                         @foreach($recyclesilo as $silos)
@@ -116,31 +110,24 @@
 
                     </div>
                 </div>
-                <div class="frame rawmaterials" >
+                <div class="dashboardPanels" id="panelRawmaterial">
                     <div class="frame-title">
-                        <h2>Rawmaterials</h2> </div>
+                        <h2 class="contentContainerh2">Rawmaterials</h2> </div>
                     <div class="char">
                         <div class="pieID pie"> </div>
                     </div>
                     @if(count($rawmaterial) > 0)
-                    <ul class="pieID legend">
-
+                    <ul class="pieID legend" id="pieRound">
                         @foreach($rawmaterial as $rawmaterials)
                             @if($rawmaterials->stock != 0)
-                                <li onclick="window.location.href='/rawmaterial'"> <em>{{ $rawmaterials->type }}</em> <span>{{ $rawmaterials->stock }}</span>ton </li>
+                                <li onclick="window.location.href='/rawmaterial'"> <em>{{ $rawmaterials->type }}</em><span>{{ $rawmaterials->stock }}</span>ton </li>
                             @endif
                         @endforeach
                     </ul>
-                            @else
-                            <a href="/rawmaterial/add" class="imgAddIcoon">  <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> </a>
-                        @endif
-
+                    @endif
                 </div>
 
-            </div>
-        </div>
-    </div>
-
+</div>
     </body>
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript">

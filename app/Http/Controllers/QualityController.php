@@ -34,7 +34,7 @@ class QualityController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => "", 'block' => "" , 'quality' => $name, 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid)
+            array('action' => 'add', 'silonr' => "", 'block' => "" , 'quality' => $name, 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
         return redirect('quality');
     }
@@ -53,7 +53,7 @@ class QualityController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => $name, 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid)
+            array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => $name, 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
 
         return redirect('quality');
@@ -83,7 +83,7 @@ class QualityController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => $name["name"], 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid)
+            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => $name["name"], 'rawmaterial' => "" , 'sector' => 'quality', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
 
         return redirect('quality');

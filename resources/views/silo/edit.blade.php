@@ -19,7 +19,7 @@
                         <div class="col-sm-10">
                             <select name="txtGrondstof" id="txtGrondstof">
                                 @foreach($rawmaterial as $rawmaterials)
-                                    @if($rawmaterials->type == "N/A")
+                                    @if($rawmaterials->type == "")
                                         @else
                                     @if($rawmaterials->type == $silos->grondstof->type)
                                     <option class="form-control" selected id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
