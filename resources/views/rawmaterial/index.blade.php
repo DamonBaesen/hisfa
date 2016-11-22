@@ -44,6 +44,19 @@
                             <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit</a>
                             <label for="orderd">Ordered: {{$rawmaterials->orderd}}</label> <br>
                             <label for="deliverd">Delivered: {{$rawmaterials->deliverd}}</label><br>
+                            @if($rawmaterials->using == 0)
+                               <div class="form-group">
+                                <input type="checkbox" name="using" > Using
+                                <div class="col-sm-10">
+                            @else
+                             <div class="form-group">
+                                <input type="checkbox" name="using" checked> Using
+                                <div class="col-sm-10">
+                            @endif
+                                
+                                
+                        </div>
+                    </div>
                             
                         @endif
                         </li>
