@@ -57,10 +57,8 @@ body{
     width: 40%;
     background-color: #3b6482 ;
     border-radius: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
     max-width: 100px;
+    margin: 10px 10px 15px 10px;
 }
 
 .silo-stats-stat > h3
@@ -114,26 +112,41 @@ body{
 }
 
 .silo-delete{
-    visibility: hidden;
-    display: block;
+    display: none;
     color: red;
     margin-bottom: 1em;
     text-align: center;
     margin-left:auto;
     margin-right:auto;
-    width: 40%;
+    width: 50%;
 }
 .silo-delete span{
     color: #FF4A49;
+    margin-left:auto;
+    margin-right:auto;
+    width: 50%;
 }
 .icon-plus{
 
     font-size: 2em;
-    color: gray;
-    margin-top: 5em;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right:auto;
+    width: 50%;
+    display: block;
 }
+
+.icon-plus:hover,
+.icon-plus:active
+{
+    color: #bbb;
+}
+
 #new-silo{
     display: none;
+    background-color: transparent;
+    padding-top: 0;
 }
 
 .clearfix

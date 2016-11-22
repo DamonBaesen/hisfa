@@ -5,13 +5,11 @@ $(document).ready(function () {
     $(".silo-title").on("click",".config-icon", function(){
 
         if(gearIcon == false){
-            $(".silo-stats-stat").css("border","1px dashed gray");
-            $(".silo-delete").css("visibility","visible");
+            $(".silo-delete").css("display","block");
             $("#new-silo").css("display","block");
             gearIcon = true;
         }else{
-            $(".silo-stats-stat").css("border","none");
-            $(".silo-delete").css("visibility","hidden");
+            $(".silo-delete").css("display","none");
             $("#new-silo").css("display","none");
             gearIcon = false;
         }
