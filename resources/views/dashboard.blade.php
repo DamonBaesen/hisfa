@@ -1,6 +1,7 @@
 @extends('layouts.master')
  @section('content')
 
+
     <head>
         <meta charset="UTF-8">
         <title>HISFA -- Dashboard</title>

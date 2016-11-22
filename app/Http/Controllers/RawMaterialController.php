@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use Image;
 use App\Http\Requests;
+use Illuminate\Database\Query\Builder;
 
 
 use Validator;
@@ -35,6 +36,7 @@ class RawMaterialController extends Controller
     {
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
+        
         return view('rawmaterial.index', $data);
     }
 
@@ -63,14 +65,27 @@ class RawMaterialController extends Controller
 
     public function remove($id)
     {
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        Rawmaterial::destroy($id);
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        $prime = DB::table('primesilos')->pluck('rawmaterial_id');
         
-        $userid = Auth::id();
-        DB::table('histories')->insert(
-            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
-        );
+        foreach ($prime as $silo)
+        {
+            if( $id == $silo){
+                DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+                Rawmaterial::destroy($id);
+                DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+
+                $userid = Auth::id();
+                DB::table('histories')->insert(
+                array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
+                );
+            } 
+            else{
+                
+            }
+        }
+        
+        
+
         return redirect('rawmaterial');
     }
     
@@ -84,8 +99,8 @@ class RawMaterialController extends Controller
         
         
         \App\Rawmaterial::where('id', '=', $id)->update(array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => $using));
-        $userid = Auth::id();
         
+        $userid = Auth::id();
         DB::table('histories')->insert(
             array('action' => 'edit', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );

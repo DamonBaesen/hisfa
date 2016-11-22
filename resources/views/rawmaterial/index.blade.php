@@ -38,14 +38,26 @@
                 @foreach ($rawmaterial as $rawmaterials)
                     @if($rawmaterials->stock != 0)
                         <li> <img src="/uploads/rawmaterialicons/{{ $rawmaterials->icon }}" style="width:50px; height:50px; border-radius:50%; margin-top:15px; margin-bottem: 15px;"> </br>
-                            <em>{{ $rawmaterials->type }}</em></br> <span>{{ $rawmaterials->stock }}</span> ton</br>
-                            <!--<input type="text" placeholder="50" class="form-control" name="block-quantity" id="inputQuantity">-->
-                            <!--<button name="btn-add" id="addMaterial" class="btn btn-success">add</button></li> -->
-                            <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete {{$rawmaterials->type}}</a>
-                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit{{$rawmaterials->type}}</a>
-                            @if ( $rawmaterials->using == 1 )
-                               <p>Using</p>
-                            @endif 
+                            <em>{{ $rawmaterials->type }}</em></br> 
+                            <p>Stock: <span> {{ $rawmaterials->stock }}</span> ton </p>
+                            <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete</a>
+                            <a href="/rawmaterial/edit/{{$rawmaterials->id}}" id="editRawmaterial">Edit</a>
+                            <label for="orderd">Ordered: {{$rawmaterials->orderd}}</label> <br>
+                            <label for="deliverd">Delivered: {{$rawmaterials->deliverd}}</label><br>
+                            @if($rawmaterials->using == 0)
+                               <div class="form-group">
+                                <input type="checkbox" name="using" > Using
+                                <div class="col-sm-10">
+                            @else
+                             <div class="form-group">
+                                <input type="checkbox" name="using" checked> Using
+                                <div class="col-sm-10">
+                            @endif
+                                
+                                
+                        </div>
+                    </div>
+                            
                         @endif
                         </li>
 
