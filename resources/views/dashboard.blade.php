@@ -1,4 +1,5 @@
-@extends('layouts.master') @section('content')
+@extends('layouts.master')
+ @section('content')
 
     <head>
         <meta charset="UTF-8">
