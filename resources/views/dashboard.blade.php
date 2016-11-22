@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 @extends('layouts.master') @section('content')
+=======
+@extends('layouts.master')
+ @section('content')
+>>>>>>> master
 
     <head>
         <meta charset="UTF-8">
