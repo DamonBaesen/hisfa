@@ -11,10 +11,12 @@
 
            
                 <link rel="stylesheet" href="/css/materials-style.css">
+    <link rel="stylesheet" href="/css/dashboard-style.css">
+
 
     <body>
 
-    <div class="dash-container">
+    <div class="silo-container">
         <div class="config-stock">
             <h3>Configure rawmaterials</h3>
 
