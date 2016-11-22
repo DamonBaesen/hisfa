@@ -12,7 +12,8 @@
         <link rel="stylesheet" href="/css/donut-style.css">   </head>
 
     <body>
-    <div id="contentContainer">
+    <div id="container">
+        <div class="contentContainer">
         <div class="dashboardPanels">
             <div class="frame-title">
                 <h2 class="contentContainerh2">Blocks in storage</h2> </div>
@@ -72,7 +73,7 @@
             <div class="char">
                 <div class="pieID pie"> </div>  </div>  @if(count($rawmaterial) > 0)
                 <ul class="pieID legend" id="pieRound">  @foreach($rawmaterial as $rawmaterials)  @if($rawmaterials->stock != 0)
-                        <li onclick="window.location.href='/rawmaterial'"> <em>{{ $rawmaterials->type }}</em><span>{{ $rawmaterials->stock }}</span>ton </li>  @endif  @endforeach  </ul>  @endif  </div>  </div>  </body>
+                        <li onclick="window.location.href='/rawmaterial'"> <em>{{ $rawmaterials->type }}</em><span>{{ $rawmaterials->stock }}</span>ton </li>  @endif  @endforeach  </ul>  @endif  </div>  </div>  </div></body>
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         function sliceSize(dataNum, dataTotal) {

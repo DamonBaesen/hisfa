@@ -97,7 +97,6 @@ body{
     font-weight: 500;
     text-align: center;
     padding-top: 5px;
-<<<<<<< HEAD
 }
 
 .silo-info > h4
@@ -108,39 +107,18 @@ body{
     padding-bottom: 5px;
 }
 
-=======
-}
-
-.silo-info > h4
-{
-    color: #f1f1f1;
-    font-weight: 500;
-    text-align: center;
-    padding-bottom: 5px;
-}
-
->>>>>>> master
 .config-icon{
     font-size: 2em;
 }
 
 .silo-delete{
-<<<<<<< HEAD
-    visibility: hidden;
-    display: block;
-=======
     display: none;
->>>>>>> master
     color: red;
     margin-bottom: 1em;
     text-align: center;
     margin-left:auto;
     margin-right:auto;
-<<<<<<< HEAD
-    width: 40%;
-=======
     width: 50%;
->>>>>>> master
 }
 .silo-delete span{
     color: #FF4A49;
@@ -167,11 +145,14 @@ body{
 
 #new-silo{
     display: none;
-<<<<<<< HEAD
-=======
     background-color: transparent;
     padding-top: 0;
->>>>>>> master
+    margin-left:auto;
+    margin-right:auto;
+    width: 60%;
+    text-align: center;
+    margin-top: -4px;
+    padding-bottom: 13px;
 }
 
 .clearfix

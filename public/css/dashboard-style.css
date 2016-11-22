@@ -96,7 +96,7 @@ body
 
 .log-console
 {
-    width: 80%;
+    width: 90%;
     margin-left:auto;
     margin-right:auto;
     margin-top: 10px;
@@ -114,9 +114,9 @@ body
     margin-right:auto;
     font-size: 1.1em;
     color: #f1f1f1;
-    padding-bottom: 10px;
-    padding-top: 10px;
+    padding-top: 13px;
     border-top: 1px solid #fff;
+    line-height: 23px;
 }
 
 /* PRIMESILO */
