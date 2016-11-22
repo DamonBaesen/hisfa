@@ -1,14 +1,6 @@
 body{
     background-color: #111921;
-    
-}
-.dash-container{
-    margin-left: 1em;
-    margin-right: 1em;
-    margin-top: 1em;
-    height: 85vh;
-    display: flex;
-    flex-direction: row;
+
 }
 
 .stock-blocks{
@@ -17,7 +9,7 @@ body{
     flex-direction: row;
 }
 .block{
-    
+
     padding: 1em;
     text-align: center;
     width: 6em;
@@ -28,7 +20,7 @@ body{
 }
 .stock-blocks .block{
     margin-left: 1em;
-    
+
 }
 .block h2{
     color: #D9534F;

@@ -58,7 +58,7 @@ Route::get('quality/add', [
     'middleware' => 'auth',
     'uses' => 'QualityController@addshow'
 ]);
-Route::get('quality/edit{id}', [
+Route::get('quality/edit/{id}', [
     'middleware' => 'auth',
     'uses' => 'QualityController@editShow'
 ]);

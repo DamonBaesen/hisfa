@@ -20,7 +20,7 @@
 
 
                                 <label for="password" class="col-md-4 control-label">Password</label>
-                                    <input id="password" placeholder="Wachtwoord"type="password" class="form-control" name="password" required>
+                                    <input id="password" placeholder="Password"type="password" class="form-control" name="password" required>
 
                                     @if ($errors->has('password'))
                                         <span class="help-block">

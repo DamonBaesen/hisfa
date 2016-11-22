@@ -54,6 +54,13 @@
         right: 35px;
     }
 }
+
+@media screen and (max-width: 550px) {
+    .overlay-content {
+        top: 7%;     }
+}
+
+
     .navigation-bar {
         border-radius: 0;
         background-color: black;
