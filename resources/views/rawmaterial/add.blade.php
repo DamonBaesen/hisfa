@@ -7,13 +7,14 @@
 @endif
 <head>
     <meta charset="UTF-8">
-    <title>Account</title>
+    <title>Add rawmaterial</title>
+    <link rel="stylesheet" href="/css/formAdd-style.css">
 </head>
 <div class="container">
     <div class="row">
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
-                <h3>Add new raw material</h3>
+                <h3>Add new rawmaterial</h3>
                  <form class="form-horizontal" role="form" method="POST" action="">
                         {{ csrf_field() }}
                 <fieldset>
@@ -28,21 +29,21 @@
                     <div class="form-group">
                         <label for="textStock" class="control-label col-sm-2">Stock</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="textStock" name="textStock" value="10" required="">
+                            <input type="number" class="form-control" id="textStock" name="textStock" placeholder="10" required="">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="textOrderd" class="control-label col-sm-2">Ordered</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="textOrderd" name="textOrderd" value="10" required="">
+                            <input type="number" class="form-control" id="textOrderd" name="textOrderd" placeholder="10" required="">
                         </div>
                     </div>
                     
                     <div class="form-group">
                         <label for="textDeliverd" class="control-label col-sm-2">Delivered</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="textDeliverd" name="textDeliverd" value="10" required="">
+                            <input type="number" class="form-control" id="textDeliverd" name="textDeliverd" placeholder="10" required="">
                         </div>
                     </div>
                     

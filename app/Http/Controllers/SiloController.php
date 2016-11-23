@@ -40,7 +40,7 @@ class SiloController extends Controller
         DB::table('primesilos')->insert(
             array('quantity' => '0', 'id' => $id, 'rawmaterial_id' => 999)
         );
-
+        
         $userid = Auth::id();
         DB::table('histories')->insert(
             array('action' => 'add', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
@@ -75,6 +75,15 @@ class SiloController extends Controller
 
         if($quantity >= 90){
             app('App\Http\Controllers\EmailController')->send($id, $quantity);
+        }
+        
+        $raw = DB::table('rawmaterials')->pluck('id');
+        foreach($raw as $material){
+                if ($material == $rawmaterialID){
+                    \App\Rawmaterial::where('id', '=', $material)->update(array('using' => 1));
+                }else{
+                    \App\Rawmaterial::where('id', '=', $material)->update(array('using' => 0));
+                }
         }
 
         $userid = Auth::id();
