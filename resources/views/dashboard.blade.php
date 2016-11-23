@@ -17,8 +17,8 @@
         <div class="dashboardPanels">
             <div class="frame-title">
                 <h2 class="contentContainerh2">Blocks in storage</h2> </div>
-            <label for="#dropdownBlock"></label>
-            <select class="dropdownBlock" id="#dropdownblock">  @foreach ($qualities as $qualitylist)
+            <label for="dropdownBlock"></label>
+            <select class="dropdownBlock" id="dropdownblock">  @foreach ($qualities as $qualitylist)
                     <option value="{{ $qualitylist->name }}">{{ $qualitylist->name }}</option>  @endforeach  </select>
             <div class="stock-group" onclick="window.location.href='/block'">  @foreach($selectQuality as $selectQualities)
                     <div class="stock-container">

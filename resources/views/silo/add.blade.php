@@ -21,10 +21,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
-                        <div class="text-left col-sm-10">
                             <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Add silo</button>
-                        </div>
                     </div>
                 </form>
             </div>
