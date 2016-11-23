@@ -75,3 +75,21 @@
 #profile_page input[type="checkbox"]{
     margin-top: 20px;
 }
+.account-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.permission-btn{
+     padding-bottom: 2em;
+ }
+.permission-btn span{
+    margin: 0 !important;
+    padding-top: 1em;
+    text-align: center;
+    width: 100%;
+}
+.permission-btn p{
+    margin: 0 !important;
+
+}

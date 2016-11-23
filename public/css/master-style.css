@@ -3,6 +3,9 @@ body{
 
 }
 
+.container{
+    margin-top: 1em;
+}
 .stock-blocks{
     display: flex;
     flex-flow: wrap;
