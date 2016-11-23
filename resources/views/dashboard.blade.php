@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/css/donut-style.css">   </head>
 
     <body>
-    <div id="container">
+
         <div class="contentContainer">
         <div class="dashboardPanels">
             <div class="frame-title">
@@ -64,7 +64,10 @@
                                 <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #D75452;"> </div>  @endif  </div>
                         <div class="silo-info">
                             <h3>{{ $silos->type }}</h3>
-                            <h4>{{ $silos->quantity }}%</h4>  </div>  </div>  @endforeach  @else
+                            <h4>{{ $silos->quantity }}%</h4> 
+                        </div> 
+                    </div> 
+                @endforeach  @else
                     <a href="/recyclesilo/add" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
                     </a>  @endif   </div>  </div>
         <div class="dashboardPanels" id="panelRawmaterial">
@@ -73,7 +76,8 @@
             <div class="char">
                 <div class="pieID pie"> </div>  </div>  @if(count($rawmaterial) > 0)
                 <ul class="pieID legend" id="pieRound">  @foreach($rawmaterial as $rawmaterials)  @if($rawmaterials->stock != 0)
-                        <li onclick="window.location.href='/rawmaterial'"> <em>{{ $rawmaterials->type }}</em><span>{{ $rawmaterials->stock }}</span>ton </li>  @endif  @endforeach  </ul>  @endif  </div>  </div>  </div></body>
+                        <li onclick="window.location.href='/rawmaterial'"> <em>{{ $rawmaterials->type }}</em><span>{{ $rawmaterials->stock }}</span>ton </li>  @endif  @endforeach  </ul>  @endif  </div>  </div> 
+    </body>
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript">
         function sliceSize(dataNum, dataTotal) {

@@ -7,7 +7,6 @@
         <link rel="stylesheet" href="/css/formAdd-style.css">
 
     </head>
-    <div class="container">
         <div class="row">
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
@@ -73,5 +72,4 @@
                 </form>
             </div>
         </div>
-    </div>
 @endsection

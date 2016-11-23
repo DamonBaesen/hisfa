@@ -31,8 +31,7 @@
 
             <label>Foto gebruiker</label>
             <form enctype="multipart/form-data" id="change_photo" action="/account/updatephoto" method="POST">
-
-                <input type="file" name="avatar" id="photo_button">
+                <input type="file" name="avatar" id="photo_button" style="font-size: 0.6em; margin-top: 10px">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="submit" value="Foto uploaden" class="profile_button">
             </form>

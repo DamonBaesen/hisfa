@@ -36,7 +36,6 @@
 
 </div>
 <nav class="navigation-bar">
-    <div class="container">
         <div class="navigation">
 
 
@@ -53,7 +52,6 @@
         </div>
 
 
-    </div>
 </nav>
 
 @yield('content')
