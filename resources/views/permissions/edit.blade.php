@@ -6,7 +6,6 @@
         <title>Account</title>
         <link rel="stylesheet" href="/css/permissions-style.css">
     </head>
-    <div class="container">
         <div class="row">
             <div class="panel panel-default" id="form">
 
@@ -46,6 +45,5 @@
                     </div>
                 </form>
             </div>
-        </div>
     </div>
 @endsection

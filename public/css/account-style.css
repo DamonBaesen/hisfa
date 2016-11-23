@@ -1,7 +1,14 @@
+body{
+    background: url("../background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
 #profile_page{
     display: flex;
     flex-direction: column;
-    background-color: #111921;
     color: #F5F5F5;
     padding: 25px;
 }
