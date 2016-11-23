@@ -6,7 +6,6 @@
         <title>Edit recyclesilo</title>
         <link rel="stylesheet" href="/css/formAdd-style.css">
     </head>
-    <div class="container">
         <div class="row">
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
@@ -63,10 +62,8 @@
                             <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Save silo</button>
                         </div>
                     </div>
-                    </fieldset>
                 </form>
             </div>
         </div>
-    </div>
 @endsection
 
