@@ -7,13 +7,9 @@
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
     <title>HISFA</title>
-
-    <!-- Styles -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
-
     <link rel="stylesheet" href="/css/navigation-style.css">
     <link rel="stylesheet" href="/css/master-style.css">
 </head>
@@ -39,41 +35,41 @@
     </div>
 
 </div>
-    <nav class="navigation-bar">
-        <div class="container">
-            <div class="navigation">
+<nav class="navigation-bar">
+    <div class="container">
+        <div class="navigation">
 
 
-                <!-- Collapsed Hamburger -->
-                <div>
-                    <a class="navigation-title" href="{{ url('/') }}">
-                        HISFA
-                    </a>
-                </div>
-                <span onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></span>
-                <!-- Branding Image -->
-
-
+            <!-- Collapsed Hamburger -->
+            <div>
+                <a class="navigation-title" href="{{ url('/') }}">
+                    HISFA
+                </a>
             </div>
+            <span onclick="openNav()"><span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span></span>
+            <!-- Branding Image -->
 
 
         </div>
-    </nav>
 
-    @yield('content')
 
-    <!-- Scripts -->
-    <script src="/js/app.js"></script>
-    <script>
-        /* Open when someone clicks on the span element */
-        function openNav() {
-            document.getElementById("myNav").style.width = "100%";
-        }
+    </div>
+</nav>
 
-        /* Close when someone clicks on the "x" symbol inside the overlay */
-        function closeNav() {
-            document.getElementById("myNav").style.width = "0%";
-        }
-    </script>
+@yield('content')
+
+        <!-- Scripts -->
+<script src="/js/app.js"></script>
+<script>
+    /* Open when someone clicks on the span element */
+    function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+    }
+
+    /* Close when someone clicks on the "x" symbol inside the overlay */
+    function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+    }
+</script>
 </body>
 </html>

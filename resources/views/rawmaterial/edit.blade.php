@@ -3,7 +3,9 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <title>Edit rawmaterial</title>
+        <link rel="stylesheet" href="/css/formAdd-style.css">
+
     </head>
     <div class="container">
         <div class="row">

@@ -49,10 +49,10 @@ class BlockController extends Controller
         DB::table('stocks')->insert(
             array('height' => $name, 'quantity' => 10, 'qualitie_id' => 1)
         );
-
+        
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => "", 'block' => $name , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'block', 'user_id' => $userid)
+            array('action' => 'add', 'silonr' => "", 'block' => $name , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'block', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
 
         return redirect('block');

@@ -40,7 +40,7 @@ class RecycleSiloController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'recyclesilo', 'user_id' => $userid)
+            array('action' => 'add', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'recyclesilo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
 
         return redirect('recyclesilo');
@@ -57,7 +57,7 @@ class RecycleSiloController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'remove', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'recyclesilo', 'user_id' => $userid)
+            array('action' => 'remove', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'recyclesilo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
 
         return redirect('recyclesilo');
@@ -76,7 +76,7 @@ class RecycleSiloController extends Controller
 
         $userid = Auth::id();
         DB::table('histories')->insert(
-            array('action' => 'edit', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'recyclesilo', 'user_id' => $userid)
+            array('action' => 'edit', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'recyclesilo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
         return redirect('recyclesilo');
     }
