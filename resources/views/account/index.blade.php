@@ -11,7 +11,7 @@
             <div class="account-header">
                 <div>
                     <img src="/uploads/avatars/{{ Auth::user()->foto }}">
-                    <span>{{ Auth::user()->name }}'s profiel</span>
+                    <span>{{ Auth::user()->name }}</span>
                     @if(session('message'))
                         <h5>{{ session('message') }}</h5>
                     @else
@@ -19,10 +19,12 @@
                     @endif
                 </div>
                 @if( Auth::user()->admin  == 1)
-                <div>
+                <div id="admin-btn">
                     <div class="permission-btn" onclick="window.location.href='/permissions'">
                         <span class="glyphicon glyphicon glyphicon-lock" aria-hidden="true"></span>
-                        <p>Permissions</p>
+                    </div>
+                    <div class="permission-btn" onclick="window.location.href='/account/add'">
+                        <span class="glyphicon glyphicon glyphicon-user" aria-hidden="true"></span>
                     </div>
                 </div>
                 @endif
