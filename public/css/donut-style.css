@@ -9,10 +9,13 @@
 
 
 .char{
-  width: 45%;
+  display: block;
+  width: 50%;
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
 }
+
 .pieID {
   display: inline-block;
   vertical-align: top;
@@ -20,7 +23,7 @@
 .pie {
   height: 150px;
   width: 150px;
-    margin-top: 0.5em;
+    margin-top: 24px;
     margin-left: auto;
     margin-right: auto;
   z-index: 0;
@@ -60,20 +63,20 @@
 }
 .legend {
     color: #F5F5F5;
- margin-top: 1em;
+  margin-top: 1em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
   list-style-type: none;
   padding: 0;
   margin: 0;
-  margin-top: 2em;
-  
   font-size: 13px;
-  
+  width: 90%;
+  margin-left:auto;
+  margin-right:auto;
 }
 .legend li {
-  width: 50px;
+  width: 45px;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -81,10 +84,11 @@
   margin-bottom: 0.7em;
   margin-left: 0.1em;
   margin-right: 0.1em;
-  
   border-top: 0.5em solid black;
-  
 }
+
 .legend em {
+  padding-top: 5px;
+  padding-bottom: 5px;
   font-size: 0.8em;
 }

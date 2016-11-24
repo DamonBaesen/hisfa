@@ -8,18 +8,30 @@
 <body>
 <div id="profile_page">
 <div class="profile">
-            <img src="/uploads/avatars/{{ Auth::user()->foto }}">
-            <span>{{ Auth::user()->name }}'s profiel</span>
-            @if(session('message'))
-                <h5>{{ session('message') }}</h5>
-            @else
-                <h5> &nbsp;</h5>
-            @endif
+            <div class="account-header">
+                <div>
+                    <img src="/uploads/avatars/{{ Auth::user()->foto }}">
+                    <span>{{ Auth::user()->name }}'s profiel</span>
+                    @if(session('message'))
+                        <h5>{{ session('message') }}</h5>
+                    @else
+                        <h5> &nbsp;</h5>
+                    @endif
+                </div>
+                @if( Auth::user()->admin  == 1)
+                <div>
+                    <div class="permission-btn" onclick="window.location.href='/permissions'">
+                        <span class="glyphicon glyphicon glyphicon-lock" aria-hidden="true"></span>
+                        <p>Permissions</p>
+                    </div>
+                </div>
+                @endif
+            </div>
+
 
             <label>Foto gebruiker</label>
             <form enctype="multipart/form-data" id="change_photo" action="/account/updatephoto" method="POST">
-
-                <input type="file" name="avatar" id="photo_button">
+                <input type="file" name="avatar" id="photo_button" style="font-size: 0.6em; margin-top: 10px">
                 <input type="hidden" name="_token" value="{{ csrf_token() }}">
                 <input type="submit" value="Foto uploaden" class="profile_button">
             </form>

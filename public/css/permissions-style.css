@@ -1,0 +1,67 @@
+body
+{
+    background: url("../background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+.row
+{
+    margin-left:auto;
+    margin-right:auto;
+    width: 90%;
+    display: block;
+    margin-top: 20px;
+}
+
+.permission-frame{
+    width: 90%;
+    margin-left:auto;
+    margin-right:auto;
+    display: block;
+    padding-left: 20px;
+    padding-right: 50px;
+    padding-top: 20px;
+}
+.permission-frame h3{
+    padding-bottom: 1em;
+}
+.permission-frame .user-info{
+     display: flex;
+     flex-direction: row;
+ }
+.permission-frame .user-info h3{
+   padding-left: 1em;
+    line-height: 1.7em;
+}
+.permission-frame li{
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 0.1em;
+}
+.permission-frame img{
+    width:3em;
+    height: 3em;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    border-radius: 100%;
+}
+.permission-frame li p{
+    text-decoration: underline;
+    padding-left: 1em;
+    line-height: 3em;
+}
+.permission-checkbox{
+    display: flex;
+    flex-direction: row;
+    padding-left: 1em;
+}
+.permission-checkbox p{
+    padding-left: 1em;
+}
+.permission-btn{
+    padding-left: 1em;
+}

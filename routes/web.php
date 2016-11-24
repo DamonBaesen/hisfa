@@ -17,15 +17,25 @@ Route::get('/', function(){
     return redirect()->route('login');
 });
 Route::get('/login', 'LoginController@__construct');
+
 //logout
 Route::get('/logout', 'LogoutController@index');
+
 //password
 Route::get('/password/reset', 'ResetController@index');
+
 //history
 Route::get('/history', 'HistoryController@index');
+
 //dashboard + home
 Route::get('/dashboard', 'DashboardController@index')->middleware('auth','permission:viewdashboard');
 Route::get('/home', 'DashboardController@index')->middleware('auth','permission:viewdashboard');
+
+//permissions
+Route::get('/permissions', 'PermissionController@index')->middleware('auth', 'permission:manageusers');
+Route::get('/permissions/edit/{id}', 'PermissionController@editShow')->middleware('auth', 'permission:manageusers');
+Route::post('/permissions/edit/{id}', 'PermissionController@edit')->middleware('auth', 'permission:manageusers');
+
 //account
 Route::get('/account', 'AccountController@getData')->middleware('auth');
 Route::get('/account/add', 'AccountController@addShow')->middleware('permission:manageusers');
@@ -36,12 +46,14 @@ Route::post('/account/changepassword', 'AccountController@changepassword');
 Route::post('/account/updatephoto', 'AccountController@updatephoto');
 Route::post('/account/changeuserinformation', 'AccountController@changeuserinformation');
 Route::post('/account/send', 'EmailController@send');
+
 //block
 Route::get('/block', 'BlockController@index')->middleware('permission:viewblocks');
 Route::get('/block/add', 'BlockController@addShow')->middleware('permission:manageblocks');
 Route::get('/block/edit', 'BlockController@edit')->middleware('permission:manageblocks');
 Route::get('/block/remove', 'BlockController@remove')->middleware('permission:manageblocks');
 Route::post('/block/add', 'BlockController@add');
+
 //quality
 Route::get('quality', [
     'middleware' => 'auth',
@@ -51,13 +63,14 @@ Route::get('quality/add', [
     'middleware' => 'auth',
     'uses' => 'QualityController@addshow'
 ]);
-Route::get('quality/edit', [
+Route::get('quality/edit/{id}', [
     'middleware' => 'auth',
     'uses' => 'QualityController@editShow'
 ]);
 Route::get('/quality/remove/{id}', 'QualityController@remove');
 Route::post('/quality/add', 'QualityController@add');
 Route::post('/quality/edit/{id}', 'QualityController@edit');
+
 //rawmaterial
 Route::get('rawmaterial', [
     'middleware' => 'auth',
@@ -67,7 +80,7 @@ Route::get('rawmaterial/add', [
     'middleware' => 'auth',
     'uses' => 'RawMaterialController@addShow'
 ]);
-Route::get('rawmaterial/edit', [
+Route::get('rawmaterial/edit/{id}', [
     'middleware' => 'auth',
     'uses' => 'RawMaterialController@editShow'
 ]);

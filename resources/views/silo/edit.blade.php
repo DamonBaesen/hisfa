@@ -3,13 +3,13 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <title>Edit primesilo</title>
+        <link rel="stylesheet" href="/css/formAdd-style.css">
     </head>
-    <div class="container">
         <div class="row">
             <div class="panel panel-default" id="form">
                 <h1>HISFA</h1>
-                <h3>Edit silo</h3>
+                <h3>Edit primesilo</h3>
                 <form class="form-horizontal" role="form" method="POST" action="">
                     {{ csrf_field() }}
 
@@ -19,7 +19,7 @@
                         <div class="col-sm-10">
                             <select name="txtGrondstof" id="txtGrondstof">
                                 @foreach($rawmaterial as $rawmaterials)
-                                    @if($rawmaterials->type == "N/A")
+                                    @if($rawmaterials->type == "")
                                         @else
                                     @if($rawmaterials->type == $silos->grondstof->type)
                                     <option class="form-control" selected id="txtMaterial" name="txtMaterial" value="{{$rawmaterials->id}}">{{$rawmaterials->type}}</option>
@@ -60,6 +60,5 @@
                 </form>
             </div>
         </div>
-    </div>
 @endsection
 
