@@ -29,6 +29,7 @@ Route::get('/history', 'HistoryController@index');
 
 //dashboard + home
 Route::get('/dashboard', 'DashboardController@index')->middleware('auth','permission:viewdashboard');
+Route::get('/dashboard/stock/{id}', 'DashboardController@ajax')->middleware('auth','permission:viewdashboard');
 Route::get('/home', 'DashboardController@index')->middleware('auth','permission:viewdashboard');
 
 //permissions

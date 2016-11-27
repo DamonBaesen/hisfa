@@ -19,8 +19,8 @@
                 <h2 class="contentContainerh2">Blocks in storage</h2> </div>
             <label for="dropdownBlock"></label>
             <select class="dropdownBlock" id="dropdownblock">  @foreach ($qualities as $qualitylist)
-                    <option value="{{ $qualitylist->name }}">{{ $qualitylist->name }}</option>  @endforeach  </select>
-            <div class="stock-group" onclick="window.location.href='/block'">  @foreach($selectQuality as $selectQualities)
+                    <option value="{{ $qualitylist->id }}">{{ $qualitylist->name }}</option>  @endforeach  </select>
+            <div id="stock-wrapper" class="stock-group" onclick="window.location.href='/block'">  @foreach($selectQuality as $selectQualities)
                     <div class="stock-container">
                         <h2>{{ $selectQualities->height }}m</h2>
                         <h3>{{ $selectQualities->quantity }} blocks</h3>
@@ -80,6 +80,24 @@
     </body>
     <script src="http://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script type="text/javascript">
+
+        $(".dashboardPanels").on("change",".dropdownBlock", function(){
+
+            $id = $(".dropdownBlock").val();
+
+            $.ajax({
+                type:'GET',
+                url:'/dashboard/stock/{id}',
+                data:{id: $id},
+                success:function(response){
+                    $(".stock-group").html(response);
+                    $("#stock-wrapper").removeClass("stock-group");
+                    $("#stock-wrapper").addClass("stock-group");
+                }
+            });
+        });
+
+
         function sliceSize(dataNum, dataTotal) {
             return (dataNum / dataTotal) * 360;
         }
