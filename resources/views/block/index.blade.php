@@ -1,44 +1,41 @@
 @extends('layouts.master')
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
-                <h3>Block overview</h3>
-                <?php $totaal=0; ?>
-                <?php $testtest=0; ?>
-                @foreach ($stock as $blok)
-                <?php $result= round($blok->height * $blok->quantity * 1.03 *1.29, 2);
-                $totaal += $result;?>
+    <head>
+        <meta charset="UTF-8">
+        <title>Account</title>
+        <link rel="stylesheet" href="/css/block-style.css">
 
-
-
-
-                <p>Van bloktype {{ $blok->stok->name }} met lengte {{ $blok->height }} zijn er op dit moment {{ $blok->quantity }} blokken.</p><p> Aantal Kubeke meter :<strong>{{$result}} m³</strong></p><hr/>
-<!-- Kubieke meters in p -->
-                @endforeach
-
-                
-                <h3>Custom block overview</h3>
-                @foreach ($customstock as $blok)
-                <?php $result= round($blok->height * $blok->quantity * 1.03 *1.29, 2);
-                $totaal += $result; ?>
-                <p>Van bloktype {{ $blok->stok->name }} met lengte {{ $blok->height }} zijn er op dit moment {{ $blok->quantity }} blokken.</p><p> Aantal Kubeke meter :<strong>{{$result}} m³</strong></p><hr/>
-                
-<!-- Kubieke meters in p -->
-                @endforeach
-
-                <h3>Kubekemeters in opslag</h3>
-                <p>Totaal aantal kubekemeter in stock: <strong>{{$totaal}} m³</strong> </p>
-                <ul>
-
-                <hr/>
-                <div id="blockMenu" >
-                    <a href="{{ url('/block/add') }}">Add block</a>
-                </div>
-
+    </head>
+    <div class="silo-container">
+        <div class="silo-title">
+        <h1>Stock blocks</h1>
+             </div>
+        <?php $alltotaal=0; ?>
+        @foreach($qualitys as $key => $value)
+            <div class="block-total">
+            <?php $totaal=0; ?>
+            <h1>{{$value->name}}</h1>
+                <div class="block-container">
+            @foreach($allblocks as $block)
+                @if($block->stok->id == $value->id)
+                  <div class="block-group">
+                   <h3> {{$block->height}}m</h3>
+                   <p> {{$block->quantity}} stk.</p>
+                    <?php $result= round($block->height * $block->quantity * 1.03 *1.29, 2);
+                    $totaal += $result;
+                        $alltotaal += $result;?>
+                    <p>{{$result}} m³</p>
+                  </div>
+            @endif
+            @endforeach
+                @if($totaal != 0)
+            <p class="totalBlock">Totale inhoud: <?php echo $totaal ?> m3</p>
+            @endif
+                <a href="/recyclesilo/add" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             </div>
-        </div>
-     </div>
+                </div>
+            @endforeach
+        <h5 class="totalAll">TOTAAL: <?php echo $alltotaal ?> m3</h5>
+    </div>
 @endsection
