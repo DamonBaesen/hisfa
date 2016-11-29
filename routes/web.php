@@ -29,7 +29,13 @@ Route::get('/history', 'HistoryController@index');
 
 //dashboard + home
 Route::get('/dashboard', 'DashboardController@index')->middleware('auth','permission:viewdashboard');
+Route::get('/dashboard/stock/{id}', 'DashboardController@ajax')->middleware('auth','permission:viewdashboard');
 Route::get('/home', 'DashboardController@index')->middleware('auth','permission:viewdashboard');
+
+//permissions
+Route::get('/permissions', 'PermissionController@index')->middleware('auth', 'permission:manageusers');
+Route::get('/permissions/edit/{id}', 'PermissionController@editShow')->middleware('auth', 'permission:manageusers');
+Route::post('/permissions/edit/{id}', 'PermissionController@edit')->middleware('auth', 'permission:manageusers');
 
 //account
 Route::get('/account', 'AccountController@getData')->middleware('auth');

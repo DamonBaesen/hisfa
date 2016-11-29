@@ -38,6 +38,12 @@ class BlockController extends Controller
             ->where('height','!=' , '8')
             ->get();
         $data['customstock'] = $customstock;
+
+        $qualityinhoud = \App\Qualitie::all();
+        $data['qualitys'] = $qualityinhoud;
+
+        $blockinhoud = \App\stock::all();
+        $data['allblocks'] = $blockinhoud;
         
         return view('block.index', $data);
     }
