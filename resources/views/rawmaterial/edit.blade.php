@@ -51,14 +51,6 @@
                             <input type="number" class="form-control" id="textDeliverd" name="textDeliverd" value="{{$rawmaterial->deliverd}}" required="">
                         </div>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="checkUsing" class="control-label col-sm-2">Using</label>
-                        <div class="col-sm-10">
-                            <input type="checkbox" class="form-control" id="checkUsing" name="checkUsing" value="1" > Yes
-                            <input type="checkbox" class="form-control" id="checkUsing" name="checkUsing" value="0" > No
-                        </div>
-                    </div>
 
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
