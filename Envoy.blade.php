@@ -5,7 +5,7 @@ php artisan down
 git reset –-hard HEAD
 git pull origin master
 composer dump-autoload
-php artisan migrate:refresh -–seed
+php artisan migrate:refresh --seed
 php artisan up
 @endtask
 
