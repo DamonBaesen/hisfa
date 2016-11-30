@@ -36,7 +36,6 @@ class RawMaterialController extends Controller
     {
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
-        
         return view('rawmaterial.index', $data);
     }
 
@@ -65,11 +64,17 @@ class RawMaterialController extends Controller
 
     public function remove($id)
     {
-        $prime = DB::table('primesilos')->pluck('rawmaterial_id');
+        /*$prime = DB::table('primesilos')->pluck('rawmaterial_id');
         
         foreach ($prime as $silo)
         {
             if( $id == $silo){
+                
+                return redirect('/rawmaterial')->with('success', true)->with('message','You can not delete while using'); 
+                
+            } 
+            else
+            {
                 DB::statement('SET FOREIGN_KEY_CHECKS = 0');
                 Rawmaterial::destroy($id);
                 DB::statement('SET FOREIGN_KEY_CHECKS = 1');
@@ -78,15 +83,35 @@ class RawMaterialController extends Controller
                 DB::table('histories')->insert(
                 array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
                 );
-            } 
-            else{
                 
+                return redirect('/rawmaterial')->with('success', true)->with('message','This rawmaterial was succesfully deleted');  
+               
+                
+                 
             }
-        }
+            
+        }*/
         
-        
+        $using = DB::table('rawmaterials')->where('id', '=', $id)->pluck('using');
+        foreach ($using as $use){
+        if ($use == 0){
+            
+            DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+            Rawmaterial::destroy($id);
+            DB::statement('SET FOREIGN_KEY_CHECKS = 1');
 
-        return redirect('rawmaterial');
+            $userid = Auth::id();
+            DB::table('histories')->insert(
+            array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
+                );
+            
+            return redirect('/rawmaterial')->with('success', true)->with('message','This rawmaterial was succesfully deleted'); 
+            
+        }else
+        {
+            return redirect('/rawmaterial')->with('success', true)->with('message','You can not delete while using');   
+        }
+        }
     }
     
     public function edit($id)
