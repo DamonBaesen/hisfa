@@ -32,15 +32,13 @@ class AccountController extends Controller
     
     
      protected function add(Request $request)
-    {            
-                $name = Input::get('textName');
-                $email= Input::get('textEmail');
-                $password = Hash::make(Input::get('textQuantity'));
-             
-                $id = DB::table('users')->insertGetId(
-                    array('name' => $name, 'email' => $email, 'password' => $password)
-                );
-                
+    {
+                $user = new \App\User();
+                $user->name = Input::get('textName');
+                $user->email = Input::get('textEmail');
+                $user->password = Hash::make(Input::get('textWachtwoord'));
+                $user->save();
+                $user->givePermissionTo('viewdashboard');
                 return view('account.add');
      }
          
