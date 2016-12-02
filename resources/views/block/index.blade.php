@@ -20,7 +20,7 @@
             @foreach($allblocks as $block)
                 @if($block->stok->id == $value->id)
                   <div class="block-group">
-                   <h3> {{$block->height}}m</h3>
+                   <h3> {{$block->height}} m</h3>
                    <p> {{$block->quantity}} stk.</p>
                     <?php $result= round($block->height * $block->quantity * 1.03 *1.29, 2);
                     $totaal += $result;
@@ -32,7 +32,7 @@
                 @if($totaal != 0)
             <p class="totalBlock">Totale inhoud: <?php echo $totaal ?> m3</p>
             @endif
-                <a href="/recyclesilo/add" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                <a href="/block/add/{{$value->id}}" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
             </div>
                 </div>
             @endforeach
