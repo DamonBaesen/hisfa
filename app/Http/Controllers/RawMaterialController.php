@@ -36,6 +36,27 @@ class RawMaterialController extends Controller
     {
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
+        
+        /*
+        DB::table('rawmaterials')
+            ->join('primesilos', 'rawmaterials.id', '=', 'primesilos.rawmaterial_id')
+            ->whereRaw('rawmaterials.id ==  primesilos.rawmaterial_id')
+            ->update(array('using' => 1))
+            ;
+        */
+        /*DB::table('rawmaterials')
+            ->join('primesilos', 'rawmaterials.id', '=', 'primesilos.rawmaterial_id')
+            ->whereRaw('rawmaterials.id ==  primesilos.rawmaterial_id')
+            ->update(array('using' => 1))
+            ;
+            */
+        
+       /* $raw = DB::table('rawmaterials')->pluck('id');
+        $prime = DB::table('primesilos')->pluck('rawmaterial_id');
+        foreach(combine($raw, $prime) as $r => $p){
+            
+        }
+        */
         return view('rawmaterial.index', $data);
     }
 
@@ -64,38 +85,15 @@ class RawMaterialController extends Controller
 
     public function remove($id)
     {
-        /*$prime = DB::table('primesilos')->pluck('rawmaterial_id');
-        
-        foreach ($prime as $silo)
-        {
-            if( $id == $silo){
-                
-                return redirect('/rawmaterial')->with('success', true)->with('message','You can not delete while using'); 
-                
-            } 
-            else
-            {
-                DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-                Rawmaterial::destroy($id);
-                DB::statement('SET FOREIGN_KEY_CHECKS = 1');
-
-                $userid = Auth::id();
-                DB::table('histories')->insert(
-                array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
-                );
-                
-                return redirect('/rawmaterial')->with('success', true)->with('message','This rawmaterial was succesfully deleted');  
-               
-                
-                 
-            }
-            
-        }*/
-        
+        //get using value
         $using = DB::table('rawmaterials')->where('id', '=', $id)->pluck('using');
+        
         foreach ($using as $use){
+        
+        //als de grondstof niet gebruikt kan deze verwijderd worden
         if ($use == 0){
-            
+            //verwijderen van grondstof
+            //error foreign-key oplossing
             DB::statement('SET FOREIGN_KEY_CHECKS = 0');
             Rawmaterial::destroy($id);
             DB::statement('SET FOREIGN_KEY_CHECKS = 1');
@@ -104,11 +102,13 @@ class RawMaterialController extends Controller
             DB::table('histories')->insert(
             array('action' => 'remove', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $id , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
                 );
-            
+            //geef een succes boodschap mee
             return redirect('/rawmaterial')->with('success', true)->with('message','This rawmaterial was succesfully deleted'); 
             
-        }else
+        }
+            else
         {
+            //geef een boodschap mee dat een grondstof die gerbuikt wordt in een silo niet verwijderd kan worden
             return redirect('/rawmaterial')->with('success', true)->with('message','You can not delete while using');   
         }
         }
