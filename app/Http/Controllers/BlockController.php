@@ -48,25 +48,26 @@ class BlockController extends Controller
         return view('block.index', $data);
     }
 
-    public function add()
+    public function add($id)
     {
-        $name = Input::get('textName');
-        $hardness = Input::get('txtHardheid');
-        DB::table('stocks')->insert(
-            array('height' => $name, 'quantity' => 10, 'qualitie_id' => 1)
-        );
+        $height = Input::get('textHeight');
         
+        \App\Stock::where('qualitie_id', '=', $id)->update(array('height' => $height));
+        /*
         $userid = Auth::id();
         DB::table('histories')->insert(
             array('action' => 'add', 'silonr' => "", 'block' => $name , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'block', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
-
+        */
         return redirect('block');
     }
     
-    public function addShow()
+    public function addShow($id)
     {
-        return view('block.add');
+        //show quality
+        $quality = \App\Qualitie::where('id', '=', $id)->get();
+        $data['quality'] = $quality;
+        return view('block.add', $data);
     }
 
     public function edit()

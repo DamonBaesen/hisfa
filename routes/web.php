@@ -50,10 +50,11 @@ Route::post('/account/send', 'EmailController@send');
 
 //block
 Route::get('/block', 'BlockController@index')->middleware('permission:viewblocks');
-Route::get('/block/add', 'BlockController@addShow')->middleware('permission:manageblocks');
+Route::get('/block/add/{id}', 'BlockController@addShow')->middleware('permission:manageblocks');
 Route::get('/block/edit', 'BlockController@edit')->middleware('permission:manageblocks');
 Route::get('/block/remove', 'BlockController@remove')->middleware('permission:manageblocks');
-Route::post('/block/add', 'BlockController@add');
+
+Route::post('/block/add/{id}', 'BlockController@add');
 
 //quality
 Route::get('quality', [
