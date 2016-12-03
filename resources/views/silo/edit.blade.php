@@ -36,7 +36,7 @@
                     <div class="form-group">
                         <label for="textName" class="control-label col-sm-2">Silonr°:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="txtMaterial" name="txtName" placeholder="3" value="{{$silos->id}}" required="">
+                            <input type="number" min=1 class="form-control" id="txtMaterial" name="txtName" placeholder="3" value="{{$silos->id}}" required="">
                         </div>
                     </div>
 
