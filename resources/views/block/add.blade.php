@@ -16,42 +16,27 @@
                 <form class="form-horizontal" role="form" method="POST" action="">
                     {{ csrf_field() }}
                     <fieldset>
-                        <div class="form-group" >
-                        <label for="textID" class="control-label col-sm-2">Quality-ID</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="textID" name="textID" value="{{$q->id}}">
-                        </div>
-                    </div>
-                        <div class="form-group">
-                            <label for="txtlength" class="control-label col-sm-2">Height:</label>
+                      
+                       <div class="form-group" hidden="hidden">
+                            <label for="textQuality" class="control-label col-sm-2">Quantity:</label>
                             <div class="col-sm-10">
-                                <select name="txtHeight" id="txtlentgh">
-                                    <option value="4">4 m</option>
-                                    <option value="6">6 m</option>
-                                    <option value="8">8 m</option>
-                                </select>
+                                <input type="text" class="form-control" id="textQuality" name="textQuality" required="" value="{{$q->id}}">
                             </div>
                         </div>
-                <!--
-                    <h1>OR</h1>
-                     <div class="form-group">
-                        <label for="textName" class="control-label col-sm-2">Custom length: </label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" id="textHeight" name="textHeight" placeholder="custom length">
+                        <div class="form-group">
+                            <label for="textQuantity" class="control-label col-sm-2">Quantity:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="textQuantity" name="textQuantity" required="" value="">
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="txtHardheid" class="control-label col-sm-2">Hardness:</label>
-                        <div class="col-sm-10">
-                            <select name="txtHardheid" id="txtHardheid">
-                                <option value="Soft">Soft</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Hard">Hard</option>
-                            </select>
+               
+                       <div class="form-group">
+                            <label for="textQuantity" class="control-label col-sm-2">Height:</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="textHeight" name="textHeight" required="" value="">
+                            </div>
                         </div>
-                    </div>
-                -->
+                
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
                         <div class="text-left col-sm-10">
