@@ -52,7 +52,7 @@ Route::post('/account/send', 'EmailController@send');
 Route::get('/block', 'BlockController@index')->middleware('permission:viewblocks');
 Route::get('/block/add/{id}', 'BlockController@addShow')->middleware('permission:manageblocks');
 Route::get('/block/edit/{id}', 'BlockController@editShow')->middleware('permission:manageblocks');
-Route::get('/block/remove', 'BlockController@remove')->middleware('permission:manageblocks');
+Route::get('/block/remove/{id}', 'BlockController@remove')->middleware('permission:manageblocks');
 
 Route::post('/block/edit/{id}', 'BlockController@edit');
 Route::post('/block/add/{id}', 'BlockController@add');

@@ -77,6 +77,7 @@ class BlockController extends Controller
             ->where('id', '=', $id)
             ->update(array('quantity' => $quantity));
         
+        //return to index
         $stock = \App\Stock::with('stok')
                 ->where('height', '4')
                 ->orwhere('height', '6')
@@ -120,9 +121,35 @@ class BlockController extends Controller
         return view('block.edit', $data);
     }
 
-    public function remove()
-    {
-        return view('block.remove');
+    public function remove($id)
+    {   
+        DB::table('stocks')->delete($id);
+        
+        //hier moet logging komen
+        
+        
+        //return to index
+        $stock = \App\Stock::with('stok')
+                ->where('height', '4')
+                ->orwhere('height', '6')
+                ->orwhere('height', '8')
+                ->get();
+            $data['stock'] = $stock;
+        
+        $customstock = \App\Stock::with('stok')
+            ->where('height', '!=' ,'4')
+            ->where('height','!=' , '6')
+            ->where('height','!=' , '8')
+            ->get();
+        $data['customstock'] = $customstock;
+
+        $qualityinhoud = \App\Qualitie::all();
+        $data['qualitys'] = $qualityinhoud;
+
+        $blockinhoud = \App\stock::all();
+        $data['allblocks'] = $blockinhoud;
+        
+        return view('block.index', $data);
     }
 }
 
