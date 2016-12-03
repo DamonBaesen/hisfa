@@ -26,6 +26,8 @@
                     $totaal += $result;
                         $alltotaal += $result;?>
                     <p>{{$result}} m³</p>
+                    
+                    <a href="/block/edit/{{$block->id}}">Change quantity</a>
                   </div>
             @endif
             @endforeach
