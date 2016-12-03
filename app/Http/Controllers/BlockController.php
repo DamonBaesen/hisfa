@@ -50,16 +50,40 @@ class BlockController extends Controller
 
     public function add($id)
     {
+        $quality = Input::get('textQuality');
+        $quantity = Input::get('textQuantity');
         $height = Input::get('textHeight');
         
-        \App\Stock::where('qualitie_id', '=', $id)->update(array('height' => $height));
+        DB::table('stocks')->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $height));
         
-        $userid = Auth::id();
+        /*$userid = Auth::id();
         DB::table('histories')->insert(
             array('action' => 'add', 'silonr' => "", 'block' => $name , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'block', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
-        );
+        );*/
         
-        return redirect('block');
+        //return to index
+        
+        $stock = \App\Stock::with('stok')
+                ->where('height', '4')
+                ->orwhere('height', '6')
+                ->orwhere('height', '8')
+                ->get();
+            $data['stock'] = $stock;
+        
+        $customstock = \App\Stock::with('stok')
+            ->where('height', '!=' ,'4')
+            ->where('height','!=' , '6')
+            ->where('height','!=' , '8')
+            ->get();
+        $data['customstock'] = $customstock;
+
+        $qualityinhoud = \App\Qualitie::all();
+        $data['qualitys'] = $qualityinhoud;
+
+        $blockinhoud = \App\stock::all();
+        $data['allblocks'] = $blockinhoud;
+        
+        return view('block.index', $data);
     }
     
     public function addShow($id)
@@ -77,6 +101,7 @@ class BlockController extends Controller
             ->where('id', '=', $id)
             ->update(array('quantity' => $quantity));
         
+        //return to index
         $stock = \App\Stock::with('stok')
                 ->where('height', '4')
                 ->orwhere('height', '6')
@@ -120,9 +145,35 @@ class BlockController extends Controller
         return view('block.edit', $data);
     }
 
-    public function remove()
-    {
-        return view('block.remove');
+    public function remove($id)
+    {   
+        DB::table('stocks')->delete($id);
+        
+        //hier moet logging komen
+        
+        
+        //return to index
+        $stock = \App\Stock::with('stok')
+                ->where('height', '4')
+                ->orwhere('height', '6')
+                ->orwhere('height', '8')
+                ->get();
+            $data['stock'] = $stock;
+        
+        $customstock = \App\Stock::with('stok')
+            ->where('height', '!=' ,'4')
+            ->where('height','!=' , '6')
+            ->where('height','!=' , '8')
+            ->get();
+        $data['customstock'] = $customstock;
+
+        $qualityinhoud = \App\Qualitie::all();
+        $data['qualitys'] = $qualityinhoud;
+
+        $blockinhoud = \App\stock::all();
+        $data['allblocks'] = $blockinhoud;
+        
+        return view('block.index', $data);
     }
 }
 

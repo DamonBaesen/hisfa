@@ -28,9 +28,13 @@
                     <p>{{$result}} m³</p>
                     
                     <a href="/block/edit/{{$block->id}}">Change quantity</a>
+                    
+                    <a href="/block/remove/{{$block->id}}">Delete block</a>
+                    
                   </div>
             @endif
             @endforeach
+               
                 @if($totaal != 0)
             <p class="totalBlock">Totale inhoud: <?php echo $totaal ?> m3</p>
             @endif
