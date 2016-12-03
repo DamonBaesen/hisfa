@@ -54,7 +54,28 @@ class BlockController extends Controller
         $quantity = Input::get('textQuantity');
         $height = Input::get('textHeight');
         
-        DB::table('stocks')->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $height));
+        $exists = DB::table('stocks')
+            ->where('id', '=', $id)
+            ->pluck('height');
+        
+        foreach($exists as $e){
+            //als de hoogte nog niet bestaat
+            if($height != $e){
+                //toevoegen aan databank
+                DB::table('stocks')
+                    ->where('id', '=', $id)
+                    ->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $height));
+            }
+            
+        }
+        
+        
+       /* \App\Stock::with('stok')
+            ->where('id', '=', $id)
+            ->andwhere('height', '!=', $height)
+            ->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $height));
+        */
+        
         
         /*$userid = Auth::id();
         DB::table('histories')->insert(
