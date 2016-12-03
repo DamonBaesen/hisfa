@@ -53,12 +53,12 @@ class BlockController extends Controller
         $height = Input::get('textHeight');
         
         \App\Stock::where('qualitie_id', '=', $id)->update(array('height' => $height));
-        /*
+        
         $userid = Auth::id();
         DB::table('histories')->insert(
             array('action' => 'add', 'silonr' => "", 'block' => $name , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'block', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
         );
-        */
+        
         return redirect('block');
     }
     
@@ -70,9 +70,54 @@ class BlockController extends Controller
         return view('block.add', $data);
     }
 
-    public function edit()
+    public function edit($id)
     {
-        return view('block.edit');
+        $quantity = Input::get('textQuantity');
+        DB::table('stocks')
+            ->where('id', '=', $id)
+            ->update(array('quantity' => $quantity));
+        
+        $stock = \App\Stock::with('stok')
+                ->where('height', '4')
+                ->orwhere('height', '6')
+                ->orwhere('height', '8')
+                ->get();
+            $data['stock'] = $stock;
+        
+        $customstock = \App\Stock::with('stok')
+            ->where('height', '!=' ,'4')
+            ->where('height','!=' , '6')
+            ->where('height','!=' , '8')
+            ->get();
+        $data['customstock'] = $customstock;
+
+        $qualityinhoud = \App\Qualitie::all();
+        $data['qualitys'] = $qualityinhoud;
+
+        $blockinhoud = \App\stock::all();
+        $data['allblocks'] = $blockinhoud;
+        
+        return view('block.index',$data);
+    }
+    
+    public function editShow($id)
+    {
+        //show block name and height
+        $block = \App\Stock::where('id', '=', $id)->get();
+        $data['block'] = $block;
+    
+        
+        $quality =  DB::table('qualities')
+            ->join('stocks', 'qualities.id', '=', 'stocks.qualitie_id')
+            ->whereRaw('qualities.id = stocks.qualitie_id')
+            ->where('stocks.id', '=', $id)
+            ->get();
+        
+        $data['quality'] = $quality;
+         
+        
+        
+        return view('block.edit', $data);
     }
 
     public function remove()
