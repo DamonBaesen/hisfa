@@ -26,7 +26,7 @@
                         <div class="form-group">
                             <label for="textQuantity" class="control-label col-sm-2">Quantity:</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="textQuantity" name="textQuantity" required="" value="">
+                                <input type=integer class="form-control" id="textQuantity" name="textQuantity" required="" value="">
                             </div>
                         </div>
                
