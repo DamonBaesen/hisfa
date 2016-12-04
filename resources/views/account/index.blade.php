@@ -45,7 +45,7 @@
 
 
     @if(Auth::user()->name)
-       <input type="checkbox" name="checkbox_mail" value="1" class="checkbox" ><p>Ik wil mails ontvangen </p>
+       <input type="checkbox" name="checkbox_mail" value="1" class="checkbox" ><p>Ik wil alle mails ontvangen </p>
         <input type="checkbox" name="checkbox_mail" value="2" class="checkbox" ><p>Ik wil enkel mails ontvangen wanneer een primesilo vol is</p>
         <input type="checkbox" name="checkbox_mail" value="3" class="checkbox" ><p>Ik wil enkel mails ontvangen wanneer een recyclesilo vol is </p>
         <input type="checkbox" name="checkbox_mail" value="0" class="checkbox" ><p>Ik wil geen mails ontvangen</p>
