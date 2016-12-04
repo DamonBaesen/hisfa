@@ -24,14 +24,10 @@ class BlockController extends Controller
      */
     public function index()
     {
-
-
         $qualityinhoud = \App\Qualitie::all();
         $data['qualitys'] = $qualityinhoud;
-
-        $blockinhoud = \App\stock::orderBy('height', 'ASC')->orderBy('qualitie_id', 'ASC')->get();
+        $blockinhoud = \App\Stock::orderBy('height', 'ASC')->orderBy('qualitie_id', 'ASC')->get();
         $data['allblocks'] = $blockinhoud;
-
         return view('block.index', $data);
     }
 
@@ -40,10 +36,16 @@ class BlockController extends Controller
         $quality = Input::get('textQuality');
         $quantity = Input::get('textQuantity');
         $height = Input::get('textHeight');
+        $customheight = Input::get('textCustomHeight');
         
         $exists = DB::table('stocks')
             ->where('qualitie_id', '=', $id)
             ->where('height', '=', $height)
+            ->pluck('height');
+
+        $existsCustom = DB::table('stocks')
+            ->where('qualitie_id', '=', $id)
+            ->where('height', '=', $customheight)
             ->pluck('height');
 
         $quantityNow = DB::table('stocks')
@@ -52,22 +54,49 @@ class BlockController extends Controller
             ->pluck('quantity')
             ->first();
 
-        if(count($exists) == 0)
+        $quantityNowCustom = DB::table('stocks')
+            ->where('qualitie_id', '=', $id)
+            ->where('height', '=', $customheight)
+            ->pluck('quantity')
+            ->first();
+
+        if($customheight != "0")
         {
-            DB::table('stocks')
-                ->where('id', '=', $id)
-                ->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $height));
+            $exists = [];
+        }
+
+        if(count($exists) == 0 && count($existsCustom) == 0)
+        {
+            if($customheight == "0") {
+                DB::table('stocks')
+                    ->where('id', '=', $id)
+                    ->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $height));
+            }
+            else {
+                DB::table('stocks')
+                    ->where('id', '=', $id)
+                    ->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $customheight));
+            }
         }
         else
         {
-            $quantityNow = $quantityNow + $quantity;
-            DB::table('stocks')
-                ->where('height', '=', $height)
-                ->where('qualitie_id', '=', $id)
-                ->update(array('qualitie_id' => $id, 'quantity' => $quantityNow, 'height' => $height));
+            if($customheight == "0") {
+                $quantityNow = $quantityNow + $quantity;
+                DB::table('stocks')
+                    ->where('height', '=', $height)
+                    ->where('qualitie_id', '=', $id)
+                    ->update(array('qualitie_id' => $id, 'quantity' => $quantityNow, 'height' => $height));
+            }
+            else {
+                $quantityNowCustom = $quantityNowCustom + $quantity;
+                DB::table('stocks')
+                    ->where('height', '=', $customheight)
+                    ->where('qualitie_id', '=', $id)
+                    ->update(array('qualitie_id' => $id, 'quantity' => $quantityNowCustom, 'height' => $customheight));
+            }
         }
 
-        return redirect('block');
+         return redirect('block');
     }
     
     public function addShow($id)

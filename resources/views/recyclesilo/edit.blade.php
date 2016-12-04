@@ -49,7 +49,8 @@
                     <div class="form-group">
                         <label for="txtHoeveelheid" class="control-label col-sm-2">Quantity:</label>
                         <div class="col-sm-10">
-                            <input type="number" class="form-control" id="txtQuantity" min="0" max="100" name="txtHoeveelheid" value="{{$silos->quantity}}" required="">
+                            <input type="range" onchange="myFunction()" class="form-control" id="txtQuantity" min="0" max="100" name="txtHoeveelheid" value="{{$silos->quantity}}" required="">
+                        <h1 id="inhoudSilo"></h1>
                         </div>
                     </div>
 
@@ -66,4 +67,16 @@
             </div>
         </div>
 @endsection
+<script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+<script>
+    function myFunction() {
+        var x = document.getElementById("txtQuantity").value;
+        document.getElementById("inhoudSilo").innerHTML = x;
+    }
+
+    $(document).ready(function() {
+        var x = document.getElementById("txtQuantity").value;
+        document.getElementById("inhoudSilo").innerHTML = x;
+    });
+</script>
 
