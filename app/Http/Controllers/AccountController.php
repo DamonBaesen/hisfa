@@ -66,17 +66,13 @@ class AccountController extends Controller
     }
 
     public function changeUserInformation(){
-        // to do -> id vervangen door huidige session id
-        $checkboxval = 0;
-        if(isset($_POST['checkbox_mail'])){
-            $checkboxval = 1;
-        }
-
-
+        $id = Auth::user('id');
+        $checkboxoval = Input::get('checkboxMail');
+    
         $user = Auth::user();
         $user->name = trim($_POST['name']);
         $user->email= trim($_POST['email']);
-        $user->mail= $checkboxval;
+        $user->mail= $checkboxoval;
         $user->save();
         return redirect('account')->with('message', 'Gegevens succesvol aangepast.');
     }

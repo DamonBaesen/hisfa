@@ -71,9 +71,10 @@ class RecycleSiloController extends Controller
         \App\Recyclesilo::where('id', '=', $id)->update(array('id' => $newID, 'quantity' => $quantity, 'type' => $hardness));
 
         if($quantity >= 90){
-            app('App\Http\Controllers\EmailController')->send($id, $quantity);
+            app('App\Http\Controllers\EmailController')->sendrecycle($id, $quantity, $newID);
         }
 
+        
         $userid = Auth::id();
         DB::table('histories')->insert(
             array('action' => 'edit', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'recyclesilo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))

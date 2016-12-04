@@ -87,7 +87,7 @@ class SiloController extends Controller
         \App\Primesilo::where('id', '=', $id)->update(array('id' => $newID, 'quantity' => $quantity,'rawmaterial_id' => $rawmaterialID));
         
         if($quantity >= 90){
-            app('App\Http\Controllers\EmailController')->send($id, $quantity);
+            app('App\Http\Controllers\EmailController')->sendprime($id, $quantity, $newID);
         }
         
         $userid = Auth::id();
