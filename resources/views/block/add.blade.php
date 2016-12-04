@@ -45,7 +45,7 @@
                        <div class="form-group" id="groupCustomHeight" style="display: none">
                             <label for="textCustomHeight" class="control-label col-sm-2">Custom height:</label>
                             <div class="col-sm-10">
-                                <input type="number" min=0 class="form-control" id="textCustomHeight" name="textCustomHeight" value="0">
+                                <input type="number" step="0.1" min=0 class="form-control" id="textCustomHeight" name="textCustomHeight" value="0">
                             </div>
                         </div>
 

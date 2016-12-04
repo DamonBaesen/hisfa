@@ -25,7 +25,7 @@
                     <div class="form-group">
                         <label for="textQuantity" class="control-label col-sm-2">Quantity:</label>
                         <div class="col-sm-10">
-                            <input type="number" min=0 class="form-control" id="textQuantity" name="textQuantity" required="" value="{{$b->quantity}}">
+                            <input type="number" step="0.1" min=0 class="form-control" id="textQuantity" name="textQuantity" required="" value="{{$b->quantity}}">
                         </div>
                     </div>
                   @endforeach  
