@@ -7,6 +7,7 @@ body{
     min-height: 100vh;
 }
 
+
 .silo-container{
 width: 90%;
 margin-left:auto;
@@ -123,4 +124,9 @@ background-color: #3b6482;
     margin-top: -15px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+#groupCustomHeight
+{
+    display: none;
 }
