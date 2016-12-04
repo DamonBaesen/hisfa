@@ -21,7 +21,7 @@ class EmailController extends Controller
 
             Mail::send('mails.send', ['id' => $id, 'quantity' => $quantity], function ($message)
             {
-                $message->to('billie.peeters@gmail.com')->subject('Primesilo ', $newID, ' bijna vol!');
+                $message->to($p)->subject('Primesilo ', $newID, ' bijna vol!');
             });
             
         //ik wil  mails ontvagen wanneer een primesilo en een recycle silo vol is
@@ -31,7 +31,7 @@ class EmailController extends Controller
 
             Mail::send('mails.send', ['id' => $id, 'quantity' => $quantity], function ($message)
             {
-                $message->to('billie.peeters@gmail.com')->subject('Primesilo ', $newID, ' bijna vol!');
+                $message->to($p)->subject('Primesilo ', $newID, ' bijna vol!');
             });   
     }
 }
@@ -47,7 +47,7 @@ class EmailController extends Controller
 
             Mail::send('mails.send', ['id' => $id, 'quantity' => $quantity], function ($message)
             {
-                $message->to('billie.peeters@gmail.com')->subject('Primesilo ', $id, ' almost full!');
+                $message->to($p)->subject('Primesilo ', $id, ' almost full!');
                 
             });
             
@@ -58,7 +58,7 @@ class EmailController extends Controller
 
             Mail::send('mails.send', ['id' => $id, 'quantity' => $quantity], function ($message)
             {
-                $message->to('billie.peeters@gmail.com')->subject('Recyclesilo ', $id, ' almost full!');
+                $message->to($p)->subject('Recyclesilo ', $id, ' almost full!');
             });   
     }
 }
