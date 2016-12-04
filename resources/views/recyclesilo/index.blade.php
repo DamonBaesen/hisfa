@@ -35,6 +35,7 @@
 
 
                         <div class="silo-info">
+                            <h3>{{ $silos->type }}</h3>
                             <h4>{{ $silos->quantity }}%</h4>
                         </div>
                         <a href="/recyclesilo/remove/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
