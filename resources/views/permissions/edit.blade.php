@@ -4,10 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <title>Account</title>
+        <link rel="stylesheet" href="/css/account-style.css">
         <link rel="stylesheet" href="/css/permissions-style.css">
     </head>
+    <div id="profile_page">
+        <div class="profile">
         <div class="row">
-            <div class="panel panel-default" id="form">
+            <div id="form">
 
                 <form class="permission-frame form-horizontal" role="form" method="POST" action="">
                     {{ csrf_field() }}
@@ -23,7 +26,7 @@
                         @foreach ($permissionData as $permission)
                             @if($permission->permission_id == $detail->id)
                                 <div class="permission-checkbox">
-                                    <input  type="checkbox" id="{{ $detail->name }}" name="{{ $detail->name }}" checked> <p> {{ $detail->name }} </p>
+                                    <input  type="checkbox" id="{{ $detail->name }}" name="{{ $detail->name }}" checked> <label> {{ $detail->name }} </label>
                                 </div>
                                 <input type="hidden" value="{{ $i=true }}">
                             @endif
@@ -31,19 +34,20 @@
 
                         @if($i == false)
                             <div class="permission-checkbox">
-                                <input  type="checkbox" id="{{ $detail->name }}" name="{{ $detail->name }}"> <p> {{ $detail->name }} </p>
+                                <input  type="checkbox" id="{{ $detail->name }}" name="{{ $detail->name }}"> <label> {{ $detail->name }} </label>
                             </div>
                                 @endif
 
                     @endforeach
 
                     <div class="form-group">
-                        <label class="control-label" for="CreateMaterialbutton"></label>
                         <div class="permission-btn">
-                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Save permissions</button>
+                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="profile_button" aria-label="">Save permissions</button>
                         </div>
                     </div>
                 </form>
             </div>
+    </div>
+    </div>
     </div>
 @endsection
