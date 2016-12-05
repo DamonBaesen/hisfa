@@ -133,7 +133,7 @@ background-color: #1b2e3c;
 
 .block-total
 {
-background-color: #3b6482;
+    background-color: #3b6482;
     width: 90%;
     margin-left:auto;
     margin-right:auto;
@@ -152,12 +152,13 @@ background-color: #3b6482;
 .block-group
 {
     width: 40%;
-    margin-left:auto;
-    margin-right:auto;
+    margin-left:20px;
+    margin-right:20px;
     border-radius: 5px;
     background-color: #111c25;
     max-width: 100px;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .block-group > h3
@@ -191,12 +192,14 @@ background-color: #3b6482;
 
 .imgAddIcoon
 {
-    font-size: 2.7em;
+    font-size: 4em;
     color: #fff;
     display: block;
     text-align: center;
+    margin-top: 15px;
     margin-left:auto;
     margin-right:auto;
+    margin-bottom: auto;
 }
 
 .imgAddIcoon:hover,
@@ -212,6 +215,17 @@ background-color: #3b6482;
     width: 100%;
     text-align: center;
 }
+
+.totalBlock
+{
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-style: normal;
+    color:#fff;
+    font-weight: 400;
+}
+
+
 
 .totalAll
 {
@@ -237,4 +251,47 @@ background-color: #3b6482;
 #addQuality{
     color: white;
     text-decoration: none;
+}
+
+#addTotal{
+    margin-right: 20px;
+    margin-left: 20px;
+}
+
+@media (max-width: 768px) {
+    .block-group{
+        margin-left:20px;
+        margin-right:20px;
+        border-radius: 5px;
+    }
+    .imgAddIcoon
+    {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    margin-left:20px;
+    margin-right:20px;
+    margin-bottom: 1px;
+    }
+    
+}
+
+@media (max-width: 320px) {
+    .block-group{
+        margin-left:20px;
+        margin-right:20px;
+        border-radius: 5px;
+    }
+    .imgAddIcoon
+    {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    margin-left:30px;
+    margin-right:30px;
+    margin-bottom: 1px;
+    }
+    #addTotal{
+        margin-bottom: 10px;
+    }
 }
