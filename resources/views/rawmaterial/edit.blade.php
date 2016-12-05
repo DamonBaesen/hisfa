@@ -53,6 +53,20 @@
                         </div>
                     </div>
 
+
+                            <div class="form-group">
+                                @if($rawmaterial->using == 0)
+                                    <label for="textUsing" class="control-label col-sm-2"></label>
+                                    <div class="col-sm-10">
+                                <input type="checkbox" id="textUsing" value={{$rawmaterial->using}} name="textUsing"> Using
+                               </div>
+                                    @else
+                                    <label for="textUsing" class="control-label col-sm-2"></label>
+                                        <div class="col-sm-10">
+                                            <input type="checkbox" id="textUsing" value={{$rawmaterial->using}} name="textUsing" checked="checked"> Using
+                                           </div>
+                                                @endif
+</div>
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
                         <div class="text-left col-sm-10">
