@@ -12,7 +12,7 @@
         <link rel="stylesheet" href="/css/donut-style.css">   </head>
 
     <body>
-
+    <style>.navigation-bar{margin-top: -15px;}</style>
         <div class="contentContainer">
         <div class="dashboardPanels">
             <div class="frame-title">
