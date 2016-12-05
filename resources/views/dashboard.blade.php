@@ -14,11 +14,13 @@
     <body>
     <style>.navigation-bar{margin-top: -15px;}</style>
         <div class="contentContainer">
-        <div class="dashboardPanels">
+        <div class="dashboardPanels" id="stockPanel">
             <div class="frame-title">
                 <h2 class="contentContainerh2">Blocks in storage</h2> </div>
             <label for="dropdownBlock"></label>
-            <select class="dropdownBlock" id="dropdownblock">  @foreach ($qualities as $qualitylist)
+            <select class="dropdownBlock" id="dropdownblock"> 
+                <option value="" disabled selected>--Kies een type block--</option>
+                @foreach ($qualities as $qualitylist)
                     <option value="{{ $qualitylist->id }}">{{ $qualitylist->name }}</option>  @endforeach  </select>
             <div id="stock-wrapper" class="stock-group" onclick="window.location.href='/block'">  @foreach($selectQuality as $selectQualities)
                     <div class="stock-container">
@@ -32,7 +34,8 @@
                     <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>  @elseif(!empty($eventlogs->block))
                     <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>  @elseif(!empty($eventlogs->quality))
                     <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>  @elseif(!empty($eventlogs->rawmaterial))
-                    <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>  @endif  @endforeach  </div>  </div>
+                    <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>  @endif  @endforeach  </div> 
+            <a href="/history" class="linkHistoriek">Bekijk de volledige geschiedenis</a>        </div>
         <div class="dashboardPanels">
             <div class="frame-title">
                 <h2 class="contentContainerh2">Prime silo</h2> </div>

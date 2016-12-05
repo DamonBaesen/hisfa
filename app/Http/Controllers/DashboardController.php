@@ -51,7 +51,7 @@ class DashboardController extends Controller
             ->select('name','id')->get();
         $data['qualities'] = $qualities;
 
-        $eventlog = \App\History::all();
+        $eventlog = \App\History::orderBy('id', 'DESC')->take(6)->get();
             $data['eventlog'] = $eventlog;
 
         return view('dashboard', $data);

@@ -39,7 +39,7 @@ class AccountController extends Controller
                 $user->password = Hash::make(Input::get('textWachtwoord'));
                 $user->save();
                 $user->givePermissionTo('viewdashboard');
-                return view('account.add');
+                return view('account');
      }
          
          
