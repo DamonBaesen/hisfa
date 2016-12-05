@@ -3,27 +3,23 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <link rel="stylesheet" href="/css/block-style.css">
 
     </head>
-    <div class="container">
-        <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
-                <h3>Quality overview</h3>
+    <div class="silo-container">
+                <div class="silo-title"><h1>Quality overview</h1></div>
                   @foreach ($data as $qualities)
                        <li>
-                            <p>Quality: {{ $qualities->name }}, hardness: {{ $qualities->hardness }}</p>
-                            <a href="/quality/remove/{{$qualities->id}}">Delete</a>
-                            <a href="/quality/edit/{{$qualities->id}}">Edit</a>
+                        <div class="block-total">
+                            <h1>{{ $qualities->name }}</h1>
+                            <p>Hardness: {{ $qualities->hardness }}</p>
+                            <a href="/quality/remove/{{$qualities->id}}" id="delete">Delete</a>
+                            <a href="/quality/edit/{{$qualities->id}}" id="edit">Edit</a>
                        </li>
                 @endforeach
                 <hr/>
-                <div id="blockMenu" >
-                    <a href="{{ url('/quality/add') }}">Add quality</a>
-                </div>
 
-            </div>
+            <h5 class="totalAll"><a href="{{ url('/quality/add') }}" id="addQuality">Add quality</a></h5>
         </div>
      </div>
 @endsection

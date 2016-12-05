@@ -8,7 +8,7 @@
     </head>
     <div class="container">
         <div class="row">
-            <div class="panel panel-default"  id="formEditBlock">
+            <div class="panel panel-default"  id="formEdit">
                 <h1>Add block</h1>
                 @foreach($quality as $q)
                 <h3>{{$q->name}}</h3>

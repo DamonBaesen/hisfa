@@ -3,14 +3,14 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <link rel="stylesheet" href="/css/block-style.css">
     </head>
     <div class="container">
         <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
-                <h3>Edit quality</h3>
-                <form class="form-horizontal" role="form" method="POST" action="">
+            <div class="panel panel-default"  id="formEdit">
+                <h1>Quality</h1>
+                <h3>Edit</h3>
+                <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
                     <fieldset>
                     @foreach ($qualities as $qualitie)

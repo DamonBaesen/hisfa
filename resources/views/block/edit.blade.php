@@ -7,7 +7,7 @@
     </head>
     <div class="container">
         <div class="row">
-            <div class="panel panel-default" id="formEditBlock">
+            <div class="panel panel-default" id="formEdit">
 
                 <h1>Edit block</h1>
 

@@ -58,7 +58,7 @@ background-color: #1b2e3c;
 }
 
 
-#formEditBlock{
+#formEdit{
     background-color: #1b2e3c;
     border: none;
     padding-bottom: 50px;
@@ -94,7 +94,7 @@ background-color: #1b2e3c;
     border-radius: 3px;
 }
 
-#formEditBlock h1{
+#formEdit h1{
     font-size: 1.8em;
     margin-bottom: 15px;
     margin-top: 5px;
@@ -103,7 +103,7 @@ background-color: #1b2e3c;
     color: white;
 }
 
-#formEditBlock h3{
+#formEdit h3{
     color: white;
     background-color: #111c25;
     text-align: center;
@@ -226,4 +226,9 @@ background-color: #3b6482;
 
 #buttonAddCustom{
     color: red;
+}
+
+#addQuality{
+    color: white;
+    text-decoration: none;
 }
