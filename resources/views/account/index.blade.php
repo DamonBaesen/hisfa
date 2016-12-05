@@ -48,10 +48,25 @@
         Email: <input type="text" class="input" value="{{ Auth::user()->email }}" name="email">
                 
         @if(Auth::user()->name)
-            <input type="checkbox" name="checkboxMail" value="1" class="checkbox" ><p>Ik wil alle mails ontvangen </p>
-            <input type="checkbox" name="checkboxMail" value="2" class="checkbox" ><p>Ik wil enkel mails ontvangen wanneer een primesilo vol is</p>
-            <input type="checkbox" name="checkboxMail" value="3" class="checkbox" ><p>Ik wil enkel mails ontvangen wanneer een recyclesilo vol is </p>
-            <input type="checkbox" name="checkboxMail" value="0" class="checkbox" ><p>Ik wil geen mails ontvangen</p>
+           @if(Auth::user()->mail == 1)
+            <input type="checkbox" name="checkboxMail" value="1" class="checkbox" checked><p>Ik wil alle mails ontvangen </p>
+            @else <input type="checkbox" name="checkboxMail" value="1" class="checkbox"><p>Ik wil alle mails ontvangen </p>
+            @endif
+            
+            @if(Auth::user()->mail == 2)
+            <input type="checkbox" name="checkboxMail" value="2" class="checkbox" checked><p>Ik wil enkel mails ontvangen wanneer een primesilo vol is</p>
+            @else <input type="checkbox" name="checkboxMail" value="2" class="checkbox" ><p>Ik wil enkel mails ontvangen wanneer een primesilo vol is</p>
+            @endif
+            
+            @if(Auth::user()->mail == 3)
+            <input type="checkbox" name="checkboxMail" value="3" class="checkbox" checked><p>Ik wil enkel mails ontvangen wanneer een recyclesilo vol is </p>
+            @else <input type="checkbox" name="checkboxMail" value="3" class="checkbox" ><p>Ik wil enkel mails ontvangen wanneer een recyclesilo vol is </p>
+            @endif
+            
+            @if(Auth::user()->mail == 0)
+            <input type="checkbox" name="checkboxMail" value="0" class="checkbox" checked><p>Ik wil geen mails ontvangen</p>
+            @else <input type="checkbox" name="checkboxMail" value="0" class="checkbox" ><p>Ik wil geen mails ontvangen</p>
+            @endif
         @endif
 
         <input type="submit" value="Opslaan" class="profile_button">
