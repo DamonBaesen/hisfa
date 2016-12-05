@@ -71,21 +71,25 @@ class SiloController extends Controller
         $newID = Input::get('txtName');
         $rawmaterialID = Input::get('txtGrondstof');
         $quantity = Input::get('txtHoeveelheid');
-        \App\Primesilo::where('id', '=', $id)->update(array('id' => $newID, 'quantity' => $quantity,'rawmaterial_id' => $rawmaterialID));
-
-        if($quantity >= 90){
-            app('App\Http\Controllers\EmailController')->send($id, $quantity);
-        }
+        
+        //update using naar null wanneer niet meer gebruikt 
+        
+        
         
         $raw = DB::table('rawmaterials')->pluck('id');
         foreach($raw as $material){
+                //update using naar "1" wanneer gebruikt
                 if ($material == $rawmaterialID){
                     \App\Rawmaterial::where('id', '=', $material)->update(array('using' => 1));
-                }else{
-                    \App\Rawmaterial::where('id', '=', $material)->update(array('using' => 0));
                 }
         }
-
+        
+        \App\Primesilo::where('id', '=', $id)->update(array('id' => $newID, 'quantity' => $quantity,'rawmaterial_id' => $rawmaterialID));
+        
+        if($quantity >= 90){
+            app('App\Http\Controllers\EmailController')->sendprime($id, $quantity, $newID);
+        }
+        
         $userid = Auth::id();
         DB::table('histories')->insert(
             array('action' => 'edit', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))

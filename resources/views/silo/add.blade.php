@@ -16,7 +16,7 @@
                     <div class="form-group">
                         <label for="textName" class="control-label col-sm-2">Silonr°:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="textName" name="textName" placeholder="1" required="">
+                            <input type="number" min=1 class="form-control" id="textName" name="textName" placeholder="1" required="">
                         </div>
                     </div>
 

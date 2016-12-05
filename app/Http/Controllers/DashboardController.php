@@ -56,4 +56,18 @@ class DashboardController extends Controller
 
         return view('dashboard', $data);
      }
+
+    public function ajax(){
+        $id = $_GET['id'];
+        $result = \App\Stock::with('stok')
+            ->where('qualitie_id',$id)
+            ->get();
+        $html="";
+        foreach($result as $row) {
+            $html = $html ."<div class='stock-container' ><h2>" . $row->height . "m" .'</h2><h3 >' . $row->quantity . "blocks </h3 >
+                        <div class='oppervlak' >" . round($row->height * $row->quantity * 1.03 * 1.29, 2) . "m³  </div >  </div > ";
+            }
+        return $html;
+        }
+
 }
