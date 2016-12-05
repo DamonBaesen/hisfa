@@ -93,6 +93,12 @@ background-color: #1b2e3c;
     padding-bottom: 6px;
     border-radius: 3px;
 }
+#textHardness{
+    width: 70%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 3px;   
+}
 
 #formEdit h1{
     font-size: 1.8em;
