@@ -114,14 +114,21 @@ class RawMaterialController extends Controller
         }
     }
     
-    public function edit($id)
+    public function edit($id, Request $request)
     {
         $type = Input::get('textType');
         $stock = Input::get('textStock');
         $orderd = Input::get('textOrderd');
         $deliverd = Input::get('textDeliverd');
-        $using = Input::get('checkUsing');
-        
+        $using = Input::get('textUsing');
+
+        if($using == true) {
+            $using = 1;
+        }
+        else
+        {
+            $using = 0;
+        }
         
         \App\Rawmaterial::where('id', '=', $id)->update(array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => $using));
         
