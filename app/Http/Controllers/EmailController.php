@@ -11,7 +11,7 @@ use App\Http\Controllers\Controller;
 class EmailController extends Controller
 {
 
-    public function sendprime($id, $quantity, $newID){
+    public function sendprime($id, $quantity){
             
         //ik wil enkel mails ontvagen wanneer een primesilo vol is  
         //email moet to($p) worden!!
@@ -19,9 +19,9 @@ class EmailController extends Controller
         
         foreach ($prime as $p) {
 
-            Mail::send('mails.send', ['id' => $id, 'quantity' => $quantity], function ($message)
+            Mail::send('mails.sendprime', ['id' => $id, 'quantity' => $quantity], function ($message)
             {
-                $message->to($p)->subject('Primesilo ', $newID, ' bijna vol!');
+                $message->to($p)->subject('Primesilo ', $id, ' bijna vol!');
             });
             
         //ik wil  mails ontvagen wanneer een primesilo en een recycle silo vol is
@@ -29,7 +29,7 @@ class EmailController extends Controller
         
         foreach ($prime as $p) {
 
-            Mail::send('mails.send', ['id' => $id, 'quantity' => $quantity], function ($message)
+            Mail::send('mails.sendprime', ['id' => $id, 'quantity' => $quantity], function ($message)
             {
                 $message->to($p)->subject('Primesilo ', $newID, ' bijna vol!');
             });   
@@ -45,7 +45,7 @@ class EmailController extends Controller
         
         foreach ($prime as $p) {
 
-            Mail::send('mails.send', ['id' => $id, 'quantity' => $quantity], function ($message)
+            Mail::send('mails.sendrecycle', ['id' => $id, 'quantity' => $quantity], function ($message)
             {
                 $message->to($p)->subject('Primesilo ', $id, ' almost full!');
                 
@@ -56,7 +56,7 @@ class EmailController extends Controller
         
         foreach ($prime as $p) {
 
-            Mail::send('mails.send', ['id' => $id, 'quantity' => $quantity], function ($message)
+            Mail::send('mails.sendrecycle', ['id' => $id, 'quantity' => $quantity], function ($message)
             {
                 $message->to($p)->subject('Recyclesilo ', $id, ' almost full!');
             });   

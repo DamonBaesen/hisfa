@@ -71,7 +71,7 @@ class RecycleSiloController extends Controller
         \App\Recyclesilo::where('id', '=', $id)->update(array('id' => $newID, 'quantity' => $quantity, 'type' => $hardness));
 
         if($quantity >= 90){
-            app('App\Http\Controllers\EmailController')->sendrecycle($id, $quantity, $newID);
+            app('App\Http\Controllers\EmailController')->sendrecycle($id, $quantity);
         }
 
         
