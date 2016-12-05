@@ -2,7 +2,7 @@
 @task(deploy, ['on' => production])
 cd /home/hisfa/hisfa
 php artisan down
-git reset –-hard HEAD
+git reset --hard HEAD
 git pull origin master
 composer dump-autoload
 php artisan migrate:refresh --seed
