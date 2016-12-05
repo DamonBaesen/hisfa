@@ -3,15 +3,16 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <link rel="stylesheet" href="/css/block-style.css">
     </head>
     <div class="container">
         <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
+            <div class="panel panel-default" id="formEditBlock">
+
+                <h1>Edit block</h1>
+
                 
-                
-                <h3>Add new 
+                <h3>
                 @foreach($quality as $q)
                 {{$q->name}} of 
                 @endforeach
@@ -20,7 +21,7 @@
                 {{$b->height}} m
                 </h3>
                 
-                <form class="form-horizontal" role="form" method="POST" action="">
+                <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="textQuantity" class="control-label col-sm-2">Quantity:</label>
