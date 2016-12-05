@@ -17,34 +17,17 @@ class BlockController extends Controller
      * @return void
      */
 
-
     /**
      * Show the application dashboard.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {   
-       $stock = \App\Stock::with('stok')
-                ->where('height', '4')
-                ->orwhere('height', '6')
-                ->orwhere('height', '8')
-                ->get();
-            $data['stock'] = $stock;
-        
-        $customstock = \App\Stock::with('stok')
-            ->where('height', '!=' ,'4')
-            ->where('height','!=' , '6')
-            ->where('height','!=' , '8')
-            ->get();
-        $data['customstock'] = $customstock;
-
+    {
         $qualityinhoud = \App\Qualitie::all();
         $data['qualitys'] = $qualityinhoud;
-
-        $blockinhoud = \App\stock::all();
+        $blockinhoud = \App\Stock::orderBy('height', 'ASC')->orderBy('qualitie_id', 'ASC')->get();
         $data['allblocks'] = $blockinhoud;
-        
         return view('block.index', $data);
     }
 
@@ -53,63 +36,71 @@ class BlockController extends Controller
         $quality = Input::get('textQuality');
         $quantity = Input::get('textQuantity');
         $height = Input::get('textHeight');
+        $customheight = Input::get('textCustomHeight');
         
         $exists = DB::table('stocks')
-            ->where('id', '=', $id)
+            ->where('qualitie_id', '=', $id)
+            ->where('height', '=', $height)
             ->pluck('height');
-        
-        foreach($exists as $e){
-            //als de hoogte nog niet bestaat
-            if($height != $e){
-                //toevoegen aan databank
+
+        $existsCustom = DB::table('stocks')
+            ->where('qualitie_id', '=', $id)
+            ->where('height', '=', $customheight)
+            ->pluck('height');
+
+        $quantityNow = DB::table('stocks')
+            ->where('qualitie_id', '=', $id)
+            ->where('height', '=', $height)
+            ->pluck('quantity')
+            ->first();
+
+        $quantityNowCustom = DB::table('stocks')
+            ->where('qualitie_id', '=', $id)
+            ->where('height', '=', $customheight)
+            ->pluck('quantity')
+            ->first();
+
+        if($customheight != "0")
+        {
+            $exists = [];
+        }
+
+        if(count($exists) == 0 && count($existsCustom) == 0)
+        {
+            if($customheight == "0") {
                 DB::table('stocks')
                     ->where('id', '=', $id)
                     ->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $height));
             }
-            
+            else {
+                DB::table('stocks')
+                    ->where('id', '=', $id)
+                    ->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $customheight));
+            }
         }
-        
-        
-       /* \App\Stock::with('stok')
-            ->where('id', '=', $id)
-            ->andwhere('height', '!=', $height)
-            ->insert(array('qualitie_id' => $quality, 'quantity' => $quantity, 'height' => $height));
-        */
-        
-        
-        /*$userid = Auth::id();
-        DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => "", 'block' => $name , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'block', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
-        );*/
-        
-        //return to index
-        
-        $stock = \App\Stock::with('stok')
-                ->where('height', '4')
-                ->orwhere('height', '6')
-                ->orwhere('height', '8')
-                ->get();
-            $data['stock'] = $stock;
-        
-        $customstock = \App\Stock::with('stok')
-            ->where('height', '!=' ,'4')
-            ->where('height','!=' , '6')
-            ->where('height','!=' , '8')
-            ->get();
-        $data['customstock'] = $customstock;
+        else
+        {
+            if($customheight == "0") {
+                $quantityNow = $quantityNow + $quantity;
+                DB::table('stocks')
+                    ->where('height', '=', $height)
+                    ->where('qualitie_id', '=', $id)
+                    ->update(array('qualitie_id' => $id, 'quantity' => $quantityNow, 'height' => $height));
+            }
+            else {
+                $quantityNowCustom = $quantityNowCustom + $quantity;
+                DB::table('stocks')
+                    ->where('height', '=', $customheight)
+                    ->where('qualitie_id', '=', $id)
+                    ->update(array('qualitie_id' => $id, 'quantity' => $quantityNowCustom, 'height' => $customheight));
+            }
+        }
 
-        $qualityinhoud = \App\Qualitie::all();
-        $data['qualitys'] = $qualityinhoud;
-
-        $blockinhoud = \App\stock::all();
-        $data['allblocks'] = $blockinhoud;
-        
-        return view('block.index', $data);
+         return redirect('block');
     }
     
     public function addShow($id)
     {
-        //show quality
         $quality = \App\Qualitie::where('id', '=', $id)->get();
         $data['quality'] = $quality;
         return view('block.add', $data);
@@ -121,80 +112,32 @@ class BlockController extends Controller
         DB::table('stocks')
             ->where('id', '=', $id)
             ->update(array('quantity' => $quantity));
-        
-        //return to index
-        $stock = \App\Stock::with('stok')
-                ->where('height', '4')
-                ->orwhere('height', '6')
-                ->orwhere('height', '8')
-                ->get();
-            $data['stock'] = $stock;
-        
-        $customstock = \App\Stock::with('stok')
-            ->where('height', '!=' ,'4')
-            ->where('height','!=' , '6')
-            ->where('height','!=' , '8')
-            ->get();
-        $data['customstock'] = $customstock;
 
-        $qualityinhoud = \App\Qualitie::all();
-        $data['qualitys'] = $qualityinhoud;
-
-        $blockinhoud = \App\stock::all();
-        $data['allblocks'] = $blockinhoud;
-        
-        return view('block.index',$data);
+        return redirect('block');
     }
-    
+
     public function editShow($id)
     {
         //show block name and height
         $block = \App\Stock::where('id', '=', $id)->get();
         $data['block'] = $block;
-    
-        
+
         $quality =  DB::table('qualities')
             ->join('stocks', 'qualities.id', '=', 'stocks.qualitie_id')
             ->whereRaw('qualities.id = stocks.qualitie_id')
             ->where('stocks.id', '=', $id)
             ->get();
-        
+
         $data['quality'] = $quality;
-         
-        
-        
+
         return view('block.edit', $data);
     }
 
     public function remove($id)
     {   
         DB::table('stocks')->delete($id);
-        
-        //hier moet logging komen
-        
-        
-        //return to index
-        $stock = \App\Stock::with('stok')
-                ->where('height', '4')
-                ->orwhere('height', '6')
-                ->orwhere('height', '8')
-                ->get();
-            $data['stock'] = $stock;
-        
-        $customstock = \App\Stock::with('stok')
-            ->where('height', '!=' ,'4')
-            ->where('height','!=' , '6')
-            ->where('height','!=' , '8')
-            ->get();
-        $data['customstock'] = $customstock;
 
-        $qualityinhoud = \App\Qualitie::all();
-        $data['qualitys'] = $qualityinhoud;
-
-        $blockinhoud = \App\stock::all();
-        $data['allblocks'] = $blockinhoud;
-        
-        return view('block.index', $data);
+        return redirect('block');
     }
 }
 

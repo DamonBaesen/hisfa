@@ -57,11 +57,11 @@
                             <label for="deliverd">Delivered: {{$rawmaterials->deliverd}}</label><br>
                             @if($rawmaterials->using == 0)
                                <div class="form-group">
-                                <input type="checkbox" name="using" > Using
+                                <input type="checkbox" name="using" disabled > Using
                                 <div class="col-sm-10">
                             @else
                              <div class="form-group">
-                                <input type="checkbox" name="using" checked> Using
+                                <input type="checkbox" name="using" checked disabled> Using
                                 <div class="col-sm-10">
                             @endif
                                 
