@@ -216,6 +216,7 @@ background-color: #1b2e3c;
     text-align: center;
 }
 
+
 .totalBlock
 {
     padding-top: 5px;
@@ -231,7 +232,7 @@ background-color: #1b2e3c;
 {
     padding-bottom: 17px;
     background-color: #2a88bd;
-    margin-top: -15px;
+    margin-top: 20px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
 }
