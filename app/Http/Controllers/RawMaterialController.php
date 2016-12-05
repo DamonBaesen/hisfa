@@ -43,13 +43,12 @@ class RawMaterialController extends Controller
             ->update(array('using' => 0))
             ;
         
-       /* DB::table('rawmaterials')
+        DB::table('rawmaterials')
             ->join('primesilos', 'rawmaterials.id', '=', 'primesilos.rawmaterial_id')
-            ->whereRaw('rawmaterials.id !=  primesilos.rawmaterial_id')
-            ->update(array('using' => 0))
+            ->whereRaw('rawmaterials.id = primesilos.rawmaterial_id')
+            ->update(array('using' => 1))
             ;
         
-        */
         return view('rawmaterial.index', $data);
     }
 
