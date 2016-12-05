@@ -34,14 +34,14 @@
     </div>
 
 
-    <label>Foto gebruiker</label>
+    <label class="divider">Foto gebruiker</label>
     <form enctype="multipart/form-data" id="change_photo" action="/account/updatephoto" method="POST">
         <input type="file" name="avatar" id="photo_button" style="font-size: 0.6em; margin-top: 10px">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="submit" value="Foto uploaden" class="profile_button">
     </form>
             
-    <label>Gegevens gebruiker</label>
+    <label class="divider">Gegevens gebruiker</label>
     <form action="/account/changeuserinformation" method="post">
         <input name="_token" type="hidden" value="{!! csrf_token() !!}" />
         Naam: <input type="text" class="input" value="{{ Auth::user()->name }}" name="name">
@@ -72,7 +72,7 @@
         <input type="submit" value="Opslaan" class="profile_button">
     </form>
             
-    <label>Wachtwoord wijzigen</label>
+    <label class="divider">Wachtwoord wijzigen</label>
     <form action="/account/changepassword" method="post">
         <input name="_token" type="hidden" value="{!! csrf_token() !!}" />
         Nieuw wachtwoord: <input type="password" class="input" name="input_password1">

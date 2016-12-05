@@ -58,7 +58,7 @@ background-color: #1b2e3c;
 }
 
 
-#formEditBlock{
+#formEdit{
     background-color: #1b2e3c;
     border: none;
     padding-bottom: 50px;
@@ -76,17 +76,31 @@ background-color: #1b2e3c;
     width: 90%;
 }
 
-#editInBlock label{
+#custom{
     color: white;
+    font-weight: bold;
+}
 
-  
+#editInBlock label{
+    color: white; 
 }
 #editInBlock input{
     width: 70%;
-
+}
+#textHeight{
+    width: 70%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 3px;
+}
+#textHardness{
+    width: 70%;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    border-radius: 3px;   
 }
 
-#formEditBlock h1{
+#formEdit h1{
     font-size: 1.8em;
     margin-bottom: 15px;
     margin-top: 5px;
@@ -95,7 +109,7 @@ background-color: #1b2e3c;
     color: white;
 }
 
-#formEditBlock h3{
+#formEdit h3{
     color: white;
     background-color: #111c25;
     text-align: center;
@@ -211,4 +225,16 @@ background-color: #3b6482;
 #groupCustomHeight
 {
     display: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#buttonAddCustom{
+    color: red;
+}
+
+#addQuality{
+    color: white;
+    text-decoration: none;
 }

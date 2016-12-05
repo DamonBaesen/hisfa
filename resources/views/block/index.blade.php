@@ -3,7 +3,6 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
         <link rel="stylesheet" href="/css/block-style.css">
 
     </head>
