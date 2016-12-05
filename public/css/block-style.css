@@ -19,6 +19,34 @@ padding-top: 10px;
 background-color: #1b2e3c;
 }
 
+.silo-container #edit{
+    display: block;
+    text-align: center;
+    color: white;
+    background-color: olivedrab;
+}
+
+.silo-container #edit:hover{
+    background-color: #458b00;
+    text-decoration: none;
+}
+
+.silo-container #delete{
+    display: block;
+    text-align: center;
+    color: white;
+    background-color: #d9534f;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.silo-container #delete:hover{
+    text-decoration: none;
+    background-color: #cd2626;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 .silo-title
 {
     width: 90%;

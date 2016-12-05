@@ -27,9 +27,9 @@
                         $alltotaal += $result;?>
                     <p>{{$result}} m³</p>
                     
-                    <a href="/block/edit/{{$block->id}}">Change quantity</a>
+                    <a href="/block/edit/{{$block->id}}" id="edit">Edit</a>
                     
-                    <a href="/block/remove/{{$block->id}}">Delete block</a>
+                    <a href="/block/remove/{{$block->id}}" id="delete">Delete</a>
                     
                   </div>
             @endif
