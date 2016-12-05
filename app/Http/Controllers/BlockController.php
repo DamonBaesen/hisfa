@@ -26,7 +26,7 @@ class BlockController extends Controller
     {
         $qualityinhoud = \App\Qualitie::all();
         $data['qualitys'] = $qualityinhoud;
-        $blockinhoud = \App\Stock::orderBy('height', 'ASC')->orderBy('qualitie_id', 'ASC')->get();
+        $blockinhoud = \App\Stock::orderBy('height', 'ASC')->get();
         $data['allblocks'] = $blockinhoud;
         return view('block.index', $data);
     }
