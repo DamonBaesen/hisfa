@@ -37,26 +37,18 @@ class RawMaterialController extends Controller
         $rawmaterial = \App\Rawmaterial::all();
         $data['rawmaterial'] = $rawmaterial;
         
-        /*
         DB::table('rawmaterials')
             ->join('primesilos', 'rawmaterials.id', '=', 'primesilos.rawmaterial_id')
-            ->whereRaw('rawmaterials.id ==  primesilos.rawmaterial_id')
-            ->update(array('using' => 1))
+            ->where('rawmaterials.id', '!=', 'primesilos.rawmaterial_id')
+            ->update(array('using' => 0))
             ;
-        */
-        /*DB::table('rawmaterials')
-            ->join('primesilos', 'rawmaterials.id', '=', 'primesilos.rawmaterial_id')
-            ->whereRaw('rawmaterials.id ==  primesilos.rawmaterial_id')
-            ->update(array('using' => 1))
-            ;
-            */
         
-       /* $raw = DB::table('rawmaterials')->pluck('id');
-        $prime = DB::table('primesilos')->pluck('rawmaterial_id');
-        foreach(combine($raw, $prime) as $r => $p){
-            
-        }
-        */
+        DB::table('rawmaterials')
+            ->join('primesilos', 'rawmaterials.id', '=', 'primesilos.rawmaterial_id')
+            ->whereRaw('rawmaterials.id = primesilos.rawmaterial_id')
+            ->update(array('using' => 1))
+            ;
+        
         return view('rawmaterial.index', $data);
     }
 
