@@ -19,11 +19,14 @@
                 @foreach($block as $b)
                 {{$b->height}}m
                 </h3>
+                
             <div id=input-label>
                 <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
+                    
                     <div class="form-group" id="total">
-                        <label for="textQuantity" class="control-label col-sm-2">Quantity:</label>
+                        <label for="textQuantity" class="control-label col-sm-2">Quantity:
+                        </label>
                         <div>
                             <input type="number" step="0.1" min=0 class="form-control" id="textQuantity" name="textQuantity" required="" value="{{$b->quantity}}">
                         </div>
