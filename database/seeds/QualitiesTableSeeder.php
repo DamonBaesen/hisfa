@@ -14,52 +14,52 @@ class QualitiesTableSeeder extends Seeder
     {
         $qualities = new \App\Qualitie();
         $qualities->name = "P15";
-        $qualities->hardness = "";
+        $qualities->hardness = "Soft";
         $qualities->save();
 
         $qualities = new \App\Qualitie();
         $qualities->name = "P20";
-        $qualities->hardness = "";
+        $qualities->hardness = "Soft";
         $qualities->save();
 
         $qualities = new \App\Qualitie();
         $qualities->name = "P25";
-        $qualities->hardness = "";
+        $qualities->hardness = "Hard";
         $qualities->save();
 
         $qualities = new \App\Qualitie();
         $qualities->name = "P30";
-        $qualities->hardness = "";
+        $qualities->hardness = "Hard";
         $qualities->save();
 
         $qualities = new \App\Qualitie();
         $qualities->name = "P35";
-        $qualities->hardness = "";
+        $qualities->hardness = "Medium";
         $qualities->save();
 
         $qualities = new \App\Qualitie();
         $qualities->name = "60SE";
-        $qualities->hardness = "";
+        $qualities->hardness = "Medium";
         $qualities->save();
 
         $qualities = new \App\Qualitie();
         $qualities->name = "100SE";
-        $qualities->hardness = "";
+        $qualities->hardness = "Medium";
         $qualities->save();
 
         $qualities = new \App\Qualitie();
         $qualities->name = "150SE";
-        $qualities->hardness = "";
+        $qualities->hardness = "Hard";
         $qualities->save();
 
         $qualities = new \App\Qualitie();
         $qualities->name = "200SE";
-        $qualities->hardness = "";
+        $qualities->hardness = "Hard";
         $qualities->save();
 
         $qualities = new \App\Qualitie();
         $qualities->name = "250SE";
-        $qualities->hardness = "";
+        $qualities->hardness = "Soft";
         $qualities->save();
 
     }
