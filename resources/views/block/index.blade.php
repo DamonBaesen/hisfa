@@ -37,7 +37,7 @@
                    <a href="/block/add/{{$value->id}}" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                    
                     @if($totaal != 0)
-                        <p class="totalBlock">Total surface {{$value->name}}:
+                        <p class="totalBlock">Total  {{$value->name}}:
                         <br>
                         <?php echo $totaal ?> m3</p>
                     @endif
