@@ -61,14 +61,19 @@
 
     .navigation-bar {
         border-radius: 0;
-        background-color: darkred;
-        opacity: 0.7;
+        background-color:#354359;
+        padding-left: 5%;
+        padding-right: 5%;
+
+    }
+    .navigation-bar span{
+        font-size: 1.3em;
     }
     .navigation{
         height: 75px;
         padding: 25px 15px;
         line-height: 20px;
-        color: whitesmoke;
+        color: #DDC476;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -79,7 +84,7 @@
         padding-bottom: .25rem;
         margin-right: 1rem;
         font-size: 1.25rem;
-        color: whitesmoke;
+        color: #DDC476;
     }
     .navigation-title:hover{
         color: whitesmoke;
