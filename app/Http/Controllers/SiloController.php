@@ -31,6 +31,7 @@ class SiloController extends Controller
         $data['rawmaterial'] = $rawmaterial;
 
         return view('silo.index', $data);
+
     }
 
     public function add()

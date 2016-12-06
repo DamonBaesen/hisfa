@@ -71,6 +71,7 @@ class RawMaterialController extends Controller
             }
         }
 
+
         if($exist == false) {
             DB::table('rawmaterials')->insertGetId(
                 array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => 0)

@@ -45,6 +45,7 @@ class RecycleSiloController extends Controller
             }
         }
 
+
         if($exist == false) {
             DB::table('recyclesilos')->insert(
                 array('quantity' => '0', 'id' => $id, 'type' => $hardness)
