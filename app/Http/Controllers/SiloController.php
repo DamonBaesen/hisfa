@@ -35,18 +35,33 @@ class SiloController extends Controller
 
     public function add()
     {
+        $exist = false;
+        $primesiloinhoud = \App\Primesilo::all();
+
         $id = Input::get('textName');
 
-        DB::table('primesilos')->insert(
-            array('quantity' => '0', 'id' => $id, 'rawmaterial_id' => 999)
-        );
-        
-        $userid = Auth::id();
-        DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
-        );
+        foreach($primesiloinhoud as $silo)
+        {
+            if($silo->id = $id)
+            {
+                $exist = true;
+            }
+        }
 
-        return redirect('silo');
+        if($exist == false)
+        {
+            DB::table('primesilos')->insert(
+                array('quantity' => '0', 'id' => $id, 'rawmaterial_id' => 999)
+            );
+
+            $userid = Auth::id();
+            DB::table('histories')->insert(
+                array('action' => 'add', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'silo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
+            );
+
+        }
+            return redirect('silo');
+
     }
 
     public function addShow()
