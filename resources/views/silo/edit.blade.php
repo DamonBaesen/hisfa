@@ -6,14 +6,15 @@
         <title>Edit primesilo</title>
         <link rel="stylesheet" href="/css/formAdd-style.css">
     </head>
+    <div class="container">
         <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
-                <h3>Edit primesilo</h3>
-                <form class="form-horizontal" role="form" method="POST" action="">
+            <div class="panel panel-default" id="formEdit" >
+                <h1>Primesilo</h1>
+                <h3>Edit</h3>
+                <form class="form-horizontal" role="form"  id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
 
-                    @foreach ($primesilo as $silos) 
+                    @foreach ($primesilo as $silos)
                     <div class="form-group">
                         <label for="txtGrondstof" class="control-label col-sm-2">Rawmaterial:</label>
                         <div class="col-sm-10">
@@ -61,6 +62,7 @@
                 </form>
             </div>
         </div>
+    </div>
 @endsection
 <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
 <script>
