@@ -7,10 +7,10 @@
         <link rel="stylesheet" href="/css/formAdd-style.css">
     </head>
         <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
-                <h3>Edit recyclesilo</h3>
-                <form class="form-horizontal" role="form" method="POST" action="">
+            <div class="panel panel-default" id="formEdit">
+                <h1>Recyclesilo</h1>
+                <h3>Edit</h3>
+                <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
 
                     @foreach ($recyclesilo as $silos) 
