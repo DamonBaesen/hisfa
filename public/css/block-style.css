@@ -121,8 +121,6 @@ body{
 }
 
 /* EDIT */
-
-
 #formEdit{
     background-color: #1b2e3c;
     border: none;
@@ -135,6 +133,7 @@ body{
     color: white;
     text-align: right;
     width: 100px;
+    font-weight: 400;
 }
 
 #textQuantity{
@@ -161,6 +160,13 @@ body{
     margin-left: auto;
     margin-right: auto;
     outline: none;
+    text-transform: uppercase;
+}
+
+#CreateQuantitybutton:hover
+{
+    background-color: #458b00;
+    text-decoration: none;
 }
 
 
@@ -348,4 +354,10 @@ body{
     #addTotal{
         margin-bottom: 10px;
     }
+    #total{
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 }

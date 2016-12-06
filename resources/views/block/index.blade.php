@@ -8,7 +8,7 @@
     </head>
     <div class="silo-container">
         <div class="silo-title">
-        <h1>Stock blocks</h1>
+        <h1>Blocks stock</h1>
              </div>
         <?php $alltotaal=0; ?>
         @foreach($qualitys as $key => $value)
@@ -20,7 +20,7 @@
                 @if($block->stok->id == $value->id)
                   <div class="block-group">
                    <h3> {{$block->height}} m</h3>
-                   <p> {{$block->quantity}} stk.</p>
+                   <p> {{$block->quantity}} oct.</p>
                     <?php $result= round($block->height * $block->quantity * 1.03 *1.29, 2);
                     $totaal += $result;
                         $alltotaal += $result;?>
