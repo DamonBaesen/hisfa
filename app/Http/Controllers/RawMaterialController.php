@@ -65,7 +65,7 @@ class RawMaterialController extends Controller
 
         foreach($rawmaterial as $raw)
         {
-            if($raw->type = $type)
+            if($raw->type == $type)
             {
                 $exist = true;
             }
