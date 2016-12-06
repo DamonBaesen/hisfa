@@ -7,15 +7,15 @@
         <link rel="stylesheet" href="/css/formAdd-style.css">
     </head>
         <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
-                <h3>Add new recyclesilo</h3>
-                <form class="form-horizontal" role="form" method="POST" action="">
+            <div class="panel panel-default" id="formEdit">
+                <h1>Recyclesilo</h1>
+                <h3>Add new</h3>
+                <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="textName" class="control-label col-sm-2">Silonr°:</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="textName" name="textName" placeholder="1" required="">
+                            <input type="number" min=1 class="form-control" id="textName" name="textName" placeholder="1" required="">
                         </div>
                     </div>
 

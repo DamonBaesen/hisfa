@@ -3,7 +3,6 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
         <link rel="stylesheet" href="/css/block-style.css">
 
     </head>
@@ -20,19 +19,30 @@
             @foreach($allblocks as $block)
                 @if($block->stok->id == $value->id)
                   <div class="block-group">
-                   <h3> {{$block->height}}m</h3>
+                   <h3> {{$block->height}} m</h3>
                    <p> {{$block->quantity}} stk.</p>
                     <?php $result= round($block->height * $block->quantity * 1.03 *1.29, 2);
                     $totaal += $result;
                         $alltotaal += $result;?>
                     <p>{{$result}} m³</p>
+                    
+                    <a href="/block/edit/{{$block->id}}" id="edit">Edit</a>
+                    
+                    <a href="/block/remove/{{$block->id}}" id="delete">Delete</a>
+                    
                   </div>
             @endif
             @endforeach
-                @if($totaal != 0)
-            <p class="totalBlock">Totale inhoud: <?php echo $totaal ?> m3</p>
-            @endif
-                <a href="/recyclesilo/add" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                <div id=addTotal>
+                   <a href="/block/add/{{$value->id}}" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                   
+                    @if($totaal != 0)
+                        <p class="totalBlock">Total  {{$value->name}}:
+                        <br>
+                        <?php echo $totaal ?> m3</p>
+                    @endif
+                </div>
+                
             </div>
                 </div>
             @endforeach

@@ -32,16 +32,14 @@ class AccountController extends Controller
     
     
      protected function add(Request $request)
-    {            
-                $name = Input::get('textName');
-                $email= Input::get('textEmail');
-                $password = Hash::make(Input::get('textQuantity'));
-             
-                $id = DB::table('users')->insertGetId(
-                    array('name' => $name, 'email' => $email, 'password' => $password)
-                );
-                
-                return view('account.add');
+    {
+                $user = new \App\User();
+                $user->name = Input::get('textName');
+                $user->email = Input::get('textEmail');
+                $user->password = Hash::make(Input::get('textWachtwoord'));
+                $user->save();
+                $user->givePermissionTo('viewdashboard');
+                return view('account');
      }
          
          
@@ -68,17 +66,13 @@ class AccountController extends Controller
     }
 
     public function changeUserInformation(){
-        // to do -> id vervangen door huidige session id
-        $checkboxval = 0;
-        if(isset($_POST['checkbox_mail'])){
-            $checkboxval = 1;
-        }
-
-
+        $id = Auth::user('id');
+        $checkboxoval = Input::get('checkboxMail');
+    
         $user = Auth::user();
         $user->name = trim($_POST['name']);
         $user->email= trim($_POST['email']);
-        $user->mail= $checkboxval;
+        $user->mail= $checkboxoval;
         $user->save();
         return redirect('account')->with('message', 'Gegevens succesvol aangepast.');
     }

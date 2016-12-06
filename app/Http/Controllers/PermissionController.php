@@ -120,13 +120,6 @@ class PermissionController extends Controller
         }
         return redirect('permissions');
 
-
-
-
-
-
-
-
     }
 
     public function editShow($id)

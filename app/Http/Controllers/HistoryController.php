@@ -20,7 +20,7 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        $eventlog = \App\History::all();
+        $eventlog = \App\History::orderBy('id', 'DESC')->get();
         $data['eventlog'] = $eventlog;
 
         return view('history', $data);
