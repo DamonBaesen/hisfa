@@ -42,12 +42,17 @@
             <div class="silo-group">  @if(count($primesilo) > 0)  @foreach($primesilo as $silos)
                     <div class="silo-container" onclick="window.location.href='/silo'">
                         <h3>{{ $silos->id }}</h3>
-                        <div class="silo-graph">  @if( $silos->quantity
-                        < 50)  <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #5FB760;">
-                            </div>  @elseif($silos->quantity
-                    < 90)  <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #EEAC57;">
-                            </div>  @else
-                                <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #D75452;"> </div>  @endif  </div>
+                        <div class="silo-graph"> 
+                            @if( $silos->quantity < 50) 
+                            <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #5FB760;">
+                            </div> 
+                            @elseif($silos->quantity < 90) 
+                            <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #EEAC57;">
+                            </div> 
+                            @else
+                                <div class="silo-graph-value" style="height:{{ $silos->quantity * 1.2 }}px; background-color: #D75452;">
+                                </div> 
+                            @endif  </div>
                         <div class="silo-info">
                             <h3>{{$silos->grondstof->type}}</h3>
                             <h4>{{ $silos->quantity }}%</h4>  </div>  </div>  @endforeach  @else

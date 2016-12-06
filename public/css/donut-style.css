@@ -19,6 +19,7 @@
 .pieID {
   display: inline-block;
   vertical-align: top;
+  z-index: 0;
 }
 .pie {
   height: 150px;
