@@ -16,9 +16,9 @@
             <?php $totaal=0; ?>
             <h1>{{$value->name}}</h1>
                 <div class="block-container">
-            @foreach($allblocks as $block)
-                @if($block->stok->id == $value->id)
-                  <div class="block-group">
+                    @foreach($allblocks as $block)
+                        @if($block->stok->id == $value->id)
+                        <div class="block-group">
                    <h3> {{$block->height}} m</h3>
                    <p> {{$block->quantity}} oct.</p>
                     <?php $result= round($block->height * $block->quantity * 1.03 *1.29, 2);
