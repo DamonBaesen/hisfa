@@ -32,16 +32,30 @@ class RecycleSiloController extends Controller
 
     public function add()
     {
+        $exist = false;
+        $recyclesiloinhoud = \App\Recyclesilo::all();
         $id = Input::get('textName');
         $hardness = Input::get('txtHardheid');
-        DB::table('recyclesilos')->insert(
-            array('quantity' => '0', 'id' => $id, 'type' => $hardness)
-        );
 
-        $userid = Auth::id();
-        DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => $id, 'block' => "" , 'quality' => "", 'rawmaterial' => "" , 'sector' => 'recyclesilo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
-        );
+        foreach($recyclesiloinhoud as $silo)
+        {
+            if($silo->id = $id)
+            {
+                $exist = true;
+            }
+        }
+
+
+        if($exist == false) {
+            DB::table('recyclesilos')->insert(
+                array('quantity' => '0', 'id' => $id, 'type' => $hardness)
+            );
+
+            $userid = Auth::id();
+            DB::table('histories')->insert(
+                array('action' => 'add', 'silonr' => $id, 'block' => "", 'quality' => "", 'rawmaterial' => "", 'sector' => 'recyclesilo', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
+            );
+        }
 
         return redirect('recyclesilo');
     }
