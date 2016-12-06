@@ -43,7 +43,7 @@ class SiloController extends Controller
 
         foreach($primesiloinhoud as $silo)
         {
-            if($silo->id = $id)
+            if($silo->id == $id)
             {
                 $exist = true;
             }

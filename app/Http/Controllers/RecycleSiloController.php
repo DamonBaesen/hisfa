@@ -39,7 +39,7 @@ class RecycleSiloController extends Controller
 
         foreach($recyclesiloinhoud as $silo)
         {
-            if($silo->id = $id)
+            if($silo->id == $id)
             {
                 $exist = true;
             }
