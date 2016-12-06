@@ -37,6 +37,7 @@
                                 <p class="historyOnEven">{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</>
                             @endif
                             @endif
+
                     @endforeach
                 </div>
             </div>
