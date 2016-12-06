@@ -84,7 +84,6 @@
 
     .navigation-bar {
         border-radius: 0;
-<<<<<<< HEAD
         background-color:#354359;
         padding-left: 5%;
         padding-right: 5%;
@@ -92,10 +91,6 @@
     }
     .navigation-bar span{
         font-size: 1.3em;
-=======
-        background-color: black;
-        opacity: 0.8;
->>>>>>> origin/master
     }
     .navigation{
         height: 75px;
