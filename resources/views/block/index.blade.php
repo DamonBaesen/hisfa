@@ -33,15 +33,15 @@
                   </div>
             @endif
             @endforeach
-                  <div id=addTotal>
+                <div id=addTotal>
                    <a href="/block/add/{{$value->id}}" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                    
-                @if($totaal != 0)
-            <p class="totalBlock">Total surface: 
-            <br> {{$value->name}}:
-            <?php echo $totaal ?> m3</p>
-            @endif
-                    </div>
+                    @if($totaal != 0)
+                        <p class="totalBlock">Total  {{$value->name}}:
+                        <br>
+                        <?php echo $totaal ?> m3</p>
+                    @endif
+                </div>
                 
             </div>
                 </div>
