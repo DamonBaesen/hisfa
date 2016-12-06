@@ -31,7 +31,7 @@
 
                     <div class="cgg">
                         <div class="char">
-                            <div class="pieID pie"> </div>
+                            <div class="pieID pie" id="pieRound"> </div>
                         </div>
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                             {{ Session::get('message', '') }}
                             </div>
                             @endif
-            <ul class="pieID legend">
+            <ul class="pieID legend" id="pieRound">
                 @foreach ($rawmaterial as $rawmaterials)
                     @if($rawmaterials->stock != 0)
                        
