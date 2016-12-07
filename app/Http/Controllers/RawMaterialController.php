@@ -54,19 +54,34 @@ class RawMaterialController extends Controller
 
     public function add()
     {
+        $exist = false;
         $type = Input::get('textType');
         $stock = Input::get('textStock');
         $orderd = Input::get('textOrderd');
         $deliverd = Input::get('textDeliverd');
 
-        DB::table('rawmaterials')->insertGetId(
-            array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => 0)
-        );
 
-        $userid = Auth::id();
-        DB::table('histories')->insert(
-            array('action' => 'add', 'silonr' => "", 'block' => "" , 'quality' => "", 'rawmaterial' => $type , 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
-        );
+        $rawmaterial = \App\Rawmaterial::all();
+
+        foreach($rawmaterial as $raw)
+        {
+            if($raw->type == $type)
+            {
+                $exist = true;
+            }
+        }
+
+
+        if($exist == false) {
+            DB::table('rawmaterials')->insertGetId(
+                array('type' => $type, 'stock' => $stock, 'orderd' => $orderd, 'deliverd' => $deliverd, 'using' => 0)
+            );
+
+            $userid = Auth::id();
+            DB::table('histories')->insert(
+                array('action' => 'add', 'silonr' => "", 'block' => "", 'quality' => "", 'rawmaterial' => $type, 'sector' => 'rawmaterial', 'user_id' => $userid, 'updated_at' => date("Y-m-d H:i:s"))
+            );
+        }
         return redirect('rawmaterial');
     }
     

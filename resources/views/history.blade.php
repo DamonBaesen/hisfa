@@ -16,15 +16,28 @@
             <h5>Events logs</h5>
                 <div class="log-console">
                     @foreach($eventlog as $eventlogs)
+                        @if(($eventlogs->id % 2) == 0)
                         @if (!empty($eventlogs->silonr))
-                            <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
+                            <p class="historyEven">{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
                         @elseif(!empty($eventlogs->block))
-                            <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
+                            <p class="historyEven">{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
                         @elseif(!empty($eventlogs->quality))
-                            <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>
+                            <p class="historyEven">{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>
                         @elseif(!empty($eventlogs->rawmaterial))
-                            <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>
+                            <p class="historyEven">{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>
                         @endif
+                        @else
+                            @if (!empty($eventlogs->silonr))
+                                <p class="historyOnEven">{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->silonr}}</p>
+                            @elseif(!empty($eventlogs->block))
+                                <p class="historyOnEven">{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>
+                            @elseif(!empty($eventlogs->quality))
+                                <p class="historyOnEven">{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</>
+                            @elseif(!empty($eventlogs->rawmaterial))
+                                <p class="historyOnEven">{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</>
+                            @endif
+                            @endif
+
                     @endforeach
                 </div>
             </div>

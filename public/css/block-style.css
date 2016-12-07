@@ -1,10 +1,33 @@
 body{
-    background: url("../background2.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+    background-color: #202935;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     min-height: 100vh;
+}
+
+.qualityList
+{
+    list-style: none;
+}
+
+#qualityContainer > ul
+{
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: auto;
+    margin-right:auto;
+}
+
+#qualityContainer > ul > li
+{
+    width: 90%;
+    justify-content: center;
+}
+
+.qualityHeader
+{
+    text-align: center;
+    font-size: 1.3em;
 }
 
 /* index pagina */
@@ -17,7 +40,7 @@ body{
     color: white;
     margin-top: 10px;
     padding-top: 10px;
-    background-color: #1b2e3c;
+    background-color: #2B3846;
 }
 
 .silo-container #edit
@@ -45,16 +68,13 @@ body{
     background-color: #d9534f;
     padding-top: 4px;
     padding-bottom: 5px;
+    border: none;
     border-top: solid 1.5px white;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 
 .silo-container #delete:hover{
     text-decoration: none;
     background-color: #cd2626;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
 }
 
 .silo-title
@@ -418,4 +438,17 @@ body{
     margin-left: auto;
     margin-right: auto;
 }
+}
+
+@media (min-width: 780px) {
+    #qualityContainer > ul
+    {
+        width: 90%;
+        justify-content: center;
+    }
+
+    #qualityContainer > ul > li
+    {
+        width: 40%;
+    }
 }
