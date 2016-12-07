@@ -3,10 +3,8 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <title>Recyclesilo | HISFA</title>
     </head>
-
-
 
     <link rel="stylesheet" href="/css/master-style.css">
     <link rel="stylesheet" href="/css/silo-style.css">

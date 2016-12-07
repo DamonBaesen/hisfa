@@ -3,7 +3,7 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <title>Primesilo | HISFA</title>
     </head>
 
 

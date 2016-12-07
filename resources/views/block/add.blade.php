@@ -4,11 +4,12 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/css/block-style.css">
+        <title>Add block | HISFA</title>
     </head>
     <div class="container">
         <div class="row">
             <div class="panel panel-default"  id="formEdit">
-                <h1>Add block</h1>
+                <h1>Add new block</h1>
                 @foreach($quality as $q)
                 <h3>{{$q->name}}</h3>
                 <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">

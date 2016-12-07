@@ -3,7 +3,7 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <title>Permissions | HISFA</title>
         <link rel="stylesheet" href="/css/permissions-style.css">
         <link rel="stylesheet" href="/css/account-style.css">
     </head>
@@ -31,7 +31,7 @@
     </style>
     <div id="profile_page">
         <div class="profile">
-            <h3>Aanpassen permissie gebruikers</h3>
+            <h3>Change permissions user</h3>
                 @foreach ($userList as $user)
                     <li onclick="window.location.href='/permissions/edit/{{$user->id}}'">
                         <img src="uploads/avatars/{{$user->foto}}" alt="User photo">

@@ -7,7 +7,7 @@
 @endif
 <head>
     <meta charset="UTF-8">
-    <title>Add rawmaterial</title>
+    <title>Add rawmaterial | HISFA</title>
     <link rel="stylesheet" href="/css/formAdd-style.css">
 </head>
     <div class="row">

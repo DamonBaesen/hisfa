@@ -3,7 +3,7 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <title>Edit Permissions | HISFA</title>
         <link rel="stylesheet" href="/css/account-style.css">
         <link rel="stylesheet" href="/css/permissions-style.css">
     </head>

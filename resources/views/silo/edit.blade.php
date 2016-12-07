@@ -3,7 +3,7 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Edit primesilo</title>
+        <title>Edit primesilo | HISFA</title>
         <link rel="stylesheet" href="/css/formAdd-style.css">
     </head>
     <div class="container">

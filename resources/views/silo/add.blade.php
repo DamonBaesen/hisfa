@@ -3,7 +3,7 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Add primesilo</title>
+        <title>Add primesilo | HISFA</title>
         <link rel="stylesheet" href="/css/formAdd-style.css">
     </head>
 
@@ -21,7 +21,7 @@
                     </div>
 
                     <div class="form-group">
-                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Add silo</button>
+                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Add new silo</button>
                     </div>
                 </form>
             </div>

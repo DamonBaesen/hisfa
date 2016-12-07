@@ -4,12 +4,12 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/css/block-style.css">
+        <title>Edit quality | HISFA</title>
     </head>
     <div class="container">
         <div class="row">
             <div class="panel panel-default"  id="formEdit">
-                <h1>Quality</h1>
-                <h3>Edit</h3>
+                <h1>Edit quality</h1>
                 <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
                     <fieldset>
