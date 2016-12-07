@@ -1,8 +1,5 @@
 body{
-    background: url("../background2.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
+   background-color: #202935;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     min-height: 100vh;
 }
@@ -18,7 +15,7 @@ body{
     color: white;
     margin-top: 20px;
     padding-top: 10px;
-    background-color: #1b2e3c;
+    background-color: #2B3846;
     border-radius: 5px;
     display: flex;
     flex-wrap: wrap;
