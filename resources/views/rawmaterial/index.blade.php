@@ -47,18 +47,14 @@
                          @endif
                            
                            @endforeach 
-                            <div class="addTotal">
-                              <a href="/rawmaterial/add"> +</a>
-                          </div> 
+                            
                          </div>
                          </li>
                     
-                          
-                      
-                       
-                   
-
                      </div>
+                     <div class="addTotal">
+                              <a href="/rawmaterial/add"> +</a>
+                          </div> 
                      
             </div>
              

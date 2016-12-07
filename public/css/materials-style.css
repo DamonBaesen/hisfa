@@ -110,10 +110,9 @@ h1
 }
 .checkbox {
     
-    height: 50px;
+    height: 25px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 60px;
 }
 
 .checkbox input{
@@ -168,16 +167,25 @@ h1
 }
 
 .addTotal{
+    width: 700px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-    margin-top: -15px;
-}
-
-.addTotal a{
+    margin-top: -90px;
+    }    
+    .addTotal a{
     text-decoration: none;
     color: white;
-    font-size: 5rem;
+    font-size: 6rem;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 500;
+    }
+
+
+
+@media (max-width: 768px) {
+    
     
 }
 
