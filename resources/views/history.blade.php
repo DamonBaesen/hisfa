@@ -3,7 +3,7 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Account</title>
+        <title>History | HISFA</title>
     </head>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">

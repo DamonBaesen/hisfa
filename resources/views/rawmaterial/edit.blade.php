@@ -3,7 +3,7 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Edit rawmaterial</title>
+        <title>Edit rawmaterial | HISFA</title>
         <link rel="stylesheet" href="/css/formAdd-style.css">
 
     </head>

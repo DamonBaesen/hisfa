@@ -8,7 +8,7 @@
     </head>
     <div class="silo-container">
         <div class="silo-title">
-        <h1>Blocks stock</h1>
+        <h1>Stock blocks | HISFA</h1>
              </div>
         <?php $alltotaal=0; ?>
         @foreach($qualitys as $key => $value)

@@ -3,13 +3,12 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <title>Edit recyclesilo</title>
+        <title>Edit recyclesilo | HISFA</title>
         <link rel="stylesheet" href="/css/formAdd-style.css">
     </head>
         <div class="row">
             <div class="panel panel-default" id="formEdit">
-                <h1>Recyclesilo</h1>
-                <h3>Edit</h3>
+                <h1>Edit recyclesilo</h1>
                 <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
 

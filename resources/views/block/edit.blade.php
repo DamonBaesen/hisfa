@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/css/block-style.css">
+        <title>Edit block | HISFA</title>
     </head>
     <div class="container">
         <div class="row">
@@ -36,7 +37,7 @@
                     <div class="form-group" id="btnQuantity">
                         <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
                         <div>
-                            <button type="submit" id="CreateQuantitybutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">save</button>
+                            <button type="submit" id="CreateQuantitybutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Save</button>
                         </div>
                     </div>
                 </form>

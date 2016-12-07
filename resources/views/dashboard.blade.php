@@ -4,7 +4,7 @@
 
     <head>
         <meta charset="UTF-8">
-        <title>HISFA -- Dashboard</title>
+        <title>Dashboard | HISFA</title>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/reset.css">
@@ -19,7 +19,7 @@
                 <h2 class="contentContainerh2">Blocks in storage</h2> </div>
             <label for="dropdownBlock"></label>
             <select class="dropdownBlock" id="dropdownblock"> 
-                <option value="" disabled selected>--Kies een type block--</option>
+                <option value="" disabled selected>--choose blocktype--</option>
                 @foreach ($qualities as $qualitylist)
                     <option value="{{ $qualitylist->id }}">{{ $qualitylist->name }}</option>  @endforeach  </select>
             <div id="stock-wrapper" class="stock-group" onclick="window.location.href='/block'">  @foreach($selectQuality as $selectQualities)
@@ -35,7 +35,7 @@
                     <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->block}}</p>  @elseif(!empty($eventlogs->quality))
                     <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->quality}}</p>  @elseif(!empty($eventlogs->rawmaterial))
                     <p>{{$eventlogs->updated_at}}: {{$eventlogs->gebruiker->name}} {{ $eventlogs->action }} {{$eventlogs->sector}} {{$eventlogs->rawmaterial}}</p>  @endif  @endforeach  </div> 
-            <a href="/history" class="linkHistoriek">Bekijk de volledige geschiedenis</a>        </div>
+            <a href="/history" class="linkHistoriek">Go to full history</a>        </div>
         <div class="dashboardPanels">
             <div class="frame-title">
                 <h2 class="contentContainerh2">Prime silo</h2> </div>

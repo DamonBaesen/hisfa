@@ -4,12 +4,12 @@
     <head>
         <meta charset="UTF-8">
         <link rel="stylesheet" href="/css/block-style.css">
+        <title>Add quality | HISFA</title>
     </head>
     <div class="container">
         <div class="row">
             <div class="panel panel-default" id="formEdit">
-                <h1>Quality</h1>
-                <h3>Add new</h3>
+                <h1>Add new quality</h1>
                 <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
                     <fieldset>
@@ -37,7 +37,7 @@
                     <div class="form-group">
                         <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
                         <div class="text-left col-sm-10">
-                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Add quality</button>
+                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Add new quality</button>
                         </div>
                     </div>
                     </fieldset>
