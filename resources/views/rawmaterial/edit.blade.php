@@ -8,19 +8,31 @@
 
     </head>
         <div class="row">
-            <div class="panel panel-default" id="form">
-                <h1>HISFA</h1>
-                <h3>Add icon to rawmaterial</h3>
-                    @foreach ($rawmaterials as $rawmaterial)
-                        <form enctype="multipart/form-data" action="/rawmaterial/updatephoto/{{$rawmaterial->id}}" method="POST">
-                            <input type="file" name="icon">
-                            <input type="hidden" id="iconInput" name="_token" value="{{ csrf_token() }}">
-                            <input type="submit" class="pull-right btn btn-sm btn-primary">
-                        </form>
+            <div class="panel panel-default" id="formEdit">
+                @foreach ($rawmaterials as $rawmaterial)
+                    <h1>Add icon to rawmaterial</h1>
+                    <form enctype="multipart/form-data" id="editInBlock" action="/rawmaterial/updatephoto/{{$rawmaterial->id}}" method="POST">
 
-                    @endforeach
-                <h3>Edit rawmaterial</h3>
-                <form class="form-horizontal" role="form" method="POST" action="">
+                        <div class="form-group">
+                            <div class="text-left col-sm-10">
+                                <input type="file" name="icon">
+                            </div>
+
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
+                            <div class="text-left col-sm-10">
+                                <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Change picture</button>
+                            </div>
+                        </div>
+                    </form>
+
+                @endforeach
+                </div>
+
+            <div class="panel panel-default" id="formEdit">
+                <form class="form-horizontal" id="editInBlock" role="form" method="POST" action="">
+                    <h1>Edit rawmaterial</h1>
                     @foreach ($rawmaterials as $rawmaterial)
                     {{ csrf_field() }}
                     <fieldset>
@@ -54,7 +66,7 @@
                     </div>
 
 
-                            <div class="form-group">
+                            <div class="form-group" style="width: 250px; margin-left: auto; margin-right: auto; text-align: center">
                                 @if($rawmaterial->using == 0)
                                     <label for="textUsing" class="control-label col-sm-2"></label>
                                     <div class="col-sm-10">
@@ -62,7 +74,7 @@
                                </div>
                                     @else
                                     <label for="textUsing" class="control-label col-sm-2"></label>
-                                        <div class="col-sm-10">
+                                        <div class="col-sm-10" >
                                             <input type="checkbox" id="textUsing" value={{$rawmaterial->using}} name="textUsing" checked="checked"> Using
                                            </div>
                                                 @endif
