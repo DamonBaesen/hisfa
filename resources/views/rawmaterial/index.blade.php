@@ -16,6 +16,7 @@
             <div class="raw-overview">
                    @foreach ($rawmaterial as $rawmaterials)
                     @if($rawmaterials->stock != 0)
+                      <li>
                        <div class="raw-group">
                            <h3>{{ $rawmaterials->type }}</h3>
                            
@@ -44,17 +45,21 @@
                             
                             <a href="/rawmaterial/remove/{{$rawmaterials->id}}" id="deleteRawmaterial">Delete</a>
                          @endif
-                         
-                         </div>
-                    @endforeach 
-                          <div class="addTotal">
+                           
+                           @endforeach 
+                            <div class="addTotal">
                               <a href="/rawmaterial/add"> +</a>
-                          </div>
+                          </div> 
+                         </div>
+                         </li>
+                    
+                          
                       
                        
                    
 
                      </div>
+                     
             </div>
              
     </body>
