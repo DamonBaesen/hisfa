@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
- use App\Http\Requests;
- use DB;
- use App\Quotation;
+use App\Http\Requests;
+use DB;
+use App\Quotation;
 use Illuminate\Support\Facades\Input;
 
 class BlockController extends Controller
@@ -37,7 +37,7 @@ class BlockController extends Controller
         $quantity = Input::get('textQuantity');
         $height = Input::get('textHeight');
         $customheight = Input::get('textCustomHeight');
-        
+
         $exists = DB::table('stocks')
             ->where('qualitie_id', '=', $id)
             ->where('height', '=', $height)
@@ -96,9 +96,9 @@ class BlockController extends Controller
             }
         }
 
-         return redirect('block');
+        return redirect('block');
     }
-    
+
     public function addShow($id)
     {
         $quality = \App\Qualitie::where('id', '=', $id)->get();
@@ -108,10 +108,27 @@ class BlockController extends Controller
 
     public function edit($id)
     {
+        $quality = \App\Stock::where('id', '=', $id)->pluck('quantity');
         $quantity = Input::get('textQuantity');
+        $function = Input::get('textChoise');
+
+
+        if($function == "Add")
+        {
+            $newQuanity = $quality[0] + $quantity;
+        }
+        else
+        {
+            $newQuanity = $quality[0] - $quantity;
+            if($newQuanity <= 0)
+            {
+                $newQuanity = 0;
+            }
+        }
+
         DB::table('stocks')
             ->where('id', '=', $id)
-            ->update(array('quantity' => $quantity));
+            ->update(array('quantity' => $newQuanity));
 
         return redirect('block');
     }
@@ -134,7 +151,7 @@ class BlockController extends Controller
     }
 
     public function remove($id)
-    {   
+    {
         DB::table('stocks')->delete($id);
 
         return redirect('block');
