@@ -181,7 +181,7 @@ body{
     font-weight: 400;
 }
 
-#textQuantity{
+#textQuantity, #textCustomHeight{
     display: block;
     width: 200px;
     outline: none;
@@ -220,7 +220,7 @@ body{
 #editInBlock{
     margin-top: -10px;
     padding-top: 20px;
-    background-color: #3b6482;
+    background-color: #313945;
     margin-right: auto;
     margin-left: auto;
     border-bottom-left-radius: 5px;
@@ -240,14 +240,14 @@ body{
     
 } 
 
-#textQuantity
+#textQuantity, #textCustomHeight
 {
     display: block;
     width: 200px;
     outline: none;
 }
 
-#textHeight{
+#textHeight, #textChoise{
     display: block;
     width: 200px;
     height: 35px;
@@ -258,12 +258,6 @@ body{
     display: block;
     height: 40px;
     width: 40px;
-}
-
-#textCustomHeight{
-    display: block;
-    width: 200px;
-    outline: none;
 }
 
 .checkbox {
@@ -340,6 +334,16 @@ body{
     margin-top: 20px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+#currentQuantity
+{
+    color: white;
+    font-size: 1.2em;
+    width: 80%;
+    margin-left:auto;
+    margin-right:auto;
+    text-align: center;
 }
 
 .totalAll2

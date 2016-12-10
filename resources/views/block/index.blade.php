@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/block-style.css">
 
     </head>
-    <div class="silo-container">
+    <div class="silo-container" style="margin-top: 30px">
         <div class="silo-title">
         <h1>Stock blocks | HISFA</h1>
              </div>

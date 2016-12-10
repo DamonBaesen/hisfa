@@ -32,6 +32,7 @@
     text-decoration: none;
     font-size: 36px;
     color: #818181;
+    text-align: center;
     margin-left:auto;
     margin-right:auto;
     display: block; /* Display block instead of inline */
@@ -172,6 +173,7 @@
     .navigation-buttons a{
         width:25%;
         margin-bottom: 30px;
+        text-align: center;
     }
 
     .closebtn

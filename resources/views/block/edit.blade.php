@@ -27,25 +27,36 @@
 
                     <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                         {{ csrf_field() }}
-                        <h4>Quantity now:
-                            @foreach($block as $b)
-                                {{$b->quantity}}
-                            @endforeach
-                        </h4>
-                        <div class="form-group" id="total">
-                            <label for="textChoise" class="control-label col-sm-2">Quantity:
+
+
+                        <div class="form-group">
+                            <div class="totalAddBlock">
+                                <h4 id="currentQuantity">Quantity now:
+                                    @foreach($block as $b)
+                                        {{$b->quantity}}
+                                    @endforeach
+                                </h4>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group" id="groupHeight">
+                        <div class="totalAddBlock">
+                            <label for="textChoise" class="control-label col-sm-2">Operation:
                             </label>
                             <div>
                                 <select name="textChoise" id="textChoise">
-                                    <option selected value="Add">Add</option>
-                                    <option value="Delete">Delete</option>
+                                    <option id="textChoise" selected value="Add">Add</option>
+                                    <option id="textChoise" value="Delete">Delete</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group" id="btnQuantity">
+                        </div>
+                        <div class="form-group">
+                            <div class="totalAddBlock">
                             <label class="control-label col-sm-2" for="textQuantity">Quantity</label>
-
                             <input type="number" min=0 class="form-control" id="textQuantity" name="textQuantity" required="" value="">
+                            </div>
                         </div>
 
                         <div class="form-group" id="btnQuantity">
