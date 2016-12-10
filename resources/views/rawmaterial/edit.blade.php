@@ -12,7 +12,7 @@
                 @foreach ($rawmaterials as $rawmaterial)
                     <h1>Add icon to rawmaterial</h1>
                     <form enctype="multipart/form-data" id="editInBlock" action="/rawmaterial/updatephoto/{{$rawmaterial->id}}" method="POST">
-
+                        {{ csrf_field() }}
                         <div class="form-group">
                             <div class="text-left col-sm-10">
                                 <input type="file" name="icon">
