@@ -6,7 +6,7 @@
         <link rel="stylesheet" href="/css/block-style.css">
         <title>Quality | HISFA</title>
     </head>
-    <div class="silo-container" id="qualityContainer">
+    <div style="margin-top: 25px" class="silo-container" id="qualityContainer">
                 <div class="silo-title"><h1>Quality overview</h1></div>
         <ul class="qualityList">
         @foreach ($data as $qualities)

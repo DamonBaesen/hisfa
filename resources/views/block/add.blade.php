@@ -29,7 +29,7 @@
                            <div class="totalAddBlock">
                             <label for="textQuantity" class="control-label col-sm-2">Quantity:</label>
                             <div>
-                                <input type="number" min=0  class="form-control" id="textQuantity" name="textQuantity" required="" value="">
+                                <input type="number" min=0  class="form-control" id="textQuantity" name="textQuantity" required="" value="0">
                             </div>
                             </div>
                         </div>
@@ -47,23 +47,23 @@
                             </div>
                         </div>
 
+                        <div class="form-group" id="groupCustomHeight" style="display: none">
+                            <div class="totalAddBlock">
+                                <label for="textCustomHeight" id="labelCustom" class="control-label col-sm-2">Height:</label>
+                                <input type="number" step="0.1" min=0 class="form-control" id="textCustomHeight" name="textCustomHeight" value="0">
+                            </div>
+                        </div>
+
                         <div class="form-group" id="groupHeight">
                            <div class="totalAddBlock">
-                            <label for="textCustomHeight" id="textCustomHeight" class="control-label col-sm-2">Custom height:</label>
+                            <label for="checkboxHeight" class="control-label col-sm-2">Custom height:</label>
                             <div>
                                 <input type="checkbox" name="checkboxHeight" id="checkboxHeight" value="1" class="checkbox" >
                                 </div>
                         </div>
                     </div>
 
-                       <div class="form-group" id="groupCustomHeight" style="display: none">
-                           <div class="totalAddBlock">
-                            <label for="textCustomHeight" id="labelCustom" class="control-label col-sm-2">Height:</label>
-                            <div class = "checkbox">
-                                <input type="number" step="0.1" min=0 class="form-control" id="textCustomHeight" name="textCustomHeight" value="0">
-                            </div>
-                            </div>
-                        </div>
+
                 
                     <div class="form-group">
                         <div>
