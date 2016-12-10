@@ -88,7 +88,7 @@ body{
 
 .block-total
 {
-    background-color: #3b6482;
+    background-color: #313945;
     width: 90%;
     margin-left:auto;
     margin-right:auto;
@@ -109,6 +109,7 @@ body{
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    background-color: #313945;
 }
 
 .block-group
@@ -117,7 +118,7 @@ body{
     margin-left:20px;
     margin-right:20px;
     border-radius: 5px;
-    background-color: #1b2e3c;
+    background-color: #364358;
     max-width: 100px;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -132,8 +133,9 @@ body{
     background-color: #1b2e3c;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-    
 }
+
+
 
 #custom{
     color: white;
@@ -268,9 +270,6 @@ body{
     margin-top: 15px;
 }
 
-
-
-
 #btnQuantity{
     width: 200px;
     margin-left: auto;
@@ -284,7 +283,6 @@ body{
     text-align: center;
     padding: 0 0 5px 0;
     margin: 0;
-    background-color: #1b2e3c;
 }
 
 
@@ -318,7 +316,7 @@ body{
     color: #bbb;
 }
 
-.totalBlock, .totalAll
+.totalBlock, .totalAll, .totalAll2
 {
     padding-top: 13px;
     margin-bottom: 3px;
@@ -326,25 +324,34 @@ body{
     text-align: center;
 }
 
-
 .totalBlock
 {
     padding-top: 5px;
     padding-bottom: 5px;
     font-style: normal;
-    color:#fff;
-    font-weight: 400;
+    color:#1b2e3c;
+    font-weight: 600;
 }
 
-
-
-.totalAll
+.totalAll, .totalAll2
 {
     padding-bottom: 17px;
     background-color: #2a88bd;
     margin-top: 20px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+.totalAll2
+{
+    width: 250px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: white;
+    color: #202935;
+    border-radius: 10px;
+    padding: 0;
+    margin-top: 0;
 }
 
 #groupCustomHeight
@@ -388,6 +395,17 @@ body{
 #addTotal{
     margin-right: 20px;
     margin-left: 20px;
+}
+
+#new-silo{
+    background-color: transparent;
+    margin-top: 10px;
+    margin-left:auto;
+    margin-right:auto;
+    width: 60%;
+    text-align: center;
+    padding-bottom: 13px;
+    font-size: 1.7em;
 }
 
 @media (max-width: 768px) {
@@ -449,6 +467,6 @@ body{
 
     #qualityContainer > ul > li
     {
-        width: 40%;
+        width: 32%;
     }
 }

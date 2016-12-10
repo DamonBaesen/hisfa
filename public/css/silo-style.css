@@ -7,6 +7,7 @@ body{
 .silo-title
 {
     width: 90%;
+    text-align: center;
     margin-left:auto;
     margin-right:auto;
     display: block;
@@ -15,19 +16,10 @@ body{
 .silo-title > h5
 {
     font-size: 1.5em;
-    float: left;
     display: block;
-    width: 75%;
     text-align: center;
 }
 
-.silo-title > span
-{
-    width: 20%;
-    float: right;
-    display: block;
-    text-align: center;
-}
 .silo-container{
     width: 90%;
     margin-left:auto;
@@ -53,7 +45,7 @@ body{
 {
     padding-top: 10px;
     width: 40%;
-    background-color: #3b6482 ;
+    background-color: #364358 ;
     border-radius: 5px;
     max-width: 100px;
     margin: 10px 10px 15px 10px;
@@ -142,7 +134,6 @@ body{
 }
 
 #new-silo{
-    display: none;
     background-color: transparent;
     padding-top: 0;
     margin-left:auto;
@@ -156,4 +147,42 @@ body{
 .clearfix
 {
     clear: both;
+}
+
+ #editSilo
+{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: white;
+    background-color: olivedrab;
+    border-top: solid 1.5px white;
+    padding-top: 4px;
+    padding-bottom: 4px;
+}
+
+ #editSilo:hover
+{
+    background-color: #458b00;
+    text-decoration: none;
+}
+
+ #deleteSilo
+{
+    text-decoration: none;
+    display: block;
+    text-align: center;
+    color: white;
+    background-color: #d9534f;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+ #deleteSilo:hover{
+    text-decoration: none;
+    background-color: #cd2626;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }

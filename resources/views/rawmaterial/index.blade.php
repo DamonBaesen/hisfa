@@ -70,8 +70,8 @@
 
 
 
-        <div class="addTotal">
-            <a href="/rawmaterial/add"> +</a>
+        <div id="new-silo" class=silo-stats-stat onclick="window.location.href='/rawmaterial/add'">
+            <span class="icon-plus glyphicon glyphicon-plus"></span>
         </div>
 
     </div>

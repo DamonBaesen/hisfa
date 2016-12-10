@@ -81,7 +81,7 @@
         <div class="dashboardPanels" id="panelRawmaterial">
             <div class="frame-title">
                 <h2 class="contentContainerh2">Rawmaterials</h2> </div>
-            <div class="char">
+            <div class="char" onclick="window.location.href='/rawmaterial'">
                 <div class="pieID pie"> </div>  </div>  @if(count($rawmaterial) > 0)
                 <ul class="pieID legend" id="pieRound">  @foreach($rawmaterial as $rawmaterials)  @if($rawmaterials->stock != 0)
                         <li onclick="window.location.href='/rawmaterial'"> <em>{{ $rawmaterials->type }}</em><span>{{ $rawmaterials->stock }}</span>ton </li>  @endif  @endforeach  </ul>  @endif  </div>  </div> 
