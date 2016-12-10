@@ -20,7 +20,7 @@
                 @if($block->stok->id == $value->id)
                   <div class="block-group">
                    <h3> {{$block->height}} m</h3>
-                   <p> {{$block->quantity}} oct.</p>
+                   <p> {{$block->quantity}} blocks</p>
                     <?php $result= round($block->height * $block->quantity * 1.03 *1.29, 2);
                     $totaal += $result;
                         $alltotaal += $result;?>
@@ -32,20 +32,21 @@
                     
                   </div>
             @endif
+
             @endforeach
-                <div id=addTotal>
-                   <a href="/block/add/{{$value->id}}" class="imgAddIcoon"> <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                   
+
+            </div>
+                <div class="totalAll2" >
                     @if($totaal != 0)
-                        <p class="totalBlock">Total  {{$value->name}}:
-                        <br>
-                        <?php echo $totaal ?> m3</p>
+                        <p class="totalBlock">Total {{$value->name}}:
+                            <?php echo $totaal ?> m3</p>
                     @endif
                 </div>
-                
-            </div>
+                <div id="new-silo" class=silo-stats-stat onclick="window.location.href='/block/add/{{$value->id}}'">
+                    <span class="icon-plus glyphicon glyphicon-plus"></span>
+                </div>
                 </div>
             @endforeach
-        <h5 class="totalAll">TOTAAL: <?php echo $alltotaal ?> m3</h5>
+        <h5 class="totalAll">Total: <?php echo $alltotaal ?> m3</h5>
     </div>
 @endsection

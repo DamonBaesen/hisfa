@@ -49,23 +49,23 @@
                 
         @if(Auth::user()->name)
            @if(Auth::user()->mail == 1)
-            <input  type="radio" name="checkboxMail" value="1" class="checkbox" checked><p>All emails</p>
-            @else <input type="radio" name="checkboxMail" value="1" class="checkbox"><p>All emails</p>
+                <input type="radio" name="checkboxMail" id="checkboxMail" value="1" class="checkbox" checked><label for="checkboxMail">All emails</label>
+            @else  <input type="radio" name="checkboxMail" id="checkboxMail" value="1" class="checkbox"><label for="checkboxMail">All emails</label>
             @endif
             
             @if(Auth::user()->mail == 2)
-            <input type="radio" name="checkboxMail" value="2" class="checkbox" checked><p>Email primesilo</p>
-            @else <input type="radio" name="checkboxMail" value="2" class="checkbox" ><p>Email primesilo</p>
+            <input type="radio" name="checkboxMail" id="checkboxMail2" value="2" class="checkbox" checked><label for="checkboxMail2">Email primesilo</label>
+            @else <input type="radio" name="checkboxMail" id="checkboxMail2" value="2" class="checkbox" ><label for="checkboxMail2">Email primesilo</label>
             @endif
             
             @if(Auth::user()->mail == 3)
-            <input type="radio" name="checkboxMail" value="3" class="checkbox" checked><p>Email recyclesilo</p>
-            @else <input type="radio" name="checkboxMail" value="3" class="checkbox" ><p>Email recyclesilo</p>
+            <input type="radio" name="checkboxMail" id="checkboxMail3" value="3" class="checkbox" checked><label for="checkboxMail3">Email recyclesilo</label>
+            @else <input type="radio" name="checkboxMail" id="checkboxMail3" value="3" class="checkbox" ><label for="checkboxMail3">Email recyclesilo</label>
             @endif
             
             @if(Auth::user()->mail == 0)
-            <input type="radio" name="checkboxMail" value="0" class="checkbox" checked><p>No emails</p>
-            @else <input type="radio" name="checkboxMail" value="0" class="checkbox" ><p>No emails</p>
+            <input type="radio" name="checkboxMail" id="checkboxMail4" value="0" class="checkbox" checked><label for="checkboxMail4">No emails</label>
+            @else <input type="radio" name="checkboxMail" id="checkboxMail4" value="0" class="checkbox" ><label for="checkboxMail4">No emails</label>
             @endif
         @endif
 

@@ -12,8 +12,6 @@
     <div class="silo-container">
         <div class="silo-title">
             <h5>Recyclesilo Preview</h5>
-            <span class="config-icon glyphicon glyphicon-cog" aria-hidden="false"></span>
-            <br class="clearfix">
         </div>
         <div class="contain">
             <div class="silo-stats">
@@ -36,21 +34,24 @@
                             <h3>{{ $silos->type }}</h3>
                             <h4>{{ $silos->quantity }}%</h4>
                         </div>
-                        <a href="/recyclesilo/edit/{{$silos->id}}" style="display: none" class="silo-edit" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                        <a href="/recyclesilo/remove/{{ $silos->id }}" class="silo-delete" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                        <a href="/rawmaterial/edit/{{$silos->id}}" id="editSilo">Edit</a>
 
+                        <a href="/rawmaterial/remove/{{$silos->id}}" id="deleteSilo">Delete</a>
+                      <!--  <a href="/recyclesilo/edit/" style="display: none" class="silo-edit" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
+                        <a href="/recyclesilo/remove/" class="silo-delete" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+-->
                     </div>
 
                 @endforeach
 
             </div>
             <div id="new-silo" class=silo-stats-stat onclick="window.location.href='/recyclesilo/add'">
-                <span class="icon-plus glyphicon glyphicon-plus" aria-hidden="true"></span>
+                <span class="icon-plus glyphicon glyphicon-plus"></span>
             </div>
         </div>
     </div>
 
     </body>
     <script   src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
-    <script src="/js/silo.js"></script>
+
 @endsection

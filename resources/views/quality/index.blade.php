@@ -20,7 +20,8 @@
                        </li>
                 @endforeach
         </ul>
-            <h5 class="totalAll"><a href="{{ url('/quality/add') }}" id="addQuality">Add quality</a></h5>
+        <div id="new-silo" class=silo-stats-stat onclick="window.location.href='/quality/add'">
+            <span class="icon-plus glyphicon glyphicon-plus"></span>
         </div>
-     </div>
+        </div>
 @endsection
