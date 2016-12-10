@@ -29,7 +29,7 @@
                            <div class="totalAddBlock">
                             <label for="textQuantity" class="control-label col-sm-2">Quantity:</label>
                             <div>
-                                <input type="number" min=0  class="form-control" id="textQuantity" name="textQuantity" required="" value="0">
+                                <input type="number" min=0  class="form-control" id="textQuantity" placeholder="" name="textQuantity" required="" value="0">
                             </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                         <div class="form-group" id="groupCustomHeight" style="display: none">
                             <div class="totalAddBlock">
                                 <label for="textCustomHeight" id="labelCustom" class="control-label col-sm-2">Height:</label>
-                                <input type="number" step="0.1" min=0 class="form-control" id="textCustomHeight" name="textCustomHeight" value="0">
+                                <input type="number" step="0.1" min=0 class="form-control" id="textCustomHeight" name="textCustomHeight" placeholder="8,30m">
                             </div>
                         </div>
 
