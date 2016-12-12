@@ -18,16 +18,16 @@
                 
                 <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
-                    <fieldset>
+                    
                     @foreach ($qualities as $qualitie)
                     <div class="editTotal">
-                        <label for="textName" class="control-label col-sm-2">Name:</label>
-                        <input type="text" class="form-control" id="textName" name="textName" required="" value="{{$qualitie->name}}">
+                        <label for="textName">Name:</label>
+                        <input type="text" id="textName" name="textName" required="" value="{{$qualitie->name}}">
                         
                     </div>
 
                     <div class="editTotal">
-                        <label for="textHardness" class="control-label col-sm-2">Hardness:</label>
+                        <label for="textHardness" >Hardness:</label>
                             <select name="textHardness" id="textHardness">
                                @if($qualitie->hardness == "Soft")
                                 <option selected value="Soft">Soft</option>
@@ -52,10 +52,10 @@
                   @endforeach
                     
                     <div class="form-group">
-                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary">Save quality</button>
+                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary">Save </button>
                     
                     </div>
-                    </fieldset>
+
                 </form>
             </div>
         </div>

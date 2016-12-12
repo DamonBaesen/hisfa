@@ -188,20 +188,31 @@ body{
     font-weight: 400;
     margin-left: auto;
     margin-right: auto;
+    padding-right: 20px;
 }
 
-#textName, #textHardness{
+#textName{
     width: 200px;
     outline: none;
     margin-bottom: 20px;
+    border-width: 1px;
+    border-style:solid;
+    border-color:rgb(166, 166, 166);
+    border-radius: 4px;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 #textHardness{
-    padding-top:5px;
-    padding-bottom: 5px;
-    border-radius: 3px;
+    height: 32px;
+    width: 200px;
+    margin-bottom: 20px;
+    outline: none;
 }
 
+#textHardness option{
+    background-color: olivedrab;
+}
 
 #CreateMaterialbutton{
     border: none;
@@ -237,6 +248,20 @@ body{
     padding-bottom: 10px;
     width: 90%;
 }
+
+.addTotal{
+    display: block;
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+
+
+
+
+
 .totalAddBlock{
     width: 500px;
     display: block;
@@ -464,6 +489,14 @@ body{
     margin-left: auto;
     margin-right: auto;
     }
+    
+     .addTotal{
+    width: 200px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    }
+    
     
     #editInBlock label{
     text-align: center;
