@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>Add primesilo | HISFA</title>
-        <link rel="stylesheet" href="/css/formAdd-style.css">
+        <link rel="stylesheet" href="/css/silo-style.css">
     </head>
 
         <div class="row">

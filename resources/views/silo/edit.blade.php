@@ -4,20 +4,25 @@
     <head>
         <meta charset="UTF-8">
         <title>Edit primesilo | HISFA</title>
-        <link rel="stylesheet" href="/css/formAdd-style.css">
+        <link rel="stylesheet" href="/css/form-edit-style.css">
     </head>
     <div class="container">
         <div class="row">
             <div class="panel panel-default" id="formEdit" >
-                <h1>Primesilo</h1>
-                <h3>Edit</h3>
-                <form class="form-horizontal" role="form"  id="editInBlock" method="POST" action="">
+                <h1>Edit primesilo</h1>
+                <h3>
+                    @foreach($primesilo as $p)
+                        {{$p->id}}
+                    @endforeach
+                </h3>
+                
+                <form class="editForm" role="form"  id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
 
                     @foreach ($primesilo as $silos)
-                    <div class="form-group">
-                        <label for="txtGrondstof" class="control-label col-sm-2">Rawmaterial:</label>
-                        <div class="col-sm-10">
+                    <div class="totalEdit">
+                        <label for="txtGrondstof" >Rawmaterial:</label>
+                        
                             <select name="txtGrondstof" id="txtGrondstof">
                                 @foreach($rawmaterial as $rawmaterials)
                                     @if($rawmaterials->type == "")
@@ -31,34 +36,29 @@
                                     @endif
                                         @endforeach
                             </select>
-                        </div>
+                        
                     </div>
 
-                    <div class="form-group">
-                        <label for="textName" class="control-label col-sm-2">Silonr°:</label>
-                        <div class="col-sm-10">
+                    <div class="totalEdit">
+                        <label for="textName">Silonr°:</label>
+                        
                             <input type="number" min=1 class="form-control" id="txtMaterial" name="txtName" placeholder="3" value="{{$silos->id}}" required="">
-                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="txtHoeveelheid" class="control-label col-sm-2">Quantity:</label>
-                        <div class="col-sm-10">
+                    <div class="totalEdit">
+                        <label for="txtHoeveelheid" id=slider>Quantity:</label>
                             <input type="range" onchange="myFunction()" class="form-control" id="txtQuantity" min="0" max="100" name="txtHoeveelheid" value="{{$silos->quantity}}" required="">
                         <h1 id="inhoudSilo"></h1>
-                        </div>
                     </div>
+        
 
                     @endforeach
 
 
-                    <div class="form-group">
-                        <label class="control-label col-sm-2" for="CreateMaterialbutton"></label>
-                        <div class="text-left col-sm-10">
-                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Save silo</button>
-                        </div>
+                    <div class="totalEdit">
+                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">Save
+                            </button>
                     </div>
-                    </fieldset>
                 </form>
             </div>
         </div>

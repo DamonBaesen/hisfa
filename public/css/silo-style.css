@@ -186,3 +186,43 @@ body{
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
 }
+
+/* add silo */
+#formEdit{
+    background-color: #1b2e3c;
+    border:none;
+    padding-top: 50px;
+}
+
+#formEdit h1{
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    padding-top: 15px;
+    text-align: center;
+    color: white;  
+}
+
+#formEdit h3{
+    color: white;
+    background-color: #111c25;
+    text-align: center;
+    font-size: 1.4em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+#editInBlock{
+    margin-top: -10px;
+    
+}
+
+
+
+
+
