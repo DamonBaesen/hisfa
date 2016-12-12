@@ -1,32 +1,30 @@
-body
-{
+body{
     background-color: #202935;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    min-height: 100vh;
+    min-height: 100vh;    
 }
 
-.row{
-    margin-left: -15px;
-    margin-right: -15px;
+.container{
+    margin-top: 1em
 }
 
-#formEdit{
+#formAdd{
     background-color: #1b2e3c;
     border: none;
     padding-bottom: 50px;
 }
 
-#formEdit h1{
+#formAdd h1{
     font-size: 1.8em;
     margin-bottom: 15px;
     margin-top: 5px;
     padding-top: 15px;
     text-align: center;
     color: white;
-    text-transform: uppercase;
+    text-transform: uppercase
 }
 
-#formEdit h3{
+#formAdd h3{
     color: white;
     background-color: #111c25;
     text-align: center;
@@ -38,20 +36,10 @@ body
     margin-left: auto;
     margin-right: auto;
     width: 90%;
+    text-transform: uppercase;
 }
 
-#editInForm{
-    margin-top: -10px;
-    padding-top: 20px;
-    background-color: #313945;
-    margin-left: auto;
-    margin-right: auto;
-    border-bottom-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding-bottom: 10px;
-    width: 90%;
-}
-.editForm{
+.addForm{
     margin-top: -10px;
     padding-top: 20px;
     background-color: #313945;
@@ -62,7 +50,8 @@ body
     padding-bottom: 10px;
     width: 90%;
 }
-.totalEdit{
+
+.totalAdd{
     width: 540px;
     display: block;
     margin-left: auto;
@@ -70,7 +59,7 @@ body
     margin-bottom: 20px;
 }
 
-.totalEdit label{
+.totalAdd label{
     display: block;
     float: left;
     color: white;
@@ -80,17 +69,7 @@ body
     margin-right: 20px;
 }
 
-.totalEdit h4{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
-    color: white;
-    font-size: 1.1rem;
-    font-weight: 400;
-}
-
-.totalEdit select{
+.totalAdd input{
     display: block;
     width: 200px;
     height: 35px;
@@ -98,15 +77,9 @@ body
     border-radius: 3px;
 }
 
-.totalEdit input{
-    display: block;
-    width: 200px;
-    height: 35px;
-    outline: none;
-    border-radius: 3px;
-}
 
-.totalEdit button{
+
+.totalAdd button{
     border: none;
     display: block;
     text-align: center;
@@ -121,65 +94,28 @@ body
     text-transform: uppercase;
 }
 
-.totalEdit button:hover
+.totalAdd button:hover
 {
     background-color: #458b00;
     text-decoration: none;
 }
 
-
-
-/* Primesilos */
-
-.totalEdit #slider{
-    margin-top: -10px;
-}
-
-/*rawmaterials */
-#file{
-    width: 200px;
-    height: 25px;
-    background-color: white;
-    color:olivedrab;
-}
-
-input[type=range]{
-    -webkit-appearance: none;
-    display: block;
-    margin-top: 30px;
-    height: 5px;
-    padding: 0px;
-}
-
-input[type=range]::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    border: none;
-    height: 16px;
-    width: 16px;
-    border-radius: 50%;
-    background: olivedrab;
-    margin-top: -4px;
+/* blocks */
+#checkboxHeight{
+    
 }
 
 @media (max-width: 426px){
-    .totalEdit{
+    .totalAdd{
         width: 200px;
     }
     
-    .totalEdit label{
+    .totalAdd label{
         text-align: center;
         margin-left: auto;
         margin-right: auto;
         width: 200px;
     }
-    
-    .totalEdit #slider{
-    margin-top: 0px;
-    margin-bottom: 20px;
-    }
 }
-
-
-
 
 

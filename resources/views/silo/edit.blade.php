@@ -16,7 +16,7 @@
                     @endforeach
                 </h3>
                 
-                <form class="editForm" role="form"  id="editInBlock" method="POST" action="">
+                <form class="editForm" role="form"  id="editInForm" method="POST" action="">
                     {{ csrf_field() }}
 
                     @foreach ($primesilo as $silos)
