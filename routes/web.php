@@ -32,6 +32,8 @@ Route::get('/dashboard', 'DashboardController@index')
     ->middleware('auth','permission:viewdashboard');
 Route::get('/dashboard/stock/{id}', 'DashboardController@ajax')
     ->middleware('auth','permission:viewdashboard');
+Route::get('/dashboard/events', 'DashboardController@events')
+    ->middleware('auth','permission:viewdashboard');
 Route::get('/home', 'DashboardController@index')
     ->middleware('auth','permission:viewdashboard');
 
