@@ -4,128 +4,68 @@ body{
     min-height: 100vh;
 }
 
-.qualityList
-{
-    list-style: none;
-}
-
-#qualityContainer > ul
-{
+.container{
     width: 90%;
-    display: flex;
-    flex-wrap: wrap;
     margin-left: auto;
-    margin-right:auto;
-}
-
-#qualityContainer > ul > li
-{
-    width: 90%;
-    justify-content: center;
-}
-
-.qualityHeader
-{
-    text-align: center;
-    font-size: 1.3em;
-}
-
-/* index pagina */
-.silo-container
-{
-    width: 90%;
-    margin-left:auto;
-    margin-right:auto;
+    margin-right: auto;
     display: block;
     color: white;
     margin-top: 10px;
     padding-top: 10px;
     background-color: #2B3846;
+    margin-top: 30px;
 }
-
-.silo-container #edit
-{
+.container h1{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     display: block;
     text-align: center;
-    color: white;
-    background-color: olivedrab;
-    border-top: solid 1.5px white;
-    padding-top: 4px;
-    padding-bottom: 4px;
+    font-size: 1.8rem;
 }
 
-.silo-container #edit:hover
-{
-    background-color: #458b00;
-    text-decoration: none;
-}
-
-.silo-container #delete
-{
+.blockTotal{
     display: block;
+    width: 90%;
+    background-color: #313945;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.blockTotal h3{
+    background-color: #111c25;
     text-align: center;
-    color: white;
-    background-color: #d9534f;
-    padding-top: 4px;
+    font-size: 1.4em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    padding-top: 5px;
     padding-bottom: 5px;
-    border: none;
-    border-top: solid 1.5px white;
+    width: 100%;
+}
+.row{
+    padding-left: 20px;
+    padding-left: 20px;
+}
+li{
+    list-style: none;
 }
 
-.silo-container #delete:hover{
-    text-decoration: none;
-    background-color: #cd2626;
-}
 
-.silo-title
-{
-    width: 90%;
-    margin-left:auto;
-    margin-right:auto;
+.blockList{
     display: block;
-    text-align: center;
-}
-
-.block-total
-{
-    background-color: #313945;
-    width: 90%;
-    margin-left:auto;
-    margin-right:auto;
-    border-radius: 5px;
-    margin-bottom: 20px;
-    display: block;
-}
-
-.silo-title > h1
-{
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    margin-top: 5px;
-}
-
-.block-container
-{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    background-color: #313945;
-}
-
-.block-group
-{
-    width: 40%;
-    margin-left:20px;
-    margin-right:20px;
+    float: left;
+    width: 150px;;
+    margin-left: 20px;
+    margin-right: 20px;
     border-radius: 5px;
     background-color: #364358;
-    max-width: 100px;
     margin-top: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
 }
 
-.block-group > h3
-{
+.blockList h1{
+    display:block;
+    width: 150px;
     padding: 7px 0;
     border-bottom: 1px solid white;
     font-size: 1.4em;
@@ -135,386 +75,48 @@ body{
     border-top-right-radius: 5px;
 }
 
-
-
-#custom{
-    color: white;
-    font-weight: bold;
-}
-
-/* EDIT */
-#formEdit{
-    background-color: #1b2e3c;
-    border: none;
-    padding-bottom: 50px;
-}
-
-#formEdit h1{
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    margin-top: 5px;
-    padding-top: 15px;
-    text-align: center;
-    color: white;
-}
-
-#formEdit h3{
-    color: white;
-    background-color: #111c25;
-    text-align: center;
-    font-size: 1.4em;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    width: 90%;
-}
-
-.editTotal{
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-#editInBlock label{
+li p{
     display: block;
-    float: left;
-    color: white;
-    text-align: right;
     width: 150px;
-    font-weight: 400;
-    margin-left: auto;
-    margin-right: auto;
-    padding-right: 20px;
-}
-
-#textName{
-    width: 200px;
-    outline: none;
-    margin-bottom: 20px;
-    border-width: 1px;
-    border-style:solid;
-    border-color:rgb(166, 166, 166);
-    border-radius: 4px;
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
-
-#textHardness{
-    height: 32px;
-    width: 200px;
-    margin-bottom: 20px;
-    outline: none;
-}
-
-#textHardness option{
-    background-color: olivedrab;
-}
-
-#CreateMaterialbutton{
-    border: none;
-    display: block;
     text-align: center;
-    color: white;
-    background-color: olivedrab;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    width: 199px;
-    margin-left: auto;
-    margin-right: auto;
-    outline: none;
-    text-transform: uppercase;
-}
-
-#CreateMaterialbutton:hover
-{
-    background-color: #458b00;
-    text-decoration: none;
-}
-
-
-/*  ADD  */
-#editInBlock{
-    margin-top: -10px;
-    padding-top: 20px;
-    background-color: #313945;
-    margin-right: auto;
-    margin-left: auto;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    padding-bottom: 10px;
-    width: 90%;
-}
-
-.addTotal{
-    display: block;
-    width: 500px;
-    margin-left: auto;
-    margin-right: auto;
     
 }
 
-
-
-
-
-
-.totalAddBlock{
-    width: 500px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.totalAddBlock label{
-    width: 400px;
-    
-} 
-
-#textQuantity, #textCustomHeight
-{
-    display: block;
-    width: 200px;
-    outline: none;
-}
-
-#textHeight, #textChoise{
-    display: block;
-    width: 200px;
-    height: 35px;
-    outline: none;
-    border-radius: 3px;
-}
-.checkbox{
-    display: block;
-    height: 40px;
-    width: 40px;
-}
-
-.checkbox {
-    margin-top: 15px;
-}
-
-#btnQuantity{
-    width: 200px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-
-.block-group > p
-{
-    font-size: 1em;
-    text-align: center;
-    padding: 0 0 5px 0;
-    margin: 0;
-}
-
-
-.block-total > h1
-{
-    background-color: #111c25;
-    text-align: center;
-    font-size: 1.4em;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    width: 100%;
-}
-
-.imgAddIcoon
-{
-    font-size: 4em;
-    color: #fff;
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    margin-left:auto;
-    margin-right:auto;
-    margin-bottom: auto;
-}
-
-.imgAddIcoon:hover,
-.imgAddIcoon:active
-{
-    color: #bbb;
-}
-
-.totalBlock, .totalAll, .totalAll2
-{
-    padding-top: 13px;
-    margin-bottom: 3px;
-    width: 100%;
-    text-align: center;
-}
-
-.totalBlock
-{
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-style: normal;
-    color:#1b2e3c;
-    font-weight: 600;
-}
-
-.totalAll, .totalAll2
-{
-    padding-bottom: 17px;
-    background-color: #2a88bd;
-    margin-top: 20px;
-    border-bottom-right-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-
-#currentQuantity
-{
-    color: white;
-    font-size: 1.2em;
-    width: 80%;
-    margin-left:auto;
-    margin-right:auto;
-    text-align: center;
-}
-
-.totalAll2
-{
-    width: 250px;
-    margin-left:auto;
-    margin-right:auto;
-    background-color: white;
-    color: #202935;
-    border-radius: 10px;
-    padding: 0;
-    margin-top: 0;
-}
-
-#groupCustomHeight
-{
-    display: none;
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-#CreateMaterialbutton{
-    border: none;
+li #edit{
     display: block;
     text-align: center;
     color: white;
     background-color: olivedrab;
-    padding-top: 6px;
-    padding-bottom: 6px;
-    width: 199px;
-    margin-left: auto;
-    margin-right: auto;
-    outline: none;
-    text-transform: uppercase;
+    border-top: solid 1.5px white;
+    padding-top: 4px;
+    padding-bottom: 4px;
 }
-
-#CreateMaterialbutton:hover
-{
-    background-color: #458b00;
-    text-decoration: none;
-}
-
-#buttonAddCustom{
-    color: red;
-}
-
-#addQuality{
+li #delete{
+    display: block;
+    text-align: center;
     color: white;
-    text-decoration: none;
-}
-
-#addTotal{
-    margin-right: 20px;
-    margin-left: 20px;
+    background-color: #d9534f;
+    padding-top: 4px;
+    padding-bottom: 5px;
+    border: none;
+    border-top: solid 1.5px white;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 
 #new-silo{
-    background-color: transparent;
-    margin-top: 10px;
-    margin-left:auto;
-    margin-right:auto;
-    width: 60%;
+    display: block;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
     text-align: center;
-    padding-bottom: 13px;
-    font-size: 1.7em;
+    font-size: 2rem;
 }
 
-@media (max-width: 768px) {
-    .block-group{
-        margin-left:20px;
-        margin-right:20px;
-        border-radius: 5px;
-    }
-    .imgAddIcoon
-    {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    margin-left:20px;
-    margin-right:20px;
-    margin-bottom: 1px;
-    }
-   
-    
-}
 
-@media (max-width: 426px) {
-    .block-group{
-        margin-left:20px;
-        margin-right:20px;
-        border-radius: 5px;
-    }
-    .imgAddIcoon
-    {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
-    margin-left:30px;
-    margin-right:30px;
-    margin-bottom: 1px;
-    }
-    #addTotal{
-        margin-bottom: 10px;
-    }
-     .editTotal{
-    width: 200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    }
-    
-     .addTotal{
-    width: 200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    }
-    
-    
-    #editInBlock label{
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-        width: 200px;
-}
-    
-    
-    .totalAddBlock{
-    width: 200px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    }
-    
-    body{
-        width: 100%;
-    }
-}
+
+
+
+
+
 

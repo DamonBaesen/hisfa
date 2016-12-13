@@ -37,9 +37,8 @@
                         <a href="/recyclesilo/edit/{{$silos->id}}" id="editSilo">Edit</a>
 
                         <a href="/recyclesilo/remove/{{$silos->id}}" id="deleteSilo">Delete</a>
-                      <!--  <a href="/recyclesilo/edit/" style="display: none" class="silo-edit" ><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>
-                        <a href="/recyclesilo/remove/" class="silo-delete" ><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
--->
+            
+
                     </div>
 
                 @endforeach

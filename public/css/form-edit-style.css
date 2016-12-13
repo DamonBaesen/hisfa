@@ -1,5 +1,4 @@
-body
-{
+body{
     background-color: #202935;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     min-height: 100vh;
@@ -40,17 +39,6 @@ body
     width: 90%;
 }
 
-#editInForm{
-    margin-top: -10px;
-    padding-top: 20px;
-    background-color: #313945;
-    margin-left: auto;
-    margin-right: auto;
-    border-bottom-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-    padding-bottom: 10px;
-    width: 90%;
-}
 .editForm{
     margin-top: -10px;
     padding-top: 20px;
@@ -135,13 +123,17 @@ body
     margin-top: -10px;
 }
 
+
 /*rawmaterials */
-#file{
-    width: 200px;
+input[type=file]{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 440px;
     height: 25px;
-    background-color: white;
     color:olivedrab;
 }
+
 
 input[type=range]{
     -webkit-appearance: none;
@@ -160,6 +152,7 @@ input[type=range]::-webkit-slider-thumb {
     background: olivedrab;
     margin-top: -4px;
 }
+
 
 @media (max-width: 426px){
     .totalEdit{

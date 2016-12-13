@@ -16,13 +16,11 @@
                </h3>
                
                 @foreach ($rawmaterials as $rawmaterial)
-                    <form class="editForm" enctype="multipart/form-data" id="editInBlock" action="/rawmaterial/updatephoto/{{$rawmaterial->id}}" method="POST">
+                    <form class="editForm" id="editInBlock" action="/rawmaterial/updatephoto/{{$rawmaterial->id}}" method="POST">
                         {{ csrf_field() }}
                         <div class="totalEdit">
-                           <label for="icon">
-                               Choose picture:
-                            </label>
-                            <input type="file" name="icon" id=file>
+                           
+                            <input type="file" name="icon" id=file style>
                         </div>
                         
                         <div class="totalEdit">

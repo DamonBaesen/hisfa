@@ -77,6 +77,13 @@ body{
     border-radius: 3px;
 }
 
+.totalAdd select{
+    display: block;
+    width: 200px;
+    height: 35px;
+    outline: none;
+    border-radius: 3px;
+}
 
 
 .totalAdd button{
