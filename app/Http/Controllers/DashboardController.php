@@ -70,4 +70,10 @@ class DashboardController extends Controller
         return $html;
         }
 
+    public function events(){
+        $history = \App\History::orderBy('id', 'DESC')->get();
+        $data['history'] = $history;
+
+        return $history;
+    }
 }
