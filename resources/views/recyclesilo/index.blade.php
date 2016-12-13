@@ -38,6 +38,7 @@
 
                         <a href="/recyclesilo/remove/{{$silos->id}}" id="deleteSilo">Delete</a>
             
+
                     </div>
 
                 @endforeach
