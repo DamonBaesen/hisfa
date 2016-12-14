@@ -63,16 +63,16 @@
   clip: rect(0px, 150px, 150px, 75px);
 }
 .legend {
-    color: #F5F5F5;
+  color: #F5F5F5;
   margin-top: 1em;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   list-style-type: none;
   padding: 0;
   margin: 0;
   font-size: 13px;
-  width: 90%;
+  width: 300px%;
   margin-left:auto;
   margin-right:auto;
 }

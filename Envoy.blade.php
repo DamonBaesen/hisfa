@@ -5,8 +5,7 @@
 @endmacro
 
 @task('run')
-	cd /home/hisfa/hisfa
-	php artisan down
+	echo "ik werk!"
 @endtask
 
 

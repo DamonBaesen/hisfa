@@ -12,7 +12,6 @@
         <h1>Quality | HISFA</h1>
         
         <div class="blockTotal">
-            <h3>Overview</h3>
             <div class="row">
             @foreach ($data as $qualities)
                <div class="blockList">

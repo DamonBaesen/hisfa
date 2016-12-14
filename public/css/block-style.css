@@ -49,7 +49,6 @@ body{
     text-align: center;
     color: white;
     background-color: olivedrab;
-    border-top: solid 1.5px white;
     padding-top: 4px;
     padding-bottom: 4px;
 }
@@ -69,7 +68,6 @@ body{
     padding-top: 4px;
     padding-bottom: 5px;
     border: none;
-    border-top: solid 1.5px white;
 }
 
 .silo-container #delete:hover{
