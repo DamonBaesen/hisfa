@@ -3,34 +3,35 @@
 @section('content')
     <head>
         <meta charset="UTF-8">
-        <link rel="stylesheet" href="/css/quality-style.css">
+        <link rel="stylesheet" href="/css/form-add-style.css">
         <title>Add quality | HISFA</title>
     </head>
     <div class="container">
         <div class="row">
-            <div class="panel panel-default" id="formEdit">
-                <h1>Add new quality</h1>
-                
-                <form class="form-horizontal" role="form" id="editInBlock" method="POST" action="">
+            <div class="panel panel-default" id="formAdd">
+                <h1>Add</h1>
+                <h3>Quality</h3>
+
+                <form class="addForm" role="form" id="editInBlock" method="POST" action="">
                     {{ csrf_field() }}
-                   
-                    <div class="addTotal">
+
+                    <div class="totalAdd">
                         <label for="textName">Name:</label>
-                            <input type="text" id="textName" name="textName" required="" placeholder="P15">
+                        <input style="border: none" type="text" id="textName" name="textName" required="" placeholder="P15">
                     </div>
 
-                    <div class="addTotal">
+                    <div class="totalAdd">
                         <label for="textHardness" >Hardness:</label>
-                            <select name="textHardness" id="textHardness">
-                                <option value="Soft">Soft</option>
-                                <option value="Medium">Medium</option>
-                                <option value="Hard">Hard</option>
-                            </select>
-                    </div> 
-               
-                    
-                    <div class="form-group">
-                            <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">save</button>
+                        <select style="border: none" name="textHardness" id="textHardness">
+                            <option value="Soft">Soft</option>
+                            <option value="Medium">Medium</option>
+                            <option value="Hard">Hard</option>
+                        </select>
+                    </div>
+
+
+                    <div class="totalAdd">
+                        <button type="submit" id="CreateMaterialbutton" name="CreateMaterialbutton" class="btn btn-primary" aria-label="">save</button>
                     </div>
                 </form>
             </div>
